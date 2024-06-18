@@ -111,31 +111,51 @@ namespace STARFIRE.FrontEnd
         #region CheatsTab
         private void Invincible_Toggle_CheckedChanged(object sender, EventArgs e)
         {
-            if (Invincible_Toggle.Checked)
+            if (Starfire_Status.Text == "STATUS: GAME FOUND!")
             {
-                Invincible_Label.Text = "- INVINCIBLE: ENABLED";
+                if (Invincible_Toggle.Checked)
+                {
+                    Invincible_Label.Text = "- INVINCIBLE: ENABLED";
 
-                M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mInvincible, "int", "1");
+                    M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mInvincible, "int", "1");
+                }
+                else
+                {
+                    Invincible_Label.Text = "- INVINCIBLE: DISABLED";
+                    M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mInvincible, "int", "0");
+                }
             }
-            else
+            if (Starfire_Status.Text == "STATUS: N/A")
             {
-                Invincible_Label.Text = "- INVINCIBLE: DISABLED";
-                M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mInvincible, "int", "0");
+                if (Invincible_Toggle.Checked)
+                {
+                    Invincible_Toggle.Checked = false;
+                }
             }
         }
 
         private void NoDamage_Toggle_CheckedChanged(object sender, EventArgs e)
         {
-            if (NoDamage_Toggle.Checked)
+            if (Starfire_Status.Text == "STATUS: GAME FOUND!")
             {
-                NoDamage_Label.Text = "- NO DAMAGE: ENABLED";
+                if (NoDamage_Toggle.Checked)
+                {
+                    NoDamage_Label.Text = "- NO DAMAGE: ENABLED";
 
-                M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mNoDamage, "int", "1");
+                    M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mNoDamage, "int", "1");
+                }
+                else
+                {
+                    NoDamage_Label.Text = "- NO DAMAGE: DISABLED";
+                    M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mNoDamage, "int", "0");
+                }
             }
-            else
+            if (Starfire_Status.Text == "STATUS: N/A")
             {
-                NoDamage_Label.Text = "- NO DAMAGE: DISABLED";
-                M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mNoDamage, "int", "0");
+                if (NoDamage_Toggle.Checked)
+                {
+                    NoDamage_Toggle.Checked = false;
+                }
             }
         }
 
@@ -147,15 +167,25 @@ namespace STARFIRE.FrontEnd
 
         private void InfiniteHP_Toggle_CheckedChanged(object sender, EventArgs e)
         {
-            if (InfiniteHP_Toggle.Checked)
+            if (Starfire_Status.Text == "STATUS: GAME FOUND!")
             {
-                InfiniteHP_Label.Text = "- INFINITE HEALTH: ENABLED";
-                InfiniteHP_Timer.Start();
+                if (InfiniteHP_Toggle.Checked)
+                {
+                    InfiniteHP_Label.Text = "- INFINITE HEALTH: ENABLED";
+                    InfiniteHP_Timer.Start();
+                }
+                else
+                {
+                    InfiniteHP_Label.Text = "- INFINITE HEALTH: DISABLED";
+                    InfiniteHP_Timer.Stop();
+                }
             }
-            else
+            if (Starfire_Status.Text == "STATUS: N/A")
             {
-                InfiniteHP_Label.Text = "- INFINITE HEALTH: DISABLED";
-                InfiniteHP_Timer.Stop();
+                if (InfiniteHP_Toggle.Checked)
+                {
+                    InfiniteHP_Toggle.Checked = false;
+                }
             }
         }
 

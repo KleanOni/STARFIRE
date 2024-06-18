@@ -125,9 +125,13 @@
             this.Starfire_Editor = new System.Windows.Forms.TabPage();
             this.Player_Attributes_GB = new Guna.UI2.WinForms.Guna2GroupBox();
             this.PlayerWalkSpeed_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.PlayerWalkSpeed_Value = new System.Windows.Forms.Label();
+            this.PlayerWalkSpeed_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
             this.PlayerWalkSpeed_Label = new System.Windows.Forms.Label();
             this.PlayerWalkSpeed_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.AtkUpScale_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.AtkUpScale_Value = new System.Windows.Forms.Label();
+            this.AtkUpScale_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
             this.AtkUpScale_Label = new System.Windows.Forms.Label();
             this.AtkUpScale_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.Teleports_Tab = new System.Windows.Forms.TabPage();
@@ -144,10 +148,6 @@
             this.Starfire_Header_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.OpenDailyRewardBox_Timer = new System.Windows.Forms.Timer(this.components);
             this.TPose_Timer = new System.Windows.Forms.Timer(this.components);
-            this.AtkUpScale_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
-            this.AtkUpScale_Value = new System.Windows.Forms.Label();
-            this.PlayerWalkSpeed_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
-            this.PlayerWalkSpeed_Value = new System.Windows.Forms.Label();
             this.Starfire_Header_Label_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Starfire_Version_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Starfire_Footer_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
@@ -1738,6 +1738,30 @@
             this.PlayerWalkSpeed_Panel.Size = new System.Drawing.Size(323, 20);
             this.PlayerWalkSpeed_Panel.TabIndex = 2;
             // 
+            // PlayerWalkSpeed_Value
+            // 
+            this.PlayerWalkSpeed_Value.AutoSize = true;
+            this.PlayerWalkSpeed_Value.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_Value.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PlayerWalkSpeed_Value.Location = new System.Drawing.Point(213, 0);
+            this.PlayerWalkSpeed_Value.Name = "PlayerWalkSpeed_Value";
+            this.PlayerWalkSpeed_Value.Size = new System.Drawing.Size(14, 15);
+            this.PlayerWalkSpeed_Value.TabIndex = 8;
+            this.PlayerWalkSpeed_Value.Text = "#";
+            // 
+            // PlayerWalkSpeed_TrackBar
+            // 
+            this.PlayerWalkSpeed_TrackBar.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_TrackBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PlayerWalkSpeed_TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.PlayerWalkSpeed_TrackBar.Location = new System.Drawing.Point(90, 0);
+            this.PlayerWalkSpeed_TrackBar.Maximum = 1000000;
+            this.PlayerWalkSpeed_TrackBar.Minimum = 1;
+            this.PlayerWalkSpeed_TrackBar.Name = "PlayerWalkSpeed_TrackBar";
+            this.PlayerWalkSpeed_TrackBar.Size = new System.Drawing.Size(123, 20);
+            this.PlayerWalkSpeed_TrackBar.TabIndex = 7;
+            this.PlayerWalkSpeed_TrackBar.ThumbColor = System.Drawing.Color.White;
+            // 
             // PlayerWalkSpeed_Label
             // 
             this.PlayerWalkSpeed_Label.AutoSize = true;
@@ -1780,6 +1804,30 @@
             this.AtkUpScale_Panel.Name = "AtkUpScale_Panel";
             this.AtkUpScale_Panel.Size = new System.Drawing.Size(323, 20);
             this.AtkUpScale_Panel.TabIndex = 1;
+            // 
+            // AtkUpScale_Value
+            // 
+            this.AtkUpScale_Value.AutoSize = true;
+            this.AtkUpScale_Value.BackColor = System.Drawing.Color.Transparent;
+            this.AtkUpScale_Value.Dock = System.Windows.Forms.DockStyle.Left;
+            this.AtkUpScale_Value.Location = new System.Drawing.Point(257, 0);
+            this.AtkUpScale_Value.Name = "AtkUpScale_Value";
+            this.AtkUpScale_Value.Size = new System.Drawing.Size(14, 15);
+            this.AtkUpScale_Value.TabIndex = 7;
+            this.AtkUpScale_Value.Text = "#";
+            // 
+            // AtkUpScale_TrackBar
+            // 
+            this.AtkUpScale_TrackBar.BackColor = System.Drawing.Color.Transparent;
+            this.AtkUpScale_TrackBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.AtkUpScale_TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.AtkUpScale_TrackBar.Location = new System.Drawing.Point(134, 0);
+            this.AtkUpScale_TrackBar.Maximum = 1000000;
+            this.AtkUpScale_TrackBar.Minimum = 1;
+            this.AtkUpScale_TrackBar.Name = "AtkUpScale_TrackBar";
+            this.AtkUpScale_TrackBar.Size = new System.Drawing.Size(123, 20);
+            this.AtkUpScale_TrackBar.TabIndex = 6;
+            this.AtkUpScale_TrackBar.ThumbColor = System.Drawing.Color.White;
             // 
             // AtkUpScale_Label
             // 
@@ -1899,54 +1947,6 @@
             // 
             this.TPose_Timer.Interval = 1;
             this.TPose_Timer.Tick += new System.EventHandler(this.TPose_Timer_Tick);
-            // 
-            // AtkUpScale_TrackBar
-            // 
-            this.AtkUpScale_TrackBar.BackColor = System.Drawing.Color.Transparent;
-            this.AtkUpScale_TrackBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AtkUpScale_TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
-            this.AtkUpScale_TrackBar.Location = new System.Drawing.Point(134, 0);
-            this.AtkUpScale_TrackBar.Maximum = 1000000;
-            this.AtkUpScale_TrackBar.Minimum = 1;
-            this.AtkUpScale_TrackBar.Name = "AtkUpScale_TrackBar";
-            this.AtkUpScale_TrackBar.Size = new System.Drawing.Size(123, 20);
-            this.AtkUpScale_TrackBar.TabIndex = 6;
-            this.AtkUpScale_TrackBar.ThumbColor = System.Drawing.Color.White;
-            // 
-            // AtkUpScale_Value
-            // 
-            this.AtkUpScale_Value.AutoSize = true;
-            this.AtkUpScale_Value.BackColor = System.Drawing.Color.Transparent;
-            this.AtkUpScale_Value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AtkUpScale_Value.Location = new System.Drawing.Point(257, 0);
-            this.AtkUpScale_Value.Name = "AtkUpScale_Value";
-            this.AtkUpScale_Value.Size = new System.Drawing.Size(14, 15);
-            this.AtkUpScale_Value.TabIndex = 7;
-            this.AtkUpScale_Value.Text = "#";
-            // 
-            // PlayerWalkSpeed_TrackBar
-            // 
-            this.PlayerWalkSpeed_TrackBar.BackColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_TrackBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PlayerWalkSpeed_TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
-            this.PlayerWalkSpeed_TrackBar.Location = new System.Drawing.Point(90, 0);
-            this.PlayerWalkSpeed_TrackBar.Maximum = 1000000;
-            this.PlayerWalkSpeed_TrackBar.Minimum = 1;
-            this.PlayerWalkSpeed_TrackBar.Name = "PlayerWalkSpeed_TrackBar";
-            this.PlayerWalkSpeed_TrackBar.Size = new System.Drawing.Size(123, 20);
-            this.PlayerWalkSpeed_TrackBar.TabIndex = 7;
-            this.PlayerWalkSpeed_TrackBar.ThumbColor = System.Drawing.Color.White;
-            // 
-            // PlayerWalkSpeed_Value
-            // 
-            this.PlayerWalkSpeed_Value.AutoSize = true;
-            this.PlayerWalkSpeed_Value.BackColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_Value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PlayerWalkSpeed_Value.Location = new System.Drawing.Point(213, 0);
-            this.PlayerWalkSpeed_Value.Name = "PlayerWalkSpeed_Value";
-            this.PlayerWalkSpeed_Value.Size = new System.Drawing.Size(14, 15);
-            this.PlayerWalkSpeed_Value.TabIndex = 8;
-            this.PlayerWalkSpeed_Value.Text = "#";
             // 
             // Starfire_Header_Label_DragControl
             // 
