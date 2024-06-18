@@ -148,6 +148,12 @@
             this.AtkUpScale_Value = new System.Windows.Forms.Label();
             this.PlayerWalkSpeed_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
             this.PlayerWalkSpeed_Value = new System.Windows.Forms.Label();
+            this.Starfire_Header_Label_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Starfire_Version_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Starfire_Footer_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Starfire_Status_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Starfire_TabControl_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Starfire_Icon_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Starfire_Icon_Panel.SuspendLayout();
             this.Starfire_Header_Panel1.SuspendLayout();
             this.Starfire_Background_Panel.SuspendLayout();
@@ -208,6 +214,7 @@
             this.Starfire_Icon.BorderRadius = 9;
             this.Starfire_Icon.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
             this.Starfire_Icon.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Starfire_Icon.CheckedState.FillColor = System.Drawing.Color.Black;
             this.Starfire_Icon.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
             this.Starfire_Icon.CustomBorderColor = System.Drawing.Color.White;
             this.Starfire_Icon.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
@@ -1941,6 +1948,42 @@
             this.PlayerWalkSpeed_Value.TabIndex = 8;
             this.PlayerWalkSpeed_Value.Text = "#";
             // 
+            // Starfire_Header_Label_DragControl
+            // 
+            this.Starfire_Header_Label_DragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.Starfire_Header_Label_DragControl.TargetControl = this.Starfire_Header_Label;
+            this.Starfire_Header_Label_DragControl.UseTransparentDrag = true;
+            // 
+            // Starfire_Version_DragControl
+            // 
+            this.Starfire_Version_DragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.Starfire_Version_DragControl.TargetControl = this.Starfire_Version;
+            this.Starfire_Version_DragControl.UseTransparentDrag = true;
+            // 
+            // Starfire_Footer_DragControl
+            // 
+            this.Starfire_Footer_DragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.Starfire_Footer_DragControl.TargetControl = this.Starfire_Footer_Panel;
+            this.Starfire_Footer_DragControl.UseTransparentDrag = true;
+            // 
+            // Starfire_Status_DragControl
+            // 
+            this.Starfire_Status_DragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.Starfire_Status_DragControl.TargetControl = this.Starfire_Status;
+            this.Starfire_Status_DragControl.UseTransparentDrag = true;
+            // 
+            // Starfire_TabControl_DragControl
+            // 
+            this.Starfire_TabControl_DragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.Starfire_TabControl_DragControl.TargetControl = this.Starfire_TabControl;
+            this.Starfire_TabControl_DragControl.UseTransparentDrag = true;
+            // 
+            // Starfire_Icon_DragControl
+            // 
+            this.Starfire_Icon_DragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.Starfire_Icon_DragControl.TargetControl = this.Starfire_Icon;
+            this.Starfire_Icon_DragControl.UseTransparentDrag = true;
+            // 
             // Starfire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -2137,5 +2180,11 @@
         private Guna.UI2.WinForms.Guna2TrackBar AtkUpScale_TrackBar;
         private System.Windows.Forms.Label PlayerWalkSpeed_Value;
         private Guna.UI2.WinForms.Guna2TrackBar PlayerWalkSpeed_TrackBar;
+        private Guna.UI2.WinForms.Guna2DragControl Starfire_Header_Label_DragControl;
+        private Guna.UI2.WinForms.Guna2DragControl Starfire_Version_DragControl;
+        private Guna.UI2.WinForms.Guna2DragControl Starfire_Footer_DragControl;
+        private Guna.UI2.WinForms.Guna2DragControl Starfire_Status_DragControl;
+        private Guna.UI2.WinForms.Guna2DragControl Starfire_TabControl_DragControl;
+        private Guna.UI2.WinForms.Guna2DragControl Starfire_Icon_DragControl;
     }
 }
