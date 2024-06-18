@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static KC__LID_EXT.BackEnd.Dump.SDK.UBrgUIManager;
 /// <summary>
 ///  Last Game Update (SteamDB Link Below) | Date: 27 March 2023 | Build: 10706624
 ///   Last Viewed 5/2/2024
@@ -25,7 +26,7 @@ namespace KC__LID_EXT.BackEnd.Dump
             // Inheritance: Base
             // CUSTOM BASE - USING! LAST UPDATED 3/30/23
             //------------------------------------------------------------------------------
-            public const string GUBrgUIManager = ModuleBase + "0x0F233760,"; // USING!!!! UPDATE ME ON STEAM PATCH! 0x0F0E9760 OLD
+            public const string GUBrgUIManager = ModuleBase + "0x0F242EE0,"; // USING!!!! UPDATE ME ON STEAM PATCH! 0x0F0E9760 OLD
             //------------------------------------------------------------------------------
             // public const string gUEngine = ModuleBase + "0x215C390,";
             // public const string GNames = ModuleBase + "0x214A9C0,";
@@ -325,12 +326,12 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mPlayerPawnBaseNative = GUBrgUIManager + "0x2d14,"; // ABrgPawn_BaseNative*
             public const string mPawnPlayerBase = GUBrgUIManager + "0x2d1c,"; // ABrgPawn_PlayerBase*
             public const string mPawnCustomCharaPlayer = GUBrgUIManager + "0x2d24,"; // ABrgPawn_CustomCharaPlayer*
-            public const string mPlayerCommonPawn = GUBrgUIManager + "0x2d2c,"; // ABrgCommonPawn_CustomChara*
-            public const string mPlayerCommonPawnNative = GUBrgUIManager + "0x2d34,"; // ABrgCommonPawn_CustomCharaNative*
-            public const string mPlayerCtrlCustomChara = GUBrgUIManager + "0x2d3c,"; // ABrgPlayerCtrl_CustomChara*
-            public const string mPlayerCtrlBase = GUBrgUIManager + "0x2d44,"; // ABrgPlayerCtrl_Base*
-            public const string mPlayerCtrlBaseNative = GUBrgUIManager + "0x2d4c,"; // ABrgPlayerCtrl_BaseNative*
-            public const string mClass_BrgUIParamEditMenuParam = GUBrgUIManager + "0x2d54,"; // UObject*
+            public const string mPlayerCommonPawn = GUBrgUIManager + "0x2d34,"; // ABrgCommonPawn_CustomChara*
+            public const string mPlayerCommonPawnNative = GUBrgUIManager + "0x2d3c,"; // ABrgCommonPawn_CustomCharaNative*
+            public const string mPlayerCtrlCustomChara = GUBrgUIManager + "0x2d44,"; // ABrgPlayerCtrl_CustomChara*
+            public const string mPlayerCtrlBase = GUBrgUIManager + "0x2d4C,"; // ABrgPlayerCtrl_Base*
+            public const string mPlayerCtrlBaseNative = GUBrgUIManager + "0x2d54,"; // ABrgPlayerCtrl_BaseNative*
+            public const string mClass_BrgUIParamEditMenuParam = GUBrgUIManager + "0x2d5C,"; // UObject*
             public const string mLockOnIcon_Z = GUBrgUIManager + "0x2d5c"; // int32_t
             public const string mDropItemUIAddX = GUBrgUIManager + "0x2d60"; // int32_t
             public const string mDropItemUIAddY = GUBrgUIManager + "0x2d64"; // int32_t
@@ -487,6 +488,16 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mRememberSprayLifeTime = mMiniMapManager + "0x15c"; // int32_t
                 public const string mRememberScale = mMiniMapManager + "0x160"; // float
                 public const string mRememberSprayOffsetScale = mMiniMapManager + "0x164"; // float
+            }
+
+            public class PlayerCtrlCustomChara : UBrgUIManager
+            {
+                public const string mRecoil = mPlayerCtrlCustomChara + "2E6"; // byte (bitfield)
+                public const string mRecoilVerticalTarget = mPlayerCtrlCustomChara + "4D0C"; // Float
+                public const string mRecoilHorizontalTarget = mPlayerCtrlCustomChara + "4D10"; // Float
+                public const string mRecoilVerticalTotal = mPlayerCtrlCustomChara + "4D14"; // Float
+                public const string mRecoilHorizontalTotal = mPlayerCtrlCustomChara + "4D18"; // Float
+                public const string mRecoilNoAimAdjustRate = mPlayerCtrlCustomChara + "4D1C"; // Float
             }
 
             public class AActor : UBrgUIManager
@@ -654,6 +665,8 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mPreAnimRotation = mPawnPlayerBase + "0x250,"; // FRotator
                 public const string ShadowSettingStack = mPawnPlayerBase + "0x25c,"; // TArray<AActor*>
                 public const string AutoDisappearPSCs = mPawnPlayerBase + "0x26c,"; // TArray<FAutoDisappearPSCData>
+
+                public const string mDurabilityDownDisable = mPawnPlayerBase + "0x5F8"; // Byte 32 Off | 64 On 
             }
 
             public class APawn
@@ -953,9 +966,9 @@ namespace KC__LID_EXT.BackEnd.Dump
 
                 }
                 //--------------------------------------------------------------------------------------------------------------
-                public class DailyRewardBox : ABrgGameInfoNativeBase
+                public class DailyRewardBox : ABrgGameInfoNative
                 {
-
+                    public const string mbOpen = mDailyRewardBoxArray + "0x00,0x30C"; // Bitmap (36 = Box Closed Timed | 38 = OPEN BOX | 50 = OPENED BOX | 51 = OPENED BOX AND GONE!)
                 }
 
                 public class MaterialLocations : ABrgGameInfoNativeBase
@@ -1247,7 +1260,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mCntMilliSecondInfos = mGameInfo + "0x14d8,"; // TArray<FBrgGameInfo_CntMilliSecondInfo>
                 public const string mTitleVersion = mGameInfo + "0x14e8,"; // FString
                 public const string TempSceneView = mGameInfo + "0x14f8,"; // FPointer
-    
+
                 public class StageManager : ABrgGameInfo
                 {
                     public const string cFloorNumber = mStageManager + "0x90"; // uint_32t
@@ -15001,116 +15014,116 @@ namespace KC__LID_EXT.BackEnd.Dump
             public class ABrgCommonPawn_CustomCharaNative
             {
                 // Inheritance: AActor > UObject
-                public const string mGameInfoNative = mPlayerCommonPawn + "0x27c,"; // ABrgGameInfoNative*
-                public const string mPawnNative = mPlayerCommonPawn + "0x284,"; // ABrgPawn_BaseNative*
-                public const string mActionStateNative = mPlayerCommonPawn + "0x28c,"; // ABrgActionState_CustomCharaNative*
-                public const string mFighterType = mPlayerCommonPawn + "0x294,"; // FString
-                public const string mFighterGrade = mPlayerCommonPawn + "0x2a4"; // int32_t
-                public const string mLimitBreak = mPlayerCommonPawn + "0x2a8"; // int32_t
-                public const string mBoneMesh = mPlayerCommonPawn + "0x2ac,"; // UBrgSkeletalMeshComponent*
-                public const string mBodyBoneMesh = mPlayerCommonPawn + "0x2b4,"; // UBrgSkeletalMeshComponent*
-                public const string mFrogMesh = mPlayerCommonPawn + "0x2bc,"; // UBrgSkeletalMeshComponent*
-                public const string mMeshMaterialInstArray = mPlayerCommonPawn + "0x2c4,"; // TArray<UMaterialInstanceConstant*>
-                public const string mMeshPhyscsWeightAnimArray = mPlayerCommonPawn + "0x2d4,"; // TArray<FBrgMeshPhysicsWeightAnim>
-                public const string mbFrog = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mHeadEquip = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbNonMask = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbRefreshEquipPartMesh = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mEquipMeshLoadArmOnly = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbDebugEquipDrop = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mChangeBaseAsset = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbWeaponLGun = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbWeaponRGun = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mDisablePlayerEventLog = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbAiming = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbDeathEnablePhysicsStartTime = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbDeathChangePhysics = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbMuleAttackUpValid = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbSkillMoveGaugeUpEnable = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbRecoil = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbRecoilUP = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbChangeZombieSkinReq = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mbZombieSkinLoading = mPlayerCommonPawn + "0x2e4"; // uint32_t : 1
-                public const string mBodyDbAssetId = mPlayerCommonPawn + "0x2e8,"; // FString
-                public const string mHairDbAssetId = mPlayerCommonPawn + "0x2f8,"; // FString
-                public const string mGasmaskDbAssetId = mPlayerCommonPawn + "0x308,"; // FString
-                public const string mBodyDiffuseColor = mPlayerCommonPawn + "0x318,"; // FLinearColor
-                public const string mHeadEquipPtid = mPlayerCommonPawn + "0x328,"; // FString
-                public const string mQuickUsePart0xa = mPlayerCommonPawn + "0x338,"; // FBrgQuickUseItemInfo
-                public const string mQuickUseDeathBagIndex = mPlayerCommonPawn + "0x4c8"; // int32_t
-                public const string mPartDropRate = mPlayerCommonPawn + "0x4cc"; // float
-                public const string mPartDropDurRate = mPlayerCommonPawn + "0x4d0"; // float
-                public const string mEquipMawashiType = mPlayerCommonPawn + "0x4d4,"; // EBrgBoss4Mawashi
-                public const string mEquipPartCollisionChannel0xf = mPlayerCommonPawn + "0x4d5,"; // ERBCollisionChannel
-                public const string meArmLWeaponType = mPlayerCommonPawn + "0x4e4,"; // EBrgArmWeaponType
-                public const string meArmRWeaponType = mPlayerCommonPawn + "0x4e5,"; // EBrgArmWeaponType
-                public const string mGender = mPlayerCommonPawn + "0x4e6,"; // EBrgDbGender
-                public const string mBeamYoyoRSkillMoveUseArm = mPlayerCommonPawn + "0x4e7,"; // EBrgDbEquipSite
-                public const string mEquipPartMesh0xf = mPlayerCommonPawn + "0x4e8,"; // UBrgPartMesh*
-                public const string mEquipPartInfo0x8 = mPlayerCommonPawn + "0x560,"; // FBrgLocalItemInfo
-                public const string mEquipWeaponSlotNo_L = mPlayerCommonPawn + "0x3e00"; // int32_t
-                public const string mEquipWeaponSlotNo_R = mPlayerCommonPawn + "0x3e04"; // int32_t
-                public const string mDeathBag = mPlayerCommonPawn + "0x3e08,"; // TArray<FBrgLocalItemInfo>
-                public const string mBackupDeathBag = mPlayerCommonPawn + "0x3e18,"; // TArray<FBrgDeathBagBackupInfo>
-                public const string mDbPartArmRType = mPlayerCommonPawn + "0x3e28,"; // FBrgDbPartArmType
-                public const string mDbPartArmLType = mPlayerCommonPawn + "0x3eac,"; // FBrgDbPartArmType
-                public const string mDbPartArmR = mPlayerCommonPawn + "0x3f30,"; // FBrgDbPart
-                public const string mDbPartArmL = mPlayerCommonPawn + "0x4160,"; // FBrgDbPart
-                public const string mArmWeaponL = mPlayerCommonPawn + "0x4390,"; // ABrgWeapon_Base*
-                public const string mArmWeaponR = mPlayerCommonPawn + "0x4398,"; // ABrgWeapon_Base*
-                public const string mCharaStatisticsData = mPlayerCommonPawn + "0x43a0,"; // FBrgCharaStatisticsData
-                public const string mFlameRadiationEffect = mPlayerCommonPawn + "0x441c,"; // UParticleSystemComponent*
-                public const string mFlameRadiationVigor = mPlayerCommonPawn + "0x4424"; // float
-                public const string mDeathPhysicsStartTime = mPlayerCommonPawn + "0x4428"; // float
-                public const string mDeathPhysicsBlendTime = mPlayerCommonPawn + "0x442c"; // float
-                public const string mDeathPhysicsBlendCnt = mPlayerCommonPawn + "0x4430"; // float
-                public const string mTotalStatus = mPlayerCommonPawn + "0x4434,"; // FBrgTotalStatus
-                public const string mEquipStatus = mPlayerCommonPawn + "0x4504,"; // FBrgEquipStatus
-                public const string mEquipResearchInfo = mPlayerCommonPawn + "0x46bc,"; // FBrgEquipResearchInfo
-                public const string mSkillStatus = mPlayerCommonPawn + "0x46d4,"; // FBrgSkillStatus
-                public const string mStatusAilmentStatus = mPlayerCommonPawn + "0x4ae0,"; // FBrgStatusAilmentStatus
-                public const string mMstLvlArmLStatus = mPlayerCommonPawn + "0x4b74,"; // FBrgMasterLevelStatus
-                public const string mMstLvlArmRStatus = mPlayerCommonPawn + "0x4ba0,"; // FBrgMasterLevelStatus
-                public const string mMstPointStatus = mPlayerCommonPawn + "0x4bcc,"; // FBrgMasterPointStatus
-                public const string mSpecialStatus = mPlayerCommonPawn + "0x4bdc,"; // FBrgSpecialStatus
-                public const string mWeaponLAtkScale = mPlayerCommonPawn + "0x4bec"; // float
-                public const string mWeaponRAtkScale = mPlayerCommonPawn + "0x4bf0"; // float
-                public const string mSearchExtent = mPlayerCommonPawn + "0x4bf4,"; // FVector
-                public const string mPreSearchTargetArray = mPlayerCommonPawn + "0x4c00,"; // TArray<ABrgPawn_BaseNative*>
-                public const string mStompAttackTarget = mPlayerCommonPawn + "0x4c10,"; // ABrgPawn_Base*
-                public const string mStompSearchAngle = mPlayerCommonPawn + "0x4c18"; // float
-                public const string mCaptureTarget = mPlayerCommonPawn + "0x4c1c,"; // ABrgPawn_BaseNative*
-                public const string mCaptureSearchInfo = mPlayerCommonPawn + "0x4c24,"; // FBrgSearchInfo
-                public const string mBackAttackTarget = mPlayerCommonPawn + "0x4c2c,"; // ABrgPawn_Base*
-                public const string mBackAttackSearchInfo = mPlayerCommonPawn + "0x4c34,"; // FBrgSearchInfo
-                public const string mJumpAttackTarget = mPlayerCommonPawn + "0x4c3c,"; // ABrgPawn_Base*
-                public const string mJumpAttackSearchInfo = mPlayerCommonPawn + "0x4c44,"; // FBrgSearchInfo
-                public const string mJumpAttackValidHeight = mPlayerCommonPawn + "0x4c4c"; // float
-                public const string mWrestlingTarget = mPlayerCommonPawn + "0x4c50,"; // ABrgPawn_Base*
-                public const string mWrestlingSearchInfo = mPlayerCommonPawn + "0x4c58,"; // FBrgSearchInfo
-                public const string mRobSearchInfo = mPlayerCommonPawn + "0x4c60,"; // FBrgSearchInfo
-                public const string mCarryTarget = mPlayerCommonPawn + "0x4c68,"; // ABrgPawn_Base*
-                public const string mNoDmgKillAttackUpRate = mPlayerCommonPawn + "0x4c70"; // float
-                public const string mSkillMoveGaugeRate = mPlayerCommonPawn + "0x4c74"; // float
-                public const string mSkillMoveGaugeStockNum = mPlayerCommonPawn + "0x4c78"; // int32_t
-                public const string mSkillMoveGaugeStockMax = mPlayerCommonPawn + "0x4c7c"; // int32_t
-                public const string mSkillMoveGaugeStockAdd = mPlayerCommonPawn + "0x4c80"; // int32_t
-                public const string mSkillMoveGaugeUpRate = mPlayerCommonPawn + "0x4c84"; // float
-                public const string mUseSkillMoveGaugeUp = mPlayerCommonPawn + "0x4c88"; // float
-                public const string mShovelLPowerUpTime = mPlayerCommonPawn + "0x4c8c"; // float
-                public const string mShovelRPowerUpTime = mPlayerCommonPawn + "0x4c90"; // float
-                public const string mPitchingMachineLPowerUpTime = mPlayerCommonPawn + "0x4c94"; // float
-                public const string mPitchingMachineRPowerUpTime = mPlayerCommonPawn + "0x4c98"; // float
-                public const string mBeamYoyoLSkillMoveTime = mPlayerCommonPawn + "0x4c9c"; // float
-                public const string mBeamYoyoRSkillMoveTime = mPlayerCommonPawn + "0x4ca0"; // float
-                public const string mGoreFinishSearchInfo = mPlayerCommonPawn + "0x4ca4,"; // FBrgSearchInfo
-                public const string mRecoilCnt = mPlayerCommonPawn + "0x4cac"; // float
-                public const string mRecoilTime = mPlayerCommonPawn + "0x4cb0"; // float
-                public const string mRecileVerticalTarget = mPlayerCommonPawn + "0x4cb4"; // float
-                public const string mRecileHorizontalTarget = mPlayerCommonPawn + "0x4cb8"; // float
-                public const string mRecileVerticalTotal = mPlayerCommonPawn + "0x4cbc"; // float
-                public const string mRecileHorizontalTotal = mPlayerCommonPawn + "0x4cc0"; // float
-                public const string mRecileNotAimAdjustRate = mPlayerCommonPawn + "0x4cc4"; // float
+                public const string mGameInfoNative = mPlayerCommonPawnNative + "0x27c,"; // ABrgGameInfoNative*
+                public const string mPawnNative = mPlayerCommonPawnNative + "0x284,"; // ABrgPawn_BaseNative*
+                public const string mActionStateNative = mPlayerCommonPawnNative + "0x28c,"; // ABrgActionState_CustomCharaNative*
+                public const string mFighterType = mPlayerCommonPawnNative + "0x294,"; // FString
+                public const string mFighterGrade = mPlayerCommonPawnNative + "0x2a4"; // int32_t
+                public const string mLimitBreak = mPlayerCommonPawnNative + "0x2a8"; // int32_t
+                public const string mBoneMesh = mPlayerCommonPawnNative + "0x2ac,"; // UBrgSkeletalMeshComponent*
+                public const string mBodyBoneMesh = mPlayerCommonPawnNative + "0x2b4,"; // UBrgSkeletalMeshComponent*
+                public const string mFrogMesh = mPlayerCommonPawnNative + "0x2bc,"; // UBrgSkeletalMeshComponent*
+                public const string mMeshMaterialInstArray = mPlayerCommonPawnNative + "0x2c4,"; // TArray<UMaterialInstanceConstant*>
+                public const string mMeshPhyscsWeightAnimArray = mPlayerCommonPawnNative + "0x2d4,"; // TArray<FBrgMeshPhysicsWeightAnim>
+                public const string mbFrog = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mHeadEquip = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbNonMask = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbRefreshEquipPartMesh = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mEquipMeshLoadArmOnly = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbDebugEquipDrop = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mChangeBaseAsset = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbWeaponLGun = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbWeaponRGun = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mDisablePlayerEventLog = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbAiming = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbDeathEnablePhysicsStartTime = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbDeathChangePhysics = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbMuleAttackUpValid = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbSkillMoveGaugeUpEnable = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbRecoil = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbRecoilUP = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbChangeZombieSkinReq = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mbZombieSkinLoading = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
+                public const string mBodyDbAssetId = mPlayerCommonPawnNative + "0x2e8,"; // FString
+                public const string mHairDbAssetId = mPlayerCommonPawnNative + "0x2f8,"; // FString
+                public const string mGasmaskDbAssetId = mPlayerCommonPawnNative + "0x308,"; // FString
+                public const string mBodyDiffuseColor = mPlayerCommonPawnNative + "0x318,"; // FLinearColor
+                public const string mHeadEquipPtid = mPlayerCommonPawnNative + "0x328,"; // FString
+                public const string mQuickUsePart0xa = mPlayerCommonPawnNative + "0x338,"; // FBrgQuickUseItemInfo
+                public const string mQuickUseDeathBagIndex = mPlayerCommonPawnNative + "0x4c8"; // int32_t
+                public const string mPartDropRate = mPlayerCommonPawnNative + "0x4cc"; // float
+                public const string mPartDropDurRate = mPlayerCommonPawnNative + "0x4d0"; // float
+                public const string mEquipMawashiType = mPlayerCommonPawnNative + "0x4d4,"; // EBrgBoss4Mawashi
+                public const string mEquipPartCollisionChannel0xf = mPlayerCommonPawnNative + "0x4d5,"; // ERBCollisionChannel
+                public const string meArmLWeaponType = mPlayerCommonPawnNative + "0x4e4,"; // EBrgArmWeaponType
+                public const string meArmRWeaponType = mPlayerCommonPawnNative + "0x4e5,"; // EBrgArmWeaponType
+                public const string mGender = mPlayerCommonPawnNative + "0x4e6,"; // EBrgDbGender
+                public const string mBeamYoyoRSkillMoveUseArm = mPlayerCommonPawnNative + "0x4e7,"; // EBrgDbEquipSite
+                public const string mEquipPartMesh0xf = mPlayerCommonPawnNative + "0x4e8,"; // UBrgPartMesh*
+                public const string mEquipPartInfo0x8 = mPlayerCommonPawnNative + "0x560,"; // FBrgLocalItemInfo
+                public const string mEquipWeaponSlotNo_L = mPlayerCommonPawnNative + "0x3e00"; // int32_t
+                public const string mEquipWeaponSlotNo_R = mPlayerCommonPawnNative + "0x3e04"; // int32_t
+                public const string mDeathBag = mPlayerCommonPawnNative + "0x3e08,"; // TArray<FBrgLocalItemInfo>
+                public const string mBackupDeathBag = mPlayerCommonPawnNative + "0x3e18,"; // TArray<FBrgDeathBagBackupInfo>
+                public const string mDbPartArmRType = mPlayerCommonPawnNative + "0x3e28,"; // FBrgDbPartArmType
+                public const string mDbPartArmLType = mPlayerCommonPawnNative + "0x3eac,"; // FBrgDbPartArmType
+                public const string mDbPartArmR = mPlayerCommonPawnNative + "0x3f30,"; // FBrgDbPart
+                public const string mDbPartArmL = mPlayerCommonPawnNative + "0x4160,"; // FBrgDbPart
+                public const string mArmWeaponL = mPlayerCommonPawnNative + "0x4390,"; // ABrgWeapon_Base*
+                public const string mArmWeaponR = mPlayerCommonPawnNative + "0x4398,"; // ABrgWeapon_Base*
+                public const string mCharaStatisticsData = mPlayerCommonPawnNative + "0x43a0,"; // FBrgCharaStatisticsData
+                public const string mFlameRadiationEffect = mPlayerCommonPawnNative + "0x441c,"; // UParticleSystemComponent*
+                public const string mFlameRadiationVigor = mPlayerCommonPawnNative + "0x4424"; // float
+                public const string mDeathPhysicsStartTime = mPlayerCommonPawnNative + "0x4428"; // float
+                public const string mDeathPhysicsBlendTime = mPlayerCommonPawnNative + "0x442c"; // float
+                public const string mDeathPhysicsBlendCnt = mPlayerCommonPawnNative + "0x4430"; // float
+                public const string mTotalStatus = mPlayerCommonPawnNative + "0x4434,"; // FBrgTotalStatus
+                public const string mEquipStatus = mPlayerCommonPawnNative + "0x4504,"; // FBrgEquipStatus
+                public const string mEquipResearchInfo = mPlayerCommonPawnNative + "0x46bc,"; // FBrgEquipResearchInfo
+                public const string mSkillStatus = mPlayerCommonPawnNative + "0x46d4,"; // FBrgSkillStatus
+                public const string mStatusAilmentStatus = mPlayerCommonPawnNative + "0x4ae0,"; // FBrgStatusAilmentStatus
+                public const string mMstLvlArmLStatus = mPlayerCommonPawnNative + "0x4b74,"; // FBrgMasterLevelStatus
+                public const string mMstLvlArmRStatus = mPlayerCommonPawnNative + "0x4ba0,"; // FBrgMasterLevelStatus
+                public const string mMstPointStatus = mPlayerCommonPawnNative + "0x4bcc,"; // FBrgMasterPointStatus
+                public const string mSpecialStatus = mPlayerCommonPawnNative + "0x4bdc,"; // FBrgSpecialStatus
+                public const string mWeaponLAtkScale = mPlayerCommonPawnNative + "0x4bec"; // float
+                public const string mWeaponRAtkScale = mPlayerCommonPawnNative + "0x4bf0"; // float
+                public const string mSearchExtent = mPlayerCommonPawnNative + "0x4bf4,"; // FVector
+                public const string mPreSearchTargetArray = mPlayerCommonPawnNative + "0x4c00,"; // TArray<ABrgPawn_BaseNative*>
+                public const string mStompAttackTarget = mPlayerCommonPawnNative + "0x4c10,"; // ABrgPawn_Base*
+                public const string mStompSearchAngle = mPlayerCommonPawnNative + "0x4c18"; // float
+                public const string mCaptureTarget = mPlayerCommonPawnNative + "0x4c1c,"; // ABrgPawn_BaseNative*
+                public const string mCaptureSearchInfo = mPlayerCommonPawnNative + "0x4c24,"; // FBrgSearchInfo
+                public const string mBackAttackTarget = mPlayerCommonPawnNative + "0x4c2c,"; // ABrgPawn_Base*
+                public const string mBackAttackSearchInfo = mPlayerCommonPawnNative + "0x4c34,"; // FBrgSearchInfo
+                public const string mJumpAttackTarget = mPlayerCommonPawnNative + "0x4c3c,"; // ABrgPawn_Base*
+                public const string mJumpAttackSearchInfo = mPlayerCommonPawnNative + "0x4c44,"; // FBrgSearchInfo
+                public const string mJumpAttackValidHeight = mPlayerCommonPawnNative + "0x4c4c"; // float
+                public const string mWrestlingTarget = mPlayerCommonPawnNative + "0x4c50,"; // ABrgPawn_Base*
+                public const string mWrestlingSearchInfo = mPlayerCommonPawnNative + "0x4c58,"; // FBrgSearchInfo
+                public const string mRobSearchInfo = mPlayerCommonPawnNative + "0x4c60,"; // FBrgSearchInfo
+                public const string mCarryTarget = mPlayerCommonPawnNative + "0x4c68,"; // ABrgPawn_Base*
+                public const string mNoDmgKillAttackUpRate = mPlayerCommonPawnNative + "0x4c70"; // float
+                public const string mSkillMoveGaugeRate = mPlayerCommonPawnNative + "0x4c74"; // float
+                public const string mSkillMoveGaugeStockNum = mPlayerCommonPawnNative + "0x4cd0"; // int32_t
+                public const string mSkillMoveGaugeStockMax = mPlayerCommonPawnNative + "0x4cd4"; // int32_t
+                public const string mSkillMoveGaugeStockAdd = mPlayerCommonPawnNative + "0x4c80"; // int32_t
+                public const string mSkillMoveGaugeUpRate = mPlayerCommonPawnNative + "0x4c84"; // float
+                public const string mUseSkillMoveGaugeUp = mPlayerCommonPawnNative + "0x4c88"; // float
+                public const string mShovelLPowerUpTime = mPlayerCommonPawnNative + "0x4c8c"; // float
+                public const string mShovelRPowerUpTime = mPlayerCommonPawnNative + "0x4c90"; // float
+                public const string mPitchingMachineLPowerUpTime = mPlayerCommonPawnNative + "0x4c94"; // float
+                public const string mPitchingMachineRPowerUpTime = mPlayerCommonPawnNative + "0x4c98"; // float
+                public const string mBeamYoyoLSkillMoveTime = mPlayerCommonPawnNative + "0x4c9c"; // float
+                public const string mBeamYoyoRSkillMoveTime = mPlayerCommonPawnNative + "0x4ca0"; // float
+                public const string mGoreFinishSearchInfo = mPlayerCommonPawnNative + "0x4ca4,"; // FBrgSearchInfo
+                public const string mRecoilCnt = mPlayerCommonPawnNative + "0x4cac"; // float
+                public const string mRecoilTime = mPlayerCommonPawnNative + "0x4cb0"; // float
+                public const string mRecileVerticalTarget = mPlayerCommonPawnNative + "0x4cb4"; // float
+                public const string mRecileHorizontalTarget = mPlayerCommonPawnNative + "0x4cb8"; // float
+                public const string mRecileVerticalTotal = mPlayerCommonPawnNative + "0x4cbc"; // float
+                public const string mRecileHorizontalTotal = mPlayerCommonPawnNative + "0x4cc0"; // float
+                public const string mRecileNotAimAdjustRate = mPlayerCommonPawnNative + "0x4cc4"; // float
 
                 public class ABrgWeaponBaseL : ABrgCommonPawn_CustomCharaNative
                 {
@@ -15750,9 +15763,9 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string AssaultRifleBulletConsumptionRate = mPlayerCommonPawn + "0x4804"; //0x130; // float - Infinite Durability
                     public const string AtkUpWeaponAssaultRifleHpMax = mPlayerCommonPawn + "0x4808"; //0x134; // float - Infinite Durability
                     public const string FireworksBulletConsumptionRate = mPlayerCommonPawn + "0x480C"; //0x138; // float - Infinite Durability
-                    public const string LessDiffusionRate = mPlayerCommonPawn + "0x4810"; //0x13c; // float - No Bullet Spread
-                    public const string LessDiffusionRateRevolver = mPlayerCommonPawn + "0x4814"; //0x140; // float - No Bullet Spread
-                    public const string LessDiffusionRateShotGun = mPlayerCommonPawn + "0x4818"; //0x144; // float - No Bullet Spread
+                    public const string LessDiffusionRate = mPlayerCommonPawn + "0x4868"; //0x13c; // float - No Bullet Spread
+                    public const string LessDiffusionRateRevolver = mPlayerCommonPawn + "0x486C"; //0x140; // float - No Bullet Spread
+                    public const string LessDiffusionRateShotGun = mPlayerCommonPawn + "0x4870"; //0x144; // float - No Bullet Spread
                     public const string ZeroPosAtkUpRate = mPlayerCommonPawn + "0x481C"; //0x148; // float
                     public const string ZeroPosDistMin = mPlayerCommonPawn + "0x4820"; //0x14c; // float
                     public const string ZeroPosDistMax = mPlayerCommonPawn + "0x4824"; //0x150; // float
@@ -15863,12 +15876,12 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string ReloadSpeedRate = mPlayerCommonPawn + "0x49C8"; //0x2f4; // float
                     public const string ReloadSpeedRateCrossBow = mPlayerCommonPawn + "0x49CC"; //0x2f8; // float
                     public const string MagazineUpRate = mPlayerCommonPawn + "0x49D0"; //0x2fc; // float
-                    public const string RecoilDownRate = mPlayerCommonPawn + "0x49D4"; //0x300; // float
-                    public const string GunAttackUpRate = mPlayerCommonPawn + "0x49D8"; //0x304; // float
-                    public const string DifferGenderAttackUpRate = mPlayerCommonPawn + "0x49DC"; //0x308; // float
-                    public const string CriticalUpPer = mPlayerCommonPawn + "0x49E0"; //0x30c; // float
-                    public const string CriticalUpPerYoyo = mPlayerCommonPawn + "0x49E4"; //0x310; // float
-                    public const string CriticalUpPerCrossBow = mPlayerCommonPawn + "0x49E8"; //0x314; // float
+                    public const string RecoilDownRate = mPlayerCommonPawn + "0x4A2C"; //0x300; // float
+                    public const string GunAttackUpRate = mPlayerCommonPawn + "0x4A30"; //0x304; // float
+                    public const string DifferGenderAttackUpRate = mPlayerCommonPawn + "0x4A34"; //0x308; // float
+                    public const string CriticalUpPer = mPlayerCommonPawn + "0x4A38"; //0x30c; // float
+                    public const string CriticalUpPerYoyo = mPlayerCommonPawn + "0x4A3C"; //0x310; // float
+                    public const string CriticalUpPerCrossBow = mPlayerCommonPawn + "0x4A40"; //0x314; // float
                     public const string CriticalUpPerSabre = mPlayerCommonPawn + "0x49EC"; //0x318; // float
                     public const string DoppelgangerKillerRate = mPlayerCommonPawn + "0x49F0"; //0x31c; // float
                     public const string StelthUpRate = mPlayerCommonPawn + "0x49F4"; //0x320; // float
@@ -16064,8 +16077,8 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mMeditationSkillGaugeRecovery = mPlayerCommonPawn + "0x4eb0"; // float
                 public const string mMeditationLightEffect = mPlayerCommonPawn + "0x4eb4,"; // UParticleSystemComponent*
                 public const string mMeditationLightOpacity = mPlayerCommonPawn + "0x4ebc"; // float
-                public const string mBaseAtkUpScale = mPlayerCommonPawn + "0x4ec0"; // float
-                public const string mBaseDefUpScale = mPlayerCommonPawn + "0x4ec4"; // float
+                public const string mBaseAtkUpScale = mPlayerCommonPawn + "0x4F18"; // float
+                public const string mBaseDefUpScale = mPlayerCommonPawn + "0x4F20"; // float
                 public const string mGuardBaseDmgReduceRate = mPlayerCommonPawn + "0x4ec8"; // float
                 public const string mGuardProjectileDmgReduceRate = mPlayerCommonPawn + "0x4ecc"; // float
                 public const string mGuardJackalRebornDmgReduceRate = mPlayerCommonPawn + "0x4ed0"; // float

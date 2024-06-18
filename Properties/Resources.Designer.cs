@@ -63,6 +63,16 @@ namespace STARFIRE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Information_WB {
+            get {
+                object obj = ResourceManager.GetObject("Information_WB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LET_IT_DIE {
             get {
                 object obj = ResourceManager.GetObject("LET-IT-DIE", resourceCulture);

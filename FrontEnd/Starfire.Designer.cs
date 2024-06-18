@@ -44,87 +44,110 @@
             this.Starfire_CheatsTab = new System.Windows.Forms.TabPage();
             this.Other_GB = new Guna.UI2.WinForms.Guna2GroupBox();
             this.OpenDailyRewardBox_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.OpenDailyRewardBox_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.OpenDailyRewardBox_Label = new System.Windows.Forms.Label();
             this.OpenDailyRewardBox_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.NakedFighter_Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.NakedFighter_Label = new System.Windows.Forms.Label();
-            this.NakedFighter_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.TPose_Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.TPose_Label = new System.Windows.Forms.Label();
-            this.TPose_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.Wireframe_Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.Wireframe_Label = new System.Windows.Forms.Label();
-            this.Wireframe_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.PrePhysicsBones_Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.PrePhysicsBones_Label = new System.Windows.Forms.Label();
-            this.PrePhysicsBones_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.DisplayBones_Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.DisplayBones_Label = new System.Windows.Forms.Label();
-            this.DisplayBones_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.KillcoinVacuum_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.KillcoinVacuum_Tooltip = new Guna.UI2.WinForms.Guna2Button();
+            this.KillcoinVacuum_Label = new System.Windows.Forms.Label();
+            this.KillcoinVacuum_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.UnFogMiniMap_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.UnFogMiniMap_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.UnFogMiniMap_Label = new System.Windows.Forms.Label();
             this.UnFogMiniMap_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.NoFallDamage_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.NoFallDamage_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.NoFallDamage_Label = new System.Windows.Forms.Label();
             this.NoFallDamage_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.TPose_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.TPose_Tooltip = new Guna.UI2.WinForms.Guna2Button();
+            this.TPose_Label = new System.Windows.Forms.Label();
+            this.TPose_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.Weapons_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.RHWireframe_Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.RHWireframe_Label = new System.Windows.Forms.Label();
-            this.RHWireframe_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.LHWireframe_Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.LHWireframe_Label = new System.Windows.Forms.Label();
-            this.LHWireframe_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.InfiniteAmmo_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.InfiniteAmmo_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.InfiniteAmmo_Label = new System.Windows.Forms.Label();
             this.InfiniteAmmo_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.NoRecoil_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.NoRecoil_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.NoRecoil_Label = new System.Windows.Forms.Label();
             this.NoRecoil_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.OneHitKill_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.OneHitKill_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.OneHitKill_Label = new System.Windows.Forms.Label();
             this.OneHitKill_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.Attributes_GB = new Guna.UI2.WinForms.Guna2GroupBox();
             this.SuperJump_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.SuperJump_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.SuperJump_Label = new System.Windows.Forms.Label();
             this.SuperJump_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.SpeedhackCarrySprint_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.SpeedhackCarrySprint_Tooltip = new Guna.UI2.WinForms.Guna2Button();
+            this.SpeedhackCarrySprint_Label = new System.Windows.Forms.Label();
+            this.SpeedhackCarrySprint_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.SpeedhackCarryWalk_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.SpeedhackCarryWalk_Tooltip = new Guna.UI2.WinForms.Guna2Button();
+            this.SpeedhackCarryWalk_Label = new System.Windows.Forms.Label();
+            this.SpeedhackCarryWalk_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.SpeedhackSprint_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.SpeedhackSprint_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.SpeedhackSprint_Label = new System.Windows.Forms.Label();
             this.SpeedhackSprint_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.SpeedhackWalk_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.SpeedhackWalk_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.SpeedhackWalk_Label = new System.Windows.Forms.Label();
             this.SpeedhackWalk_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.InfiniteDurability_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.InfiniteDurability_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.InfiniteDurability_Label = new System.Windows.Forms.Label();
             this.InfiniteDurability_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.InfiniteRage_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.InfiniteRage_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.InfiniteRage_Label = new System.Windows.Forms.Label();
             this.InfiniteRage_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.InfiniteStamina_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.InfiniteStamina_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.InfiniteStamina_Label = new System.Windows.Forms.Label();
             this.InfiniteStamina_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.GodMode_GB = new Guna.UI2.WinForms.Guna2GroupBox();
             this.InfiniteHP_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.InfiniteHP_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.InfiniteHP_Label = new System.Windows.Forms.Label();
             this.InfiniteHP_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.NoDamage_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.NoDamage_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.NoDamage_Label = new System.Windows.Forms.Label();
             this.NoDamage_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.Invincible_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.InfHealth_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.Invincible_Label = new System.Windows.Forms.Label();
             this.Invincible_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.Starfire_Editor = new System.Windows.Forms.TabPage();
             this.Player_Attributes_GB = new Guna.UI2.WinForms.Guna2GroupBox();
             this.PlayerWalkSpeed_Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.PlayerWalkSpeed_Value = new System.Windows.Forms.Label();
-            this.PlayerWalkSpeed_NumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.PlayerWalkSpeed_Label = new System.Windows.Forms.Label();
             this.PlayerWalkSpeed_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.AtkUpScale_Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.AtkUpScale_Value = new System.Windows.Forms.Label();
-            this.AtkUpScale_NumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.AtkUpScale_Label = new System.Windows.Forms.Label();
             this.AtkUpScale_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.Teleports_Tab = new System.Windows.Forms.TabPage();
+            this.OTHER_TAB = new System.Windows.Forms.TabPage();
             this.Starfire_BGWorker = new System.ComponentModel.BackgroundWorker();
+            this.Starfire_Tooltip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.InfiniteHP_Timer = new System.Windows.Forms.Timer(this.components);
+            this.InfiniteStamina_Timer = new System.Windows.Forms.Timer(this.components);
+            this.InfiniteRage_Timer = new System.Windows.Forms.Timer(this.components);
+            this.InfiniteDurability_Timer = new System.Windows.Forms.Timer(this.components);
+            this.NoRecoil_Timer = new System.Windows.Forms.Timer(this.components);
+            this.UnFogMiniMap_Timer = new System.Windows.Forms.Timer(this.components);
+            this.KillcoinVacuum_Timer = new System.Windows.Forms.Timer(this.components);
+            this.Starfire_Header_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.OpenDailyRewardBox_Timer = new System.Windows.Forms.Timer(this.components);
+            this.TPose_Timer = new System.Windows.Forms.Timer(this.components);
+            this.AtkUpScale_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.AtkUpScale_Value = new System.Windows.Forms.Label();
+            this.PlayerWalkSpeed_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.PlayerWalkSpeed_Value = new System.Windows.Forms.Label();
             this.Starfire_Icon_Panel.SuspendLayout();
             this.Starfire_Header_Panel1.SuspendLayout();
             this.Starfire_Background_Panel.SuspendLayout();
@@ -133,21 +156,18 @@
             this.Starfire_CheatsTab.SuspendLayout();
             this.Other_GB.SuspendLayout();
             this.OpenDailyRewardBox_Panel.SuspendLayout();
-            this.NakedFighter_Panel.SuspendLayout();
-            this.TPose_Panel.SuspendLayout();
-            this.Wireframe_Panel.SuspendLayout();
-            this.PrePhysicsBones_Panel.SuspendLayout();
-            this.DisplayBones_Panel.SuspendLayout();
+            this.KillcoinVacuum_Panel.SuspendLayout();
             this.UnFogMiniMap_Panel.SuspendLayout();
             this.NoFallDamage_Panel.SuspendLayout();
+            this.TPose_Panel.SuspendLayout();
             this.Weapons_GB.SuspendLayout();
-            this.RHWireframe_Panel.SuspendLayout();
-            this.LHWireframe_Panel.SuspendLayout();
             this.InfiniteAmmo_Panel.SuspendLayout();
             this.NoRecoil_Panel.SuspendLayout();
             this.OneHitKill_Panel.SuspendLayout();
             this.Attributes_GB.SuspendLayout();
             this.SuperJump_Panel.SuspendLayout();
+            this.SpeedhackCarrySprint_Panel.SuspendLayout();
+            this.SpeedhackCarryWalk_Panel.SuspendLayout();
             this.SpeedhackSprint_Panel.SuspendLayout();
             this.SpeedhackWalk_Panel.SuspendLayout();
             this.InfiniteDurability_Panel.SuspendLayout();
@@ -160,13 +180,12 @@
             this.Starfire_Editor.SuspendLayout();
             this.Player_Attributes_GB.SuspendLayout();
             this.PlayerWalkSpeed_Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerWalkSpeed_NumericUpDown)).BeginInit();
             this.AtkUpScale_Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AtkUpScale_NumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // Starfire_Borderless_Form
             // 
+            this.Starfire_Borderless_Form.BorderRadius = 6;
             this.Starfire_Borderless_Form.ContainerControl = this;
             this.Starfire_Borderless_Form.DockIndicatorTransparencyValue = 0.6D;
             this.Starfire_Borderless_Form.TransparentWhileDrag = true;
@@ -186,6 +205,7 @@
             this.Starfire_Icon.Animated = true;
             this.Starfire_Icon.AnimatedGIF = true;
             this.Starfire_Icon.BackColor = System.Drawing.Color.Transparent;
+            this.Starfire_Icon.BorderRadius = 9;
             this.Starfire_Icon.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
             this.Starfire_Icon.CheckedState.CustomBorderColor = System.Drawing.Color.White;
             this.Starfire_Icon.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
@@ -219,7 +239,7 @@
             this.Starfire_Header_Panel1.Location = new System.Drawing.Point(0, 0);
             this.Starfire_Header_Panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Starfire_Header_Panel1.Name = "Starfire_Header_Panel1";
-            this.Starfire_Header_Panel1.Size = new System.Drawing.Size(340, 28);
+            this.Starfire_Header_Panel1.Size = new System.Drawing.Size(337, 28);
             this.Starfire_Header_Panel1.TabIndex = 0;
             // 
             // Starfire_Version
@@ -229,9 +249,9 @@
             this.Starfire_Version.Dock = System.Windows.Forms.DockStyle.Top;
             this.Starfire_Version.Location = new System.Drawing.Point(121, 13);
             this.Starfire_Version.Name = "Starfire_Version";
-            this.Starfire_Version.Size = new System.Drawing.Size(41, 13);
+            this.Starfire_Version.Size = new System.Drawing.Size(59, 13);
             this.Starfire_Version.TabIndex = 4;
-            this.Starfire_Version.Text = "V:1.0.0";
+            this.Starfire_Version.Text = "V:4.3.0.0.0";
             // 
             // Starfire_Header_Label
             // 
@@ -259,7 +279,7 @@
             this.Starfire_Exit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Starfire_Exit.ForeColor = System.Drawing.Color.White;
             this.Starfire_Exit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Starfire_Exit.Location = new System.Drawing.Point(312, 0);
+            this.Starfire_Exit.Location = new System.Drawing.Point(309, 0);
             this.Starfire_Exit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Starfire_Exit.Name = "Starfire_Exit";
             this.Starfire_Exit.Size = new System.Drawing.Size(28, 28);
@@ -274,25 +294,26 @@
             this.Starfire_Background_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Starfire_Background_Panel.Location = new System.Drawing.Point(0, 28);
             this.Starfire_Background_Panel.Name = "Starfire_Background_Panel";
-            this.Starfire_Background_Panel.Size = new System.Drawing.Size(340, 611);
+            this.Starfire_Background_Panel.Size = new System.Drawing.Size(337, 552);
             this.Starfire_Background_Panel.TabIndex = 1;
             // 
             // Starfire_Footer_Panel
             // 
             this.Starfire_Footer_Panel.Controls.Add(this.Starfire_Status);
             this.Starfire_Footer_Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Starfire_Footer_Panel.Location = new System.Drawing.Point(0, 594);
+            this.Starfire_Footer_Panel.Location = new System.Drawing.Point(0, 535);
             this.Starfire_Footer_Panel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Starfire_Footer_Panel.Name = "Starfire_Footer_Panel";
-            this.Starfire_Footer_Panel.Size = new System.Drawing.Size(340, 17);
+            this.Starfire_Footer_Panel.Size = new System.Drawing.Size(337, 17);
             this.Starfire_Footer_Panel.TabIndex = 1;
             // 
             // Starfire_Status
             // 
             this.Starfire_Status.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Starfire_Status.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.Starfire_Status.Location = new System.Drawing.Point(0, 4);
             this.Starfire_Status.Name = "Starfire_Status";
-            this.Starfire_Status.Size = new System.Drawing.Size(340, 13);
+            this.Starfire_Status.Size = new System.Drawing.Size(337, 13);
             this.Starfire_Status.TabIndex = 3;
             this.Starfire_Status.Text = "STATUS: N/A";
             // 
@@ -300,17 +321,19 @@
             // 
             this.Starfire_TabControl.Controls.Add(this.Starfire_CheatsTab);
             this.Starfire_TabControl.Controls.Add(this.Starfire_Editor);
+            this.Starfire_TabControl.Controls.Add(this.Teleports_Tab);
+            this.Starfire_TabControl.Controls.Add(this.OTHER_TAB);
             this.Starfire_TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Starfire_TabControl.ItemSize = new System.Drawing.Size(86, 25);
+            this.Starfire_TabControl.ItemSize = new System.Drawing.Size(83, 25);
             this.Starfire_TabControl.Location = new System.Drawing.Point(0, 0);
             this.Starfire_TabControl.Name = "Starfire_TabControl";
             this.Starfire_TabControl.SelectedIndex = 0;
-            this.Starfire_TabControl.Size = new System.Drawing.Size(340, 611);
+            this.Starfire_TabControl.Size = new System.Drawing.Size(337, 552);
             this.Starfire_TabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
-            this.Starfire_TabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.Starfire_TabControl.TabButtonHoverState.FillColor = System.Drawing.Color.Black;
             this.Starfire_TabControl.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.Starfire_TabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
-            this.Starfire_TabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.Starfire_TabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.White;
             this.Starfire_TabControl.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
             this.Starfire_TabControl.TabButtonIdleState.FillColor = System.Drawing.Color.Black;
             this.Starfire_TabControl.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -321,10 +344,11 @@
             this.Starfire_TabControl.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.Starfire_TabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
             this.Starfire_TabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.White;
-            this.Starfire_TabControl.TabButtonSize = new System.Drawing.Size(86, 25);
+            this.Starfire_TabControl.TabButtonSize = new System.Drawing.Size(83, 25);
             this.Starfire_TabControl.TabIndex = 0;
             this.Starfire_TabControl.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Starfire_TabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
+            this.Starfire_TabControl.SelectedIndexChanged += new System.EventHandler(this.Starfire_TabControl_SelectedIndexChanged);
             // 
             // Starfire_CheatsTab
             // 
@@ -336,7 +360,7 @@
             this.Starfire_CheatsTab.Location = new System.Drawing.Point(4, 29);
             this.Starfire_CheatsTab.Name = "Starfire_CheatsTab";
             this.Starfire_CheatsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.Starfire_CheatsTab.Size = new System.Drawing.Size(332, 578);
+            this.Starfire_CheatsTab.Size = new System.Drawing.Size(329, 519);
             this.Starfire_CheatsTab.TabIndex = 0;
             this.Starfire_CheatsTab.Text = "CHEATS";
             // 
@@ -344,22 +368,19 @@
             // 
             this.Other_GB.BorderColor = System.Drawing.Color.Transparent;
             this.Other_GB.Controls.Add(this.OpenDailyRewardBox_Panel);
-            this.Other_GB.Controls.Add(this.NakedFighter_Panel);
-            this.Other_GB.Controls.Add(this.TPose_Panel);
-            this.Other_GB.Controls.Add(this.Wireframe_Panel);
-            this.Other_GB.Controls.Add(this.PrePhysicsBones_Panel);
-            this.Other_GB.Controls.Add(this.DisplayBones_Panel);
+            this.Other_GB.Controls.Add(this.KillcoinVacuum_Panel);
             this.Other_GB.Controls.Add(this.UnFogMiniMap_Panel);
             this.Other_GB.Controls.Add(this.NoFallDamage_Panel);
+            this.Other_GB.Controls.Add(this.TPose_Panel);
             this.Other_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Other_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
             this.Other_GB.Dock = System.Windows.Forms.DockStyle.Top;
             this.Other_GB.FillColor = System.Drawing.Color.Transparent;
             this.Other_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Other_GB.ForeColor = System.Drawing.Color.White;
-            this.Other_GB.Location = new System.Drawing.Point(3, 372);
+            this.Other_GB.Location = new System.Drawing.Point(3, 376);
             this.Other_GB.Name = "Other_GB";
-            this.Other_GB.Size = new System.Drawing.Size(326, 224);
+            this.Other_GB.Size = new System.Drawing.Size(323, 130);
             this.Other_GB.TabIndex = 5;
             this.Other_GB.Text = "[OTHER]";
             this.Other_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -367,13 +388,38 @@
             // 
             // OpenDailyRewardBox_Panel
             // 
+            this.OpenDailyRewardBox_Panel.Controls.Add(this.OpenDailyRewardBox_Tooltip);
             this.OpenDailyRewardBox_Panel.Controls.Add(this.OpenDailyRewardBox_Label);
             this.OpenDailyRewardBox_Panel.Controls.Add(this.OpenDailyRewardBox_Toggle);
             this.OpenDailyRewardBox_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.OpenDailyRewardBox_Panel.Location = new System.Drawing.Point(0, 166);
+            this.OpenDailyRewardBox_Panel.Location = new System.Drawing.Point(0, 106);
             this.OpenDailyRewardBox_Panel.Name = "OpenDailyRewardBox_Panel";
-            this.OpenDailyRewardBox_Panel.Size = new System.Drawing.Size(326, 20);
-            this.OpenDailyRewardBox_Panel.TabIndex = 8;
+            this.OpenDailyRewardBox_Panel.Size = new System.Drawing.Size(323, 20);
+            this.OpenDailyRewardBox_Panel.TabIndex = 18;
+            // 
+            // OpenDailyRewardBox_Tooltip
+            // 
+            this.OpenDailyRewardBox_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.OpenDailyRewardBox_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.OpenDailyRewardBox_Tooltip.BorderRadius = 6;
+            this.OpenDailyRewardBox_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.OpenDailyRewardBox_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.OpenDailyRewardBox_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.OpenDailyRewardBox_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.OpenDailyRewardBox_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.OpenDailyRewardBox_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.OpenDailyRewardBox_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.OpenDailyRewardBox_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.OpenDailyRewardBox_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.OpenDailyRewardBox_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.OpenDailyRewardBox_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.OpenDailyRewardBox_Tooltip.Name = "OpenDailyRewardBox_Tooltip";
+            this.OpenDailyRewardBox_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.OpenDailyRewardBox_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.OpenDailyRewardBox_Tooltip.TabIndex = 10;
+            this.Starfire_Tooltip.SetToolTip(this.OpenDailyRewardBox_Tooltip, "Make sure you can see the daily reward box with a timer! Then Enable, open box, a" +
+        "fter box is gone go up to 1st floor escalator, then after loading go back down, " +
+        "rinse repeat!");
             // 
             // OpenDailyRewardBox_Label
             // 
@@ -405,221 +451,105 @@
             this.OpenDailyRewardBox_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.OpenDailyRewardBox_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.OpenDailyRewardBox_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.OpenDailyRewardBox_Toggle.CheckedChanged += new System.EventHandler(this.OpenDailyRewardBox_Toggle_CheckedChanged);
             // 
-            // NakedFighter_Panel
+            // KillcoinVacuum_Panel
             // 
-            this.NakedFighter_Panel.Controls.Add(this.NakedFighter_Label);
-            this.NakedFighter_Panel.Controls.Add(this.NakedFighter_Toggle);
-            this.NakedFighter_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.NakedFighter_Panel.Location = new System.Drawing.Point(0, 146);
-            this.NakedFighter_Panel.Name = "NakedFighter_Panel";
-            this.NakedFighter_Panel.Size = new System.Drawing.Size(326, 20);
-            this.NakedFighter_Panel.TabIndex = 7;
+            this.KillcoinVacuum_Panel.Controls.Add(this.KillcoinVacuum_Tooltip);
+            this.KillcoinVacuum_Panel.Controls.Add(this.KillcoinVacuum_Label);
+            this.KillcoinVacuum_Panel.Controls.Add(this.KillcoinVacuum_Toggle);
+            this.KillcoinVacuum_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.KillcoinVacuum_Panel.Location = new System.Drawing.Point(0, 86);
+            this.KillcoinVacuum_Panel.Name = "KillcoinVacuum_Panel";
+            this.KillcoinVacuum_Panel.Size = new System.Drawing.Size(323, 20);
+            this.KillcoinVacuum_Panel.TabIndex = 17;
             // 
-            // NakedFighter_Label
+            // KillcoinVacuum_Tooltip
             // 
-            this.NakedFighter_Label.AutoSize = true;
-            this.NakedFighter_Label.BackColor = System.Drawing.Color.Transparent;
-            this.NakedFighter_Label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.NakedFighter_Label.Location = new System.Drawing.Point(38, 0);
-            this.NakedFighter_Label.Name = "NakedFighter_Label";
-            this.NakedFighter_Label.Size = new System.Drawing.Size(170, 15);
-            this.NakedFighter_Label.TabIndex = 3;
-            this.NakedFighter_Label.Text = "- NAKED FIGHTER: DISABLED";
+            this.KillcoinVacuum_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.KillcoinVacuum_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.KillcoinVacuum_Tooltip.BorderRadius = 6;
+            this.KillcoinVacuum_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.KillcoinVacuum_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.KillcoinVacuum_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.KillcoinVacuum_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.KillcoinVacuum_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.KillcoinVacuum_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.KillcoinVacuum_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.KillcoinVacuum_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.KillcoinVacuum_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.KillcoinVacuum_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.KillcoinVacuum_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.KillcoinVacuum_Tooltip.Name = "KillcoinVacuum_Tooltip";
+            this.KillcoinVacuum_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.KillcoinVacuum_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.KillcoinVacuum_Tooltip.TabIndex = 10;
+            this.Starfire_Tooltip.SetToolTip(this.KillcoinVacuum_Tooltip, "Auto vacuum Killcoins from any distance on the floor!");
             // 
-            // NakedFighter_Toggle
+            // KillcoinVacuum_Label
             // 
-            this.NakedFighter_Toggle.Animated = true;
-            this.NakedFighter_Toggle.BackColor = System.Drawing.Color.Transparent;
-            this.NakedFighter_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.NakedFighter_Toggle.CheckedState.BorderRadius = 0;
-            this.NakedFighter_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.NakedFighter_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
-            this.NakedFighter_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
-            this.NakedFighter_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.NakedFighter_Toggle.Location = new System.Drawing.Point(0, 0);
-            this.NakedFighter_Toggle.Name = "NakedFighter_Toggle";
-            this.NakedFighter_Toggle.Size = new System.Drawing.Size(38, 20);
-            this.NakedFighter_Toggle.TabIndex = 0;
-            this.NakedFighter_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.NakedFighter_Toggle.UncheckedState.BorderRadius = 0;
-            this.NakedFighter_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.NakedFighter_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.NakedFighter_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.KillcoinVacuum_Label.AutoSize = true;
+            this.KillcoinVacuum_Label.BackColor = System.Drawing.Color.Transparent;
+            this.KillcoinVacuum_Label.Dock = System.Windows.Forms.DockStyle.Left;
+            this.KillcoinVacuum_Label.Location = new System.Drawing.Point(38, 0);
+            this.KillcoinVacuum_Label.Name = "KillcoinVacuum_Label";
+            this.KillcoinVacuum_Label.Size = new System.Drawing.Size(185, 15);
+            this.KillcoinVacuum_Label.TabIndex = 3;
+            this.KillcoinVacuum_Label.Text = "- KILLCOIN VACUUM: DISABLED";
             // 
-            // TPose_Panel
+            // KillcoinVacuum_Toggle
             // 
-            this.TPose_Panel.Controls.Add(this.TPose_Label);
-            this.TPose_Panel.Controls.Add(this.TPose_Toggle);
-            this.TPose_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TPose_Panel.Location = new System.Drawing.Point(0, 126);
-            this.TPose_Panel.Name = "TPose_Panel";
-            this.TPose_Panel.Size = new System.Drawing.Size(326, 20);
-            this.TPose_Panel.TabIndex = 6;
-            // 
-            // TPose_Label
-            // 
-            this.TPose_Label.AutoSize = true;
-            this.TPose_Label.BackColor = System.Drawing.Color.Transparent;
-            this.TPose_Label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TPose_Label.Location = new System.Drawing.Point(38, 0);
-            this.TPose_Label.Name = "TPose_Label";
-            this.TPose_Label.Size = new System.Drawing.Size(117, 15);
-            this.TPose_Label.TabIndex = 3;
-            this.TPose_Label.Text = "- T POSE: DISABLED";
-            // 
-            // TPose_Toggle
-            // 
-            this.TPose_Toggle.Animated = true;
-            this.TPose_Toggle.BackColor = System.Drawing.Color.Transparent;
-            this.TPose_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.TPose_Toggle.CheckedState.BorderRadius = 0;
-            this.TPose_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.TPose_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
-            this.TPose_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
-            this.TPose_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TPose_Toggle.Location = new System.Drawing.Point(0, 0);
-            this.TPose_Toggle.Name = "TPose_Toggle";
-            this.TPose_Toggle.Size = new System.Drawing.Size(38, 20);
-            this.TPose_Toggle.TabIndex = 0;
-            this.TPose_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.TPose_Toggle.UncheckedState.BorderRadius = 0;
-            this.TPose_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.TPose_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.TPose_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // Wireframe_Panel
-            // 
-            this.Wireframe_Panel.Controls.Add(this.Wireframe_Label);
-            this.Wireframe_Panel.Controls.Add(this.Wireframe_Toggle);
-            this.Wireframe_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Wireframe_Panel.Location = new System.Drawing.Point(0, 106);
-            this.Wireframe_Panel.Name = "Wireframe_Panel";
-            this.Wireframe_Panel.Size = new System.Drawing.Size(326, 20);
-            this.Wireframe_Panel.TabIndex = 5;
-            // 
-            // Wireframe_Label
-            // 
-            this.Wireframe_Label.AutoSize = true;
-            this.Wireframe_Label.BackColor = System.Drawing.Color.Transparent;
-            this.Wireframe_Label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Wireframe_Label.Location = new System.Drawing.Point(38, 0);
-            this.Wireframe_Label.Name = "Wireframe_Label";
-            this.Wireframe_Label.Size = new System.Drawing.Size(147, 15);
-            this.Wireframe_Label.TabIndex = 3;
-            this.Wireframe_Label.Text = "- WIREFRAME: DISABLED";
-            // 
-            // Wireframe_Toggle
-            // 
-            this.Wireframe_Toggle.Animated = true;
-            this.Wireframe_Toggle.BackColor = System.Drawing.Color.Transparent;
-            this.Wireframe_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.Wireframe_Toggle.CheckedState.BorderRadius = 0;
-            this.Wireframe_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.Wireframe_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
-            this.Wireframe_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
-            this.Wireframe_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Wireframe_Toggle.Location = new System.Drawing.Point(0, 0);
-            this.Wireframe_Toggle.Name = "Wireframe_Toggle";
-            this.Wireframe_Toggle.Size = new System.Drawing.Size(38, 20);
-            this.Wireframe_Toggle.TabIndex = 0;
-            this.Wireframe_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.Wireframe_Toggle.UncheckedState.BorderRadius = 0;
-            this.Wireframe_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.Wireframe_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.Wireframe_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // PrePhysicsBones_Panel
-            // 
-            this.PrePhysicsBones_Panel.Controls.Add(this.PrePhysicsBones_Label);
-            this.PrePhysicsBones_Panel.Controls.Add(this.PrePhysicsBones_Toggle);
-            this.PrePhysicsBones_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PrePhysicsBones_Panel.Location = new System.Drawing.Point(0, 86);
-            this.PrePhysicsBones_Panel.Name = "PrePhysicsBones_Panel";
-            this.PrePhysicsBones_Panel.Size = new System.Drawing.Size(326, 20);
-            this.PrePhysicsBones_Panel.TabIndex = 4;
-            // 
-            // PrePhysicsBones_Label
-            // 
-            this.PrePhysicsBones_Label.AutoSize = true;
-            this.PrePhysicsBones_Label.BackColor = System.Drawing.Color.Transparent;
-            this.PrePhysicsBones_Label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PrePhysicsBones_Label.Location = new System.Drawing.Point(38, 0);
-            this.PrePhysicsBones_Label.Name = "PrePhysicsBones_Label";
-            this.PrePhysicsBones_Label.Size = new System.Drawing.Size(192, 15);
-            this.PrePhysicsBones_Label.TabIndex = 3;
-            this.PrePhysicsBones_Label.Text = "- PRE PHYSICS BONES: DISABLED";
-            // 
-            // PrePhysicsBones_Toggle
-            // 
-            this.PrePhysicsBones_Toggle.Animated = true;
-            this.PrePhysicsBones_Toggle.BackColor = System.Drawing.Color.Transparent;
-            this.PrePhysicsBones_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.PrePhysicsBones_Toggle.CheckedState.BorderRadius = 0;
-            this.PrePhysicsBones_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.PrePhysicsBones_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
-            this.PrePhysicsBones_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
-            this.PrePhysicsBones_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PrePhysicsBones_Toggle.Location = new System.Drawing.Point(0, 0);
-            this.PrePhysicsBones_Toggle.Name = "PrePhysicsBones_Toggle";
-            this.PrePhysicsBones_Toggle.Size = new System.Drawing.Size(38, 20);
-            this.PrePhysicsBones_Toggle.TabIndex = 0;
-            this.PrePhysicsBones_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.PrePhysicsBones_Toggle.UncheckedState.BorderRadius = 0;
-            this.PrePhysicsBones_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.PrePhysicsBones_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.PrePhysicsBones_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // DisplayBones_Panel
-            // 
-            this.DisplayBones_Panel.Controls.Add(this.DisplayBones_Label);
-            this.DisplayBones_Panel.Controls.Add(this.DisplayBones_Toggle);
-            this.DisplayBones_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DisplayBones_Panel.Location = new System.Drawing.Point(0, 66);
-            this.DisplayBones_Panel.Name = "DisplayBones_Panel";
-            this.DisplayBones_Panel.Size = new System.Drawing.Size(326, 20);
-            this.DisplayBones_Panel.TabIndex = 3;
-            // 
-            // DisplayBones_Label
-            // 
-            this.DisplayBones_Label.AutoSize = true;
-            this.DisplayBones_Label.BackColor = System.Drawing.Color.Transparent;
-            this.DisplayBones_Label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DisplayBones_Label.Location = new System.Drawing.Point(38, 0);
-            this.DisplayBones_Label.Name = "DisplayBones_Label";
-            this.DisplayBones_Label.Size = new System.Drawing.Size(167, 15);
-            this.DisplayBones_Label.TabIndex = 3;
-            this.DisplayBones_Label.Text = "- DISPLAY BONES: DISABLED";
-            // 
-            // DisplayBones_Toggle
-            // 
-            this.DisplayBones_Toggle.Animated = true;
-            this.DisplayBones_Toggle.BackColor = System.Drawing.Color.Transparent;
-            this.DisplayBones_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.DisplayBones_Toggle.CheckedState.BorderRadius = 0;
-            this.DisplayBones_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.DisplayBones_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
-            this.DisplayBones_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
-            this.DisplayBones_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DisplayBones_Toggle.Location = new System.Drawing.Point(0, 0);
-            this.DisplayBones_Toggle.Name = "DisplayBones_Toggle";
-            this.DisplayBones_Toggle.Size = new System.Drawing.Size(38, 20);
-            this.DisplayBones_Toggle.TabIndex = 0;
-            this.DisplayBones_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.DisplayBones_Toggle.UncheckedState.BorderRadius = 0;
-            this.DisplayBones_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.DisplayBones_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.DisplayBones_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.KillcoinVacuum_Toggle.Animated = true;
+            this.KillcoinVacuum_Toggle.BackColor = System.Drawing.Color.Transparent;
+            this.KillcoinVacuum_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.KillcoinVacuum_Toggle.CheckedState.BorderRadius = 0;
+            this.KillcoinVacuum_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.KillcoinVacuum_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.KillcoinVacuum_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.KillcoinVacuum_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.KillcoinVacuum_Toggle.Location = new System.Drawing.Point(0, 0);
+            this.KillcoinVacuum_Toggle.Name = "KillcoinVacuum_Toggle";
+            this.KillcoinVacuum_Toggle.Size = new System.Drawing.Size(38, 20);
+            this.KillcoinVacuum_Toggle.TabIndex = 0;
+            this.KillcoinVacuum_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.KillcoinVacuum_Toggle.UncheckedState.BorderRadius = 0;
+            this.KillcoinVacuum_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.KillcoinVacuum_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.KillcoinVacuum_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.KillcoinVacuum_Toggle.CheckedChanged += new System.EventHandler(this.KillcoinVacuum_Toggle_CheckedChanged);
             // 
             // UnFogMiniMap_Panel
             // 
+            this.UnFogMiniMap_Panel.Controls.Add(this.UnFogMiniMap_Tooltip);
             this.UnFogMiniMap_Panel.Controls.Add(this.UnFogMiniMap_Label);
             this.UnFogMiniMap_Panel.Controls.Add(this.UnFogMiniMap_Toggle);
             this.UnFogMiniMap_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UnFogMiniMap_Panel.Location = new System.Drawing.Point(0, 46);
+            this.UnFogMiniMap_Panel.Location = new System.Drawing.Point(0, 66);
             this.UnFogMiniMap_Panel.Name = "UnFogMiniMap_Panel";
-            this.UnFogMiniMap_Panel.Size = new System.Drawing.Size(326, 20);
-            this.UnFogMiniMap_Panel.TabIndex = 2;
+            this.UnFogMiniMap_Panel.Size = new System.Drawing.Size(323, 20);
+            this.UnFogMiniMap_Panel.TabIndex = 16;
+            // 
+            // UnFogMiniMap_Tooltip
+            // 
+            this.UnFogMiniMap_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.UnFogMiniMap_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.UnFogMiniMap_Tooltip.BorderRadius = 6;
+            this.UnFogMiniMap_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.UnFogMiniMap_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.UnFogMiniMap_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.UnFogMiniMap_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.UnFogMiniMap_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.UnFogMiniMap_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.UnFogMiniMap_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.UnFogMiniMap_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.UnFogMiniMap_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.UnFogMiniMap_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.UnFogMiniMap_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.UnFogMiniMap_Tooltip.Name = "UnFogMiniMap_Tooltip";
+            this.UnFogMiniMap_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.UnFogMiniMap_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.UnFogMiniMap_Tooltip.TabIndex = 9;
+            this.Starfire_Tooltip.SetToolTip(this.UnFogMiniMap_Tooltip, "Un fog your mini map! NOTE: Must activate once before going up or down a floor!");
             // 
             // UnFogMiniMap_Label
             // 
@@ -651,16 +581,40 @@
             this.UnFogMiniMap_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.UnFogMiniMap_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.UnFogMiniMap_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.UnFogMiniMap_Toggle.CheckedChanged += new System.EventHandler(this.UnFogMiniMap_Toggle_CheckedChanged);
             // 
             // NoFallDamage_Panel
             // 
+            this.NoFallDamage_Panel.Controls.Add(this.NoFallDamage_Tooltip);
             this.NoFallDamage_Panel.Controls.Add(this.NoFallDamage_Label);
             this.NoFallDamage_Panel.Controls.Add(this.NoFallDamage_Toggle);
             this.NoFallDamage_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.NoFallDamage_Panel.Location = new System.Drawing.Point(0, 26);
+            this.NoFallDamage_Panel.Location = new System.Drawing.Point(0, 46);
             this.NoFallDamage_Panel.Name = "NoFallDamage_Panel";
-            this.NoFallDamage_Panel.Size = new System.Drawing.Size(326, 20);
-            this.NoFallDamage_Panel.TabIndex = 1;
+            this.NoFallDamage_Panel.Size = new System.Drawing.Size(323, 20);
+            this.NoFallDamage_Panel.TabIndex = 15;
+            // 
+            // NoFallDamage_Tooltip
+            // 
+            this.NoFallDamage_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.NoFallDamage_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.NoFallDamage_Tooltip.BorderRadius = 6;
+            this.NoFallDamage_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.NoFallDamage_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.NoFallDamage_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.NoFallDamage_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.NoFallDamage_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.NoFallDamage_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.NoFallDamage_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.NoFallDamage_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.NoFallDamage_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.NoFallDamage_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.NoFallDamage_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.NoFallDamage_Tooltip.Name = "NoFallDamage_Tooltip";
+            this.NoFallDamage_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.NoFallDamage_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.NoFallDamage_Tooltip.TabIndex = 9;
+            this.Starfire_Tooltip.SetToolTip(this.NoFallDamage_Tooltip, "Never take damage from falling!");
             // 
             // NoFallDamage_Label
             // 
@@ -692,12 +646,76 @@
             this.NoFallDamage_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.NoFallDamage_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.NoFallDamage_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.NoFallDamage_Toggle.CheckedChanged += new System.EventHandler(this.NoFallDamage_Toggle_CheckedChanged);
+            // 
+            // TPose_Panel
+            // 
+            this.TPose_Panel.Controls.Add(this.TPose_Tooltip);
+            this.TPose_Panel.Controls.Add(this.TPose_Label);
+            this.TPose_Panel.Controls.Add(this.TPose_Toggle);
+            this.TPose_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TPose_Panel.Location = new System.Drawing.Point(0, 26);
+            this.TPose_Panel.Name = "TPose_Panel";
+            this.TPose_Panel.Size = new System.Drawing.Size(323, 20);
+            this.TPose_Panel.TabIndex = 13;
+            // 
+            // TPose_Tooltip
+            // 
+            this.TPose_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.TPose_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.TPose_Tooltip.BorderRadius = 6;
+            this.TPose_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.TPose_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.TPose_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.TPose_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.TPose_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.TPose_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.TPose_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.TPose_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TPose_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.TPose_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.TPose_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.TPose_Tooltip.Name = "TPose_Tooltip";
+            this.TPose_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.TPose_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.TPose_Tooltip.TabIndex = 10;
+            this.Starfire_Tooltip.SetToolTip(this.TPose_Tooltip, "T Pose in style while you slay your enemies!");
+            // 
+            // TPose_Label
+            // 
+            this.TPose_Label.AutoSize = true;
+            this.TPose_Label.BackColor = System.Drawing.Color.Transparent;
+            this.TPose_Label.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TPose_Label.Location = new System.Drawing.Point(38, 0);
+            this.TPose_Label.Name = "TPose_Label";
+            this.TPose_Label.Size = new System.Drawing.Size(117, 15);
+            this.TPose_Label.TabIndex = 3;
+            this.TPose_Label.Text = "- T POSE: DISABLED";
+            // 
+            // TPose_Toggle
+            // 
+            this.TPose_Toggle.Animated = true;
+            this.TPose_Toggle.BackColor = System.Drawing.Color.Transparent;
+            this.TPose_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.TPose_Toggle.CheckedState.BorderRadius = 0;
+            this.TPose_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.TPose_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.TPose_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.TPose_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TPose_Toggle.Location = new System.Drawing.Point(0, 0);
+            this.TPose_Toggle.Name = "TPose_Toggle";
+            this.TPose_Toggle.Size = new System.Drawing.Size(38, 20);
+            this.TPose_Toggle.TabIndex = 0;
+            this.TPose_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.TPose_Toggle.UncheckedState.BorderRadius = 0;
+            this.TPose_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.TPose_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.TPose_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.TPose_Toggle.CheckedChanged += new System.EventHandler(this.TPose_Toggle_CheckedChanged);
             // 
             // Weapons_GB
             // 
             this.Weapons_GB.BorderColor = System.Drawing.Color.Transparent;
-            this.Weapons_GB.Controls.Add(this.RHWireframe_Panel);
-            this.Weapons_GB.Controls.Add(this.LHWireframe_Panel);
             this.Weapons_GB.Controls.Add(this.InfiniteAmmo_Panel);
             this.Weapons_GB.Controls.Add(this.NoRecoil_Panel);
             this.Weapons_GB.Controls.Add(this.OneHitKill_Panel);
@@ -707,105 +725,46 @@
             this.Weapons_GB.FillColor = System.Drawing.Color.Transparent;
             this.Weapons_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Weapons_GB.ForeColor = System.Drawing.Color.White;
-            this.Weapons_GB.Location = new System.Drawing.Point(3, 243);
+            this.Weapons_GB.Location = new System.Drawing.Point(3, 284);
             this.Weapons_GB.Name = "Weapons_GB";
-            this.Weapons_GB.Size = new System.Drawing.Size(326, 129);
+            this.Weapons_GB.Size = new System.Drawing.Size(323, 92);
             this.Weapons_GB.TabIndex = 3;
             this.Weapons_GB.Text = "[WEAPONS]";
             this.Weapons_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Weapons_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // RHWireframe_Panel
-            // 
-            this.RHWireframe_Panel.Controls.Add(this.RHWireframe_Label);
-            this.RHWireframe_Panel.Controls.Add(this.RHWireframe_Toggle);
-            this.RHWireframe_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.RHWireframe_Panel.Location = new System.Drawing.Point(0, 106);
-            this.RHWireframe_Panel.Name = "RHWireframe_Panel";
-            this.RHWireframe_Panel.Size = new System.Drawing.Size(326, 20);
-            this.RHWireframe_Panel.TabIndex = 5;
-            // 
-            // RHWireframe_Label
-            // 
-            this.RHWireframe_Label.AutoSize = true;
-            this.RHWireframe_Label.BackColor = System.Drawing.Color.Transparent;
-            this.RHWireframe_Label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.RHWireframe_Label.Location = new System.Drawing.Point(38, 0);
-            this.RHWireframe_Label.Name = "RHWireframe_Label";
-            this.RHWireframe_Label.Size = new System.Drawing.Size(167, 15);
-            this.RHWireframe_Label.TabIndex = 3;
-            this.RHWireframe_Label.Text = "- RH WIREFRAME: DISABLED";
-            // 
-            // RHWireframe_Toggle
-            // 
-            this.RHWireframe_Toggle.Animated = true;
-            this.RHWireframe_Toggle.BackColor = System.Drawing.Color.Transparent;
-            this.RHWireframe_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.RHWireframe_Toggle.CheckedState.BorderRadius = 0;
-            this.RHWireframe_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.RHWireframe_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
-            this.RHWireframe_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
-            this.RHWireframe_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.RHWireframe_Toggle.Location = new System.Drawing.Point(0, 0);
-            this.RHWireframe_Toggle.Name = "RHWireframe_Toggle";
-            this.RHWireframe_Toggle.Size = new System.Drawing.Size(38, 20);
-            this.RHWireframe_Toggle.TabIndex = 0;
-            this.RHWireframe_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.RHWireframe_Toggle.UncheckedState.BorderRadius = 0;
-            this.RHWireframe_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.RHWireframe_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.RHWireframe_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // LHWireframe_Panel
-            // 
-            this.LHWireframe_Panel.Controls.Add(this.LHWireframe_Label);
-            this.LHWireframe_Panel.Controls.Add(this.LHWireframe_Toggle);
-            this.LHWireframe_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LHWireframe_Panel.Location = new System.Drawing.Point(0, 86);
-            this.LHWireframe_Panel.Name = "LHWireframe_Panel";
-            this.LHWireframe_Panel.Size = new System.Drawing.Size(326, 20);
-            this.LHWireframe_Panel.TabIndex = 4;
-            // 
-            // LHWireframe_Label
-            // 
-            this.LHWireframe_Label.AutoSize = true;
-            this.LHWireframe_Label.BackColor = System.Drawing.Color.Transparent;
-            this.LHWireframe_Label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LHWireframe_Label.Location = new System.Drawing.Point(38, 0);
-            this.LHWireframe_Label.Name = "LHWireframe_Label";
-            this.LHWireframe_Label.Size = new System.Drawing.Size(165, 15);
-            this.LHWireframe_Label.TabIndex = 3;
-            this.LHWireframe_Label.Text = "- LH WIREFRAME: DISABLED";
-            // 
-            // LHWireframe_Toggle
-            // 
-            this.LHWireframe_Toggle.Animated = true;
-            this.LHWireframe_Toggle.BackColor = System.Drawing.Color.Transparent;
-            this.LHWireframe_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.LHWireframe_Toggle.CheckedState.BorderRadius = 0;
-            this.LHWireframe_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.LHWireframe_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
-            this.LHWireframe_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
-            this.LHWireframe_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LHWireframe_Toggle.Location = new System.Drawing.Point(0, 0);
-            this.LHWireframe_Toggle.Name = "LHWireframe_Toggle";
-            this.LHWireframe_Toggle.Size = new System.Drawing.Size(38, 20);
-            this.LHWireframe_Toggle.TabIndex = 0;
-            this.LHWireframe_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.LHWireframe_Toggle.UncheckedState.BorderRadius = 0;
-            this.LHWireframe_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.LHWireframe_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.LHWireframe_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
             // InfiniteAmmo_Panel
             // 
+            this.InfiniteAmmo_Panel.Controls.Add(this.InfiniteAmmo_Tooltip);
             this.InfiniteAmmo_Panel.Controls.Add(this.InfiniteAmmo_Label);
             this.InfiniteAmmo_Panel.Controls.Add(this.InfiniteAmmo_Toggle);
             this.InfiniteAmmo_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.InfiniteAmmo_Panel.Location = new System.Drawing.Point(0, 66);
             this.InfiniteAmmo_Panel.Name = "InfiniteAmmo_Panel";
-            this.InfiniteAmmo_Panel.Size = new System.Drawing.Size(326, 20);
+            this.InfiniteAmmo_Panel.Size = new System.Drawing.Size(323, 20);
             this.InfiniteAmmo_Panel.TabIndex = 3;
+            // 
+            // InfiniteAmmo_Tooltip
+            // 
+            this.InfiniteAmmo_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.InfiniteAmmo_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.InfiniteAmmo_Tooltip.BorderRadius = 6;
+            this.InfiniteAmmo_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.InfiniteAmmo_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.InfiniteAmmo_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.InfiniteAmmo_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.InfiniteAmmo_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.InfiniteAmmo_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InfiniteAmmo_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.InfiniteAmmo_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InfiniteAmmo_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.InfiniteAmmo_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.InfiniteAmmo_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.InfiniteAmmo_Tooltip.Name = "InfiniteAmmo_Tooltip";
+            this.InfiniteAmmo_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.InfiniteAmmo_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.InfiniteAmmo_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.InfiniteAmmo_Tooltip, "True infinite ammo!");
             // 
             // InfiniteAmmo_Label
             // 
@@ -837,16 +796,40 @@
             this.InfiniteAmmo_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.InfiniteAmmo_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.InfiniteAmmo_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.InfiniteAmmo_Toggle.CheckedChanged += new System.EventHandler(this.InfiniteAmmo_Toggle_CheckedChanged);
             // 
             // NoRecoil_Panel
             // 
+            this.NoRecoil_Panel.Controls.Add(this.NoRecoil_Tooltip);
             this.NoRecoil_Panel.Controls.Add(this.NoRecoil_Label);
             this.NoRecoil_Panel.Controls.Add(this.NoRecoil_Toggle);
             this.NoRecoil_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.NoRecoil_Panel.Location = new System.Drawing.Point(0, 46);
             this.NoRecoil_Panel.Name = "NoRecoil_Panel";
-            this.NoRecoil_Panel.Size = new System.Drawing.Size(326, 20);
+            this.NoRecoil_Panel.Size = new System.Drawing.Size(323, 20);
             this.NoRecoil_Panel.TabIndex = 2;
+            // 
+            // NoRecoil_Tooltip
+            // 
+            this.NoRecoil_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.NoRecoil_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.NoRecoil_Tooltip.BorderRadius = 6;
+            this.NoRecoil_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.NoRecoil_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.NoRecoil_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.NoRecoil_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.NoRecoil_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.NoRecoil_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.NoRecoil_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.NoRecoil_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.NoRecoil_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.NoRecoil_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.NoRecoil_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.NoRecoil_Tooltip.Name = "NoRecoil_Tooltip";
+            this.NoRecoil_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.NoRecoil_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.NoRecoil_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.NoRecoil_Tooltip, "No recoil for most firearm weapons!");
             // 
             // NoRecoil_Label
             // 
@@ -878,16 +861,41 @@
             this.NoRecoil_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.NoRecoil_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.NoRecoil_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.NoRecoil_Toggle.CheckedChanged += new System.EventHandler(this.NoRecoil_Toggle_CheckedChanged);
             // 
             // OneHitKill_Panel
             // 
+            this.OneHitKill_Panel.Controls.Add(this.OneHitKill_Tooltip);
             this.OneHitKill_Panel.Controls.Add(this.OneHitKill_Label);
             this.OneHitKill_Panel.Controls.Add(this.OneHitKill_Toggle);
             this.OneHitKill_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.OneHitKill_Panel.Location = new System.Drawing.Point(0, 26);
             this.OneHitKill_Panel.Name = "OneHitKill_Panel";
-            this.OneHitKill_Panel.Size = new System.Drawing.Size(326, 20);
+            this.OneHitKill_Panel.Size = new System.Drawing.Size(323, 20);
             this.OneHitKill_Panel.TabIndex = 1;
+            // 
+            // OneHitKill_Tooltip
+            // 
+            this.OneHitKill_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.OneHitKill_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.OneHitKill_Tooltip.BorderRadius = 6;
+            this.OneHitKill_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.OneHitKill_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.OneHitKill_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.OneHitKill_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.OneHitKill_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.OneHitKill_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.OneHitKill_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.OneHitKill_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.OneHitKill_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.OneHitKill_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.OneHitKill_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.OneHitKill_Tooltip.Name = "OneHitKill_Tooltip";
+            this.OneHitKill_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.OneHitKill_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.OneHitKill_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.OneHitKill_Tooltip, "1 Hit Kill anything! Be careful on boxes/turrets, may cause them to be unbreakabl" +
+        "e!");
             // 
             // OneHitKill_Label
             // 
@@ -919,11 +927,14 @@
             this.OneHitKill_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.OneHitKill_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.OneHitKill_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.OneHitKill_Toggle.CheckedChanged += new System.EventHandler(this.OneHitKill_Toggle_CheckedChanged);
             // 
             // Attributes_GB
             // 
             this.Attributes_GB.BorderColor = System.Drawing.Color.Transparent;
             this.Attributes_GB.Controls.Add(this.SuperJump_Panel);
+            this.Attributes_GB.Controls.Add(this.SpeedhackCarrySprint_Panel);
+            this.Attributes_GB.Controls.Add(this.SpeedhackCarryWalk_Panel);
             this.Attributes_GB.Controls.Add(this.SpeedhackSprint_Panel);
             this.Attributes_GB.Controls.Add(this.SpeedhackWalk_Panel);
             this.Attributes_GB.Controls.Add(this.InfiniteDurability_Panel);
@@ -937,7 +948,7 @@
             this.Attributes_GB.ForeColor = System.Drawing.Color.White;
             this.Attributes_GB.Location = new System.Drawing.Point(3, 94);
             this.Attributes_GB.Name = "Attributes_GB";
-            this.Attributes_GB.Size = new System.Drawing.Size(326, 149);
+            this.Attributes_GB.Size = new System.Drawing.Size(323, 190);
             this.Attributes_GB.TabIndex = 2;
             this.Attributes_GB.Text = "[ATTRIBUTES]";
             this.Attributes_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -945,13 +956,36 @@
             // 
             // SuperJump_Panel
             // 
+            this.SuperJump_Panel.Controls.Add(this.SuperJump_Tooltip);
             this.SuperJump_Panel.Controls.Add(this.SuperJump_Label);
             this.SuperJump_Panel.Controls.Add(this.SuperJump_Toggle);
             this.SuperJump_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SuperJump_Panel.Location = new System.Drawing.Point(0, 126);
+            this.SuperJump_Panel.Location = new System.Drawing.Point(0, 166);
             this.SuperJump_Panel.Name = "SuperJump_Panel";
-            this.SuperJump_Panel.Size = new System.Drawing.Size(326, 20);
-            this.SuperJump_Panel.TabIndex = 6;
+            this.SuperJump_Panel.Size = new System.Drawing.Size(323, 20);
+            this.SuperJump_Panel.TabIndex = 10;
+            // 
+            // SuperJump_Tooltip
+            // 
+            this.SuperJump_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.SuperJump_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.SuperJump_Tooltip.BorderRadius = 6;
+            this.SuperJump_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.SuperJump_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SuperJump_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SuperJump_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SuperJump_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SuperJump_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SuperJump_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.SuperJump_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SuperJump_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.SuperJump_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.SuperJump_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.SuperJump_Tooltip.Name = "SuperJump_Tooltip";
+            this.SuperJump_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.SuperJump_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.SuperJump_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.SuperJump_Tooltip, "Jump super high!");
             // 
             // SuperJump_Label
             // 
@@ -983,16 +1017,170 @@
             this.SuperJump_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.SuperJump_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.SuperJump_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.SuperJump_Toggle.CheckedChanged += new System.EventHandler(this.SuperJump_Toggle_CheckedChanged);
+            // 
+            // SpeedhackCarrySprint_Panel
+            // 
+            this.SpeedhackCarrySprint_Panel.Controls.Add(this.SpeedhackCarrySprint_Tooltip);
+            this.SpeedhackCarrySprint_Panel.Controls.Add(this.SpeedhackCarrySprint_Label);
+            this.SpeedhackCarrySprint_Panel.Controls.Add(this.SpeedhackCarrySprint_Toggle);
+            this.SpeedhackCarrySprint_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SpeedhackCarrySprint_Panel.Location = new System.Drawing.Point(0, 146);
+            this.SpeedhackCarrySprint_Panel.Name = "SpeedhackCarrySprint_Panel";
+            this.SpeedhackCarrySprint_Panel.Size = new System.Drawing.Size(323, 20);
+            this.SpeedhackCarrySprint_Panel.TabIndex = 9;
+            // 
+            // SpeedhackCarrySprint_Tooltip
+            // 
+            this.SpeedhackCarrySprint_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarrySprint_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarrySprint_Tooltip.BorderRadius = 6;
+            this.SpeedhackCarrySprint_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.SpeedhackCarrySprint_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SpeedhackCarrySprint_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SpeedhackCarrySprint_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SpeedhackCarrySprint_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SpeedhackCarrySprint_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SpeedhackCarrySprint_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarrySprint_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SpeedhackCarrySprint_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.SpeedhackCarrySprint_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.SpeedhackCarrySprint_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.SpeedhackCarrySprint_Tooltip.Name = "SpeedhackCarrySprint_Tooltip";
+            this.SpeedhackCarrySprint_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarrySprint_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.SpeedhackCarrySprint_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.SpeedhackCarrySprint_Tooltip, "Jump super high!");
+            // 
+            // SpeedhackCarrySprint_Label
+            // 
+            this.SpeedhackCarrySprint_Label.AutoSize = true;
+            this.SpeedhackCarrySprint_Label.BackColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarrySprint_Label.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SpeedhackCarrySprint_Label.Location = new System.Drawing.Point(38, 0);
+            this.SpeedhackCarrySprint_Label.Name = "SpeedhackCarrySprint_Label";
+            this.SpeedhackCarrySprint_Label.Size = new System.Drawing.Size(239, 15);
+            this.SpeedhackCarrySprint_Label.TabIndex = 3;
+            this.SpeedhackCarrySprint_Label.Text = "- SPEEDHACK (CARRY SPRINT): DISABLED";
+            // 
+            // SpeedhackCarrySprint_Toggle
+            // 
+            this.SpeedhackCarrySprint_Toggle.Animated = true;
+            this.SpeedhackCarrySprint_Toggle.BackColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarrySprint_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarrySprint_Toggle.CheckedState.BorderRadius = 0;
+            this.SpeedhackCarrySprint_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarrySprint_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.SpeedhackCarrySprint_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.SpeedhackCarrySprint_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SpeedhackCarrySprint_Toggle.Location = new System.Drawing.Point(0, 0);
+            this.SpeedhackCarrySprint_Toggle.Name = "SpeedhackCarrySprint_Toggle";
+            this.SpeedhackCarrySprint_Toggle.Size = new System.Drawing.Size(38, 20);
+            this.SpeedhackCarrySprint_Toggle.TabIndex = 0;
+            this.SpeedhackCarrySprint_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarrySprint_Toggle.UncheckedState.BorderRadius = 0;
+            this.SpeedhackCarrySprint_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarrySprint_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.SpeedhackCarrySprint_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.SpeedhackCarrySprint_Toggle.CheckedChanged += new System.EventHandler(this.SpeedhackCarrySprint_Toggle_CheckedChanged);
+            // 
+            // SpeedhackCarryWalk_Panel
+            // 
+            this.SpeedhackCarryWalk_Panel.Controls.Add(this.SpeedhackCarryWalk_Tooltip);
+            this.SpeedhackCarryWalk_Panel.Controls.Add(this.SpeedhackCarryWalk_Label);
+            this.SpeedhackCarryWalk_Panel.Controls.Add(this.SpeedhackCarryWalk_Toggle);
+            this.SpeedhackCarryWalk_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SpeedhackCarryWalk_Panel.Location = new System.Drawing.Point(0, 126);
+            this.SpeedhackCarryWalk_Panel.Name = "SpeedhackCarryWalk_Panel";
+            this.SpeedhackCarryWalk_Panel.Size = new System.Drawing.Size(323, 20);
+            this.SpeedhackCarryWalk_Panel.TabIndex = 8;
+            // 
+            // SpeedhackCarryWalk_Tooltip
+            // 
+            this.SpeedhackCarryWalk_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarryWalk_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarryWalk_Tooltip.BorderRadius = 6;
+            this.SpeedhackCarryWalk_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.SpeedhackCarryWalk_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SpeedhackCarryWalk_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SpeedhackCarryWalk_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SpeedhackCarryWalk_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SpeedhackCarryWalk_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SpeedhackCarryWalk_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarryWalk_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SpeedhackCarryWalk_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.SpeedhackCarryWalk_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.SpeedhackCarryWalk_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.SpeedhackCarryWalk_Tooltip.Name = "SpeedhackCarryWalk_Tooltip";
+            this.SpeedhackCarryWalk_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarryWalk_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.SpeedhackCarryWalk_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.SpeedhackCarryWalk_Tooltip, "Jump super high!");
+            // 
+            // SpeedhackCarryWalk_Label
+            // 
+            this.SpeedhackCarryWalk_Label.AutoSize = true;
+            this.SpeedhackCarryWalk_Label.BackColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarryWalk_Label.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SpeedhackCarryWalk_Label.Location = new System.Drawing.Point(38, 0);
+            this.SpeedhackCarryWalk_Label.Name = "SpeedhackCarryWalk_Label";
+            this.SpeedhackCarryWalk_Label.Size = new System.Drawing.Size(231, 15);
+            this.SpeedhackCarryWalk_Label.TabIndex = 3;
+            this.SpeedhackCarryWalk_Label.Text = "- SPEEDHACK (CARRY WALK): DISABLED";
+            // 
+            // SpeedhackCarryWalk_Toggle
+            // 
+            this.SpeedhackCarryWalk_Toggle.Animated = true;
+            this.SpeedhackCarryWalk_Toggle.BackColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarryWalk_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarryWalk_Toggle.CheckedState.BorderRadius = 0;
+            this.SpeedhackCarryWalk_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarryWalk_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.SpeedhackCarryWalk_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.SpeedhackCarryWalk_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SpeedhackCarryWalk_Toggle.Location = new System.Drawing.Point(0, 0);
+            this.SpeedhackCarryWalk_Toggle.Name = "SpeedhackCarryWalk_Toggle";
+            this.SpeedhackCarryWalk_Toggle.Size = new System.Drawing.Size(38, 20);
+            this.SpeedhackCarryWalk_Toggle.TabIndex = 0;
+            this.SpeedhackCarryWalk_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarryWalk_Toggle.UncheckedState.BorderRadius = 0;
+            this.SpeedhackCarryWalk_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.SpeedhackCarryWalk_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.SpeedhackCarryWalk_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.SpeedhackCarryWalk_Toggle.CheckedChanged += new System.EventHandler(this.SpeedhackCarryWalk_Toggle_CheckedChanged);
             // 
             // SpeedhackSprint_Panel
             // 
+            this.SpeedhackSprint_Panel.Controls.Add(this.SpeedhackSprint_Tooltip);
             this.SpeedhackSprint_Panel.Controls.Add(this.SpeedhackSprint_Label);
             this.SpeedhackSprint_Panel.Controls.Add(this.SpeedhackSprint_Toggle);
             this.SpeedhackSprint_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SpeedhackSprint_Panel.Location = new System.Drawing.Point(0, 106);
             this.SpeedhackSprint_Panel.Name = "SpeedhackSprint_Panel";
-            this.SpeedhackSprint_Panel.Size = new System.Drawing.Size(326, 20);
+            this.SpeedhackSprint_Panel.Size = new System.Drawing.Size(323, 20);
             this.SpeedhackSprint_Panel.TabIndex = 5;
+            // 
+            // SpeedhackSprint_Tooltip
+            // 
+            this.SpeedhackSprint_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.SpeedhackSprint_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.SpeedhackSprint_Tooltip.BorderRadius = 6;
+            this.SpeedhackSprint_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.SpeedhackSprint_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SpeedhackSprint_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SpeedhackSprint_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SpeedhackSprint_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SpeedhackSprint_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SpeedhackSprint_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.SpeedhackSprint_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SpeedhackSprint_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.SpeedhackSprint_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.SpeedhackSprint_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.SpeedhackSprint_Tooltip.Name = "SpeedhackSprint_Tooltip";
+            this.SpeedhackSprint_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.SpeedhackSprint_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.SpeedhackSprint_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.SpeedhackSprint_Tooltip, "Sprint at super speeds!");
             // 
             // SpeedhackSprint_Label
             // 
@@ -1024,16 +1212,40 @@
             this.SpeedhackSprint_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.SpeedhackSprint_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.SpeedhackSprint_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.SpeedhackSprint_Toggle.CheckedChanged += new System.EventHandler(this.SpeedhackSprint_Toggle_CheckedChanged);
             // 
             // SpeedhackWalk_Panel
             // 
+            this.SpeedhackWalk_Panel.Controls.Add(this.SpeedhackWalk_Tooltip);
             this.SpeedhackWalk_Panel.Controls.Add(this.SpeedhackWalk_Label);
             this.SpeedhackWalk_Panel.Controls.Add(this.SpeedhackWalk_Toggle);
             this.SpeedhackWalk_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SpeedhackWalk_Panel.Location = new System.Drawing.Point(0, 86);
             this.SpeedhackWalk_Panel.Name = "SpeedhackWalk_Panel";
-            this.SpeedhackWalk_Panel.Size = new System.Drawing.Size(326, 20);
+            this.SpeedhackWalk_Panel.Size = new System.Drawing.Size(323, 20);
             this.SpeedhackWalk_Panel.TabIndex = 4;
+            // 
+            // SpeedhackWalk_Tooltip
+            // 
+            this.SpeedhackWalk_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.SpeedhackWalk_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.SpeedhackWalk_Tooltip.BorderRadius = 6;
+            this.SpeedhackWalk_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.SpeedhackWalk_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SpeedhackWalk_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SpeedhackWalk_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SpeedhackWalk_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SpeedhackWalk_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SpeedhackWalk_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.SpeedhackWalk_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SpeedhackWalk_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.SpeedhackWalk_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.SpeedhackWalk_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.SpeedhackWalk_Tooltip.Name = "SpeedhackWalk_Tooltip";
+            this.SpeedhackWalk_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.SpeedhackWalk_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.SpeedhackWalk_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.SpeedhackWalk_Tooltip, "Run/Jog at super speeds!");
             // 
             // SpeedhackWalk_Label
             // 
@@ -1065,16 +1277,40 @@
             this.SpeedhackWalk_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.SpeedhackWalk_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.SpeedhackWalk_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.SpeedhackWalk_Toggle.CheckedChanged += new System.EventHandler(this.SpeedhackWalk_Toggle_CheckedChanged);
             // 
             // InfiniteDurability_Panel
             // 
+            this.InfiniteDurability_Panel.Controls.Add(this.InfiniteDurability_Tooltip);
             this.InfiniteDurability_Panel.Controls.Add(this.InfiniteDurability_Label);
             this.InfiniteDurability_Panel.Controls.Add(this.InfiniteDurability_Toggle);
             this.InfiniteDurability_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.InfiniteDurability_Panel.Location = new System.Drawing.Point(0, 66);
             this.InfiniteDurability_Panel.Name = "InfiniteDurability_Panel";
-            this.InfiniteDurability_Panel.Size = new System.Drawing.Size(326, 20);
+            this.InfiniteDurability_Panel.Size = new System.Drawing.Size(323, 20);
             this.InfiniteDurability_Panel.TabIndex = 3;
+            // 
+            // InfiniteDurability_Tooltip
+            // 
+            this.InfiniteDurability_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.InfiniteDurability_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.InfiniteDurability_Tooltip.BorderRadius = 6;
+            this.InfiniteDurability_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.InfiniteDurability_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.InfiniteDurability_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.InfiniteDurability_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.InfiniteDurability_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.InfiniteDurability_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InfiniteDurability_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.InfiniteDurability_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InfiniteDurability_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.InfiniteDurability_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.InfiniteDurability_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.InfiniteDurability_Tooltip.Name = "InfiniteDurability_Tooltip";
+            this.InfiniteDurability_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.InfiniteDurability_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.InfiniteDurability_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.InfiniteDurability_Tooltip, "Infinite durability for armor and weapons!");
             // 
             // InfiniteDurability_Label
             // 
@@ -1106,16 +1342,40 @@
             this.InfiniteDurability_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.InfiniteDurability_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.InfiniteDurability_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.InfiniteDurability_Toggle.CheckedChanged += new System.EventHandler(this.InfiniteDurability_Toggle_CheckedChanged);
             // 
             // InfiniteRage_Panel
             // 
+            this.InfiniteRage_Panel.Controls.Add(this.InfiniteRage_Tooltip);
             this.InfiniteRage_Panel.Controls.Add(this.InfiniteRage_Label);
             this.InfiniteRage_Panel.Controls.Add(this.InfiniteRage_Toggle);
             this.InfiniteRage_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.InfiniteRage_Panel.Location = new System.Drawing.Point(0, 46);
             this.InfiniteRage_Panel.Name = "InfiniteRage_Panel";
-            this.InfiniteRage_Panel.Size = new System.Drawing.Size(326, 20);
+            this.InfiniteRage_Panel.Size = new System.Drawing.Size(323, 20);
             this.InfiniteRage_Panel.TabIndex = 2;
+            // 
+            // InfiniteRage_Tooltip
+            // 
+            this.InfiniteRage_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.InfiniteRage_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.InfiniteRage_Tooltip.BorderRadius = 6;
+            this.InfiniteRage_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.InfiniteRage_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.InfiniteRage_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.InfiniteRage_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.InfiniteRage_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.InfiniteRage_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InfiniteRage_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.InfiniteRage_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InfiniteRage_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.InfiniteRage_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.InfiniteRage_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.InfiniteRage_Tooltip.Name = "InfiniteRage_Tooltip";
+            this.InfiniteRage_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.InfiniteRage_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.InfiniteRage_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.InfiniteRage_Tooltip, "Rage meter always maxed/filled!");
             // 
             // InfiniteRage_Label
             // 
@@ -1147,16 +1407,40 @@
             this.InfiniteRage_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.InfiniteRage_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.InfiniteRage_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.InfiniteRage_Toggle.CheckedChanged += new System.EventHandler(this.InfiniteRage_Toggle_CheckedChanged);
             // 
             // InfiniteStamina_Panel
             // 
+            this.InfiniteStamina_Panel.Controls.Add(this.InfiniteStamina_Tooltip);
             this.InfiniteStamina_Panel.Controls.Add(this.InfiniteStamina_Label);
             this.InfiniteStamina_Panel.Controls.Add(this.InfiniteStamina_Toggle);
             this.InfiniteStamina_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.InfiniteStamina_Panel.Location = new System.Drawing.Point(0, 26);
             this.InfiniteStamina_Panel.Name = "InfiniteStamina_Panel";
-            this.InfiniteStamina_Panel.Size = new System.Drawing.Size(326, 20);
+            this.InfiniteStamina_Panel.Size = new System.Drawing.Size(323, 20);
             this.InfiniteStamina_Panel.TabIndex = 1;
+            // 
+            // InfiniteStamina_Tooltip
+            // 
+            this.InfiniteStamina_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.InfiniteStamina_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.InfiniteStamina_Tooltip.BorderRadius = 6;
+            this.InfiniteStamina_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.InfiniteStamina_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.InfiniteStamina_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.InfiniteStamina_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.InfiniteStamina_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.InfiniteStamina_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InfiniteStamina_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.InfiniteStamina_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InfiniteStamina_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.InfiniteStamina_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.InfiniteStamina_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.InfiniteStamina_Tooltip.Name = "InfiniteStamina_Tooltip";
+            this.InfiniteStamina_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.InfiniteStamina_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.InfiniteStamina_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.InfiniteStamina_Tooltip, "Never run out of stamina!");
             // 
             // InfiniteStamina_Label
             // 
@@ -1188,6 +1472,7 @@
             this.InfiniteStamina_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.InfiniteStamina_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.InfiniteStamina_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.InfiniteStamina_Toggle.CheckedChanged += new System.EventHandler(this.InfiniteStamina_Toggle_CheckedChanged);
             // 
             // GodMode_GB
             // 
@@ -1203,7 +1488,7 @@
             this.GodMode_GB.ForeColor = System.Drawing.Color.White;
             this.GodMode_GB.Location = new System.Drawing.Point(3, 3);
             this.GodMode_GB.Name = "GodMode_GB";
-            this.GodMode_GB.Size = new System.Drawing.Size(326, 91);
+            this.GodMode_GB.Size = new System.Drawing.Size(323, 91);
             this.GodMode_GB.TabIndex = 1;
             this.GodMode_GB.Text = "[GOD MODES]";
             this.GodMode_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1211,13 +1496,36 @@
             // 
             // InfiniteHP_Panel
             // 
+            this.InfiniteHP_Panel.Controls.Add(this.InfiniteHP_Tooltip);
             this.InfiniteHP_Panel.Controls.Add(this.InfiniteHP_Label);
             this.InfiniteHP_Panel.Controls.Add(this.InfiniteHP_Toggle);
             this.InfiniteHP_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.InfiniteHP_Panel.Location = new System.Drawing.Point(0, 66);
             this.InfiniteHP_Panel.Name = "InfiniteHP_Panel";
-            this.InfiniteHP_Panel.Size = new System.Drawing.Size(326, 20);
+            this.InfiniteHP_Panel.Size = new System.Drawing.Size(323, 20);
             this.InfiniteHP_Panel.TabIndex = 3;
+            // 
+            // InfiniteHP_Tooltip
+            // 
+            this.InfiniteHP_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.InfiniteHP_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.InfiniteHP_Tooltip.BorderRadius = 6;
+            this.InfiniteHP_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.InfiniteHP_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.InfiniteHP_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.InfiniteHP_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.InfiniteHP_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.InfiniteHP_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InfiniteHP_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.InfiniteHP_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InfiniteHP_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.InfiniteHP_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.InfiniteHP_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.InfiniteHP_Tooltip.Name = "InfiniteHP_Tooltip";
+            this.InfiniteHP_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.InfiniteHP_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.InfiniteHP_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.InfiniteHP_Tooltip, "Infinite health meter! NOTE: Can still die!");
             // 
             // InfiniteHP_Label
             // 
@@ -1249,16 +1557,40 @@
             this.InfiniteHP_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.InfiniteHP_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.InfiniteHP_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.InfiniteHP_Toggle.CheckedChanged += new System.EventHandler(this.InfiniteHP_Toggle_CheckedChanged);
             // 
             // NoDamage_Panel
             // 
+            this.NoDamage_Panel.Controls.Add(this.NoDamage_Tooltip);
             this.NoDamage_Panel.Controls.Add(this.NoDamage_Label);
             this.NoDamage_Panel.Controls.Add(this.NoDamage_Toggle);
             this.NoDamage_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.NoDamage_Panel.Location = new System.Drawing.Point(0, 46);
             this.NoDamage_Panel.Name = "NoDamage_Panel";
-            this.NoDamage_Panel.Size = new System.Drawing.Size(326, 20);
+            this.NoDamage_Panel.Size = new System.Drawing.Size(323, 20);
             this.NoDamage_Panel.TabIndex = 2;
+            // 
+            // NoDamage_Tooltip
+            // 
+            this.NoDamage_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.NoDamage_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.NoDamage_Tooltip.BorderRadius = 6;
+            this.NoDamage_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.NoDamage_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.NoDamage_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.NoDamage_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.NoDamage_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.NoDamage_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.NoDamage_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.NoDamage_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.NoDamage_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.NoDamage_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.NoDamage_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.NoDamage_Tooltip.Name = "NoDamage_Tooltip";
+            this.NoDamage_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.NoDamage_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.NoDamage_Tooltip.TabIndex = 8;
+            this.Starfire_Tooltip.SetToolTip(this.NoDamage_Tooltip, "Semi god mode! Hits do register, no damage taken (accept for armor)!");
             // 
             // NoDamage_Label
             // 
@@ -1290,16 +1622,40 @@
             this.NoDamage_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.NoDamage_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.NoDamage_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.NoDamage_Toggle.CheckedChanged += new System.EventHandler(this.NoDamage_Toggle_CheckedChanged);
             // 
             // Invincible_Panel
             // 
+            this.Invincible_Panel.Controls.Add(this.InfHealth_Tooltip);
             this.Invincible_Panel.Controls.Add(this.Invincible_Label);
             this.Invincible_Panel.Controls.Add(this.Invincible_Toggle);
             this.Invincible_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Invincible_Panel.Location = new System.Drawing.Point(0, 26);
             this.Invincible_Panel.Name = "Invincible_Panel";
-            this.Invincible_Panel.Size = new System.Drawing.Size(326, 20);
+            this.Invincible_Panel.Size = new System.Drawing.Size(323, 20);
             this.Invincible_Panel.TabIndex = 1;
+            // 
+            // InfHealth_Tooltip
+            // 
+            this.InfHealth_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.InfHealth_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.InfHealth_Tooltip.BorderRadius = 6;
+            this.InfHealth_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.InfHealth_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.InfHealth_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.InfHealth_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.InfHealth_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.InfHealth_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InfHealth_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.InfHealth_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InfHealth_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.InfHealth_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.InfHealth_Tooltip.Location = new System.Drawing.Point(303, 0);
+            this.InfHealth_Tooltip.Name = "InfHealth_Tooltip";
+            this.InfHealth_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.InfHealth_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.InfHealth_Tooltip.TabIndex = 7;
+            this.Starfire_Tooltip.SetToolTip(this.InfHealth_Tooltip, "True god mode! No damage taken including armor!");
             // 
             // Invincible_Label
             // 
@@ -1331,6 +1687,7 @@
             this.Invincible_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.Invincible_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.Invincible_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.Invincible_Toggle.CheckedChanged += new System.EventHandler(this.Invincible_Toggle_CheckedChanged);
             // 
             // Starfire_Editor
             // 
@@ -1339,7 +1696,7 @@
             this.Starfire_Editor.Location = new System.Drawing.Point(4, 29);
             this.Starfire_Editor.Name = "Starfire_Editor";
             this.Starfire_Editor.Padding = new System.Windows.Forms.Padding(3);
-            this.Starfire_Editor.Size = new System.Drawing.Size(332, 578);
+            this.Starfire_Editor.Size = new System.Drawing.Size(329, 519);
             this.Starfire_Editor.TabIndex = 1;
             this.Starfire_Editor.Text = "EDITOR";
             // 
@@ -1356,7 +1713,7 @@
             this.Player_Attributes_GB.ForeColor = System.Drawing.Color.White;
             this.Player_Attributes_GB.Location = new System.Drawing.Point(3, 3);
             this.Player_Attributes_GB.Name = "Player_Attributes_GB";
-            this.Player_Attributes_GB.Size = new System.Drawing.Size(326, 226);
+            this.Player_Attributes_GB.Size = new System.Drawing.Size(323, 226);
             this.Player_Attributes_GB.TabIndex = 2;
             this.Player_Attributes_GB.Text = "[PLAYER: ATTRIBUTES]";
             this.Player_Attributes_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1365,52 +1722,14 @@
             // PlayerWalkSpeed_Panel
             // 
             this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_Value);
-            this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_NumericUpDown);
+            this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_TrackBar);
             this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_Label);
             this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_Toggle);
             this.PlayerWalkSpeed_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlayerWalkSpeed_Panel.Location = new System.Drawing.Point(0, 46);
             this.PlayerWalkSpeed_Panel.Name = "PlayerWalkSpeed_Panel";
-            this.PlayerWalkSpeed_Panel.Size = new System.Drawing.Size(326, 20);
+            this.PlayerWalkSpeed_Panel.Size = new System.Drawing.Size(323, 20);
             this.PlayerWalkSpeed_Panel.TabIndex = 2;
-            // 
-            // PlayerWalkSpeed_Value
-            // 
-            this.PlayerWalkSpeed_Value.AutoSize = true;
-            this.PlayerWalkSpeed_Value.BackColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_Value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PlayerWalkSpeed_Value.Location = new System.Drawing.Point(190, 0);
-            this.PlayerWalkSpeed_Value.Name = "PlayerWalkSpeed_Value";
-            this.PlayerWalkSpeed_Value.Size = new System.Drawing.Size(14, 15);
-            this.PlayerWalkSpeed_Value.TabIndex = 5;
-            this.PlayerWalkSpeed_Value.Text = "#";
-            // 
-            // PlayerWalkSpeed_NumericUpDown
-            // 
-            this.PlayerWalkSpeed_NumericUpDown.BackColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_NumericUpDown.BorderColor = System.Drawing.Color.Empty;
-            this.PlayerWalkSpeed_NumericUpDown.BorderRadius = 9;
-            this.PlayerWalkSpeed_NumericUpDown.BorderThickness = 0;
-            this.PlayerWalkSpeed_NumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PlayerWalkSpeed_NumericUpDown.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PlayerWalkSpeed_NumericUpDown.FillColor = System.Drawing.Color.Black;
-            this.PlayerWalkSpeed_NumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayerWalkSpeed_NumericUpDown.ForeColor = System.Drawing.Color.White;
-            this.PlayerWalkSpeed_NumericUpDown.Location = new System.Drawing.Point(90, 0);
-            this.PlayerWalkSpeed_NumericUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.PlayerWalkSpeed_NumericUpDown.Name = "PlayerWalkSpeed_NumericUpDown";
-            this.PlayerWalkSpeed_NumericUpDown.Size = new System.Drawing.Size(100, 20);
-            this.PlayerWalkSpeed_NumericUpDown.TabIndex = 4;
-            this.PlayerWalkSpeed_NumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
-            this.PlayerWalkSpeed_NumericUpDown.Value = new decimal(new int[] {
-            540,
-            0,
-            0,
-            0});
             // 
             // PlayerWalkSpeed_Label
             // 
@@ -1446,52 +1765,14 @@
             // AtkUpScale_Panel
             // 
             this.AtkUpScale_Panel.Controls.Add(this.AtkUpScale_Value);
-            this.AtkUpScale_Panel.Controls.Add(this.AtkUpScale_NumericUpDown);
+            this.AtkUpScale_Panel.Controls.Add(this.AtkUpScale_TrackBar);
             this.AtkUpScale_Panel.Controls.Add(this.AtkUpScale_Label);
             this.AtkUpScale_Panel.Controls.Add(this.AtkUpScale_Toggle);
             this.AtkUpScale_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AtkUpScale_Panel.Location = new System.Drawing.Point(0, 26);
             this.AtkUpScale_Panel.Name = "AtkUpScale_Panel";
-            this.AtkUpScale_Panel.Size = new System.Drawing.Size(326, 20);
+            this.AtkUpScale_Panel.Size = new System.Drawing.Size(323, 20);
             this.AtkUpScale_Panel.TabIndex = 1;
-            // 
-            // AtkUpScale_Value
-            // 
-            this.AtkUpScale_Value.AutoSize = true;
-            this.AtkUpScale_Value.BackColor = System.Drawing.Color.Transparent;
-            this.AtkUpScale_Value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AtkUpScale_Value.Location = new System.Drawing.Point(234, 0);
-            this.AtkUpScale_Value.Name = "AtkUpScale_Value";
-            this.AtkUpScale_Value.Size = new System.Drawing.Size(14, 15);
-            this.AtkUpScale_Value.TabIndex = 5;
-            this.AtkUpScale_Value.Text = "#";
-            // 
-            // AtkUpScale_NumericUpDown
-            // 
-            this.AtkUpScale_NumericUpDown.BackColor = System.Drawing.Color.Transparent;
-            this.AtkUpScale_NumericUpDown.BorderColor = System.Drawing.Color.Empty;
-            this.AtkUpScale_NumericUpDown.BorderRadius = 9;
-            this.AtkUpScale_NumericUpDown.BorderThickness = 0;
-            this.AtkUpScale_NumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.AtkUpScale_NumericUpDown.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AtkUpScale_NumericUpDown.FillColor = System.Drawing.Color.Black;
-            this.AtkUpScale_NumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AtkUpScale_NumericUpDown.ForeColor = System.Drawing.Color.White;
-            this.AtkUpScale_NumericUpDown.Location = new System.Drawing.Point(134, 0);
-            this.AtkUpScale_NumericUpDown.Maximum = new decimal(new int[] {
-            6666666,
-            0,
-            0,
-            0});
-            this.AtkUpScale_NumericUpDown.Name = "AtkUpScale_NumericUpDown";
-            this.AtkUpScale_NumericUpDown.Size = new System.Drawing.Size(100, 20);
-            this.AtkUpScale_NumericUpDown.TabIndex = 4;
-            this.AtkUpScale_NumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
-            this.AtkUpScale_NumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // AtkUpScale_Label
             // 
@@ -1524,6 +1805,26 @@
             this.AtkUpScale_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.AtkUpScale_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
             // 
+            // Teleports_Tab
+            // 
+            this.Teleports_Tab.BackColor = System.Drawing.Color.Black;
+            this.Teleports_Tab.Location = new System.Drawing.Point(4, 29);
+            this.Teleports_Tab.Name = "Teleports_Tab";
+            this.Teleports_Tab.Padding = new System.Windows.Forms.Padding(3);
+            this.Teleports_Tab.Size = new System.Drawing.Size(329, 519);
+            this.Teleports_Tab.TabIndex = 2;
+            this.Teleports_Tab.Text = "TELEPORTS";
+            // 
+            // OTHER_TAB
+            // 
+            this.OTHER_TAB.BackColor = System.Drawing.Color.Black;
+            this.OTHER_TAB.Location = new System.Drawing.Point(4, 29);
+            this.OTHER_TAB.Name = "OTHER_TAB";
+            this.OTHER_TAB.Padding = new System.Windows.Forms.Padding(3);
+            this.OTHER_TAB.Size = new System.Drawing.Size(329, 519);
+            this.OTHER_TAB.TabIndex = 3;
+            this.OTHER_TAB.Text = "OTHER";
+            // 
             // Starfire_BGWorker
             // 
             this.Starfire_BGWorker.WorkerReportsProgress = true;
@@ -1531,12 +1832,121 @@
             this.Starfire_BGWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.Starfire_BGWorker_ProgressChanged);
             this.Starfire_BGWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.Starfire_BGWorker_RunWorkerCompleted);
             // 
+            // Starfire_Tooltip
+            // 
+            this.Starfire_Tooltip.AllowLinksHandling = true;
+            this.Starfire_Tooltip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Starfire_Tooltip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Starfire_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Starfire_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.Starfire_Tooltip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.Starfire_Tooltip.TitleForeColor = System.Drawing.Color.White;
+            // 
+            // InfiniteHP_Timer
+            // 
+            this.InfiniteHP_Timer.Interval = 1;
+            this.InfiniteHP_Timer.Tick += new System.EventHandler(this.InfiniteHP_Timer_Tick);
+            // 
+            // InfiniteStamina_Timer
+            // 
+            this.InfiniteStamina_Timer.Interval = 1;
+            this.InfiniteStamina_Timer.Tick += new System.EventHandler(this.InfiniteStamina_Timer_Tick);
+            // 
+            // InfiniteRage_Timer
+            // 
+            this.InfiniteRage_Timer.Interval = 1;
+            this.InfiniteRage_Timer.Tick += new System.EventHandler(this.InfiniteRage_Timer_Tick);
+            // 
+            // InfiniteDurability_Timer
+            // 
+            this.InfiniteDurability_Timer.Interval = 1;
+            this.InfiniteDurability_Timer.Tick += new System.EventHandler(this.InfiniteDurability_Timer_Tick);
+            // 
+            // NoRecoil_Timer
+            // 
+            this.NoRecoil_Timer.Interval = 1;
+            this.NoRecoil_Timer.Tick += new System.EventHandler(this.NoRecoil_Timer_Tick);
+            // 
+            // UnFogMiniMap_Timer
+            // 
+            this.UnFogMiniMap_Timer.Interval = 1;
+            this.UnFogMiniMap_Timer.Tick += new System.EventHandler(this.UnFogMiniMap_Timer_Tick);
+            // 
+            // KillcoinVacuum_Timer
+            // 
+            this.KillcoinVacuum_Timer.Interval = 1;
+            this.KillcoinVacuum_Timer.Tick += new System.EventHandler(this.KillcoinVacuum_Timer_Tick);
+            // 
+            // Starfire_Header_DragControl
+            // 
+            this.Starfire_Header_DragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.Starfire_Header_DragControl.TargetControl = this.Starfire_Header_Panel1;
+            this.Starfire_Header_DragControl.UseTransparentDrag = true;
+            // 
+            // OpenDailyRewardBox_Timer
+            // 
+            this.OpenDailyRewardBox_Timer.Interval = 3350;
+            this.OpenDailyRewardBox_Timer.Tick += new System.EventHandler(this.OpenDailyRewardBox_Timer_Tick);
+            // 
+            // TPose_Timer
+            // 
+            this.TPose_Timer.Interval = 1;
+            this.TPose_Timer.Tick += new System.EventHandler(this.TPose_Timer_Tick);
+            // 
+            // AtkUpScale_TrackBar
+            // 
+            this.AtkUpScale_TrackBar.BackColor = System.Drawing.Color.Transparent;
+            this.AtkUpScale_TrackBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.AtkUpScale_TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.AtkUpScale_TrackBar.Location = new System.Drawing.Point(134, 0);
+            this.AtkUpScale_TrackBar.Maximum = 1000000;
+            this.AtkUpScale_TrackBar.Minimum = 1;
+            this.AtkUpScale_TrackBar.Name = "AtkUpScale_TrackBar";
+            this.AtkUpScale_TrackBar.Size = new System.Drawing.Size(123, 20);
+            this.AtkUpScale_TrackBar.TabIndex = 6;
+            this.AtkUpScale_TrackBar.ThumbColor = System.Drawing.Color.White;
+            // 
+            // AtkUpScale_Value
+            // 
+            this.AtkUpScale_Value.AutoSize = true;
+            this.AtkUpScale_Value.BackColor = System.Drawing.Color.Transparent;
+            this.AtkUpScale_Value.Dock = System.Windows.Forms.DockStyle.Left;
+            this.AtkUpScale_Value.Location = new System.Drawing.Point(257, 0);
+            this.AtkUpScale_Value.Name = "AtkUpScale_Value";
+            this.AtkUpScale_Value.Size = new System.Drawing.Size(14, 15);
+            this.AtkUpScale_Value.TabIndex = 7;
+            this.AtkUpScale_Value.Text = "#";
+            // 
+            // PlayerWalkSpeed_TrackBar
+            // 
+            this.PlayerWalkSpeed_TrackBar.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_TrackBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PlayerWalkSpeed_TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.PlayerWalkSpeed_TrackBar.Location = new System.Drawing.Point(90, 0);
+            this.PlayerWalkSpeed_TrackBar.Maximum = 1000000;
+            this.PlayerWalkSpeed_TrackBar.Minimum = 1;
+            this.PlayerWalkSpeed_TrackBar.Name = "PlayerWalkSpeed_TrackBar";
+            this.PlayerWalkSpeed_TrackBar.Size = new System.Drawing.Size(123, 20);
+            this.PlayerWalkSpeed_TrackBar.TabIndex = 7;
+            this.PlayerWalkSpeed_TrackBar.ThumbColor = System.Drawing.Color.White;
+            // 
+            // PlayerWalkSpeed_Value
+            // 
+            this.PlayerWalkSpeed_Value.AutoSize = true;
+            this.PlayerWalkSpeed_Value.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_Value.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PlayerWalkSpeed_Value.Location = new System.Drawing.Point(213, 0);
+            this.PlayerWalkSpeed_Value.Name = "PlayerWalkSpeed_Value";
+            this.PlayerWalkSpeed_Value.Size = new System.Drawing.Size(14, 15);
+            this.PlayerWalkSpeed_Value.TabIndex = 8;
+            this.PlayerWalkSpeed_Value.Text = "#";
+            // 
             // Starfire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(340, 639);
+            this.ClientSize = new System.Drawing.Size(337, 580);
             this.Controls.Add(this.Starfire_Background_Panel);
             this.Controls.Add(this.Starfire_Header_Panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1558,25 +1968,15 @@
             this.Other_GB.ResumeLayout(false);
             this.OpenDailyRewardBox_Panel.ResumeLayout(false);
             this.OpenDailyRewardBox_Panel.PerformLayout();
-            this.NakedFighter_Panel.ResumeLayout(false);
-            this.NakedFighter_Panel.PerformLayout();
-            this.TPose_Panel.ResumeLayout(false);
-            this.TPose_Panel.PerformLayout();
-            this.Wireframe_Panel.ResumeLayout(false);
-            this.Wireframe_Panel.PerformLayout();
-            this.PrePhysicsBones_Panel.ResumeLayout(false);
-            this.PrePhysicsBones_Panel.PerformLayout();
-            this.DisplayBones_Panel.ResumeLayout(false);
-            this.DisplayBones_Panel.PerformLayout();
+            this.KillcoinVacuum_Panel.ResumeLayout(false);
+            this.KillcoinVacuum_Panel.PerformLayout();
             this.UnFogMiniMap_Panel.ResumeLayout(false);
             this.UnFogMiniMap_Panel.PerformLayout();
             this.NoFallDamage_Panel.ResumeLayout(false);
             this.NoFallDamage_Panel.PerformLayout();
+            this.TPose_Panel.ResumeLayout(false);
+            this.TPose_Panel.PerformLayout();
             this.Weapons_GB.ResumeLayout(false);
-            this.RHWireframe_Panel.ResumeLayout(false);
-            this.RHWireframe_Panel.PerformLayout();
-            this.LHWireframe_Panel.ResumeLayout(false);
-            this.LHWireframe_Panel.PerformLayout();
             this.InfiniteAmmo_Panel.ResumeLayout(false);
             this.InfiniteAmmo_Panel.PerformLayout();
             this.NoRecoil_Panel.ResumeLayout(false);
@@ -1586,6 +1986,10 @@
             this.Attributes_GB.ResumeLayout(false);
             this.SuperJump_Panel.ResumeLayout(false);
             this.SuperJump_Panel.PerformLayout();
+            this.SpeedhackCarrySprint_Panel.ResumeLayout(false);
+            this.SpeedhackCarrySprint_Panel.PerformLayout();
+            this.SpeedhackCarryWalk_Panel.ResumeLayout(false);
+            this.SpeedhackCarryWalk_Panel.PerformLayout();
             this.SpeedhackSprint_Panel.ResumeLayout(false);
             this.SpeedhackSprint_Panel.PerformLayout();
             this.SpeedhackWalk_Panel.ResumeLayout(false);
@@ -1607,10 +2011,8 @@
             this.Player_Attributes_GB.ResumeLayout(false);
             this.PlayerWalkSpeed_Panel.ResumeLayout(false);
             this.PlayerWalkSpeed_Panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerWalkSpeed_NumericUpDown)).EndInit();
             this.AtkUpScale_Panel.ResumeLayout(false);
             this.AtkUpScale_Panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AtkUpScale_NumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1631,37 +2033,7 @@
         private Guna.UI2.WinForms.Guna2Panel Starfire_Footer_Panel;
         private System.Windows.Forms.Label Starfire_Status;
         private Guna.UI2.WinForms.Guna2GroupBox Other_GB;
-        private Guna.UI2.WinForms.Guna2Panel OpenDailyRewardBox_Panel;
-        private System.Windows.Forms.Label OpenDailyRewardBox_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch OpenDailyRewardBox_Toggle;
-        private Guna.UI2.WinForms.Guna2Panel NakedFighter_Panel;
-        private System.Windows.Forms.Label NakedFighter_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch NakedFighter_Toggle;
-        private Guna.UI2.WinForms.Guna2Panel TPose_Panel;
-        private System.Windows.Forms.Label TPose_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch TPose_Toggle;
-        private Guna.UI2.WinForms.Guna2Panel Wireframe_Panel;
-        private System.Windows.Forms.Label Wireframe_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch Wireframe_Toggle;
-        private Guna.UI2.WinForms.Guna2Panel PrePhysicsBones_Panel;
-        private System.Windows.Forms.Label PrePhysicsBones_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch PrePhysicsBones_Toggle;
-        private Guna.UI2.WinForms.Guna2Panel DisplayBones_Panel;
-        private System.Windows.Forms.Label DisplayBones_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch DisplayBones_Toggle;
-        private Guna.UI2.WinForms.Guna2Panel UnFogMiniMap_Panel;
-        private System.Windows.Forms.Label UnFogMiniMap_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch UnFogMiniMap_Toggle;
-        private Guna.UI2.WinForms.Guna2Panel NoFallDamage_Panel;
-        private System.Windows.Forms.Label NoFallDamage_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch NoFallDamage_Toggle;
         private Guna.UI2.WinForms.Guna2GroupBox Weapons_GB;
-        private Guna.UI2.WinForms.Guna2Panel RHWireframe_Panel;
-        private System.Windows.Forms.Label RHWireframe_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch RHWireframe_Toggle;
-        private Guna.UI2.WinForms.Guna2Panel LHWireframe_Panel;
-        private System.Windows.Forms.Label LHWireframe_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch LHWireframe_Toggle;
         private Guna.UI2.WinForms.Guna2Panel InfiniteAmmo_Panel;
         private System.Windows.Forms.Label InfiniteAmmo_Label;
         private Guna.UI2.WinForms.Guna2ToggleSwitch InfiniteAmmo_Toggle;
@@ -1672,9 +2044,6 @@
         private System.Windows.Forms.Label OneHitKill_Label;
         private Guna.UI2.WinForms.Guna2ToggleSwitch OneHitKill_Toggle;
         private Guna.UI2.WinForms.Guna2GroupBox Attributes_GB;
-        private Guna.UI2.WinForms.Guna2Panel SuperJump_Panel;
-        private System.Windows.Forms.Label SuperJump_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch SuperJump_Toggle;
         private Guna.UI2.WinForms.Guna2Panel SpeedhackSprint_Panel;
         private System.Windows.Forms.Label SpeedhackSprint_Label;
         private Guna.UI2.WinForms.Guna2ToggleSwitch SpeedhackSprint_Toggle;
@@ -1705,12 +2074,68 @@
         private System.Windows.Forms.Label AtkUpScale_Label;
         private Guna.UI2.WinForms.Guna2ToggleSwitch AtkUpScale_Toggle;
         private Guna.UI2.WinForms.Guna2Panel PlayerWalkSpeed_Panel;
-        private System.Windows.Forms.Label PlayerWalkSpeed_Value;
-        private Guna.UI2.WinForms.Guna2NumericUpDown PlayerWalkSpeed_NumericUpDown;
         private System.Windows.Forms.Label PlayerWalkSpeed_Label;
         private Guna.UI2.WinForms.Guna2ToggleSwitch PlayerWalkSpeed_Toggle;
-        private System.Windows.Forms.Label AtkUpScale_Value;
-        private Guna.UI2.WinForms.Guna2NumericUpDown AtkUpScale_NumericUpDown;
         private System.ComponentModel.BackgroundWorker Starfire_BGWorker;
+        private System.Windows.Forms.TabPage Teleports_Tab;
+        private System.Windows.Forms.TabPage OTHER_TAB;
+        private Guna.UI2.WinForms.Guna2Button InfHealth_Tooltip;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip Starfire_Tooltip;
+        private Guna.UI2.WinForms.Guna2Button SpeedhackSprint_Tooltip;
+        private Guna.UI2.WinForms.Guna2Button SpeedhackWalk_Tooltip;
+        private Guna.UI2.WinForms.Guna2Button InfiniteDurability_Tooltip;
+        private Guna.UI2.WinForms.Guna2Button InfiniteRage_Tooltip;
+        private Guna.UI2.WinForms.Guna2Button InfiniteStamina_Tooltip;
+        private Guna.UI2.WinForms.Guna2Button InfiniteHP_Tooltip;
+        private Guna.UI2.WinForms.Guna2Button NoDamage_Tooltip;
+        private Guna.UI2.WinForms.Guna2Button InfiniteAmmo_Tooltip;
+        private Guna.UI2.WinForms.Guna2Button NoRecoil_Tooltip;
+        private Guna.UI2.WinForms.Guna2Button OneHitKill_Tooltip;
+        private System.Windows.Forms.Timer InfiniteHP_Timer;
+        private System.Windows.Forms.Timer InfiniteStamina_Timer;
+        private System.Windows.Forms.Timer InfiniteRage_Timer;
+        private System.Windows.Forms.Timer InfiniteDurability_Timer;
+        private System.Windows.Forms.Timer NoRecoil_Timer;
+        private System.Windows.Forms.Timer UnFogMiniMap_Timer;
+        private System.Windows.Forms.Timer KillcoinVacuum_Timer;
+        private Guna.UI2.WinForms.Guna2DragControl Starfire_Header_DragControl;
+        private System.Windows.Forms.Timer OpenDailyRewardBox_Timer;
+        private Guna.UI2.WinForms.Guna2Panel TPose_Panel;
+        private Guna.UI2.WinForms.Guna2Button TPose_Tooltip;
+        private System.Windows.Forms.Label TPose_Label;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch TPose_Toggle;
+        private Guna.UI2.WinForms.Guna2Panel OpenDailyRewardBox_Panel;
+        private Guna.UI2.WinForms.Guna2Button OpenDailyRewardBox_Tooltip;
+        private System.Windows.Forms.Label OpenDailyRewardBox_Label;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch OpenDailyRewardBox_Toggle;
+        private Guna.UI2.WinForms.Guna2Panel KillcoinVacuum_Panel;
+        private Guna.UI2.WinForms.Guna2Button KillcoinVacuum_Tooltip;
+        private System.Windows.Forms.Label KillcoinVacuum_Label;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch KillcoinVacuum_Toggle;
+        private Guna.UI2.WinForms.Guna2Panel UnFogMiniMap_Panel;
+        private Guna.UI2.WinForms.Guna2Button UnFogMiniMap_Tooltip;
+        private System.Windows.Forms.Label UnFogMiniMap_Label;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch UnFogMiniMap_Toggle;
+        private Guna.UI2.WinForms.Guna2Panel NoFallDamage_Panel;
+        private Guna.UI2.WinForms.Guna2Button NoFallDamage_Tooltip;
+        private System.Windows.Forms.Label NoFallDamage_Label;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch NoFallDamage_Toggle;
+        private System.Windows.Forms.Timer TPose_Timer;
+        private Guna.UI2.WinForms.Guna2Panel SuperJump_Panel;
+        private Guna.UI2.WinForms.Guna2Button SuperJump_Tooltip;
+        private System.Windows.Forms.Label SuperJump_Label;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch SuperJump_Toggle;
+        private Guna.UI2.WinForms.Guna2Panel SpeedhackCarrySprint_Panel;
+        private Guna.UI2.WinForms.Guna2Button SpeedhackCarrySprint_Tooltip;
+        private System.Windows.Forms.Label SpeedhackCarrySprint_Label;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch SpeedhackCarrySprint_Toggle;
+        private Guna.UI2.WinForms.Guna2Panel SpeedhackCarryWalk_Panel;
+        private Guna.UI2.WinForms.Guna2Button SpeedhackCarryWalk_Tooltip;
+        private System.Windows.Forms.Label SpeedhackCarryWalk_Label;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch SpeedhackCarryWalk_Toggle;
+        private System.Windows.Forms.Label AtkUpScale_Value;
+        private Guna.UI2.WinForms.Guna2TrackBar AtkUpScale_TrackBar;
+        private System.Windows.Forms.Label PlayerWalkSpeed_Value;
+        private Guna.UI2.WinForms.Guna2TrackBar PlayerWalkSpeed_TrackBar;
     }
 }
