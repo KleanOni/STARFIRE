@@ -21,20 +21,23 @@ namespace STARFIRE.FrontEnd
         Mem M = new Mem();
         bool IsProcOpen;
         int ProcessID;
-
+ 
         public Starfire()
         {
             InitializeComponent();
             Starfire_BGWorker.RunWorkerAsync();
             // Initialize the form, then set it's state to Normal so handheld devices work.
-            this.WindowState = FormWindowState.Normal;
+            this.Width = 337;
+            this.Height = 580;
             this.TopMost = true;
+            this.WindowState = FormWindowState.Normal;
         }
         #region EXIT BUTTON
         private void Starfire_Exit_Click(object sender, EventArgs e)
         {
             if (Starfire_Status.Text == "STATUS: GAME FOUND!")
             {
+                // Set all features back to off or default so game does not crash when trainer closes fully/terminates the execution of the current application and exit witha sucess code (0).
                 Invincible_Toggle.Checked = false;
                 NoDamage_Toggle.Checked = false;
                 InfiniteHP_Toggle.Checked = false;
@@ -70,11 +73,52 @@ namespace STARFIRE.FrontEnd
             this.WindowState = FormWindowState.Normal;
             Starfire_Status.Text = "STATUS: N/A";
         }
-
+        #region TabControl UI Size Changes
         private void Starfire_TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // Set the desired witdh and height per Tab Selected inside the trainer (CHEATS|EDITOR|TELEPORTS|OTHER)
+            if (Starfire_TabControl.SelectedTab == Starfire_CheatsTab)
+            {
+                this.Width = 337;
+                this.Height = 580;
+            }
+            else if (Starfire_TabControl.SelectedTab == Starfire_PlayerEditor)
+            {
+                this.Width = 337;
+                this.Height = 274;
+            }
+            else if (Starfire_TabControl.SelectedTab == Starfire_Teleports)
+            {
+                this.Width = 337;
+                this.Height = 227;
+            }
+            else if (Starfire_TabControl.SelectedTab == Starfire_Other)
+            {
+                this.Width = 337;
+                this.Height = 198;
+            }
         }
+        private void Starfire_Teleports_TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Set the desired witdh and height per Tab Selected inside the trainer (ELEVATORS|ESCALATORS|OTHER)
+            if (Starfire_Teleports_TabControl.SelectedTab == ElevatorsTab)
+            {
+                this.Width = 337;
+                this.Height = 230;
+            }
+            if (Starfire_Teleports_TabControl.SelectedTab == EscalatorsTab)
+            {
+                this.Width = 337;
+                this.Height = 350;
+            }
+            else if (Starfire_Teleports_TabControl.SelectedTab == OtherTab)
+            {
+                this.Width = 337;
+                this.Height = 230;
+            }
+        }
+        #endregion
+
         #endregion
         #region BackgroundWorker
         private void Starfire_BGWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -93,8 +137,17 @@ namespace STARFIRE.FrontEnd
             if (IsProcOpen)
             {
                 Starfire_Status.Text = "STATUS: GAME FOUND!";
-                float pAtkUpScale = M.ReadFloat(UBrgUIManager.ABrgCommonPawn_CustomChara.mBaseAtkUpScale);
-                AtkUpScale_Value.Text = "#" + pAtkUpScale.ToString(CultureInfo.InvariantCulture);
+                if (Starfire_Status.Text == "STATUS: GAME FOUND!")
+                {
+                    float pAtkUpScale = M.ReadFloat(UBrgUIManager.ABrgCommonPawn_CustomChara.mBaseAtkUpScale);
+                    AtkUpScale_Value.Text = "#" + pAtkUpScale.ToString(CultureInfo.InvariantCulture);
+                    float pCritMax = M.ReadFloat(UBrgUIManager.ABrgCommonPawn_CustomChara.Crit);
+                    AtkUpScale_Value.Text = "#" + pAtkUpScale.ToString(CultureInfo.InvariantCulture);
+                }
+                else if (Starfire_Status.Text == "STATUS: N/A")
+                {
+
+                }
             }
             else if (!IsProcOpen)
             {
@@ -111,31 +164,54 @@ namespace STARFIRE.FrontEnd
         #region CheatsTab
         private void Invincible_Toggle_CheckedChanged(object sender, EventArgs e)
         {
-            if (Invincible_Toggle.Checked)
+            if (Starfire_Status.Text == "STATUS: GAME FOUND!")
             {
-                Invincible_Label.Text = "- INVINCIBLE: ENABLED";
+                if (Invincible_Toggle.Checked)
+                {
+                    Invincible_Label.Text = "- INVINCIBLE: ENABLED";
 
-                M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mInvincible, "int", "1");
+                    M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mInvincible, "int", "1");
+                }
+                else
+                {
+                    Invincible_Label.Text = "- INVINCIBLE: DISABLED";
+                    M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mInvincible, "int", "0");
+                }
             }
-            else
+            if (Starfire_Status.Text == "STATUS: N/A")
             {
-                Invincible_Label.Text = "- INVINCIBLE: DISABLED";
-                M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mInvincible, "int", "0");
+                if (Invincible_Toggle.Checked)
+                {
+                    Invincible_Toggle.Checked = false;
+                    Invincible_Label.Text = "- INVINCIBLE: DISABLED";
+                }
             }
+
         }
 
         private void NoDamage_Toggle_CheckedChanged(object sender, EventArgs e)
         {
-            if (NoDamage_Toggle.Checked)
+            if (Starfire_Status.Text == "STATUS: GAME FOUND!")
             {
-                NoDamage_Label.Text = "- NO DAMAGE: ENABLED";
+                if (NoDamage_Toggle.Checked)
+                {
+                    NoDamage_Label.Text = "- NO DAMAGE: ENABLED";
 
-                M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mNoDamage, "int", "1");
+                    M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mNoDamage, "int", "1");
+                }
+                else
+                {
+                    NoDamage_Label.Text = "- NO DAMAGE: DISABLED";
+                    M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mNoDamage, "int", "0");
+                }
             }
-            else
+            if (Starfire_Status.Text == "STATUS: N/A")
             {
-                NoDamage_Label.Text = "- NO DAMAGE: DISABLED";
-                M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mNoDamage, "int", "0");
+                if (NoDamage_Toggle.Checked)
+                {
+                    NoDamage_Toggle.Checked = false;
+                    NoDamage_Label.Text = "- NO DAMAGE: DISABLED";
+                }
             }
         }
 
@@ -147,15 +223,27 @@ namespace STARFIRE.FrontEnd
 
         private void InfiniteHP_Toggle_CheckedChanged(object sender, EventArgs e)
         {
-            if (InfiniteHP_Toggle.Checked)
+            if (Starfire_Status.Text == "STATUS: GAME FOUND!")
             {
-                InfiniteHP_Label.Text = "- INFINITE HEALTH: ENABLED";
-                InfiniteHP_Timer.Start();
+                if (InfiniteHP_Toggle.Checked)
+                {
+                    InfiniteHP_Label.Text = "- INFINITE HEALTH: ENABLED";
+                    InfiniteHP_Timer.Start();
+                }
+                else
+                {
+                    InfiniteHP_Label.Text = "- INFINITE HEALTH: DISABLED";
+                    InfiniteHP_Timer.Stop();
+                }
             }
-            else
+            if (Starfire_Status.Text == "STATUS: N/A")
             {
-                InfiniteHP_Label.Text = "- INFINITE HEALTH: DISABLED";
-                InfiniteHP_Timer.Stop();
+                if (InfiniteHP_Toggle.Checked)
+                {
+                    InfiniteHP_Label.Text = "- INFINITE HEALTH: DISABLED";
+                    InfiniteHP_Timer.Stop();
+                    InfiniteHP_Toggle.Checked = false;
+                }
             }
         }
 
@@ -465,6 +553,7 @@ namespace STARFIRE.FrontEnd
         }
         #endregion
 
+        #region Test Code (NOT USED YET)
         public void UpdateElevatorPosition()
         {
             float elevator1X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.ElevatorLocations.ElevatorLocation1_X);
@@ -488,6 +577,6 @@ namespace STARFIRE.FrontEnd
             M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", y.ToString(CultureInfo.InvariantCulture));
             M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", z.ToString(CultureInfo.InvariantCulture));
         }
-
+        #endregion
     }
 }

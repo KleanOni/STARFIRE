@@ -36,7 +36,6 @@
             this.Starfire_Header_Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.Starfire_Version = new System.Windows.Forms.Label();
             this.Starfire_Header_Label = new System.Windows.Forms.Label();
-            this.Starfire_Exit = new Guna.UI2.WinForms.Guna2Button();
             this.Starfire_Background_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Starfire_Footer_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Starfire_Status = new System.Windows.Forms.Label();
@@ -122,16 +121,15 @@
             this.InfHealth_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.Invincible_Label = new System.Windows.Forms.Label();
             this.Invincible_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.Starfire_Editor = new System.Windows.Forms.TabPage();
+            this.Starfire_PlayerEditor = new System.Windows.Forms.TabPage();
             this.Player_Attributes_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.PlayerWalkSpeed_Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.PlayerWalkSpeed_Label = new System.Windows.Forms.Label();
-            this.PlayerWalkSpeed_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.AtkUpScale_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.AtkUpScale_Value = new System.Windows.Forms.Label();
+            this.AtkUpScale_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
             this.AtkUpScale_Label = new System.Windows.Forms.Label();
             this.AtkUpScale_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.Teleports_Tab = new System.Windows.Forms.TabPage();
-            this.OTHER_TAB = new System.Windows.Forms.TabPage();
+            this.Starfire_Teleports = new System.Windows.Forms.TabPage();
+            this.Starfire_Other = new System.Windows.Forms.TabPage();
             this.Starfire_BGWorker = new System.ComponentModel.BackgroundWorker();
             this.Starfire_Tooltip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.InfiniteHP_Timer = new System.Windows.Forms.Timer(this.components);
@@ -144,16 +142,79 @@
             this.Starfire_Header_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.OpenDailyRewardBox_Timer = new System.Windows.Forms.Timer(this.components);
             this.TPose_Timer = new System.Windows.Forms.Timer(this.components);
-            this.AtkUpScale_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
-            this.AtkUpScale_Value = new System.Windows.Forms.Label();
-            this.PlayerWalkSpeed_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
-            this.PlayerWalkSpeed_Value = new System.Windows.Forms.Label();
             this.Starfire_Header_Label_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Starfire_Version_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Starfire_Footer_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Starfire_Status_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Starfire_TabControl_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Starfire_Icon_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Starfire_Minimize = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.Starfire_Exit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.PlayerWalkSpeed_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.PlayerWalkSpeed_Value = new System.Windows.Forms.Label();
+            this.PlayerWalkSpeed_TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.PlayerWalkSpeed_Label = new System.Windows.Forms.Label();
+            this.PlayerWalkSpeed_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2TrackBar1 = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2ToggleSwitch1 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.guna2TrackBar2 = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.label4 = new System.Windows.Forms.Label();
+            this.guna2ToggleSwitch2 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.Player_Coordinates_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.guna2TrackBar4 = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.label8 = new System.Windows.Forms.Label();
+            this.guna2ToggleSwitch4 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.guna2TrackBar5 = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.label10 = new System.Windows.Forms.Label();
+            this.guna2ToggleSwitch5 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.guna2TrackBar6 = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.label12 = new System.Windows.Forms.Label();
+            this.guna2ToggleSwitch6 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.Starfire_Teleports_TabControl = new Guna.UI2.WinForms.Guna2TabControl();
+            this.ElevatorsTab = new System.Windows.Forms.TabPage();
+            this.EscalatorsTab = new System.Windows.Forms.TabPage();
+            this.OtherTab = new System.Windows.Forms.TabPage();
+            this.Elevator_Normal_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Elevator_Normal_Button = new Guna.UI2.WinForms.Guna2Button();
+            this.Elevator_VIP_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Elevator_VIP_Button = new Guna.UI2.WinForms.Guna2Button();
+            this.Escalator_1_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Escalator_1_Button = new Guna.UI2.WinForms.Guna2Button();
+            this.Escalator_2_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Escalator_2_Button = new Guna.UI2.WinForms.Guna2Button();
+            this.Escalator_3_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Escalator_3_Button = new Guna.UI2.WinForms.Guna2Button();
+            this.Escalator_4_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Escalator_4_Button = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
+            this.BackToBaseFloor_Button = new Guna.UI2.WinForms.Guna2Button();
+            this.BackToBaseFloor_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
+            this.StampRallyTable_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2GroupBox9 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2GroupBox10 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Panel15 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
             this.Starfire_Icon_Panel.SuspendLayout();
             this.Starfire_Header_Panel1.SuspendLayout();
             this.Starfire_Background_Panel.SuspendLayout();
@@ -183,10 +244,42 @@
             this.InfiniteHP_Panel.SuspendLayout();
             this.NoDamage_Panel.SuspendLayout();
             this.Invincible_Panel.SuspendLayout();
-            this.Starfire_Editor.SuspendLayout();
+            this.Starfire_PlayerEditor.SuspendLayout();
             this.Player_Attributes_GB.SuspendLayout();
-            this.PlayerWalkSpeed_Panel.SuspendLayout();
             this.AtkUpScale_Panel.SuspendLayout();
+            this.Starfire_Teleports.SuspendLayout();
+            this.Starfire_Other.SuspendLayout();
+            this.PlayerWalkSpeed_Panel.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
+            this.Player_Coordinates_GB.SuspendLayout();
+            this.guna2Panel4.SuspendLayout();
+            this.guna2Panel5.SuspendLayout();
+            this.guna2Panel6.SuspendLayout();
+            this.Starfire_Teleports_TabControl.SuspendLayout();
+            this.ElevatorsTab.SuspendLayout();
+            this.EscalatorsTab.SuspendLayout();
+            this.OtherTab.SuspendLayout();
+            this.Elevator_Normal_GB.SuspendLayout();
+            this.guna2Panel9.SuspendLayout();
+            this.Elevator_VIP_GB.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
+            this.Escalator_1_GB.SuspendLayout();
+            this.guna2Panel7.SuspendLayout();
+            this.Escalator_2_GB.SuspendLayout();
+            this.guna2Panel8.SuspendLayout();
+            this.Escalator_3_GB.SuspendLayout();
+            this.guna2Panel10.SuspendLayout();
+            this.Escalator_4_GB.SuspendLayout();
+            this.guna2Panel11.SuspendLayout();
+            this.guna2Panel12.SuspendLayout();
+            this.BackToBaseFloor_GB.SuspendLayout();
+            this.guna2Panel13.SuspendLayout();
+            this.StampRallyTable_GB.SuspendLayout();
+            this.guna2GroupBox9.SuspendLayout();
+            this.guna2Panel14.SuspendLayout();
+            this.guna2GroupBox10.SuspendLayout();
+            this.guna2Panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // Starfire_Borderless_Form
@@ -238,9 +331,10 @@
             // 
             // Starfire_Header_Panel1
             // 
+            this.Starfire_Header_Panel1.Controls.Add(this.Starfire_Exit);
+            this.Starfire_Header_Panel1.Controls.Add(this.Starfire_Minimize);
             this.Starfire_Header_Panel1.Controls.Add(this.Starfire_Version);
             this.Starfire_Header_Panel1.Controls.Add(this.Starfire_Header_Label);
-            this.Starfire_Header_Panel1.Controls.Add(this.Starfire_Exit);
             this.Starfire_Header_Panel1.Controls.Add(this.Starfire_Icon_Panel);
             this.Starfire_Header_Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.Starfire_Header_Panel1.Location = new System.Drawing.Point(0, 0);
@@ -270,29 +364,6 @@
             this.Starfire_Header_Label.Size = new System.Drawing.Size(111, 13);
             this.Starfire_Header_Label.TabIndex = 3;
             this.Starfire_Header_Label.Text = "STARFIRE: LET IT DIE";
-            // 
-            // Starfire_Exit
-            // 
-            this.Starfire_Exit.Animated = true;
-            this.Starfire_Exit.AnimatedGIF = true;
-            this.Starfire_Exit.BackColor = System.Drawing.Color.Transparent;
-            this.Starfire_Exit.BorderColor = System.Drawing.Color.Transparent;
-            this.Starfire_Exit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Starfire_Exit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Starfire_Exit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Starfire_Exit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Starfire_Exit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Starfire_Exit.FillColor = System.Drawing.Color.Transparent;
-            this.Starfire_Exit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Starfire_Exit.ForeColor = System.Drawing.Color.White;
-            this.Starfire_Exit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Starfire_Exit.Location = new System.Drawing.Point(309, 0);
-            this.Starfire_Exit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Starfire_Exit.Name = "Starfire_Exit";
-            this.Starfire_Exit.Size = new System.Drawing.Size(28, 28);
-            this.Starfire_Exit.TabIndex = 2;
-            this.Starfire_Exit.Text = "X";
-            this.Starfire_Exit.Click += new System.EventHandler(this.Starfire_Exit_Click);
             // 
             // Starfire_Background_Panel
             // 
@@ -327,9 +398,9 @@
             // Starfire_TabControl
             // 
             this.Starfire_TabControl.Controls.Add(this.Starfire_CheatsTab);
-            this.Starfire_TabControl.Controls.Add(this.Starfire_Editor);
-            this.Starfire_TabControl.Controls.Add(this.Teleports_Tab);
-            this.Starfire_TabControl.Controls.Add(this.OTHER_TAB);
+            this.Starfire_TabControl.Controls.Add(this.Starfire_PlayerEditor);
+            this.Starfire_TabControl.Controls.Add(this.Starfire_Teleports);
+            this.Starfire_TabControl.Controls.Add(this.Starfire_Other);
             this.Starfire_TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Starfire_TabControl.ItemSize = new System.Drawing.Size(83, 25);
             this.Starfire_TabControl.Location = new System.Drawing.Point(0, 0);
@@ -1696,20 +1767,23 @@
             this.Invincible_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
             this.Invincible_Toggle.CheckedChanged += new System.EventHandler(this.Invincible_Toggle_CheckedChanged);
             // 
-            // Starfire_Editor
+            // Starfire_PlayerEditor
             // 
-            this.Starfire_Editor.BackColor = System.Drawing.Color.Black;
-            this.Starfire_Editor.Controls.Add(this.Player_Attributes_GB);
-            this.Starfire_Editor.Location = new System.Drawing.Point(4, 29);
-            this.Starfire_Editor.Name = "Starfire_Editor";
-            this.Starfire_Editor.Padding = new System.Windows.Forms.Padding(3);
-            this.Starfire_Editor.Size = new System.Drawing.Size(329, 519);
-            this.Starfire_Editor.TabIndex = 1;
-            this.Starfire_Editor.Text = "EDITOR";
+            this.Starfire_PlayerEditor.BackColor = System.Drawing.Color.Black;
+            this.Starfire_PlayerEditor.Controls.Add(this.Player_Coordinates_GB);
+            this.Starfire_PlayerEditor.Controls.Add(this.Player_Attributes_GB);
+            this.Starfire_PlayerEditor.Location = new System.Drawing.Point(4, 29);
+            this.Starfire_PlayerEditor.Name = "Starfire_PlayerEditor";
+            this.Starfire_PlayerEditor.Padding = new System.Windows.Forms.Padding(3);
+            this.Starfire_PlayerEditor.Size = new System.Drawing.Size(329, 519);
+            this.Starfire_PlayerEditor.TabIndex = 1;
+            this.Starfire_PlayerEditor.Text = "EDITOR";
             // 
             // Player_Attributes_GB
             // 
             this.Player_Attributes_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Player_Attributes_GB.Controls.Add(this.guna2Panel2);
+            this.Player_Attributes_GB.Controls.Add(this.guna2Panel1);
             this.Player_Attributes_GB.Controls.Add(this.PlayerWalkSpeed_Panel);
             this.Player_Attributes_GB.Controls.Add(this.AtkUpScale_Panel);
             this.Player_Attributes_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -1720,54 +1794,11 @@
             this.Player_Attributes_GB.ForeColor = System.Drawing.Color.White;
             this.Player_Attributes_GB.Location = new System.Drawing.Point(3, 3);
             this.Player_Attributes_GB.Name = "Player_Attributes_GB";
-            this.Player_Attributes_GB.Size = new System.Drawing.Size(323, 226);
+            this.Player_Attributes_GB.Size = new System.Drawing.Size(323, 109);
             this.Player_Attributes_GB.TabIndex = 2;
             this.Player_Attributes_GB.Text = "[PLAYER: ATTRIBUTES]";
             this.Player_Attributes_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Player_Attributes_GB.TextOffset = new System.Drawing.Point(0, -6);
-            // 
-            // PlayerWalkSpeed_Panel
-            // 
-            this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_Value);
-            this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_TrackBar);
-            this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_Label);
-            this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_Toggle);
-            this.PlayerWalkSpeed_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PlayerWalkSpeed_Panel.Location = new System.Drawing.Point(0, 46);
-            this.PlayerWalkSpeed_Panel.Name = "PlayerWalkSpeed_Panel";
-            this.PlayerWalkSpeed_Panel.Size = new System.Drawing.Size(323, 20);
-            this.PlayerWalkSpeed_Panel.TabIndex = 2;
-            // 
-            // PlayerWalkSpeed_Label
-            // 
-            this.PlayerWalkSpeed_Label.AutoSize = true;
-            this.PlayerWalkSpeed_Label.BackColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_Label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PlayerWalkSpeed_Label.Location = new System.Drawing.Point(38, 0);
-            this.PlayerWalkSpeed_Label.Name = "PlayerWalkSpeed_Label";
-            this.PlayerWalkSpeed_Label.Size = new System.Drawing.Size(52, 15);
-            this.PlayerWalkSpeed_Label.TabIndex = 3;
-            this.PlayerWalkSpeed_Label.Text = "- WALK:";
-            // 
-            // PlayerWalkSpeed_Toggle
-            // 
-            this.PlayerWalkSpeed_Toggle.Animated = true;
-            this.PlayerWalkSpeed_Toggle.BackColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_Toggle.CheckedState.BorderRadius = 0;
-            this.PlayerWalkSpeed_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
-            this.PlayerWalkSpeed_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
-            this.PlayerWalkSpeed_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PlayerWalkSpeed_Toggle.Location = new System.Drawing.Point(0, 0);
-            this.PlayerWalkSpeed_Toggle.Name = "PlayerWalkSpeed_Toggle";
-            this.PlayerWalkSpeed_Toggle.Size = new System.Drawing.Size(38, 20);
-            this.PlayerWalkSpeed_Toggle.TabIndex = 0;
-            this.PlayerWalkSpeed_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_Toggle.UncheckedState.BorderRadius = 0;
-            this.PlayerWalkSpeed_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.PlayerWalkSpeed_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
             // 
             // AtkUpScale_Panel
             // 
@@ -1780,6 +1811,30 @@
             this.AtkUpScale_Panel.Name = "AtkUpScale_Panel";
             this.AtkUpScale_Panel.Size = new System.Drawing.Size(323, 20);
             this.AtkUpScale_Panel.TabIndex = 1;
+            // 
+            // AtkUpScale_Value
+            // 
+            this.AtkUpScale_Value.AutoSize = true;
+            this.AtkUpScale_Value.BackColor = System.Drawing.Color.Transparent;
+            this.AtkUpScale_Value.Dock = System.Windows.Forms.DockStyle.Left;
+            this.AtkUpScale_Value.Location = new System.Drawing.Point(258, 0);
+            this.AtkUpScale_Value.Name = "AtkUpScale_Value";
+            this.AtkUpScale_Value.Size = new System.Drawing.Size(14, 15);
+            this.AtkUpScale_Value.TabIndex = 7;
+            this.AtkUpScale_Value.Text = "#";
+            // 
+            // AtkUpScale_TrackBar
+            // 
+            this.AtkUpScale_TrackBar.BackColor = System.Drawing.Color.Transparent;
+            this.AtkUpScale_TrackBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.AtkUpScale_TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.AtkUpScale_TrackBar.Location = new System.Drawing.Point(134, 0);
+            this.AtkUpScale_TrackBar.Maximum = 1000000;
+            this.AtkUpScale_TrackBar.Minimum = 1;
+            this.AtkUpScale_TrackBar.Name = "AtkUpScale_TrackBar";
+            this.AtkUpScale_TrackBar.Size = new System.Drawing.Size(124, 20);
+            this.AtkUpScale_TrackBar.TabIndex = 6;
+            this.AtkUpScale_TrackBar.ThumbColor = System.Drawing.Color.White;
             // 
             // AtkUpScale_Label
             // 
@@ -1812,25 +1867,28 @@
             this.AtkUpScale_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.AtkUpScale_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
             // 
-            // Teleports_Tab
+            // Starfire_Teleports
             // 
-            this.Teleports_Tab.BackColor = System.Drawing.Color.Black;
-            this.Teleports_Tab.Location = new System.Drawing.Point(4, 29);
-            this.Teleports_Tab.Name = "Teleports_Tab";
-            this.Teleports_Tab.Padding = new System.Windows.Forms.Padding(3);
-            this.Teleports_Tab.Size = new System.Drawing.Size(329, 519);
-            this.Teleports_Tab.TabIndex = 2;
-            this.Teleports_Tab.Text = "TELEPORTS";
+            this.Starfire_Teleports.BackColor = System.Drawing.Color.Black;
+            this.Starfire_Teleports.Controls.Add(this.Starfire_Teleports_TabControl);
+            this.Starfire_Teleports.Location = new System.Drawing.Point(4, 29);
+            this.Starfire_Teleports.Name = "Starfire_Teleports";
+            this.Starfire_Teleports.Padding = new System.Windows.Forms.Padding(3);
+            this.Starfire_Teleports.Size = new System.Drawing.Size(329, 519);
+            this.Starfire_Teleports.TabIndex = 2;
+            this.Starfire_Teleports.Text = "TELEPORTS";
             // 
-            // OTHER_TAB
+            // Starfire_Other
             // 
-            this.OTHER_TAB.BackColor = System.Drawing.Color.Black;
-            this.OTHER_TAB.Location = new System.Drawing.Point(4, 29);
-            this.OTHER_TAB.Name = "OTHER_TAB";
-            this.OTHER_TAB.Padding = new System.Windows.Forms.Padding(3);
-            this.OTHER_TAB.Size = new System.Drawing.Size(329, 519);
-            this.OTHER_TAB.TabIndex = 3;
-            this.OTHER_TAB.Text = "OTHER";
+            this.Starfire_Other.BackColor = System.Drawing.Color.Black;
+            this.Starfire_Other.Controls.Add(this.guna2GroupBox9);
+            this.Starfire_Other.Controls.Add(this.guna2GroupBox10);
+            this.Starfire_Other.Location = new System.Drawing.Point(4, 29);
+            this.Starfire_Other.Name = "Starfire_Other";
+            this.Starfire_Other.Padding = new System.Windows.Forms.Padding(3);
+            this.Starfire_Other.Size = new System.Drawing.Size(329, 519);
+            this.Starfire_Other.TabIndex = 3;
+            this.Starfire_Other.Text = "OTHER";
             // 
             // Starfire_BGWorker
             // 
@@ -1900,54 +1958,6 @@
             this.TPose_Timer.Interval = 1;
             this.TPose_Timer.Tick += new System.EventHandler(this.TPose_Timer_Tick);
             // 
-            // AtkUpScale_TrackBar
-            // 
-            this.AtkUpScale_TrackBar.BackColor = System.Drawing.Color.Transparent;
-            this.AtkUpScale_TrackBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AtkUpScale_TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
-            this.AtkUpScale_TrackBar.Location = new System.Drawing.Point(134, 0);
-            this.AtkUpScale_TrackBar.Maximum = 1000000;
-            this.AtkUpScale_TrackBar.Minimum = 1;
-            this.AtkUpScale_TrackBar.Name = "AtkUpScale_TrackBar";
-            this.AtkUpScale_TrackBar.Size = new System.Drawing.Size(123, 20);
-            this.AtkUpScale_TrackBar.TabIndex = 6;
-            this.AtkUpScale_TrackBar.ThumbColor = System.Drawing.Color.White;
-            // 
-            // AtkUpScale_Value
-            // 
-            this.AtkUpScale_Value.AutoSize = true;
-            this.AtkUpScale_Value.BackColor = System.Drawing.Color.Transparent;
-            this.AtkUpScale_Value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AtkUpScale_Value.Location = new System.Drawing.Point(257, 0);
-            this.AtkUpScale_Value.Name = "AtkUpScale_Value";
-            this.AtkUpScale_Value.Size = new System.Drawing.Size(14, 15);
-            this.AtkUpScale_Value.TabIndex = 7;
-            this.AtkUpScale_Value.Text = "#";
-            // 
-            // PlayerWalkSpeed_TrackBar
-            // 
-            this.PlayerWalkSpeed_TrackBar.BackColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_TrackBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PlayerWalkSpeed_TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
-            this.PlayerWalkSpeed_TrackBar.Location = new System.Drawing.Point(90, 0);
-            this.PlayerWalkSpeed_TrackBar.Maximum = 1000000;
-            this.PlayerWalkSpeed_TrackBar.Minimum = 1;
-            this.PlayerWalkSpeed_TrackBar.Name = "PlayerWalkSpeed_TrackBar";
-            this.PlayerWalkSpeed_TrackBar.Size = new System.Drawing.Size(123, 20);
-            this.PlayerWalkSpeed_TrackBar.TabIndex = 7;
-            this.PlayerWalkSpeed_TrackBar.ThumbColor = System.Drawing.Color.White;
-            // 
-            // PlayerWalkSpeed_Value
-            // 
-            this.PlayerWalkSpeed_Value.AutoSize = true;
-            this.PlayerWalkSpeed_Value.BackColor = System.Drawing.Color.Transparent;
-            this.PlayerWalkSpeed_Value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PlayerWalkSpeed_Value.Location = new System.Drawing.Point(213, 0);
-            this.PlayerWalkSpeed_Value.Name = "PlayerWalkSpeed_Value";
-            this.PlayerWalkSpeed_Value.Size = new System.Drawing.Size(14, 15);
-            this.PlayerWalkSpeed_Value.TabIndex = 8;
-            this.PlayerWalkSpeed_Value.Text = "#";
-            // 
             // Starfire_Header_Label_DragControl
             // 
             this.Starfire_Header_Label_DragControl.DockIndicatorTransparencyValue = 0.6D;
@@ -1983,6 +1993,1102 @@
             this.Starfire_Icon_DragControl.DockIndicatorTransparencyValue = 0.6D;
             this.Starfire_Icon_DragControl.TargetControl = this.Starfire_Icon;
             this.Starfire_Icon_DragControl.UseTransparentDrag = true;
+            // 
+            // Starfire_Minimize
+            // 
+            this.Starfire_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Starfire_Minimize.BackColor = System.Drawing.Color.Transparent;
+            this.Starfire_Minimize.BorderColor = System.Drawing.Color.Transparent;
+            this.Starfire_Minimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.Starfire_Minimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Starfire_Minimize.FillColor = System.Drawing.Color.Black;
+            this.Starfire_Minimize.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.Starfire_Minimize.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.Starfire_Minimize.IconColor = System.Drawing.Color.White;
+            this.Starfire_Minimize.Location = new System.Drawing.Point(279, 0);
+            this.Starfire_Minimize.Name = "Starfire_Minimize";
+            this.Starfire_Minimize.PressedColor = System.Drawing.Color.Transparent;
+            this.Starfire_Minimize.Size = new System.Drawing.Size(28, 28);
+            this.Starfire_Minimize.TabIndex = 5;
+            this.Starfire_Tooltip.SetToolTip(this.Starfire_Minimize, "Minimize Program (To Show, Select Via Taskbar)\r\n");
+            // 
+            // Starfire_Exit
+            // 
+            this.Starfire_Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Starfire_Exit.BackColor = System.Drawing.Color.Transparent;
+            this.Starfire_Exit.BorderColor = System.Drawing.Color.Transparent;
+            this.Starfire_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Starfire_Exit.FillColor = System.Drawing.Color.Black;
+            this.Starfire_Exit.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.Starfire_Exit.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.Starfire_Exit.IconColor = System.Drawing.Color.White;
+            this.Starfire_Exit.Location = new System.Drawing.Point(309, 0);
+            this.Starfire_Exit.Name = "Starfire_Exit";
+            this.Starfire_Exit.PressedColor = System.Drawing.Color.Transparent;
+            this.Starfire_Exit.Size = new System.Drawing.Size(28, 28);
+            this.Starfire_Exit.TabIndex = 6;
+            this.Starfire_Tooltip.SetToolTip(this.Starfire_Exit, "Exit Program!");
+            this.Starfire_Exit.Click += new System.EventHandler(this.Starfire_Exit_Click);
+            // 
+            // PlayerWalkSpeed_Panel
+            // 
+            this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_Value);
+            this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_TrackBar);
+            this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_Label);
+            this.PlayerWalkSpeed_Panel.Controls.Add(this.PlayerWalkSpeed_Toggle);
+            this.PlayerWalkSpeed_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlayerWalkSpeed_Panel.Location = new System.Drawing.Point(0, 46);
+            this.PlayerWalkSpeed_Panel.Name = "PlayerWalkSpeed_Panel";
+            this.PlayerWalkSpeed_Panel.Size = new System.Drawing.Size(323, 20);
+            this.PlayerWalkSpeed_Panel.TabIndex = 3;
+            // 
+            // PlayerWalkSpeed_Value
+            // 
+            this.PlayerWalkSpeed_Value.AutoSize = true;
+            this.PlayerWalkSpeed_Value.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_Value.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PlayerWalkSpeed_Value.Location = new System.Drawing.Point(258, 0);
+            this.PlayerWalkSpeed_Value.Name = "PlayerWalkSpeed_Value";
+            this.PlayerWalkSpeed_Value.Size = new System.Drawing.Size(14, 15);
+            this.PlayerWalkSpeed_Value.TabIndex = 8;
+            this.PlayerWalkSpeed_Value.Text = "#";
+            // 
+            // PlayerWalkSpeed_TrackBar
+            // 
+            this.PlayerWalkSpeed_TrackBar.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_TrackBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PlayerWalkSpeed_TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.PlayerWalkSpeed_TrackBar.Location = new System.Drawing.Point(149, 0);
+            this.PlayerWalkSpeed_TrackBar.Maximum = 1000000;
+            this.PlayerWalkSpeed_TrackBar.Minimum = 1;
+            this.PlayerWalkSpeed_TrackBar.Name = "PlayerWalkSpeed_TrackBar";
+            this.PlayerWalkSpeed_TrackBar.Size = new System.Drawing.Size(109, 20);
+            this.PlayerWalkSpeed_TrackBar.TabIndex = 7;
+            this.PlayerWalkSpeed_TrackBar.ThumbColor = System.Drawing.Color.White;
+            // 
+            // PlayerWalkSpeed_Label
+            // 
+            this.PlayerWalkSpeed_Label.AutoSize = true;
+            this.PlayerWalkSpeed_Label.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_Label.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PlayerWalkSpeed_Label.Location = new System.Drawing.Point(38, 0);
+            this.PlayerWalkSpeed_Label.Name = "PlayerWalkSpeed_Label";
+            this.PlayerWalkSpeed_Label.Size = new System.Drawing.Size(111, 15);
+            this.PlayerWalkSpeed_Label.TabIndex = 3;
+            this.PlayerWalkSpeed_Label.Text = "- CRIT MAX SCALE:";
+            // 
+            // PlayerWalkSpeed_Toggle
+            // 
+            this.PlayerWalkSpeed_Toggle.Animated = true;
+            this.PlayerWalkSpeed_Toggle.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_Toggle.CheckedState.BorderRadius = 0;
+            this.PlayerWalkSpeed_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.PlayerWalkSpeed_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.PlayerWalkSpeed_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PlayerWalkSpeed_Toggle.Location = new System.Drawing.Point(0, 0);
+            this.PlayerWalkSpeed_Toggle.Name = "PlayerWalkSpeed_Toggle";
+            this.PlayerWalkSpeed_Toggle.Size = new System.Drawing.Size(38, 20);
+            this.PlayerWalkSpeed_Toggle.TabIndex = 0;
+            this.PlayerWalkSpeed_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_Toggle.UncheckedState.BorderRadius = 0;
+            this.PlayerWalkSpeed_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.PlayerWalkSpeed_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.PlayerWalkSpeed_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.label1);
+            this.guna2Panel1.Controls.Add(this.guna2TrackBar1);
+            this.guna2Panel1.Controls.Add(this.label2);
+            this.guna2Panel1.Controls.Add(this.guna2ToggleSwitch1);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 66);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(323, 20);
+            this.guna2Panel1.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Location = new System.Drawing.Point(258, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(14, 15);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "#";
+            // 
+            // guna2TrackBar1
+            // 
+            this.guna2TrackBar1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TrackBar1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2TrackBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.guna2TrackBar1.Location = new System.Drawing.Point(133, 0);
+            this.guna2TrackBar1.Maximum = 1000000;
+            this.guna2TrackBar1.Minimum = 1;
+            this.guna2TrackBar1.Name = "guna2TrackBar1";
+            this.guna2TrackBar1.Size = new System.Drawing.Size(125, 20);
+            this.guna2TrackBar1.TabIndex = 7;
+            this.guna2TrackBar1.ThumbColor = System.Drawing.Color.White;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Location = new System.Drawing.Point(38, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "- LH ATK SCALE:";
+            // 
+            // guna2ToggleSwitch1
+            // 
+            this.guna2ToggleSwitch1.Animated = true;
+            this.guna2ToggleSwitch1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch1.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch1.CheckedState.BorderRadius = 0;
+            this.guna2ToggleSwitch1.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch1.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.guna2ToggleSwitch1.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.guna2ToggleSwitch1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2ToggleSwitch1.Location = new System.Drawing.Point(0, 0);
+            this.guna2ToggleSwitch1.Name = "guna2ToggleSwitch1";
+            this.guna2ToggleSwitch1.Size = new System.Drawing.Size(38, 20);
+            this.guna2ToggleSwitch1.TabIndex = 0;
+            this.guna2ToggleSwitch1.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch1.UncheckedState.BorderRadius = 0;
+            this.guna2ToggleSwitch1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch1.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch1.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Controls.Add(this.label3);
+            this.guna2Panel2.Controls.Add(this.guna2TrackBar2);
+            this.guna2Panel2.Controls.Add(this.label4);
+            this.guna2Panel2.Controls.Add(this.guna2ToggleSwitch2);
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 86);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(323, 20);
+            this.guna2Panel2.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Location = new System.Drawing.Point(258, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 15);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "#";
+            // 
+            // guna2TrackBar2
+            // 
+            this.guna2TrackBar2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TrackBar2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2TrackBar2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.guna2TrackBar2.Location = new System.Drawing.Point(135, 0);
+            this.guna2TrackBar2.Maximum = 1000000;
+            this.guna2TrackBar2.Minimum = 1;
+            this.guna2TrackBar2.Name = "guna2TrackBar2";
+            this.guna2TrackBar2.Size = new System.Drawing.Size(123, 20);
+            this.guna2TrackBar2.TabIndex = 7;
+            this.guna2TrackBar2.ThumbColor = System.Drawing.Color.White;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Location = new System.Drawing.Point(38, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "- RH ATK SCALE:";
+            // 
+            // guna2ToggleSwitch2
+            // 
+            this.guna2ToggleSwitch2.Animated = true;
+            this.guna2ToggleSwitch2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch2.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch2.CheckedState.BorderRadius = 0;
+            this.guna2ToggleSwitch2.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch2.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.guna2ToggleSwitch2.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.guna2ToggleSwitch2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2ToggleSwitch2.Location = new System.Drawing.Point(0, 0);
+            this.guna2ToggleSwitch2.Name = "guna2ToggleSwitch2";
+            this.guna2ToggleSwitch2.Size = new System.Drawing.Size(38, 20);
+            this.guna2ToggleSwitch2.TabIndex = 0;
+            this.guna2ToggleSwitch2.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch2.UncheckedState.BorderRadius = 0;
+            this.guna2ToggleSwitch2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch2.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch2.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // Player_Coordinates_GB
+            // 
+            this.Player_Coordinates_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Player_Coordinates_GB.Controls.Add(this.guna2Panel4);
+            this.Player_Coordinates_GB.Controls.Add(this.guna2Panel5);
+            this.Player_Coordinates_GB.Controls.Add(this.guna2Panel6);
+            this.Player_Coordinates_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Player_Coordinates_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Player_Coordinates_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Player_Coordinates_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Player_Coordinates_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player_Coordinates_GB.ForeColor = System.Drawing.Color.White;
+            this.Player_Coordinates_GB.Location = new System.Drawing.Point(3, 112);
+            this.Player_Coordinates_GB.Name = "Player_Coordinates_GB";
+            this.Player_Coordinates_GB.Size = new System.Drawing.Size(323, 109);
+            this.Player_Coordinates_GB.TabIndex = 3;
+            this.Player_Coordinates_GB.Text = "[PLAYER: COORDINATES]";
+            this.Player_Coordinates_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Player_Coordinates_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.Controls.Add(this.label7);
+            this.guna2Panel4.Controls.Add(this.guna2TrackBar4);
+            this.guna2Panel4.Controls.Add(this.label8);
+            this.guna2Panel4.Controls.Add(this.guna2ToggleSwitch4);
+            this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel4.Location = new System.Drawing.Point(0, 66);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(323, 20);
+            this.guna2Panel4.TabIndex = 4;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label7.Location = new System.Drawing.Point(188, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 15);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "#";
+            // 
+            // guna2TrackBar4
+            // 
+            this.guna2TrackBar4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TrackBar4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2TrackBar4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.guna2TrackBar4.Location = new System.Drawing.Point(63, 0);
+            this.guna2TrackBar4.Maximum = 1000000;
+            this.guna2TrackBar4.Minimum = 1;
+            this.guna2TrackBar4.Name = "guna2TrackBar4";
+            this.guna2TrackBar4.Size = new System.Drawing.Size(125, 20);
+            this.guna2TrackBar4.TabIndex = 7;
+            this.guna2TrackBar4.ThumbColor = System.Drawing.Color.White;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Location = new System.Drawing.Point(38, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(25, 15);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "- Z:";
+            // 
+            // guna2ToggleSwitch4
+            // 
+            this.guna2ToggleSwitch4.Animated = true;
+            this.guna2ToggleSwitch4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch4.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch4.CheckedState.BorderRadius = 0;
+            this.guna2ToggleSwitch4.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch4.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.guna2ToggleSwitch4.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.guna2ToggleSwitch4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2ToggleSwitch4.Location = new System.Drawing.Point(0, 0);
+            this.guna2ToggleSwitch4.Name = "guna2ToggleSwitch4";
+            this.guna2ToggleSwitch4.Size = new System.Drawing.Size(38, 20);
+            this.guna2ToggleSwitch4.TabIndex = 0;
+            this.guna2ToggleSwitch4.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch4.UncheckedState.BorderRadius = 0;
+            this.guna2ToggleSwitch4.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch4.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch4.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.Controls.Add(this.label9);
+            this.guna2Panel5.Controls.Add(this.guna2TrackBar5);
+            this.guna2Panel5.Controls.Add(this.label10);
+            this.guna2Panel5.Controls.Add(this.guna2ToggleSwitch5);
+            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel5.Location = new System.Drawing.Point(0, 46);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(323, 20);
+            this.guna2Panel5.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label9.Location = new System.Drawing.Point(188, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(14, 15);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "#";
+            // 
+            // guna2TrackBar5
+            // 
+            this.guna2TrackBar5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TrackBar5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2TrackBar5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.guna2TrackBar5.Location = new System.Drawing.Point(63, 0);
+            this.guna2TrackBar5.Maximum = 1000000;
+            this.guna2TrackBar5.Minimum = 1;
+            this.guna2TrackBar5.Name = "guna2TrackBar5";
+            this.guna2TrackBar5.Size = new System.Drawing.Size(125, 20);
+            this.guna2TrackBar5.TabIndex = 7;
+            this.guna2TrackBar5.ThumbColor = System.Drawing.Color.White;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Location = new System.Drawing.Point(38, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(25, 15);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "- Y:";
+            // 
+            // guna2ToggleSwitch5
+            // 
+            this.guna2ToggleSwitch5.Animated = true;
+            this.guna2ToggleSwitch5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch5.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch5.CheckedState.BorderRadius = 0;
+            this.guna2ToggleSwitch5.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch5.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.guna2ToggleSwitch5.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.guna2ToggleSwitch5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2ToggleSwitch5.Location = new System.Drawing.Point(0, 0);
+            this.guna2ToggleSwitch5.Name = "guna2ToggleSwitch5";
+            this.guna2ToggleSwitch5.Size = new System.Drawing.Size(38, 20);
+            this.guna2ToggleSwitch5.TabIndex = 0;
+            this.guna2ToggleSwitch5.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch5.UncheckedState.BorderRadius = 0;
+            this.guna2ToggleSwitch5.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch5.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch5.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.Controls.Add(this.label11);
+            this.guna2Panel6.Controls.Add(this.guna2TrackBar6);
+            this.guna2Panel6.Controls.Add(this.label12);
+            this.guna2Panel6.Controls.Add(this.guna2ToggleSwitch6);
+            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel6.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(323, 20);
+            this.guna2Panel6.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label11.Location = new System.Drawing.Point(188, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(14, 15);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "#";
+            // 
+            // guna2TrackBar6
+            // 
+            this.guna2TrackBar6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TrackBar6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2TrackBar6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.guna2TrackBar6.Location = new System.Drawing.Point(64, 0);
+            this.guna2TrackBar6.Maximum = 1000000;
+            this.guna2TrackBar6.Minimum = 1;
+            this.guna2TrackBar6.Name = "guna2TrackBar6";
+            this.guna2TrackBar6.Size = new System.Drawing.Size(124, 20);
+            this.guna2TrackBar6.TabIndex = 6;
+            this.guna2TrackBar6.ThumbColor = System.Drawing.Color.White;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label12.Location = new System.Drawing.Point(38, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(26, 15);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "- X:";
+            // 
+            // guna2ToggleSwitch6
+            // 
+            this.guna2ToggleSwitch6.Animated = true;
+            this.guna2ToggleSwitch6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch6.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch6.CheckedState.BorderRadius = 0;
+            this.guna2ToggleSwitch6.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch6.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.guna2ToggleSwitch6.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.guna2ToggleSwitch6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2ToggleSwitch6.Location = new System.Drawing.Point(0, 0);
+            this.guna2ToggleSwitch6.Name = "guna2ToggleSwitch6";
+            this.guna2ToggleSwitch6.Size = new System.Drawing.Size(38, 20);
+            this.guna2ToggleSwitch6.TabIndex = 0;
+            this.guna2ToggleSwitch6.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch6.UncheckedState.BorderRadius = 0;
+            this.guna2ToggleSwitch6.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ToggleSwitch6.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch6.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // Starfire_Teleports_TabControl
+            // 
+            this.Starfire_Teleports_TabControl.Controls.Add(this.ElevatorsTab);
+            this.Starfire_Teleports_TabControl.Controls.Add(this.EscalatorsTab);
+            this.Starfire_Teleports_TabControl.Controls.Add(this.OtherTab);
+            this.Starfire_Teleports_TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Starfire_Teleports_TabControl.ItemSize = new System.Drawing.Size(106, 25);
+            this.Starfire_Teleports_TabControl.Location = new System.Drawing.Point(3, 3);
+            this.Starfire_Teleports_TabControl.Name = "Starfire_Teleports_TabControl";
+            this.Starfire_Teleports_TabControl.SelectedIndex = 0;
+            this.Starfire_Teleports_TabControl.Size = new System.Drawing.Size(323, 513);
+            this.Starfire_Teleports_TabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.Starfire_Teleports_TabControl.TabButtonHoverState.FillColor = System.Drawing.Color.Black;
+            this.Starfire_Teleports_TabControl.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.Starfire_Teleports_TabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
+            this.Starfire_Teleports_TabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.White;
+            this.Starfire_Teleports_TabControl.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.Starfire_Teleports_TabControl.TabButtonIdleState.FillColor = System.Drawing.Color.Black;
+            this.Starfire_Teleports_TabControl.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.Starfire_Teleports_TabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.Starfire_Teleports_TabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.Starfire_Teleports_TabControl.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.Starfire_Teleports_TabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.Black;
+            this.Starfire_Teleports_TabControl.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.Starfire_Teleports_TabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
+            this.Starfire_Teleports_TabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.White;
+            this.Starfire_Teleports_TabControl.TabButtonSize = new System.Drawing.Size(106, 25);
+            this.Starfire_Teleports_TabControl.TabIndex = 1;
+            this.Starfire_Teleports_TabControl.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Starfire_Teleports_TabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
+            this.Starfire_Teleports_TabControl.SelectedIndexChanged += new System.EventHandler(this.Starfire_Teleports_TabControl_SelectedIndexChanged);
+            // 
+            // ElevatorsTab
+            // 
+            this.ElevatorsTab.BackColor = System.Drawing.Color.Black;
+            this.ElevatorsTab.Controls.Add(this.Elevator_VIP_GB);
+            this.ElevatorsTab.Controls.Add(this.Elevator_Normal_GB);
+            this.ElevatorsTab.Location = new System.Drawing.Point(4, 29);
+            this.ElevatorsTab.Name = "ElevatorsTab";
+            this.ElevatorsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ElevatorsTab.Size = new System.Drawing.Size(315, 480);
+            this.ElevatorsTab.TabIndex = 0;
+            this.ElevatorsTab.Text = "ELEVATORS";
+            // 
+            // EscalatorsTab
+            // 
+            this.EscalatorsTab.BackColor = System.Drawing.Color.Black;
+            this.EscalatorsTab.Controls.Add(this.Escalator_4_GB);
+            this.EscalatorsTab.Controls.Add(this.Escalator_3_GB);
+            this.EscalatorsTab.Controls.Add(this.Escalator_2_GB);
+            this.EscalatorsTab.Controls.Add(this.Escalator_1_GB);
+            this.EscalatorsTab.Location = new System.Drawing.Point(4, 29);
+            this.EscalatorsTab.Name = "EscalatorsTab";
+            this.EscalatorsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.EscalatorsTab.Size = new System.Drawing.Size(315, 480);
+            this.EscalatorsTab.TabIndex = 1;
+            this.EscalatorsTab.Text = "ESCALATORS";
+            // 
+            // OtherTab
+            // 
+            this.OtherTab.BackColor = System.Drawing.Color.Black;
+            this.OtherTab.Controls.Add(this.StampRallyTable_GB);
+            this.OtherTab.Controls.Add(this.BackToBaseFloor_GB);
+            this.OtherTab.Location = new System.Drawing.Point(4, 29);
+            this.OtherTab.Name = "OtherTab";
+            this.OtherTab.Padding = new System.Windows.Forms.Padding(3);
+            this.OtherTab.Size = new System.Drawing.Size(315, 480);
+            this.OtherTab.TabIndex = 2;
+            this.OtherTab.Text = "OTHER";
+            // 
+            // Elevator_Normal_GB
+            // 
+            this.Elevator_Normal_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Elevator_Normal_GB.Controls.Add(this.guna2Panel9);
+            this.Elevator_Normal_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Elevator_Normal_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Elevator_Normal_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Elevator_Normal_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Elevator_Normal_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Elevator_Normal_GB.ForeColor = System.Drawing.Color.White;
+            this.Elevator_Normal_GB.Location = new System.Drawing.Point(3, 3);
+            this.Elevator_Normal_GB.Name = "Elevator_Normal_GB";
+            this.Elevator_Normal_GB.Size = new System.Drawing.Size(309, 60);
+            this.Elevator_Normal_GB.TabIndex = 5;
+            this.Elevator_Normal_GB.Text = "[ELEVATOR: NORMAL]";
+            this.Elevator_Normal_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Elevator_Normal_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.Controls.Add(this.Elevator_Normal_Button);
+            this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel9.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.Size = new System.Drawing.Size(309, 35);
+            this.guna2Panel9.TabIndex = 1;
+            // 
+            // Elevator_Normal_Button
+            // 
+            this.Elevator_Normal_Button.Animated = true;
+            this.Elevator_Normal_Button.AnimatedGIF = true;
+            this.Elevator_Normal_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Elevator_Normal_Button.BorderRadius = 9;
+            this.Elevator_Normal_Button.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Elevator_Normal_Button.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Elevator_Normal_Button.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Elevator_Normal_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Elevator_Normal_Button.CustomBorderColor = System.Drawing.Color.White;
+            this.Elevator_Normal_Button.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Elevator_Normal_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Elevator_Normal_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Elevator_Normal_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Elevator_Normal_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Elevator_Normal_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Elevator_Normal_Button.FillColor = System.Drawing.Color.Transparent;
+            this.Elevator_Normal_Button.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Elevator_Normal_Button.ForeColor = System.Drawing.Color.White;
+            this.Elevator_Normal_Button.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Elevator_Normal_Button.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Elevator_Normal_Button.ImageSize = new System.Drawing.Size(102, 28);
+            this.Elevator_Normal_Button.Location = new System.Drawing.Point(0, 0);
+            this.Elevator_Normal_Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Elevator_Normal_Button.Name = "Elevator_Normal_Button";
+            this.Elevator_Normal_Button.Size = new System.Drawing.Size(309, 29);
+            this.Elevator_Normal_Button.TabIndex = 3;
+            this.Elevator_Normal_Button.Text = "TELEPORT";
+            // 
+            // Elevator_VIP_GB
+            // 
+            this.Elevator_VIP_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Elevator_VIP_GB.Controls.Add(this.guna2Panel3);
+            this.Elevator_VIP_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Elevator_VIP_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Elevator_VIP_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Elevator_VIP_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Elevator_VIP_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Elevator_VIP_GB.ForeColor = System.Drawing.Color.White;
+            this.Elevator_VIP_GB.Location = new System.Drawing.Point(3, 63);
+            this.Elevator_VIP_GB.Name = "Elevator_VIP_GB";
+            this.Elevator_VIP_GB.Size = new System.Drawing.Size(309, 60);
+            this.Elevator_VIP_GB.TabIndex = 6;
+            this.Elevator_VIP_GB.Text = "[ELEVATOR: VIP]";
+            this.Elevator_VIP_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Elevator_VIP_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.Controls.Add(this.Elevator_VIP_Button);
+            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel3.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(309, 35);
+            this.guna2Panel3.TabIndex = 1;
+            // 
+            // Elevator_VIP_Button
+            // 
+            this.Elevator_VIP_Button.Animated = true;
+            this.Elevator_VIP_Button.AnimatedGIF = true;
+            this.Elevator_VIP_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Elevator_VIP_Button.BorderRadius = 9;
+            this.Elevator_VIP_Button.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Elevator_VIP_Button.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Elevator_VIP_Button.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Elevator_VIP_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Elevator_VIP_Button.CustomBorderColor = System.Drawing.Color.White;
+            this.Elevator_VIP_Button.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Elevator_VIP_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Elevator_VIP_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Elevator_VIP_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Elevator_VIP_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Elevator_VIP_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Elevator_VIP_Button.FillColor = System.Drawing.Color.Transparent;
+            this.Elevator_VIP_Button.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Elevator_VIP_Button.ForeColor = System.Drawing.Color.White;
+            this.Elevator_VIP_Button.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Elevator_VIP_Button.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Elevator_VIP_Button.ImageSize = new System.Drawing.Size(102, 28);
+            this.Elevator_VIP_Button.Location = new System.Drawing.Point(0, 0);
+            this.Elevator_VIP_Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Elevator_VIP_Button.Name = "Elevator_VIP_Button";
+            this.Elevator_VIP_Button.Size = new System.Drawing.Size(309, 29);
+            this.Elevator_VIP_Button.TabIndex = 3;
+            this.Elevator_VIP_Button.Text = "TELEPORT";
+            // 
+            // Escalator_1_GB
+            // 
+            this.Escalator_1_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Escalator_1_GB.Controls.Add(this.guna2Panel7);
+            this.Escalator_1_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Escalator_1_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Escalator_1_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator_1_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Escalator_1_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Escalator_1_GB.ForeColor = System.Drawing.Color.White;
+            this.Escalator_1_GB.Location = new System.Drawing.Point(3, 3);
+            this.Escalator_1_GB.Name = "Escalator_1_GB";
+            this.Escalator_1_GB.Size = new System.Drawing.Size(309, 60);
+            this.Escalator_1_GB.TabIndex = 6;
+            this.Escalator_1_GB.Text = "[ESCALATOR#1]";
+            this.Escalator_1_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Escalator_1_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2Panel7
+            // 
+            this.guna2Panel7.Controls.Add(this.Escalator_1_Button);
+            this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel7.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel7.Name = "guna2Panel7";
+            this.guna2Panel7.Size = new System.Drawing.Size(309, 35);
+            this.guna2Panel7.TabIndex = 1;
+            // 
+            // Escalator_1_Button
+            // 
+            this.Escalator_1_Button.Animated = true;
+            this.Escalator_1_Button.AnimatedGIF = true;
+            this.Escalator_1_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Escalator_1_Button.BorderRadius = 9;
+            this.Escalator_1_Button.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_1_Button.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Escalator_1_Button.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Escalator_1_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Escalator_1_Button.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_1_Button.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Escalator_1_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Escalator_1_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Escalator_1_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Escalator_1_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Escalator_1_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator_1_Button.FillColor = System.Drawing.Color.Transparent;
+            this.Escalator_1_Button.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Escalator_1_Button.ForeColor = System.Drawing.Color.White;
+            this.Escalator_1_Button.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_1_Button.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Escalator_1_Button.ImageSize = new System.Drawing.Size(102, 28);
+            this.Escalator_1_Button.Location = new System.Drawing.Point(0, 0);
+            this.Escalator_1_Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Escalator_1_Button.Name = "Escalator_1_Button";
+            this.Escalator_1_Button.Size = new System.Drawing.Size(309, 29);
+            this.Escalator_1_Button.TabIndex = 3;
+            this.Escalator_1_Button.Text = "TELEPORT";
+            // 
+            // Escalator_2_GB
+            // 
+            this.Escalator_2_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Escalator_2_GB.Controls.Add(this.guna2Panel8);
+            this.Escalator_2_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Escalator_2_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Escalator_2_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator_2_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Escalator_2_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Escalator_2_GB.ForeColor = System.Drawing.Color.White;
+            this.Escalator_2_GB.Location = new System.Drawing.Point(3, 63);
+            this.Escalator_2_GB.Name = "Escalator_2_GB";
+            this.Escalator_2_GB.Size = new System.Drawing.Size(309, 60);
+            this.Escalator_2_GB.TabIndex = 7;
+            this.Escalator_2_GB.Text = "[ESCALATOR#2]";
+            this.Escalator_2_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Escalator_2_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.Controls.Add(this.Escalator_2_Button);
+            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel8.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(309, 35);
+            this.guna2Panel8.TabIndex = 1;
+            // 
+            // Escalator_2_Button
+            // 
+            this.Escalator_2_Button.Animated = true;
+            this.Escalator_2_Button.AnimatedGIF = true;
+            this.Escalator_2_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Escalator_2_Button.BorderRadius = 9;
+            this.Escalator_2_Button.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_2_Button.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Escalator_2_Button.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Escalator_2_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Escalator_2_Button.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_2_Button.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Escalator_2_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Escalator_2_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Escalator_2_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Escalator_2_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Escalator_2_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator_2_Button.FillColor = System.Drawing.Color.Transparent;
+            this.Escalator_2_Button.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Escalator_2_Button.ForeColor = System.Drawing.Color.White;
+            this.Escalator_2_Button.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_2_Button.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Escalator_2_Button.ImageSize = new System.Drawing.Size(102, 28);
+            this.Escalator_2_Button.Location = new System.Drawing.Point(0, 0);
+            this.Escalator_2_Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Escalator_2_Button.Name = "Escalator_2_Button";
+            this.Escalator_2_Button.Size = new System.Drawing.Size(309, 29);
+            this.Escalator_2_Button.TabIndex = 3;
+            this.Escalator_2_Button.Text = "TELEPORT";
+            // 
+            // Escalator_3_GB
+            // 
+            this.Escalator_3_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Escalator_3_GB.Controls.Add(this.guna2Panel10);
+            this.Escalator_3_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Escalator_3_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Escalator_3_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator_3_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Escalator_3_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Escalator_3_GB.ForeColor = System.Drawing.Color.White;
+            this.Escalator_3_GB.Location = new System.Drawing.Point(3, 123);
+            this.Escalator_3_GB.Name = "Escalator_3_GB";
+            this.Escalator_3_GB.Size = new System.Drawing.Size(309, 60);
+            this.Escalator_3_GB.TabIndex = 8;
+            this.Escalator_3_GB.Text = "[ESCALATOR#3]";
+            this.Escalator_3_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Escalator_3_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2Panel10
+            // 
+            this.guna2Panel10.Controls.Add(this.Escalator_3_Button);
+            this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel10.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel10.Name = "guna2Panel10";
+            this.guna2Panel10.Size = new System.Drawing.Size(309, 35);
+            this.guna2Panel10.TabIndex = 1;
+            // 
+            // Escalator_3_Button
+            // 
+            this.Escalator_3_Button.Animated = true;
+            this.Escalator_3_Button.AnimatedGIF = true;
+            this.Escalator_3_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Escalator_3_Button.BorderRadius = 9;
+            this.Escalator_3_Button.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_3_Button.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Escalator_3_Button.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Escalator_3_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Escalator_3_Button.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_3_Button.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Escalator_3_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Escalator_3_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Escalator_3_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Escalator_3_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Escalator_3_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator_3_Button.FillColor = System.Drawing.Color.Transparent;
+            this.Escalator_3_Button.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Escalator_3_Button.ForeColor = System.Drawing.Color.White;
+            this.Escalator_3_Button.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_3_Button.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Escalator_3_Button.ImageSize = new System.Drawing.Size(102, 28);
+            this.Escalator_3_Button.Location = new System.Drawing.Point(0, 0);
+            this.Escalator_3_Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Escalator_3_Button.Name = "Escalator_3_Button";
+            this.Escalator_3_Button.Size = new System.Drawing.Size(309, 29);
+            this.Escalator_3_Button.TabIndex = 3;
+            this.Escalator_3_Button.Text = "TELEPORT";
+            // 
+            // Escalator_4_GB
+            // 
+            this.Escalator_4_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Escalator_4_GB.Controls.Add(this.guna2Panel11);
+            this.Escalator_4_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Escalator_4_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Escalator_4_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator_4_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Escalator_4_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Escalator_4_GB.ForeColor = System.Drawing.Color.White;
+            this.Escalator_4_GB.Location = new System.Drawing.Point(3, 183);
+            this.Escalator_4_GB.Name = "Escalator_4_GB";
+            this.Escalator_4_GB.Size = new System.Drawing.Size(309, 60);
+            this.Escalator_4_GB.TabIndex = 9;
+            this.Escalator_4_GB.Text = "[ESCALATOR#4]";
+            this.Escalator_4_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Escalator_4_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2Panel11
+            // 
+            this.guna2Panel11.Controls.Add(this.Escalator_4_Button);
+            this.guna2Panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel11.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel11.Name = "guna2Panel11";
+            this.guna2Panel11.Size = new System.Drawing.Size(309, 35);
+            this.guna2Panel11.TabIndex = 1;
+            // 
+            // Escalator_4_Button
+            // 
+            this.Escalator_4_Button.Animated = true;
+            this.Escalator_4_Button.AnimatedGIF = true;
+            this.Escalator_4_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Escalator_4_Button.BorderRadius = 9;
+            this.Escalator_4_Button.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_4_Button.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Escalator_4_Button.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Escalator_4_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Escalator_4_Button.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_4_Button.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Escalator_4_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Escalator_4_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Escalator_4_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Escalator_4_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Escalator_4_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator_4_Button.FillColor = System.Drawing.Color.Transparent;
+            this.Escalator_4_Button.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Escalator_4_Button.ForeColor = System.Drawing.Color.White;
+            this.Escalator_4_Button.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Escalator_4_Button.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Escalator_4_Button.ImageSize = new System.Drawing.Size(102, 28);
+            this.Escalator_4_Button.Location = new System.Drawing.Point(0, 0);
+            this.Escalator_4_Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Escalator_4_Button.Name = "Escalator_4_Button";
+            this.Escalator_4_Button.Size = new System.Drawing.Size(309, 29);
+            this.Escalator_4_Button.TabIndex = 3;
+            this.Escalator_4_Button.Text = "TELEPORT";
+            // 
+            // guna2Panel12
+            // 
+            this.guna2Panel12.Controls.Add(this.BackToBaseFloor_Button);
+            this.guna2Panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel12.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel12.Name = "guna2Panel12";
+            this.guna2Panel12.Size = new System.Drawing.Size(309, 35);
+            this.guna2Panel12.TabIndex = 1;
+            // 
+            // BackToBaseFloor_Button
+            // 
+            this.BackToBaseFloor_Button.Animated = true;
+            this.BackToBaseFloor_Button.AnimatedGIF = true;
+            this.BackToBaseFloor_Button.BackColor = System.Drawing.Color.Transparent;
+            this.BackToBaseFloor_Button.BorderRadius = 9;
+            this.BackToBaseFloor_Button.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.BackToBaseFloor_Button.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.BackToBaseFloor_Button.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.BackToBaseFloor_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackToBaseFloor_Button.CustomBorderColor = System.Drawing.Color.White;
+            this.BackToBaseFloor_Button.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.BackToBaseFloor_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BackToBaseFloor_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BackToBaseFloor_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BackToBaseFloor_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BackToBaseFloor_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BackToBaseFloor_Button.FillColor = System.Drawing.Color.Transparent;
+            this.BackToBaseFloor_Button.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.BackToBaseFloor_Button.ForeColor = System.Drawing.Color.White;
+            this.BackToBaseFloor_Button.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.BackToBaseFloor_Button.ImageOffset = new System.Drawing.Point(2, 0);
+            this.BackToBaseFloor_Button.ImageSize = new System.Drawing.Size(102, 28);
+            this.BackToBaseFloor_Button.Location = new System.Drawing.Point(0, 0);
+            this.BackToBaseFloor_Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.BackToBaseFloor_Button.Name = "BackToBaseFloor_Button";
+            this.BackToBaseFloor_Button.Size = new System.Drawing.Size(309, 29);
+            this.BackToBaseFloor_Button.TabIndex = 3;
+            this.BackToBaseFloor_Button.Text = "TELEPORT";
+            // 
+            // BackToBaseFloor_GB
+            // 
+            this.BackToBaseFloor_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.BackToBaseFloor_GB.Controls.Add(this.guna2Panel12);
+            this.BackToBaseFloor_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BackToBaseFloor_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.BackToBaseFloor_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BackToBaseFloor_GB.FillColor = System.Drawing.Color.Transparent;
+            this.BackToBaseFloor_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackToBaseFloor_GB.ForeColor = System.Drawing.Color.White;
+            this.BackToBaseFloor_GB.Location = new System.Drawing.Point(3, 3);
+            this.BackToBaseFloor_GB.Name = "BackToBaseFloor_GB";
+            this.BackToBaseFloor_GB.Size = new System.Drawing.Size(309, 60);
+            this.BackToBaseFloor_GB.TabIndex = 7;
+            this.BackToBaseFloor_GB.Text = "[BACK TO BASE FLOOR]";
+            this.BackToBaseFloor_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BackToBaseFloor_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2Panel13
+            // 
+            this.guna2Panel13.Controls.Add(this.guna2Button8);
+            this.guna2Panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel13.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel13.Name = "guna2Panel13";
+            this.guna2Panel13.Size = new System.Drawing.Size(309, 35);
+            this.guna2Panel13.TabIndex = 1;
+            // 
+            // guna2Button8
+            // 
+            this.guna2Button8.Animated = true;
+            this.guna2Button8.AnimatedGIF = true;
+            this.guna2Button8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button8.BorderRadius = 9;
+            this.guna2Button8.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2Button8.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.guna2Button8.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.guna2Button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button8.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2Button8.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Button8.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.guna2Button8.ForeColor = System.Drawing.Color.White;
+            this.guna2Button8.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2Button8.ImageOffset = new System.Drawing.Point(2, 0);
+            this.guna2Button8.ImageSize = new System.Drawing.Size(102, 28);
+            this.guna2Button8.Location = new System.Drawing.Point(0, 0);
+            this.guna2Button8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.guna2Button8.Name = "guna2Button8";
+            this.guna2Button8.Size = new System.Drawing.Size(309, 29);
+            this.guna2Button8.TabIndex = 3;
+            this.guna2Button8.Text = "TELEPORT";
+            // 
+            // StampRallyTable_GB
+            // 
+            this.StampRallyTable_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.StampRallyTable_GB.Controls.Add(this.guna2Panel13);
+            this.StampRallyTable_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.StampRallyTable_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.StampRallyTable_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.StampRallyTable_GB.FillColor = System.Drawing.Color.Transparent;
+            this.StampRallyTable_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StampRallyTable_GB.ForeColor = System.Drawing.Color.White;
+            this.StampRallyTable_GB.Location = new System.Drawing.Point(3, 63);
+            this.StampRallyTable_GB.Name = "StampRallyTable_GB";
+            this.StampRallyTable_GB.Size = new System.Drawing.Size(309, 60);
+            this.StampRallyTable_GB.TabIndex = 8;
+            this.StampRallyTable_GB.Text = "[STAMP RALLY TABLE]";
+            this.StampRallyTable_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.StampRallyTable_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2GroupBox9
+            // 
+            this.guna2GroupBox9.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox9.Controls.Add(this.guna2Panel14);
+            this.guna2GroupBox9.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2GroupBox9.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.guna2GroupBox9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2GroupBox9.FillColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GroupBox9.ForeColor = System.Drawing.Color.White;
+            this.guna2GroupBox9.Location = new System.Drawing.Point(3, 63);
+            this.guna2GroupBox9.Name = "guna2GroupBox9";
+            this.guna2GroupBox9.Size = new System.Drawing.Size(323, 60);
+            this.guna2GroupBox9.TabIndex = 10;
+            this.guna2GroupBox9.Text = "[LIGHT THEME]";
+            this.guna2GroupBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.guna2GroupBox9.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2Panel14
+            // 
+            this.guna2Panel14.Controls.Add(this.guna2Button9);
+            this.guna2Panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel14.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel14.Name = "guna2Panel14";
+            this.guna2Panel14.Size = new System.Drawing.Size(323, 35);
+            this.guna2Panel14.TabIndex = 1;
+            // 
+            // guna2Button9
+            // 
+            this.guna2Button9.Animated = true;
+            this.guna2Button9.AnimatedGIF = true;
+            this.guna2Button9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button9.BorderRadius = 9;
+            this.guna2Button9.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2Button9.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.guna2Button9.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.guna2Button9.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2Button9.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.guna2Button9.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button9.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button9.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Button9.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button9.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.guna2Button9.ForeColor = System.Drawing.Color.White;
+            this.guna2Button9.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2Button9.ImageOffset = new System.Drawing.Point(2, 0);
+            this.guna2Button9.ImageSize = new System.Drawing.Size(102, 28);
+            this.guna2Button9.Location = new System.Drawing.Point(0, 0);
+            this.guna2Button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.guna2Button9.Name = "guna2Button9";
+            this.guna2Button9.Size = new System.Drawing.Size(323, 29);
+            this.guna2Button9.TabIndex = 3;
+            this.guna2Button9.Text = "CHANGE THEME";
+            // 
+            // guna2GroupBox10
+            // 
+            this.guna2GroupBox10.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox10.Controls.Add(this.guna2Panel15);
+            this.guna2GroupBox10.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2GroupBox10.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.guna2GroupBox10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2GroupBox10.FillColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GroupBox10.ForeColor = System.Drawing.Color.White;
+            this.guna2GroupBox10.Location = new System.Drawing.Point(3, 3);
+            this.guna2GroupBox10.Name = "guna2GroupBox10";
+            this.guna2GroupBox10.Size = new System.Drawing.Size(323, 60);
+            this.guna2GroupBox10.TabIndex = 9;
+            this.guna2GroupBox10.Text = "[DARK THEME (DEFAULT)]";
+            this.guna2GroupBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.guna2GroupBox10.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // guna2Panel15
+            // 
+            this.guna2Panel15.Controls.Add(this.guna2Button10);
+            this.guna2Panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel15.Location = new System.Drawing.Point(0, 26);
+            this.guna2Panel15.Name = "guna2Panel15";
+            this.guna2Panel15.Size = new System.Drawing.Size(323, 35);
+            this.guna2Panel15.TabIndex = 1;
+            // 
+            // guna2Button10
+            // 
+            this.guna2Button10.Animated = true;
+            this.guna2Button10.AnimatedGIF = true;
+            this.guna2Button10.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button10.BorderRadius = 9;
+            this.guna2Button10.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2Button10.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.guna2Button10.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.guna2Button10.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2Button10.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.guna2Button10.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button10.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button10.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Button10.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button10.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.guna2Button10.ForeColor = System.Drawing.Color.White;
+            this.guna2Button10.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2Button10.ImageOffset = new System.Drawing.Point(2, 0);
+            this.guna2Button10.ImageSize = new System.Drawing.Size(102, 28);
+            this.guna2Button10.Location = new System.Drawing.Point(0, 0);
+            this.guna2Button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.guna2Button10.Name = "guna2Button10";
+            this.guna2Button10.Size = new System.Drawing.Size(323, 29);
+            this.guna2Button10.TabIndex = 3;
+            this.guna2Button10.Text = "CHANGE THEME";
             // 
             // Starfire
             // 
@@ -2050,12 +3156,49 @@
             this.NoDamage_Panel.PerformLayout();
             this.Invincible_Panel.ResumeLayout(false);
             this.Invincible_Panel.PerformLayout();
-            this.Starfire_Editor.ResumeLayout(false);
+            this.Starfire_PlayerEditor.ResumeLayout(false);
             this.Player_Attributes_GB.ResumeLayout(false);
-            this.PlayerWalkSpeed_Panel.ResumeLayout(false);
-            this.PlayerWalkSpeed_Panel.PerformLayout();
             this.AtkUpScale_Panel.ResumeLayout(false);
             this.AtkUpScale_Panel.PerformLayout();
+            this.Starfire_Teleports.ResumeLayout(false);
+            this.Starfire_Other.ResumeLayout(false);
+            this.PlayerWalkSpeed_Panel.ResumeLayout(false);
+            this.PlayerWalkSpeed_Panel.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
+            this.Player_Coordinates_GB.ResumeLayout(false);
+            this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel4.PerformLayout();
+            this.guna2Panel5.ResumeLayout(false);
+            this.guna2Panel5.PerformLayout();
+            this.guna2Panel6.ResumeLayout(false);
+            this.guna2Panel6.PerformLayout();
+            this.Starfire_Teleports_TabControl.ResumeLayout(false);
+            this.ElevatorsTab.ResumeLayout(false);
+            this.EscalatorsTab.ResumeLayout(false);
+            this.OtherTab.ResumeLayout(false);
+            this.Elevator_Normal_GB.ResumeLayout(false);
+            this.guna2Panel9.ResumeLayout(false);
+            this.Elevator_VIP_GB.ResumeLayout(false);
+            this.guna2Panel3.ResumeLayout(false);
+            this.Escalator_1_GB.ResumeLayout(false);
+            this.guna2Panel7.ResumeLayout(false);
+            this.Escalator_2_GB.ResumeLayout(false);
+            this.guna2Panel8.ResumeLayout(false);
+            this.Escalator_3_GB.ResumeLayout(false);
+            this.guna2Panel10.ResumeLayout(false);
+            this.Escalator_4_GB.ResumeLayout(false);
+            this.guna2Panel11.ResumeLayout(false);
+            this.guna2Panel12.ResumeLayout(false);
+            this.BackToBaseFloor_GB.ResumeLayout(false);
+            this.guna2Panel13.ResumeLayout(false);
+            this.StampRallyTable_GB.ResumeLayout(false);
+            this.guna2GroupBox9.ResumeLayout(false);
+            this.guna2Panel14.ResumeLayout(false);
+            this.guna2GroupBox10.ResumeLayout(false);
+            this.guna2Panel15.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2064,13 +3207,12 @@
 
         private Guna.UI2.WinForms.Guna2BorderlessForm Starfire_Borderless_Form;
         private Guna.UI2.WinForms.Guna2Panel Starfire_Header_Panel1;
-        private Guna.UI2.WinForms.Guna2Button Starfire_Exit;
         private Guna.UI2.WinForms.Guna2Panel Starfire_Icon_Panel;
         private Guna.UI2.WinForms.Guna2Button Starfire_Icon;
         private Guna.UI2.WinForms.Guna2Panel Starfire_Background_Panel;
         private Guna.UI2.WinForms.Guna2TabControl Starfire_TabControl;
         private System.Windows.Forms.TabPage Starfire_CheatsTab;
-        private System.Windows.Forms.TabPage Starfire_Editor;
+        private System.Windows.Forms.TabPage Starfire_PlayerEditor;
         private System.Windows.Forms.Label Starfire_Version;
         private System.Windows.Forms.Label Starfire_Header_Label;
         private Guna.UI2.WinForms.Guna2Panel Starfire_Footer_Panel;
@@ -2116,12 +3258,9 @@
         private Guna.UI2.WinForms.Guna2Panel AtkUpScale_Panel;
         private System.Windows.Forms.Label AtkUpScale_Label;
         private Guna.UI2.WinForms.Guna2ToggleSwitch AtkUpScale_Toggle;
-        private Guna.UI2.WinForms.Guna2Panel PlayerWalkSpeed_Panel;
-        private System.Windows.Forms.Label PlayerWalkSpeed_Label;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch PlayerWalkSpeed_Toggle;
         private System.ComponentModel.BackgroundWorker Starfire_BGWorker;
-        private System.Windows.Forms.TabPage Teleports_Tab;
-        private System.Windows.Forms.TabPage OTHER_TAB;
+        private System.Windows.Forms.TabPage Starfire_Teleports;
+        private System.Windows.Forms.TabPage Starfire_Other;
         private Guna.UI2.WinForms.Guna2Button InfHealth_Tooltip;
         private Guna.UI2.WinForms.Guna2HtmlToolTip Starfire_Tooltip;
         private Guna.UI2.WinForms.Guna2Button SpeedhackSprint_Tooltip;
@@ -2178,13 +3317,78 @@
         private Guna.UI2.WinForms.Guna2ToggleSwitch SpeedhackCarryWalk_Toggle;
         private System.Windows.Forms.Label AtkUpScale_Value;
         private Guna.UI2.WinForms.Guna2TrackBar AtkUpScale_TrackBar;
-        private System.Windows.Forms.Label PlayerWalkSpeed_Value;
-        private Guna.UI2.WinForms.Guna2TrackBar PlayerWalkSpeed_TrackBar;
         private Guna.UI2.WinForms.Guna2DragControl Starfire_Header_Label_DragControl;
         private Guna.UI2.WinForms.Guna2DragControl Starfire_Version_DragControl;
         private Guna.UI2.WinForms.Guna2DragControl Starfire_Footer_DragControl;
         private Guna.UI2.WinForms.Guna2DragControl Starfire_Status_DragControl;
         private Guna.UI2.WinForms.Guna2DragControl Starfire_TabControl_DragControl;
         private Guna.UI2.WinForms.Guna2DragControl Starfire_Icon_DragControl;
+        private Guna.UI2.WinForms.Guna2ControlBox Starfire_Minimize;
+        private Guna.UI2.WinForms.Guna2ControlBox Starfire_Exit;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar1;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;
+        private Guna.UI2.WinForms.Guna2Panel PlayerWalkSpeed_Panel;
+        private System.Windows.Forms.Label PlayerWalkSpeed_Value;
+        private Guna.UI2.WinForms.Guna2TrackBar PlayerWalkSpeed_TrackBar;
+        private System.Windows.Forms.Label PlayerWalkSpeed_Label;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch PlayerWalkSpeed_Toggle;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar2;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch2;
+        private Guna.UI2.WinForms.Guna2GroupBox Player_Coordinates_GB;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar4;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch4;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar5;
+        private System.Windows.Forms.Label label10;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch5;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private System.Windows.Forms.Label label11;
+        private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar6;
+        private System.Windows.Forms.Label label12;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch6;
+        private Guna.UI2.WinForms.Guna2TabControl Starfire_Teleports_TabControl;
+        private System.Windows.Forms.TabPage ElevatorsTab;
+        private System.Windows.Forms.TabPage EscalatorsTab;
+        private System.Windows.Forms.TabPage OtherTab;
+        private Guna.UI2.WinForms.Guna2GroupBox Elevator_Normal_GB;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private Guna.UI2.WinForms.Guna2Button Elevator_Normal_Button;
+        private Guna.UI2.WinForms.Guna2GroupBox Elevator_VIP_GB;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2Button Elevator_VIP_Button;
+        private Guna.UI2.WinForms.Guna2GroupBox Escalator_4_GB;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
+        private Guna.UI2.WinForms.Guna2Button Escalator_4_Button;
+        private Guna.UI2.WinForms.Guna2GroupBox Escalator_3_GB;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
+        private Guna.UI2.WinForms.Guna2Button Escalator_3_Button;
+        private Guna.UI2.WinForms.Guna2GroupBox Escalator_2_GB;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Button Escalator_2_Button;
+        private Guna.UI2.WinForms.Guna2GroupBox Escalator_1_GB;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private Guna.UI2.WinForms.Guna2Button Escalator_1_Button;
+        private Guna.UI2.WinForms.Guna2GroupBox StampRallyTable_GB;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel13;
+        private Guna.UI2.WinForms.Guna2Button guna2Button8;
+        private Guna.UI2.WinForms.Guna2GroupBox BackToBaseFloor_GB;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
+        private Guna.UI2.WinForms.Guna2Button BackToBaseFloor_Button;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox9;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
+        private Guna.UI2.WinForms.Guna2Button guna2Button9;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox10;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel15;
+        private Guna.UI2.WinForms.Guna2Button guna2Button10;
     }
 }
