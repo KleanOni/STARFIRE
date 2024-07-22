@@ -14000,8 +14000,8 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mUserDataLoadStart = mGameInfo + "0x1510"; // uint32_t : 1
                 public const string mUserDataIsLoadedCheck = mGameInfo + "0x1510"; // uint32_t : 1
                 public const string mPlayerFirstSetup = mGameInfo + "0x1510"; // uint32_t : 1
-                public const string mbPlayerEmergency = mGameInfo + "0x1510"; // uint32_t : 1
-                public const string mbPlayerEmergencyRemoteEvent = mGameInfo + "0x1510"; // uint32_t : 1
+                public const string mbPlayerEmergency = mGameInfo + "0x1514"; // uint32_t : 1
+                public const string mbPlayerEmergencyRemoteEvent = mGameInfo + "0x1514"; // uint32_t : 1
                 public const string mContinueRevival = mGameInfo + "0x1510"; // uint32_t : 1
                 public const string mbInBossStage = mGameInfo + "0x1510"; // uint32_t : 1
                 public const string mbPreLevelBossStage = mGameInfo + "0x1510"; // uint32_t : 1
