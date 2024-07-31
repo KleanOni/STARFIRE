@@ -1,7 +1,6 @@
 # STARFIRE!
-
-![337151033-4c758ec4-2a2c-42ac-9c54-291f1efd6068](https://github.com/KleanOni/STARFIRE/assets/103227752/73238c1b-ddde-460a-b62a-b804f4b401a0)
-
+![Starfire441](https://github.com/user-attachments/assets/66aa68ab-4d10-45ba-95ab-c94b56c2b58d)
 
 Enhancement tool for the game LET IT DIE - PC Version Steam only!
 Nuget Requirements - Memory.dll & Guna UI
+You can download the source or the release build via the right hand side on github!
