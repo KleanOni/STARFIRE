@@ -34,7 +34,7 @@
             this.Starfire_Icon_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Starfire_Icon = new Guna.UI2.WinForms.Guna2Button();
             this.Starfire_Header_Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.Starfire_Exit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.Starfire_Exit = new Guna.UI2.WinForms.Guna2Button();
             this.Starfire_Minimize = new Guna.UI2.WinForms.Guna2ControlBox();
             this.Starfire_Version = new System.Windows.Forms.Label();
             this.Starfire_Header_Label = new System.Windows.Forms.Label();
@@ -44,6 +44,10 @@
             this.Starfire_TabControl = new Guna.UI2.WinForms.Guna2TabControl();
             this.Starfire_CheatsTab = new System.Windows.Forms.TabPage();
             this.Other_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.InstantSpawnJackals_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.InstantSpawnJackals_Tooltip = new Guna.UI2.WinForms.Guna2Button();
+            this.InstantSpawnJackals_Label = new System.Windows.Forms.Label();
+            this.InstantSpawnJackals_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.OpenDailyRewardBox_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.OpenDailyRewardBox_Tooltip = new Guna.UI2.WinForms.Guna2Button();
             this.OpenDailyRewardBox_Label = new System.Windows.Forms.Label();
@@ -124,7 +128,7 @@
             this.Invincible_Label = new System.Windows.Forms.Label();
             this.Invincible_Toggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.Starfire_PlayerEditor = new System.Windows.Forms.TabPage();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.World_GB = new Guna.UI2.WinForms.Guna2GroupBox();
             this.WorldTimeScale_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.WorldTimeScale_Value = new System.Windows.Forms.Label();
             this.WorldTimeScale_NumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
@@ -148,25 +152,43 @@
             this.Starfire_Teleports_TabControl = new Guna.UI2.WinForms.Guna2TabControl();
             this.ElevatorsTab = new System.Windows.Forms.TabPage();
             this.Elevator_VIP_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ElevatorVIP_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Elevator_VIP_Button = new Guna.UI2.WinForms.Guna2Button();
             this.Elevator_Normal_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ElevatorNormal_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Elevator_Normal_Button = new Guna.UI2.WinForms.Guna2Button();
             this.EscalatorsTab = new System.Windows.Forms.TabPage();
             this.Escalator_4_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Escalator4_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Escalator_4_Button = new Guna.UI2.WinForms.Guna2Button();
             this.Escalator_3_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Escalator3_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Escalator_3_Button = new Guna.UI2.WinForms.Guna2Button();
             this.Escalator_2_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Escalator2_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Escalator_2_Button = new Guna.UI2.WinForms.Guna2Button();
             this.Escalator_1_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Escalator1_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Escalator_1_Button = new Guna.UI2.WinForms.Guna2Button();
             this.ResourcesTab = new System.Windows.Forms.TabPage();
+            this.Resource10_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.Resource10_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Resource10_Teleport = new Guna.UI2.WinForms.Guna2Button();
+            this.Resource9_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.Resource9_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Resource9_Teleport = new Guna.UI2.WinForms.Guna2Button();
+            this.Resource8_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.Resource8_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Resource8_Teleport = new Guna.UI2.WinForms.Guna2Button();
+            this.Resource7_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.Resource7_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Resource7_Teleport = new Guna.UI2.WinForms.Guna2Button();
+            this.Resource6_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.Resource6_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Resource6_Teleport = new Guna.UI2.WinForms.Guna2Button();
+            this.Resource5_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.Resource5_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Resource5_Teleport = new Guna.UI2.WinForms.Guna2Button();
             this.Resource4_GB = new Guna.UI2.WinForms.Guna2GroupBox();
             this.Resource4_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Resource4_Teleport = new Guna.UI2.WinForms.Guna2Button();
@@ -177,22 +199,22 @@
             this.Resource2_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Resource2_Teleport = new Guna.UI2.WinForms.Guna2Button();
             this.Resource1_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Resource1_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Resource1_Teleport = new Guna.UI2.WinForms.Guna2Button();
             this.OtherTab = new System.Windows.Forms.TabPage();
             this.StampRallyTable_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
+            this.StampRallyTable_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.StampRallyTable_Button = new Guna.UI2.WinForms.Guna2Button();
             this.BackToBaseFloor_GB = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
+            this.BackToBaseFloor_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.BackToBaseFloor_Button = new Guna.UI2.WinForms.Guna2Button();
             this.Starfire_Other = new System.Windows.Forms.TabPage();
-            this.guna2GroupBox9 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2GroupBox10 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Panel15 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
+            this.LightTheme_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.LightTheme_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.LightTheme_Button = new Guna.UI2.WinForms.Guna2Button();
+            this.DarkTheme_GB = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.DarkTheme_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.DarkTheme_Button = new Guna.UI2.WinForms.Guna2Button();
             this.Starfire_BGWorker = new System.ComponentModel.BackgroundWorker();
             this.Starfire_Tooltip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.InfiniteHP_Timer = new System.Windows.Forms.Timer(this.components);
@@ -211,6 +233,8 @@
             this.Starfire_Status_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Starfire_TabControl_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Starfire_Icon_DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.positionCheckTimer = new System.Windows.Forms.Timer(this.components);
+            this.InstantSpawnJackals_Timer = new System.Windows.Forms.Timer(this.components);
             this.Starfire_Icon_Panel.SuspendLayout();
             this.Starfire_Header_Panel1.SuspendLayout();
             this.Starfire_Background_Panel.SuspendLayout();
@@ -218,6 +242,7 @@
             this.Starfire_TabControl.SuspendLayout();
             this.Starfire_CheatsTab.SuspendLayout();
             this.Other_GB.SuspendLayout();
+            this.InstantSpawnJackals_Panel.SuspendLayout();
             this.OpenDailyRewardBox_Panel.SuspendLayout();
             this.KillcoinVacuum_Panel.SuspendLayout();
             this.UnFogMiniMap_Panel.SuspendLayout();
@@ -241,7 +266,7 @@
             this.NoDamage_Panel.SuspendLayout();
             this.Invincible_Panel.SuspendLayout();
             this.Starfire_PlayerEditor.SuspendLayout();
-            this.guna2GroupBox1.SuspendLayout();
+            this.World_GB.SuspendLayout();
             this.WorldTimeScale_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WorldTimeScale_NumericUpDown)).BeginInit();
             this.Player_Attributes_GB.SuspendLayout();
@@ -253,19 +278,31 @@
             this.Starfire_Teleports_TabControl.SuspendLayout();
             this.ElevatorsTab.SuspendLayout();
             this.Elevator_VIP_GB.SuspendLayout();
-            this.guna2Panel3.SuspendLayout();
+            this.ElevatorVIP_Panel.SuspendLayout();
             this.Elevator_Normal_GB.SuspendLayout();
-            this.guna2Panel9.SuspendLayout();
+            this.ElevatorNormal_Panel.SuspendLayout();
             this.EscalatorsTab.SuspendLayout();
             this.Escalator_4_GB.SuspendLayout();
-            this.guna2Panel11.SuspendLayout();
+            this.Escalator4_Panel.SuspendLayout();
             this.Escalator_3_GB.SuspendLayout();
-            this.guna2Panel10.SuspendLayout();
+            this.Escalator3_Panel.SuspendLayout();
             this.Escalator_2_GB.SuspendLayout();
-            this.guna2Panel8.SuspendLayout();
+            this.Escalator2_Panel.SuspendLayout();
             this.Escalator_1_GB.SuspendLayout();
-            this.guna2Panel7.SuspendLayout();
+            this.Escalator1_Panel.SuspendLayout();
             this.ResourcesTab.SuspendLayout();
+            this.Resource10_GB.SuspendLayout();
+            this.Resource10_Panel.SuspendLayout();
+            this.Resource9_GB.SuspendLayout();
+            this.Resource9_Panel.SuspendLayout();
+            this.Resource8_GB.SuspendLayout();
+            this.Resource8_Panel.SuspendLayout();
+            this.Resource7_GB.SuspendLayout();
+            this.Resource7_Panel.SuspendLayout();
+            this.Resource6_GB.SuspendLayout();
+            this.Resource6_Panel.SuspendLayout();
+            this.Resource5_GB.SuspendLayout();
+            this.Resource5_Panel.SuspendLayout();
             this.Resource4_GB.SuspendLayout();
             this.Resource4_Panel.SuspendLayout();
             this.Resource3_GB.SuspendLayout();
@@ -273,17 +310,17 @@
             this.Resource2_GB.SuspendLayout();
             this.Resource2_Panel.SuspendLayout();
             this.Resource1_GB.SuspendLayout();
-            this.guna2Panel6.SuspendLayout();
+            this.Resource1_Panel.SuspendLayout();
             this.OtherTab.SuspendLayout();
             this.StampRallyTable_GB.SuspendLayout();
-            this.guna2Panel13.SuspendLayout();
+            this.StampRallyTable_Panel.SuspendLayout();
             this.BackToBaseFloor_GB.SuspendLayout();
-            this.guna2Panel12.SuspendLayout();
+            this.BackToBaseFloor_Panel.SuspendLayout();
             this.Starfire_Other.SuspendLayout();
-            this.guna2GroupBox9.SuspendLayout();
-            this.guna2Panel14.SuspendLayout();
-            this.guna2GroupBox10.SuspendLayout();
-            this.guna2Panel15.SuspendLayout();
+            this.LightTheme_GB.SuspendLayout();
+            this.LightTheme_Panel.SuspendLayout();
+            this.DarkTheme_GB.SuspendLayout();
+            this.DarkTheme_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Starfire_Borderless_Form
@@ -349,21 +386,21 @@
             // 
             // Starfire_Exit
             // 
-            this.Starfire_Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Starfire_Exit.BackColor = System.Drawing.Color.Transparent;
             this.Starfire_Exit.BorderColor = System.Drawing.Color.Transparent;
-            this.Starfire_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Starfire_Exit.FillColor = System.Drawing.Color.Black;
-            this.Starfire_Exit.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.Starfire_Exit.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.Starfire_Exit.IconColor = System.Drawing.Color.White;
-            this.Starfire_Exit.Location = new System.Drawing.Point(336, 3);
+            this.Starfire_Exit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Starfire_Exit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Starfire_Exit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Starfire_Exit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Starfire_Exit.FillColor = System.Drawing.Color.Transparent;
+            this.Starfire_Exit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Starfire_Exit.ForeColor = System.Drawing.Color.White;
+            this.Starfire_Exit.Location = new System.Drawing.Point(337, 0);
             this.Starfire_Exit.Name = "Starfire_Exit";
-            this.Starfire_Exit.PressedColor = System.Drawing.Color.Transparent;
-            this.Starfire_Exit.Size = new System.Drawing.Size(28, 25);
+            this.Starfire_Exit.Size = new System.Drawing.Size(28, 28);
             this.Starfire_Exit.TabIndex = 6;
-            this.Starfire_Tooltip.SetToolTip(this.Starfire_Exit, "Exit Program!");
-            this.Starfire_Exit.Click += new System.EventHandler(this.Starfire_Exit_Click);
+            this.Starfire_Exit.Text = "X";
+            this.Starfire_Exit.Click += new System.EventHandler(this.Starfire_Exit_Click_1);
             // 
             // Starfire_Minimize
             // 
@@ -392,7 +429,7 @@
             this.Starfire_Version.Name = "Starfire_Version";
             this.Starfire_Version.Size = new System.Drawing.Size(59, 13);
             this.Starfire_Version.TabIndex = 4;
-            this.Starfire_Version.Text = "V:4.4.0.0.0";
+            this.Starfire_Version.Text = "V:4.4.1.0.0";
             // 
             // Starfire_Header_Label
             // 
@@ -412,14 +449,14 @@
             this.Starfire_Background_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Starfire_Background_Panel.Location = new System.Drawing.Point(0, 28);
             this.Starfire_Background_Panel.Name = "Starfire_Background_Panel";
-            this.Starfire_Background_Panel.Size = new System.Drawing.Size(364, 552);
+            this.Starfire_Background_Panel.Size = new System.Drawing.Size(364, 548);
             this.Starfire_Background_Panel.TabIndex = 1;
             // 
             // Starfire_Footer_Panel
             // 
             this.Starfire_Footer_Panel.Controls.Add(this.Starfire_Status);
             this.Starfire_Footer_Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Starfire_Footer_Panel.Location = new System.Drawing.Point(0, 535);
+            this.Starfire_Footer_Panel.Location = new System.Drawing.Point(0, 531);
             this.Starfire_Footer_Panel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Starfire_Footer_Panel.Name = "Starfire_Footer_Panel";
             this.Starfire_Footer_Panel.Size = new System.Drawing.Size(364, 17);
@@ -446,7 +483,7 @@
             this.Starfire_TabControl.Location = new System.Drawing.Point(0, 0);
             this.Starfire_TabControl.Name = "Starfire_TabControl";
             this.Starfire_TabControl.SelectedIndex = 0;
-            this.Starfire_TabControl.Size = new System.Drawing.Size(364, 552);
+            this.Starfire_TabControl.Size = new System.Drawing.Size(364, 548);
             this.Starfire_TabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.Starfire_TabControl.TabButtonHoverState.FillColor = System.Drawing.Color.Black;
             this.Starfire_TabControl.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -478,13 +515,14 @@
             this.Starfire_CheatsTab.Location = new System.Drawing.Point(4, 29);
             this.Starfire_CheatsTab.Name = "Starfire_CheatsTab";
             this.Starfire_CheatsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.Starfire_CheatsTab.Size = new System.Drawing.Size(356, 519);
+            this.Starfire_CheatsTab.Size = new System.Drawing.Size(356, 515);
             this.Starfire_CheatsTab.TabIndex = 0;
             this.Starfire_CheatsTab.Text = "CHEATS";
             // 
             // Other_GB
             // 
             this.Other_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Other_GB.Controls.Add(this.InstantSpawnJackals_Panel);
             this.Other_GB.Controls.Add(this.OpenDailyRewardBox_Panel);
             this.Other_GB.Controls.Add(this.KillcoinVacuum_Panel);
             this.Other_GB.Controls.Add(this.UnFogMiniMap_Panel);
@@ -498,11 +536,78 @@
             this.Other_GB.ForeColor = System.Drawing.Color.White;
             this.Other_GB.Location = new System.Drawing.Point(3, 376);
             this.Other_GB.Name = "Other_GB";
-            this.Other_GB.Size = new System.Drawing.Size(350, 130);
+            this.Other_GB.Size = new System.Drawing.Size(350, 151);
             this.Other_GB.TabIndex = 5;
             this.Other_GB.Text = "[OTHER]";
             this.Other_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Other_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // InstantSpawnJackals_Panel
+            // 
+            this.InstantSpawnJackals_Panel.Controls.Add(this.InstantSpawnJackals_Tooltip);
+            this.InstantSpawnJackals_Panel.Controls.Add(this.InstantSpawnJackals_Label);
+            this.InstantSpawnJackals_Panel.Controls.Add(this.InstantSpawnJackals_Toggle);
+            this.InstantSpawnJackals_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.InstantSpawnJackals_Panel.Location = new System.Drawing.Point(0, 126);
+            this.InstantSpawnJackals_Panel.Name = "InstantSpawnJackals_Panel";
+            this.InstantSpawnJackals_Panel.Size = new System.Drawing.Size(350, 20);
+            this.InstantSpawnJackals_Panel.TabIndex = 19;
+            // 
+            // InstantSpawnJackals_Tooltip
+            // 
+            this.InstantSpawnJackals_Tooltip.BackColor = System.Drawing.Color.Transparent;
+            this.InstantSpawnJackals_Tooltip.BorderColor = System.Drawing.Color.Transparent;
+            this.InstantSpawnJackals_Tooltip.BorderRadius = 6;
+            this.InstantSpawnJackals_Tooltip.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.InstantSpawnJackals_Tooltip.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.InstantSpawnJackals_Tooltip.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.InstantSpawnJackals_Tooltip.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.InstantSpawnJackals_Tooltip.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.InstantSpawnJackals_Tooltip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InstantSpawnJackals_Tooltip.FillColor = System.Drawing.Color.Transparent;
+            this.InstantSpawnJackals_Tooltip.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InstantSpawnJackals_Tooltip.ForeColor = System.Drawing.Color.White;
+            this.InstantSpawnJackals_Tooltip.Image = global::STARFIRE.Properties.Resources.Information_WB;
+            this.InstantSpawnJackals_Tooltip.Location = new System.Drawing.Point(330, 0);
+            this.InstantSpawnJackals_Tooltip.Name = "InstantSpawnJackals_Tooltip";
+            this.InstantSpawnJackals_Tooltip.PressedColor = System.Drawing.Color.Transparent;
+            this.InstantSpawnJackals_Tooltip.Size = new System.Drawing.Size(20, 20);
+            this.InstantSpawnJackals_Tooltip.TabIndex = 10;
+            this.Starfire_Tooltip.SetToolTip(this.InstantSpawnJackals_Tooltip, "Make sure you can see the daily reward box with a timer! Then Enable, open box, a" +
+        "fter box is gone go up to 1st floor escalator, then after loading go back down, " +
+        "rinse repeat!");
+            // 
+            // InstantSpawnJackals_Label
+            // 
+            this.InstantSpawnJackals_Label.AutoSize = true;
+            this.InstantSpawnJackals_Label.BackColor = System.Drawing.Color.Transparent;
+            this.InstantSpawnJackals_Label.Dock = System.Windows.Forms.DockStyle.Left;
+            this.InstantSpawnJackals_Label.Location = new System.Drawing.Point(38, 0);
+            this.InstantSpawnJackals_Label.Name = "InstantSpawnJackals_Label";
+            this.InstantSpawnJackals_Label.Size = new System.Drawing.Size(225, 15);
+            this.InstantSpawnJackals_Label.TabIndex = 3;
+            this.InstantSpawnJackals_Label.Text = "- INSTANT SPAWN JACKALS: DISABLED";
+            // 
+            // InstantSpawnJackals_Toggle
+            // 
+            this.InstantSpawnJackals_Toggle.Animated = true;
+            this.InstantSpawnJackals_Toggle.BackColor = System.Drawing.Color.Transparent;
+            this.InstantSpawnJackals_Toggle.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.InstantSpawnJackals_Toggle.CheckedState.BorderRadius = 0;
+            this.InstantSpawnJackals_Toggle.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.InstantSpawnJackals_Toggle.CheckedState.InnerBorderColor = System.Drawing.Color.DarkGreen;
+            this.InstantSpawnJackals_Toggle.CheckedState.InnerColor = System.Drawing.Color.DarkGreen;
+            this.InstantSpawnJackals_Toggle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.InstantSpawnJackals_Toggle.Location = new System.Drawing.Point(0, 0);
+            this.InstantSpawnJackals_Toggle.Name = "InstantSpawnJackals_Toggle";
+            this.InstantSpawnJackals_Toggle.Size = new System.Drawing.Size(38, 20);
+            this.InstantSpawnJackals_Toggle.TabIndex = 0;
+            this.InstantSpawnJackals_Toggle.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.InstantSpawnJackals_Toggle.UncheckedState.BorderRadius = 0;
+            this.InstantSpawnJackals_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.InstantSpawnJackals_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.InstantSpawnJackals_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.InstantSpawnJackals_Toggle.CheckedChanged += new System.EventHandler(this.InstantSpawnJackals_Toggle_CheckedChanged);
             // 
             // OpenDailyRewardBox_Panel
             // 
@@ -1810,32 +1915,32 @@
             // Starfire_PlayerEditor
             // 
             this.Starfire_PlayerEditor.BackColor = System.Drawing.Color.Black;
-            this.Starfire_PlayerEditor.Controls.Add(this.guna2GroupBox1);
+            this.Starfire_PlayerEditor.Controls.Add(this.World_GB);
             this.Starfire_PlayerEditor.Controls.Add(this.Player_Attributes_GB);
             this.Starfire_PlayerEditor.Location = new System.Drawing.Point(4, 29);
             this.Starfire_PlayerEditor.Name = "Starfire_PlayerEditor";
             this.Starfire_PlayerEditor.Padding = new System.Windows.Forms.Padding(3);
-            this.Starfire_PlayerEditor.Size = new System.Drawing.Size(356, 519);
+            this.Starfire_PlayerEditor.Size = new System.Drawing.Size(356, 647);
             this.Starfire_PlayerEditor.TabIndex = 1;
             this.Starfire_PlayerEditor.Text = "EDITOR";
             // 
-            // guna2GroupBox1
+            // World_GB
             // 
-            this.guna2GroupBox1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox1.Controls.Add(this.WorldTimeScale_Panel);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.guna2GroupBox1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
-            this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2GroupBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(3, 76);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(350, 91);
-            this.guna2GroupBox1.TabIndex = 3;
-            this.guna2GroupBox1.Text = "[PLAYER: ATTRIBUTES]";
-            this.guna2GroupBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.guna2GroupBox1.TextOffset = new System.Drawing.Point(0, -6);
+            this.World_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.World_GB.Controls.Add(this.WorldTimeScale_Panel);
+            this.World_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.World_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.World_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.World_GB.FillColor = System.Drawing.Color.Transparent;
+            this.World_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.World_GB.ForeColor = System.Drawing.Color.White;
+            this.World_GB.Location = new System.Drawing.Point(3, 76);
+            this.World_GB.Name = "World_GB";
+            this.World_GB.Size = new System.Drawing.Size(350, 91);
+            this.World_GB.TabIndex = 3;
+            this.World_GB.Text = "[WORLD: OTHER]";
+            this.World_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.World_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
             // WorldTimeScale_Panel
             // 
@@ -1856,7 +1961,7 @@
             this.WorldTimeScale_Value.BackColor = System.Drawing.Color.Transparent;
             this.WorldTimeScale_Value.Dock = System.Windows.Forms.DockStyle.Left;
             this.WorldTimeScale_Value.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.WorldTimeScale_Value.Location = new System.Drawing.Point(220, 0);
+            this.WorldTimeScale_Value.Location = new System.Drawing.Point(234, 0);
             this.WorldTimeScale_Value.Name = "WorldTimeScale_Value";
             this.WorldTimeScale_Value.Size = new System.Drawing.Size(14, 15);
             this.WorldTimeScale_Value.TabIndex = 10;
@@ -1874,12 +1979,12 @@
             this.WorldTimeScale_NumericUpDown.ForeColor = System.Drawing.Color.White;
             this.WorldTimeScale_NumericUpDown.Location = new System.Drawing.Point(121, 0);
             this.WorldTimeScale_NumericUpDown.Maximum = new decimal(new int[] {
-            999999,
+            500,
             0,
             0,
             0});
             this.WorldTimeScale_NumericUpDown.Name = "WorldTimeScale_NumericUpDown";
-            this.WorldTimeScale_NumericUpDown.Size = new System.Drawing.Size(99, 20);
+            this.WorldTimeScale_NumericUpDown.Size = new System.Drawing.Size(113, 20);
             this.WorldTimeScale_NumericUpDown.TabIndex = 9;
             this.WorldTimeScale_NumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.WorldTimeScale_NumericUpDown.Value = new decimal(new int[] {
@@ -1940,6 +2045,7 @@
             this.WorldTimeScale_Toggle.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.WorldTimeScale_Toggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.WorldTimeScale_Toggle.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.WorldTimeScale_Toggle.CheckedChanged += new System.EventHandler(this.WorldTimeScale_Toggle_CheckedChanged);
             // 
             // Player_Attributes_GB
             // 
@@ -1979,7 +2085,7 @@
             this.PlayerTimescale_Value.BackColor = System.Drawing.Color.Transparent;
             this.PlayerTimescale_Value.Dock = System.Windows.Forms.DockStyle.Left;
             this.PlayerTimescale_Value.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.PlayerTimescale_Value.Location = new System.Drawing.Point(220, 0);
+            this.PlayerTimescale_Value.Location = new System.Drawing.Point(233, 0);
             this.PlayerTimescale_Value.Name = "PlayerTimescale_Value";
             this.PlayerTimescale_Value.Size = new System.Drawing.Size(14, 15);
             this.PlayerTimescale_Value.TabIndex = 10;
@@ -1997,7 +2103,7 @@
             this.PlayerTimescale_NumericUpDown.ForeColor = System.Drawing.Color.White;
             this.PlayerTimescale_NumericUpDown.Location = new System.Drawing.Point(121, 0);
             this.PlayerTimescale_NumericUpDown.Maximum = new decimal(new int[] {
-            999999,
+            500,
             0,
             0,
             0});
@@ -2007,7 +2113,7 @@
             0,
             0});
             this.PlayerTimescale_NumericUpDown.Name = "PlayerTimescale_NumericUpDown";
-            this.PlayerTimescale_NumericUpDown.Size = new System.Drawing.Size(99, 20);
+            this.PlayerTimescale_NumericUpDown.Size = new System.Drawing.Size(112, 20);
             this.PlayerTimescale_NumericUpDown.TabIndex = 9;
             this.PlayerTimescale_NumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.PlayerTimescale_NumericUpDown.Value = new decimal(new int[] {
@@ -2183,7 +2289,7 @@
             this.Starfire_Teleports.Location = new System.Drawing.Point(4, 29);
             this.Starfire_Teleports.Name = "Starfire_Teleports";
             this.Starfire_Teleports.Padding = new System.Windows.Forms.Padding(3);
-            this.Starfire_Teleports.Size = new System.Drawing.Size(356, 519);
+            this.Starfire_Teleports.Size = new System.Drawing.Size(356, 647);
             this.Starfire_Teleports.TabIndex = 2;
             this.Starfire_Teleports.Text = "TELEPORTS";
             // 
@@ -2198,7 +2304,7 @@
             this.Starfire_Teleports_TabControl.Location = new System.Drawing.Point(3, 3);
             this.Starfire_Teleports_TabControl.Name = "Starfire_Teleports_TabControl";
             this.Starfire_Teleports_TabControl.SelectedIndex = 0;
-            this.Starfire_Teleports_TabControl.Size = new System.Drawing.Size(350, 513);
+            this.Starfire_Teleports_TabControl.Size = new System.Drawing.Size(350, 641);
             this.Starfire_Teleports_TabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.Starfire_Teleports_TabControl.TabButtonHoverState.FillColor = System.Drawing.Color.Black;
             this.Starfire_Teleports_TabControl.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -2228,14 +2334,14 @@
             this.ElevatorsTab.Location = new System.Drawing.Point(4, 29);
             this.ElevatorsTab.Name = "ElevatorsTab";
             this.ElevatorsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ElevatorsTab.Size = new System.Drawing.Size(342, 480);
+            this.ElevatorsTab.Size = new System.Drawing.Size(342, 608);
             this.ElevatorsTab.TabIndex = 0;
             this.ElevatorsTab.Text = "ELEVATORS";
             // 
             // Elevator_VIP_GB
             // 
             this.Elevator_VIP_GB.BorderColor = System.Drawing.Color.Transparent;
-            this.Elevator_VIP_GB.Controls.Add(this.guna2Panel3);
+            this.Elevator_VIP_GB.Controls.Add(this.ElevatorVIP_Panel);
             this.Elevator_VIP_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Elevator_VIP_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
             this.Elevator_VIP_GB.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2250,14 +2356,14 @@
             this.Elevator_VIP_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Elevator_VIP_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel3
+            // ElevatorVIP_Panel
             // 
-            this.guna2Panel3.Controls.Add(this.Elevator_VIP_Button);
-            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel3.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(336, 35);
-            this.guna2Panel3.TabIndex = 1;
+            this.ElevatorVIP_Panel.Controls.Add(this.Elevator_VIP_Button);
+            this.ElevatorVIP_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ElevatorVIP_Panel.Location = new System.Drawing.Point(0, 26);
+            this.ElevatorVIP_Panel.Name = "ElevatorVIP_Panel";
+            this.ElevatorVIP_Panel.Size = new System.Drawing.Size(336, 35);
+            this.ElevatorVIP_Panel.TabIndex = 1;
             // 
             // Elevator_VIP_Button
             // 
@@ -2293,7 +2399,7 @@
             // Elevator_Normal_GB
             // 
             this.Elevator_Normal_GB.BorderColor = System.Drawing.Color.Transparent;
-            this.Elevator_Normal_GB.Controls.Add(this.guna2Panel9);
+            this.Elevator_Normal_GB.Controls.Add(this.ElevatorNormal_Panel);
             this.Elevator_Normal_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Elevator_Normal_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
             this.Elevator_Normal_GB.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2308,14 +2414,14 @@
             this.Elevator_Normal_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Elevator_Normal_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel9
+            // ElevatorNormal_Panel
             // 
-            this.guna2Panel9.Controls.Add(this.Elevator_Normal_Button);
-            this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel9.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel9.Name = "guna2Panel9";
-            this.guna2Panel9.Size = new System.Drawing.Size(336, 35);
-            this.guna2Panel9.TabIndex = 1;
+            this.ElevatorNormal_Panel.Controls.Add(this.Elevator_Normal_Button);
+            this.ElevatorNormal_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ElevatorNormal_Panel.Location = new System.Drawing.Point(0, 26);
+            this.ElevatorNormal_Panel.Name = "ElevatorNormal_Panel";
+            this.ElevatorNormal_Panel.Size = new System.Drawing.Size(336, 35);
+            this.ElevatorNormal_Panel.TabIndex = 1;
             // 
             // Elevator_Normal_Button
             // 
@@ -2358,14 +2464,14 @@
             this.EscalatorsTab.Location = new System.Drawing.Point(4, 29);
             this.EscalatorsTab.Name = "EscalatorsTab";
             this.EscalatorsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.EscalatorsTab.Size = new System.Drawing.Size(342, 480);
+            this.EscalatorsTab.Size = new System.Drawing.Size(342, 608);
             this.EscalatorsTab.TabIndex = 1;
             this.EscalatorsTab.Text = "ESCALATORS";
             // 
             // Escalator_4_GB
             // 
             this.Escalator_4_GB.BorderColor = System.Drawing.Color.Transparent;
-            this.Escalator_4_GB.Controls.Add(this.guna2Panel11);
+            this.Escalator_4_GB.Controls.Add(this.Escalator4_Panel);
             this.Escalator_4_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Escalator_4_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
             this.Escalator_4_GB.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2380,14 +2486,14 @@
             this.Escalator_4_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Escalator_4_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel11
+            // Escalator4_Panel
             // 
-            this.guna2Panel11.Controls.Add(this.Escalator_4_Button);
-            this.guna2Panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel11.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel11.Name = "guna2Panel11";
-            this.guna2Panel11.Size = new System.Drawing.Size(336, 35);
-            this.guna2Panel11.TabIndex = 1;
+            this.Escalator4_Panel.Controls.Add(this.Escalator_4_Button);
+            this.Escalator4_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator4_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Escalator4_Panel.Name = "Escalator4_Panel";
+            this.Escalator4_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Escalator4_Panel.TabIndex = 1;
             // 
             // Escalator_4_Button
             // 
@@ -2423,7 +2529,7 @@
             // Escalator_3_GB
             // 
             this.Escalator_3_GB.BorderColor = System.Drawing.Color.Transparent;
-            this.Escalator_3_GB.Controls.Add(this.guna2Panel10);
+            this.Escalator_3_GB.Controls.Add(this.Escalator3_Panel);
             this.Escalator_3_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Escalator_3_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
             this.Escalator_3_GB.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2438,14 +2544,14 @@
             this.Escalator_3_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Escalator_3_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel10
+            // Escalator3_Panel
             // 
-            this.guna2Panel10.Controls.Add(this.Escalator_3_Button);
-            this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel10.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel10.Name = "guna2Panel10";
-            this.guna2Panel10.Size = new System.Drawing.Size(336, 35);
-            this.guna2Panel10.TabIndex = 1;
+            this.Escalator3_Panel.Controls.Add(this.Escalator_3_Button);
+            this.Escalator3_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator3_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Escalator3_Panel.Name = "Escalator3_Panel";
+            this.Escalator3_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Escalator3_Panel.TabIndex = 1;
             // 
             // Escalator_3_Button
             // 
@@ -2481,7 +2587,7 @@
             // Escalator_2_GB
             // 
             this.Escalator_2_GB.BorderColor = System.Drawing.Color.Transparent;
-            this.Escalator_2_GB.Controls.Add(this.guna2Panel8);
+            this.Escalator_2_GB.Controls.Add(this.Escalator2_Panel);
             this.Escalator_2_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Escalator_2_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
             this.Escalator_2_GB.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2496,14 +2602,14 @@
             this.Escalator_2_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Escalator_2_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel8
+            // Escalator2_Panel
             // 
-            this.guna2Panel8.Controls.Add(this.Escalator_2_Button);
-            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel8.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.Size = new System.Drawing.Size(336, 35);
-            this.guna2Panel8.TabIndex = 1;
+            this.Escalator2_Panel.Controls.Add(this.Escalator_2_Button);
+            this.Escalator2_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator2_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Escalator2_Panel.Name = "Escalator2_Panel";
+            this.Escalator2_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Escalator2_Panel.TabIndex = 1;
             // 
             // Escalator_2_Button
             // 
@@ -2539,7 +2645,7 @@
             // Escalator_1_GB
             // 
             this.Escalator_1_GB.BorderColor = System.Drawing.Color.Transparent;
-            this.Escalator_1_GB.Controls.Add(this.guna2Panel7);
+            this.Escalator_1_GB.Controls.Add(this.Escalator1_Panel);
             this.Escalator_1_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Escalator_1_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
             this.Escalator_1_GB.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2554,14 +2660,14 @@
             this.Escalator_1_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Escalator_1_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel7
+            // Escalator1_Panel
             // 
-            this.guna2Panel7.Controls.Add(this.Escalator_1_Button);
-            this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel7.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel7.Name = "guna2Panel7";
-            this.guna2Panel7.Size = new System.Drawing.Size(336, 35);
-            this.guna2Panel7.TabIndex = 1;
+            this.Escalator1_Panel.Controls.Add(this.Escalator_1_Button);
+            this.Escalator1_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Escalator1_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Escalator1_Panel.Name = "Escalator1_Panel";
+            this.Escalator1_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Escalator1_Panel.TabIndex = 1;
             // 
             // Escalator_1_Button
             // 
@@ -2597,6 +2703,12 @@
             // ResourcesTab
             // 
             this.ResourcesTab.BackColor = System.Drawing.Color.Black;
+            this.ResourcesTab.Controls.Add(this.Resource10_GB);
+            this.ResourcesTab.Controls.Add(this.Resource9_GB);
+            this.ResourcesTab.Controls.Add(this.Resource8_GB);
+            this.ResourcesTab.Controls.Add(this.Resource7_GB);
+            this.ResourcesTab.Controls.Add(this.Resource6_GB);
+            this.ResourcesTab.Controls.Add(this.Resource5_GB);
             this.ResourcesTab.Controls.Add(this.Resource4_GB);
             this.ResourcesTab.Controls.Add(this.Resource3_GB);
             this.ResourcesTab.Controls.Add(this.Resource2_GB);
@@ -2605,9 +2717,357 @@
             this.ResourcesTab.Location = new System.Drawing.Point(4, 29);
             this.ResourcesTab.Name = "ResourcesTab";
             this.ResourcesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ResourcesTab.Size = new System.Drawing.Size(342, 480);
+            this.ResourcesTab.Size = new System.Drawing.Size(342, 608);
             this.ResourcesTab.TabIndex = 3;
             this.ResourcesTab.Text = "RESOURCES";
+            // 
+            // Resource10_GB
+            // 
+            this.Resource10_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Resource10_GB.Controls.Add(this.Resource10_Panel);
+            this.Resource10_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Resource10_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Resource10_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource10_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Resource10_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Resource10_GB.ForeColor = System.Drawing.Color.White;
+            this.Resource10_GB.Location = new System.Drawing.Point(3, 543);
+            this.Resource10_GB.Name = "Resource10_GB";
+            this.Resource10_GB.Size = new System.Drawing.Size(336, 60);
+            this.Resource10_GB.TabIndex = 19;
+            this.Resource10_GB.Text = "[RESOURCE#10]";
+            this.Resource10_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Resource10_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // Resource10_Panel
+            // 
+            this.Resource10_Panel.Controls.Add(this.Resource10_Teleport);
+            this.Resource10_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource10_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Resource10_Panel.Name = "Resource10_Panel";
+            this.Resource10_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Resource10_Panel.TabIndex = 1;
+            // 
+            // Resource10_Teleport
+            // 
+            this.Resource10_Teleport.Animated = true;
+            this.Resource10_Teleport.AnimatedGIF = true;
+            this.Resource10_Teleport.BackColor = System.Drawing.Color.Transparent;
+            this.Resource10_Teleport.BorderRadius = 9;
+            this.Resource10_Teleport.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource10_Teleport.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Resource10_Teleport.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Resource10_Teleport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Resource10_Teleport.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource10_Teleport.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Resource10_Teleport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Resource10_Teleport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Resource10_Teleport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Resource10_Teleport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Resource10_Teleport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource10_Teleport.FillColor = System.Drawing.Color.Transparent;
+            this.Resource10_Teleport.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Resource10_Teleport.ForeColor = System.Drawing.Color.White;
+            this.Resource10_Teleport.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource10_Teleport.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Resource10_Teleport.ImageSize = new System.Drawing.Size(102, 28);
+            this.Resource10_Teleport.Location = new System.Drawing.Point(0, 0);
+            this.Resource10_Teleport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Resource10_Teleport.Name = "Resource10_Teleport";
+            this.Resource10_Teleport.Size = new System.Drawing.Size(336, 29);
+            this.Resource10_Teleport.TabIndex = 3;
+            this.Resource10_Teleport.Text = "TELEPORT";
+            this.Resource10_Teleport.Click += new System.EventHandler(this.Resource10_Teleport_Click);
+            // 
+            // Resource9_GB
+            // 
+            this.Resource9_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Resource9_GB.Controls.Add(this.Resource9_Panel);
+            this.Resource9_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Resource9_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Resource9_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource9_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Resource9_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Resource9_GB.ForeColor = System.Drawing.Color.White;
+            this.Resource9_GB.Location = new System.Drawing.Point(3, 483);
+            this.Resource9_GB.Name = "Resource9_GB";
+            this.Resource9_GB.Size = new System.Drawing.Size(336, 60);
+            this.Resource9_GB.TabIndex = 18;
+            this.Resource9_GB.Text = "[RESOURCE#9]";
+            this.Resource9_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Resource9_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // Resource9_Panel
+            // 
+            this.Resource9_Panel.Controls.Add(this.Resource9_Teleport);
+            this.Resource9_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource9_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Resource9_Panel.Name = "Resource9_Panel";
+            this.Resource9_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Resource9_Panel.TabIndex = 1;
+            // 
+            // Resource9_Teleport
+            // 
+            this.Resource9_Teleport.Animated = true;
+            this.Resource9_Teleport.AnimatedGIF = true;
+            this.Resource9_Teleport.BackColor = System.Drawing.Color.Transparent;
+            this.Resource9_Teleport.BorderRadius = 9;
+            this.Resource9_Teleport.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource9_Teleport.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Resource9_Teleport.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Resource9_Teleport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Resource9_Teleport.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource9_Teleport.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Resource9_Teleport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Resource9_Teleport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Resource9_Teleport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Resource9_Teleport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Resource9_Teleport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource9_Teleport.FillColor = System.Drawing.Color.Transparent;
+            this.Resource9_Teleport.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Resource9_Teleport.ForeColor = System.Drawing.Color.White;
+            this.Resource9_Teleport.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource9_Teleport.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Resource9_Teleport.ImageSize = new System.Drawing.Size(102, 28);
+            this.Resource9_Teleport.Location = new System.Drawing.Point(0, 0);
+            this.Resource9_Teleport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Resource9_Teleport.Name = "Resource9_Teleport";
+            this.Resource9_Teleport.Size = new System.Drawing.Size(336, 29);
+            this.Resource9_Teleport.TabIndex = 3;
+            this.Resource9_Teleport.Text = "TELEPORT";
+            this.Resource9_Teleport.Click += new System.EventHandler(this.Resource9_Teleport_Click);
+            // 
+            // Resource8_GB
+            // 
+            this.Resource8_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Resource8_GB.Controls.Add(this.Resource8_Panel);
+            this.Resource8_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Resource8_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Resource8_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource8_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Resource8_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Resource8_GB.ForeColor = System.Drawing.Color.White;
+            this.Resource8_GB.Location = new System.Drawing.Point(3, 423);
+            this.Resource8_GB.Name = "Resource8_GB";
+            this.Resource8_GB.Size = new System.Drawing.Size(336, 60);
+            this.Resource8_GB.TabIndex = 17;
+            this.Resource8_GB.Text = "[RESOURCE#8]";
+            this.Resource8_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Resource8_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // Resource8_Panel
+            // 
+            this.Resource8_Panel.Controls.Add(this.Resource8_Teleport);
+            this.Resource8_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource8_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Resource8_Panel.Name = "Resource8_Panel";
+            this.Resource8_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Resource8_Panel.TabIndex = 1;
+            // 
+            // Resource8_Teleport
+            // 
+            this.Resource8_Teleport.Animated = true;
+            this.Resource8_Teleport.AnimatedGIF = true;
+            this.Resource8_Teleport.BackColor = System.Drawing.Color.Transparent;
+            this.Resource8_Teleport.BorderRadius = 9;
+            this.Resource8_Teleport.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource8_Teleport.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Resource8_Teleport.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Resource8_Teleport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Resource8_Teleport.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource8_Teleport.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Resource8_Teleport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Resource8_Teleport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Resource8_Teleport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Resource8_Teleport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Resource8_Teleport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource8_Teleport.FillColor = System.Drawing.Color.Transparent;
+            this.Resource8_Teleport.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Resource8_Teleport.ForeColor = System.Drawing.Color.White;
+            this.Resource8_Teleport.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource8_Teleport.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Resource8_Teleport.ImageSize = new System.Drawing.Size(102, 28);
+            this.Resource8_Teleport.Location = new System.Drawing.Point(0, 0);
+            this.Resource8_Teleport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Resource8_Teleport.Name = "Resource8_Teleport";
+            this.Resource8_Teleport.Size = new System.Drawing.Size(336, 29);
+            this.Resource8_Teleport.TabIndex = 3;
+            this.Resource8_Teleport.Text = "TELEPORT";
+            this.Resource8_Teleport.Click += new System.EventHandler(this.Resource8_Teleport_Click);
+            // 
+            // Resource7_GB
+            // 
+            this.Resource7_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Resource7_GB.Controls.Add(this.Resource7_Panel);
+            this.Resource7_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Resource7_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Resource7_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource7_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Resource7_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Resource7_GB.ForeColor = System.Drawing.Color.White;
+            this.Resource7_GB.Location = new System.Drawing.Point(3, 363);
+            this.Resource7_GB.Name = "Resource7_GB";
+            this.Resource7_GB.Size = new System.Drawing.Size(336, 60);
+            this.Resource7_GB.TabIndex = 16;
+            this.Resource7_GB.Text = "[RESOURCE#7]";
+            this.Resource7_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Resource7_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // Resource7_Panel
+            // 
+            this.Resource7_Panel.Controls.Add(this.Resource7_Teleport);
+            this.Resource7_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource7_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Resource7_Panel.Name = "Resource7_Panel";
+            this.Resource7_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Resource7_Panel.TabIndex = 1;
+            // 
+            // Resource7_Teleport
+            // 
+            this.Resource7_Teleport.Animated = true;
+            this.Resource7_Teleport.AnimatedGIF = true;
+            this.Resource7_Teleport.BackColor = System.Drawing.Color.Transparent;
+            this.Resource7_Teleport.BorderRadius = 9;
+            this.Resource7_Teleport.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource7_Teleport.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Resource7_Teleport.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Resource7_Teleport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Resource7_Teleport.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource7_Teleport.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Resource7_Teleport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Resource7_Teleport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Resource7_Teleport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Resource7_Teleport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Resource7_Teleport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource7_Teleport.FillColor = System.Drawing.Color.Transparent;
+            this.Resource7_Teleport.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Resource7_Teleport.ForeColor = System.Drawing.Color.White;
+            this.Resource7_Teleport.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource7_Teleport.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Resource7_Teleport.ImageSize = new System.Drawing.Size(102, 28);
+            this.Resource7_Teleport.Location = new System.Drawing.Point(0, 0);
+            this.Resource7_Teleport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Resource7_Teleport.Name = "Resource7_Teleport";
+            this.Resource7_Teleport.Size = new System.Drawing.Size(336, 29);
+            this.Resource7_Teleport.TabIndex = 3;
+            this.Resource7_Teleport.Text = "TELEPORT";
+            this.Resource7_Teleport.Click += new System.EventHandler(this.Resource7_Teleport_Click);
+            // 
+            // Resource6_GB
+            // 
+            this.Resource6_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Resource6_GB.Controls.Add(this.Resource6_Panel);
+            this.Resource6_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Resource6_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Resource6_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource6_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Resource6_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Resource6_GB.ForeColor = System.Drawing.Color.White;
+            this.Resource6_GB.Location = new System.Drawing.Point(3, 303);
+            this.Resource6_GB.Name = "Resource6_GB";
+            this.Resource6_GB.Size = new System.Drawing.Size(336, 60);
+            this.Resource6_GB.TabIndex = 15;
+            this.Resource6_GB.Text = "[RESOURCE#6]";
+            this.Resource6_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Resource6_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // Resource6_Panel
+            // 
+            this.Resource6_Panel.Controls.Add(this.Resource6_Teleport);
+            this.Resource6_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource6_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Resource6_Panel.Name = "Resource6_Panel";
+            this.Resource6_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Resource6_Panel.TabIndex = 1;
+            // 
+            // Resource6_Teleport
+            // 
+            this.Resource6_Teleport.Animated = true;
+            this.Resource6_Teleport.AnimatedGIF = true;
+            this.Resource6_Teleport.BackColor = System.Drawing.Color.Transparent;
+            this.Resource6_Teleport.BorderRadius = 9;
+            this.Resource6_Teleport.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource6_Teleport.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Resource6_Teleport.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Resource6_Teleport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Resource6_Teleport.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource6_Teleport.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Resource6_Teleport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Resource6_Teleport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Resource6_Teleport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Resource6_Teleport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Resource6_Teleport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource6_Teleport.FillColor = System.Drawing.Color.Transparent;
+            this.Resource6_Teleport.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Resource6_Teleport.ForeColor = System.Drawing.Color.White;
+            this.Resource6_Teleport.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource6_Teleport.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Resource6_Teleport.ImageSize = new System.Drawing.Size(102, 28);
+            this.Resource6_Teleport.Location = new System.Drawing.Point(0, 0);
+            this.Resource6_Teleport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Resource6_Teleport.Name = "Resource6_Teleport";
+            this.Resource6_Teleport.Size = new System.Drawing.Size(336, 29);
+            this.Resource6_Teleport.TabIndex = 3;
+            this.Resource6_Teleport.Text = "TELEPORT";
+            this.Resource6_Teleport.Click += new System.EventHandler(this.Resource6_Teleport_Click);
+            // 
+            // Resource5_GB
+            // 
+            this.Resource5_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.Resource5_GB.Controls.Add(this.Resource5_Panel);
+            this.Resource5_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Resource5_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.Resource5_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource5_GB.FillColor = System.Drawing.Color.Transparent;
+            this.Resource5_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Resource5_GB.ForeColor = System.Drawing.Color.White;
+            this.Resource5_GB.Location = new System.Drawing.Point(3, 243);
+            this.Resource5_GB.Name = "Resource5_GB";
+            this.Resource5_GB.Size = new System.Drawing.Size(336, 60);
+            this.Resource5_GB.TabIndex = 14;
+            this.Resource5_GB.Text = "[RESOURCE#5]";
+            this.Resource5_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Resource5_GB.TextOffset = new System.Drawing.Point(0, -6);
+            // 
+            // Resource5_Panel
+            // 
+            this.Resource5_Panel.Controls.Add(this.Resource5_Teleport);
+            this.Resource5_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource5_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Resource5_Panel.Name = "Resource5_Panel";
+            this.Resource5_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Resource5_Panel.TabIndex = 1;
+            // 
+            // Resource5_Teleport
+            // 
+            this.Resource5_Teleport.Animated = true;
+            this.Resource5_Teleport.AnimatedGIF = true;
+            this.Resource5_Teleport.BackColor = System.Drawing.Color.Transparent;
+            this.Resource5_Teleport.BorderRadius = 9;
+            this.Resource5_Teleport.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource5_Teleport.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.Resource5_Teleport.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.Resource5_Teleport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Resource5_Teleport.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource5_Teleport.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.Resource5_Teleport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Resource5_Teleport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Resource5_Teleport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Resource5_Teleport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Resource5_Teleport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource5_Teleport.FillColor = System.Drawing.Color.Transparent;
+            this.Resource5_Teleport.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.Resource5_Teleport.ForeColor = System.Drawing.Color.White;
+            this.Resource5_Teleport.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.Resource5_Teleport.ImageOffset = new System.Drawing.Point(2, 0);
+            this.Resource5_Teleport.ImageSize = new System.Drawing.Size(102, 28);
+            this.Resource5_Teleport.Location = new System.Drawing.Point(0, 0);
+            this.Resource5_Teleport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Resource5_Teleport.Name = "Resource5_Teleport";
+            this.Resource5_Teleport.Size = new System.Drawing.Size(336, 29);
+            this.Resource5_Teleport.TabIndex = 3;
+            this.Resource5_Teleport.Text = "TELEPORT";
+            this.Resource5_Teleport.Click += new System.EventHandler(this.Resource5_Teleport_Click);
             // 
             // Resource4_GB
             // 
@@ -2786,7 +3246,7 @@
             // Resource1_GB
             // 
             this.Resource1_GB.BorderColor = System.Drawing.Color.Transparent;
-            this.Resource1_GB.Controls.Add(this.guna2Panel6);
+            this.Resource1_GB.Controls.Add(this.Resource1_Panel);
             this.Resource1_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Resource1_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
             this.Resource1_GB.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2801,14 +3261,14 @@
             this.Resource1_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Resource1_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel6
+            // Resource1_Panel
             // 
-            this.guna2Panel6.Controls.Add(this.Resource1_Teleport);
-            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel6.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Size = new System.Drawing.Size(336, 35);
-            this.guna2Panel6.TabIndex = 1;
+            this.Resource1_Panel.Controls.Add(this.Resource1_Teleport);
+            this.Resource1_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Resource1_Panel.Location = new System.Drawing.Point(0, 26);
+            this.Resource1_Panel.Name = "Resource1_Panel";
+            this.Resource1_Panel.Size = new System.Drawing.Size(336, 35);
+            this.Resource1_Panel.TabIndex = 1;
             // 
             // Resource1_Teleport
             // 
@@ -2849,14 +3309,14 @@
             this.OtherTab.Location = new System.Drawing.Point(4, 29);
             this.OtherTab.Name = "OtherTab";
             this.OtherTab.Padding = new System.Windows.Forms.Padding(3);
-            this.OtherTab.Size = new System.Drawing.Size(342, 480);
+            this.OtherTab.Size = new System.Drawing.Size(342, 608);
             this.OtherTab.TabIndex = 2;
             this.OtherTab.Text = "OTHER";
             // 
             // StampRallyTable_GB
             // 
             this.StampRallyTable_GB.BorderColor = System.Drawing.Color.Transparent;
-            this.StampRallyTable_GB.Controls.Add(this.guna2Panel13);
+            this.StampRallyTable_GB.Controls.Add(this.StampRallyTable_Panel);
             this.StampRallyTable_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.StampRallyTable_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
             this.StampRallyTable_GB.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2871,14 +3331,14 @@
             this.StampRallyTable_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.StampRallyTable_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel13
+            // StampRallyTable_Panel
             // 
-            this.guna2Panel13.Controls.Add(this.StampRallyTable_Button);
-            this.guna2Panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel13.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel13.Name = "guna2Panel13";
-            this.guna2Panel13.Size = new System.Drawing.Size(336, 35);
-            this.guna2Panel13.TabIndex = 1;
+            this.StampRallyTable_Panel.Controls.Add(this.StampRallyTable_Button);
+            this.StampRallyTable_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.StampRallyTable_Panel.Location = new System.Drawing.Point(0, 26);
+            this.StampRallyTable_Panel.Name = "StampRallyTable_Panel";
+            this.StampRallyTable_Panel.Size = new System.Drawing.Size(336, 35);
+            this.StampRallyTable_Panel.TabIndex = 1;
             // 
             // StampRallyTable_Button
             // 
@@ -2914,7 +3374,7 @@
             // BackToBaseFloor_GB
             // 
             this.BackToBaseFloor_GB.BorderColor = System.Drawing.Color.Transparent;
-            this.BackToBaseFloor_GB.Controls.Add(this.guna2Panel12);
+            this.BackToBaseFloor_GB.Controls.Add(this.BackToBaseFloor_Panel);
             this.BackToBaseFloor_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.BackToBaseFloor_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
             this.BackToBaseFloor_GB.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2929,14 +3389,14 @@
             this.BackToBaseFloor_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BackToBaseFloor_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel12
+            // BackToBaseFloor_Panel
             // 
-            this.guna2Panel12.Controls.Add(this.BackToBaseFloor_Button);
-            this.guna2Panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel12.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel12.Name = "guna2Panel12";
-            this.guna2Panel12.Size = new System.Drawing.Size(336, 35);
-            this.guna2Panel12.TabIndex = 1;
+            this.BackToBaseFloor_Panel.Controls.Add(this.BackToBaseFloor_Button);
+            this.BackToBaseFloor_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BackToBaseFloor_Panel.Location = new System.Drawing.Point(0, 26);
+            this.BackToBaseFloor_Panel.Name = "BackToBaseFloor_Panel";
+            this.BackToBaseFloor_Panel.Size = new System.Drawing.Size(336, 35);
+            this.BackToBaseFloor_Panel.TabIndex = 1;
             // 
             // BackToBaseFloor_Button
             // 
@@ -2972,128 +3432,128 @@
             // Starfire_Other
             // 
             this.Starfire_Other.BackColor = System.Drawing.Color.Black;
-            this.Starfire_Other.Controls.Add(this.guna2GroupBox9);
-            this.Starfire_Other.Controls.Add(this.guna2GroupBox10);
+            this.Starfire_Other.Controls.Add(this.LightTheme_GB);
+            this.Starfire_Other.Controls.Add(this.DarkTheme_GB);
             this.Starfire_Other.Location = new System.Drawing.Point(4, 29);
             this.Starfire_Other.Name = "Starfire_Other";
             this.Starfire_Other.Padding = new System.Windows.Forms.Padding(3);
-            this.Starfire_Other.Size = new System.Drawing.Size(356, 519);
+            this.Starfire_Other.Size = new System.Drawing.Size(356, 647);
             this.Starfire_Other.TabIndex = 3;
             this.Starfire_Other.Text = "OTHER";
             // 
-            // guna2GroupBox9
+            // LightTheme_GB
             // 
-            this.guna2GroupBox9.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox9.Controls.Add(this.guna2Panel14);
-            this.guna2GroupBox9.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.guna2GroupBox9.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
-            this.guna2GroupBox9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2GroupBox9.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox9.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox9.Location = new System.Drawing.Point(3, 63);
-            this.guna2GroupBox9.Name = "guna2GroupBox9";
-            this.guna2GroupBox9.Size = new System.Drawing.Size(350, 60);
-            this.guna2GroupBox9.TabIndex = 10;
-            this.guna2GroupBox9.Text = "[LIGHT THEME]";
-            this.guna2GroupBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.guna2GroupBox9.TextOffset = new System.Drawing.Point(0, -6);
+            this.LightTheme_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.LightTheme_GB.Controls.Add(this.LightTheme_Panel);
+            this.LightTheme_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.LightTheme_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.LightTheme_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LightTheme_GB.FillColor = System.Drawing.Color.Transparent;
+            this.LightTheme_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LightTheme_GB.ForeColor = System.Drawing.Color.White;
+            this.LightTheme_GB.Location = new System.Drawing.Point(3, 63);
+            this.LightTheme_GB.Name = "LightTheme_GB";
+            this.LightTheme_GB.Size = new System.Drawing.Size(350, 60);
+            this.LightTheme_GB.TabIndex = 10;
+            this.LightTheme_GB.Text = "[LIGHT THEME]";
+            this.LightTheme_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LightTheme_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel14
+            // LightTheme_Panel
             // 
-            this.guna2Panel14.Controls.Add(this.guna2Button9);
-            this.guna2Panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel14.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel14.Name = "guna2Panel14";
-            this.guna2Panel14.Size = new System.Drawing.Size(350, 35);
-            this.guna2Panel14.TabIndex = 1;
+            this.LightTheme_Panel.Controls.Add(this.LightTheme_Button);
+            this.LightTheme_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LightTheme_Panel.Location = new System.Drawing.Point(0, 26);
+            this.LightTheme_Panel.Name = "LightTheme_Panel";
+            this.LightTheme_Panel.Size = new System.Drawing.Size(350, 35);
+            this.LightTheme_Panel.TabIndex = 1;
             // 
-            // guna2Button9
+            // LightTheme_Button
             // 
-            this.guna2Button9.Animated = true;
-            this.guna2Button9.AnimatedGIF = true;
-            this.guna2Button9.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button9.BorderRadius = 9;
-            this.guna2Button9.CheckedState.CustomBorderColor = System.Drawing.Color.White;
-            this.guna2Button9.CheckedState.FillColor = System.Drawing.Color.Black;
-            this.guna2Button9.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
-            this.guna2Button9.CustomBorderColor = System.Drawing.Color.White;
-            this.guna2Button9.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.guna2Button9.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button9.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button9.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button9.Enabled = false;
-            this.guna2Button9.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button9.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.guna2Button9.ForeColor = System.Drawing.Color.White;
-            this.guna2Button9.HoverState.CustomBorderColor = System.Drawing.Color.White;
-            this.guna2Button9.ImageOffset = new System.Drawing.Point(2, 0);
-            this.guna2Button9.ImageSize = new System.Drawing.Size(102, 28);
-            this.guna2Button9.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.guna2Button9.Name = "guna2Button9";
-            this.guna2Button9.Size = new System.Drawing.Size(350, 29);
-            this.guna2Button9.TabIndex = 3;
-            this.guna2Button9.Text = "CHANGE THEME";
+            this.LightTheme_Button.Animated = true;
+            this.LightTheme_Button.AnimatedGIF = true;
+            this.LightTheme_Button.BackColor = System.Drawing.Color.Transparent;
+            this.LightTheme_Button.BorderRadius = 9;
+            this.LightTheme_Button.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.LightTheme_Button.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.LightTheme_Button.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.LightTheme_Button.CustomBorderColor = System.Drawing.Color.White;
+            this.LightTheme_Button.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.LightTheme_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.LightTheme_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.LightTheme_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.LightTheme_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.LightTheme_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LightTheme_Button.Enabled = false;
+            this.LightTheme_Button.FillColor = System.Drawing.Color.Transparent;
+            this.LightTheme_Button.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.LightTheme_Button.ForeColor = System.Drawing.Color.White;
+            this.LightTheme_Button.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.LightTheme_Button.ImageOffset = new System.Drawing.Point(2, 0);
+            this.LightTheme_Button.ImageSize = new System.Drawing.Size(102, 28);
+            this.LightTheme_Button.Location = new System.Drawing.Point(0, 0);
+            this.LightTheme_Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.LightTheme_Button.Name = "LightTheme_Button";
+            this.LightTheme_Button.Size = new System.Drawing.Size(350, 29);
+            this.LightTheme_Button.TabIndex = 3;
+            this.LightTheme_Button.Text = "COMING SOON";
             // 
-            // guna2GroupBox10
+            // DarkTheme_GB
             // 
-            this.guna2GroupBox10.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox10.Controls.Add(this.guna2Panel15);
-            this.guna2GroupBox10.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.guna2GroupBox10.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
-            this.guna2GroupBox10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2GroupBox10.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox10.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox10.Location = new System.Drawing.Point(3, 3);
-            this.guna2GroupBox10.Name = "guna2GroupBox10";
-            this.guna2GroupBox10.Size = new System.Drawing.Size(350, 60);
-            this.guna2GroupBox10.TabIndex = 9;
-            this.guna2GroupBox10.Text = "[DARK THEME (DEFAULT)]";
-            this.guna2GroupBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.guna2GroupBox10.TextOffset = new System.Drawing.Point(0, -6);
+            this.DarkTheme_GB.BorderColor = System.Drawing.Color.Transparent;
+            this.DarkTheme_GB.Controls.Add(this.DarkTheme_Panel);
+            this.DarkTheme_GB.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.DarkTheme_GB.CustomBorderThickness = new System.Windows.Forms.Padding(0, 26, 0, 0);
+            this.DarkTheme_GB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DarkTheme_GB.FillColor = System.Drawing.Color.Transparent;
+            this.DarkTheme_GB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DarkTheme_GB.ForeColor = System.Drawing.Color.White;
+            this.DarkTheme_GB.Location = new System.Drawing.Point(3, 3);
+            this.DarkTheme_GB.Name = "DarkTheme_GB";
+            this.DarkTheme_GB.Size = new System.Drawing.Size(350, 60);
+            this.DarkTheme_GB.TabIndex = 9;
+            this.DarkTheme_GB.Text = "[DARK THEME (DEFAULT)]";
+            this.DarkTheme_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.DarkTheme_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
-            // guna2Panel15
+            // DarkTheme_Panel
             // 
-            this.guna2Panel15.Controls.Add(this.guna2Button10);
-            this.guna2Panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel15.Location = new System.Drawing.Point(0, 26);
-            this.guna2Panel15.Name = "guna2Panel15";
-            this.guna2Panel15.Size = new System.Drawing.Size(350, 35);
-            this.guna2Panel15.TabIndex = 1;
+            this.DarkTheme_Panel.Controls.Add(this.DarkTheme_Button);
+            this.DarkTheme_Panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DarkTheme_Panel.Location = new System.Drawing.Point(0, 26);
+            this.DarkTheme_Panel.Name = "DarkTheme_Panel";
+            this.DarkTheme_Panel.Size = new System.Drawing.Size(350, 35);
+            this.DarkTheme_Panel.TabIndex = 1;
             // 
-            // guna2Button10
+            // DarkTheme_Button
             // 
-            this.guna2Button10.Animated = true;
-            this.guna2Button10.AnimatedGIF = true;
-            this.guna2Button10.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button10.BorderRadius = 9;
-            this.guna2Button10.CheckedState.CustomBorderColor = System.Drawing.Color.White;
-            this.guna2Button10.CheckedState.FillColor = System.Drawing.Color.Black;
-            this.guna2Button10.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
-            this.guna2Button10.CustomBorderColor = System.Drawing.Color.White;
-            this.guna2Button10.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.guna2Button10.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button10.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button10.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button10.Enabled = false;
-            this.guna2Button10.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button10.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.guna2Button10.ForeColor = System.Drawing.Color.White;
-            this.guna2Button10.HoverState.CustomBorderColor = System.Drawing.Color.White;
-            this.guna2Button10.ImageOffset = new System.Drawing.Point(2, 0);
-            this.guna2Button10.ImageSize = new System.Drawing.Size(102, 28);
-            this.guna2Button10.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.guna2Button10.Name = "guna2Button10";
-            this.guna2Button10.Size = new System.Drawing.Size(350, 29);
-            this.guna2Button10.TabIndex = 3;
-            this.guna2Button10.Text = "CHANGE THEME";
+            this.DarkTheme_Button.Animated = true;
+            this.DarkTheme_Button.AnimatedGIF = true;
+            this.DarkTheme_Button.BackColor = System.Drawing.Color.Transparent;
+            this.DarkTheme_Button.BorderRadius = 9;
+            this.DarkTheme_Button.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.DarkTheme_Button.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.DarkTheme_Button.CheckedState.Image = global::STARFIRE.Properties.Resources.LET_IT_DIE;
+            this.DarkTheme_Button.CustomBorderColor = System.Drawing.Color.White;
+            this.DarkTheme_Button.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.DarkTheme_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.DarkTheme_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.DarkTheme_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.DarkTheme_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.DarkTheme_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DarkTheme_Button.Enabled = false;
+            this.DarkTheme_Button.FillColor = System.Drawing.Color.Transparent;
+            this.DarkTheme_Button.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.DarkTheme_Button.ForeColor = System.Drawing.Color.White;
+            this.DarkTheme_Button.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.DarkTheme_Button.ImageOffset = new System.Drawing.Point(2, 0);
+            this.DarkTheme_Button.ImageSize = new System.Drawing.Size(102, 28);
+            this.DarkTheme_Button.Location = new System.Drawing.Point(0, 0);
+            this.DarkTheme_Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DarkTheme_Button.Name = "DarkTheme_Button";
+            this.DarkTheme_Button.Size = new System.Drawing.Size(350, 29);
+            this.DarkTheme_Button.TabIndex = 3;
+            this.DarkTheme_Button.Text = "COMING SOON";
             // 
             // Starfire_BGWorker
             // 
@@ -3156,7 +3616,7 @@
             // 
             // OpenDailyRewardBox_Timer
             // 
-            this.OpenDailyRewardBox_Timer.Interval = 3350;
+            this.OpenDailyRewardBox_Timer.Interval = 3000;
             this.OpenDailyRewardBox_Timer.Tick += new System.EventHandler(this.OpenDailyRewardBox_Timer_Tick);
             // 
             // TPose_Timer
@@ -3200,12 +3660,23 @@
             this.Starfire_Icon_DragControl.TargetControl = this.Starfire_Icon;
             this.Starfire_Icon_DragControl.UseTransparentDrag = true;
             // 
+            // positionCheckTimer
+            // 
+            this.positionCheckTimer.Enabled = true;
+            this.positionCheckTimer.Interval = 1500;
+            this.positionCheckTimer.Tick += new System.EventHandler(this.positionCheckTimer_Tick);
+            // 
+            // InstantSpawnJackals_Timer
+            // 
+            this.InstantSpawnJackals_Timer.Interval = 1350;
+            this.InstantSpawnJackals_Timer.Tick += new System.EventHandler(this.InstantSpawnJackals_Timer_Tick);
+            // 
             // Starfire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(364, 580);
+            this.ClientSize = new System.Drawing.Size(364, 576);
             this.Controls.Add(this.Starfire_Background_Panel);
             this.Controls.Add(this.Starfire_Header_Panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3226,6 +3697,8 @@
             this.Starfire_TabControl.ResumeLayout(false);
             this.Starfire_CheatsTab.ResumeLayout(false);
             this.Other_GB.ResumeLayout(false);
+            this.InstantSpawnJackals_Panel.ResumeLayout(false);
+            this.InstantSpawnJackals_Panel.PerformLayout();
             this.OpenDailyRewardBox_Panel.ResumeLayout(false);
             this.OpenDailyRewardBox_Panel.PerformLayout();
             this.KillcoinVacuum_Panel.ResumeLayout(false);
@@ -3268,7 +3741,7 @@
             this.Invincible_Panel.ResumeLayout(false);
             this.Invincible_Panel.PerformLayout();
             this.Starfire_PlayerEditor.ResumeLayout(false);
-            this.guna2GroupBox1.ResumeLayout(false);
+            this.World_GB.ResumeLayout(false);
             this.WorldTimeScale_Panel.ResumeLayout(false);
             this.WorldTimeScale_Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WorldTimeScale_NumericUpDown)).EndInit();
@@ -3283,19 +3756,31 @@
             this.Starfire_Teleports_TabControl.ResumeLayout(false);
             this.ElevatorsTab.ResumeLayout(false);
             this.Elevator_VIP_GB.ResumeLayout(false);
-            this.guna2Panel3.ResumeLayout(false);
+            this.ElevatorVIP_Panel.ResumeLayout(false);
             this.Elevator_Normal_GB.ResumeLayout(false);
-            this.guna2Panel9.ResumeLayout(false);
+            this.ElevatorNormal_Panel.ResumeLayout(false);
             this.EscalatorsTab.ResumeLayout(false);
             this.Escalator_4_GB.ResumeLayout(false);
-            this.guna2Panel11.ResumeLayout(false);
+            this.Escalator4_Panel.ResumeLayout(false);
             this.Escalator_3_GB.ResumeLayout(false);
-            this.guna2Panel10.ResumeLayout(false);
+            this.Escalator3_Panel.ResumeLayout(false);
             this.Escalator_2_GB.ResumeLayout(false);
-            this.guna2Panel8.ResumeLayout(false);
+            this.Escalator2_Panel.ResumeLayout(false);
             this.Escalator_1_GB.ResumeLayout(false);
-            this.guna2Panel7.ResumeLayout(false);
+            this.Escalator1_Panel.ResumeLayout(false);
             this.ResourcesTab.ResumeLayout(false);
+            this.Resource10_GB.ResumeLayout(false);
+            this.Resource10_Panel.ResumeLayout(false);
+            this.Resource9_GB.ResumeLayout(false);
+            this.Resource9_Panel.ResumeLayout(false);
+            this.Resource8_GB.ResumeLayout(false);
+            this.Resource8_Panel.ResumeLayout(false);
+            this.Resource7_GB.ResumeLayout(false);
+            this.Resource7_Panel.ResumeLayout(false);
+            this.Resource6_GB.ResumeLayout(false);
+            this.Resource6_Panel.ResumeLayout(false);
+            this.Resource5_GB.ResumeLayout(false);
+            this.Resource5_Panel.ResumeLayout(false);
             this.Resource4_GB.ResumeLayout(false);
             this.Resource4_Panel.ResumeLayout(false);
             this.Resource3_GB.ResumeLayout(false);
@@ -3303,17 +3788,17 @@
             this.Resource2_GB.ResumeLayout(false);
             this.Resource2_Panel.ResumeLayout(false);
             this.Resource1_GB.ResumeLayout(false);
-            this.guna2Panel6.ResumeLayout(false);
+            this.Resource1_Panel.ResumeLayout(false);
             this.OtherTab.ResumeLayout(false);
             this.StampRallyTable_GB.ResumeLayout(false);
-            this.guna2Panel13.ResumeLayout(false);
+            this.StampRallyTable_Panel.ResumeLayout(false);
             this.BackToBaseFloor_GB.ResumeLayout(false);
-            this.guna2Panel12.ResumeLayout(false);
+            this.BackToBaseFloor_Panel.ResumeLayout(false);
             this.Starfire_Other.ResumeLayout(false);
-            this.guna2GroupBox9.ResumeLayout(false);
-            this.guna2Panel14.ResumeLayout(false);
-            this.guna2GroupBox10.ResumeLayout(false);
-            this.guna2Panel15.ResumeLayout(false);
+            this.LightTheme_GB.ResumeLayout(false);
+            this.LightTheme_Panel.ResumeLayout(false);
+            this.DarkTheme_GB.ResumeLayout(false);
+            this.DarkTheme_Panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3437,41 +3922,40 @@
         private Guna.UI2.WinForms.Guna2DragControl Starfire_TabControl_DragControl;
         private Guna.UI2.WinForms.Guna2DragControl Starfire_Icon_DragControl;
         private Guna.UI2.WinForms.Guna2ControlBox Starfire_Minimize;
-        private Guna.UI2.WinForms.Guna2ControlBox Starfire_Exit;
         private Guna.UI2.WinForms.Guna2TabControl Starfire_Teleports_TabControl;
         private System.Windows.Forms.TabPage ElevatorsTab;
         private System.Windows.Forms.TabPage EscalatorsTab;
         private System.Windows.Forms.TabPage OtherTab;
         private Guna.UI2.WinForms.Guna2GroupBox Elevator_Normal_GB;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private Guna.UI2.WinForms.Guna2Panel ElevatorNormal_Panel;
         private Guna.UI2.WinForms.Guna2Button Elevator_Normal_Button;
         private Guna.UI2.WinForms.Guna2GroupBox Elevator_VIP_GB;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2Panel ElevatorVIP_Panel;
         private Guna.UI2.WinForms.Guna2Button Elevator_VIP_Button;
         private Guna.UI2.WinForms.Guna2GroupBox Escalator_4_GB;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
+        private Guna.UI2.WinForms.Guna2Panel Escalator4_Panel;
         private Guna.UI2.WinForms.Guna2Button Escalator_4_Button;
         private Guna.UI2.WinForms.Guna2GroupBox Escalator_3_GB;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
+        private Guna.UI2.WinForms.Guna2Panel Escalator3_Panel;
         private Guna.UI2.WinForms.Guna2Button Escalator_3_Button;
         private Guna.UI2.WinForms.Guna2GroupBox Escalator_2_GB;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Panel Escalator2_Panel;
         private Guna.UI2.WinForms.Guna2Button Escalator_2_Button;
         private Guna.UI2.WinForms.Guna2GroupBox Escalator_1_GB;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private Guna.UI2.WinForms.Guna2Panel Escalator1_Panel;
         private Guna.UI2.WinForms.Guna2Button Escalator_1_Button;
         private Guna.UI2.WinForms.Guna2GroupBox StampRallyTable_GB;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel13;
+        private Guna.UI2.WinForms.Guna2Panel StampRallyTable_Panel;
         private Guna.UI2.WinForms.Guna2Button StampRallyTable_Button;
         private Guna.UI2.WinForms.Guna2GroupBox BackToBaseFloor_GB;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
+        private Guna.UI2.WinForms.Guna2Panel BackToBaseFloor_Panel;
         private Guna.UI2.WinForms.Guna2Button BackToBaseFloor_Button;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox9;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
-        private Guna.UI2.WinForms.Guna2Button guna2Button9;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox10;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel15;
-        private Guna.UI2.WinForms.Guna2Button guna2Button10;
+        private Guna.UI2.WinForms.Guna2GroupBox LightTheme_GB;
+        private Guna.UI2.WinForms.Guna2Panel LightTheme_Panel;
+        private Guna.UI2.WinForms.Guna2Button LightTheme_Button;
+        private Guna.UI2.WinForms.Guna2GroupBox DarkTheme_GB;
+        private Guna.UI2.WinForms.Guna2Panel DarkTheme_Panel;
+        private Guna.UI2.WinForms.Guna2Button DarkTheme_Button;
         private Guna.UI2.WinForms.Guna2Button AtkUpScale_Tooltip;
         private System.Windows.Forms.Label AtkUpScale_Value;
         private Guna.UI2.WinForms.Guna2NumericUpDown AtkUpScale_NumericUpDown;
@@ -3492,14 +3976,39 @@
         private Guna.UI2.WinForms.Guna2Panel Resource2_Panel;
         private Guna.UI2.WinForms.Guna2Button Resource2_Teleport;
         private Guna.UI2.WinForms.Guna2GroupBox Resource1_GB;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2Panel Resource1_Panel;
         private Guna.UI2.WinForms.Guna2Button Resource1_Teleport;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2GroupBox World_GB;
         private Guna.UI2.WinForms.Guna2Panel WorldTimeScale_Panel;
         private System.Windows.Forms.Label WorldTimeScale_Value;
         private Guna.UI2.WinForms.Guna2NumericUpDown WorldTimeScale_NumericUpDown;
         private Guna.UI2.WinForms.Guna2Button WorldTimeScale_Tooltip;
         private System.Windows.Forms.Label WorldTimeScale_Label;
         private Guna.UI2.WinForms.Guna2ToggleSwitch WorldTimeScale_Toggle;
+        private Guna.UI2.WinForms.Guna2GroupBox Resource5_GB;
+        private Guna.UI2.WinForms.Guna2Panel Resource5_Panel;
+        private Guna.UI2.WinForms.Guna2Button Resource5_Teleport;
+        private Guna.UI2.WinForms.Guna2Button Starfire_Exit;
+        private Guna.UI2.WinForms.Guna2GroupBox Resource10_GB;
+        private Guna.UI2.WinForms.Guna2Panel Resource10_Panel;
+        private Guna.UI2.WinForms.Guna2Button Resource10_Teleport;
+        private Guna.UI2.WinForms.Guna2GroupBox Resource9_GB;
+        private Guna.UI2.WinForms.Guna2Panel Resource9_Panel;
+        private Guna.UI2.WinForms.Guna2Button Resource9_Teleport;
+        private Guna.UI2.WinForms.Guna2GroupBox Resource8_GB;
+        private Guna.UI2.WinForms.Guna2Panel Resource8_Panel;
+        private Guna.UI2.WinForms.Guna2Button Resource8_Teleport;
+        private Guna.UI2.WinForms.Guna2GroupBox Resource7_GB;
+        private Guna.UI2.WinForms.Guna2Panel Resource7_Panel;
+        private Guna.UI2.WinForms.Guna2Button Resource7_Teleport;
+        private Guna.UI2.WinForms.Guna2GroupBox Resource6_GB;
+        private Guna.UI2.WinForms.Guna2Panel Resource6_Panel;
+        private Guna.UI2.WinForms.Guna2Button Resource6_Teleport;
+        private Guna.UI2.WinForms.Guna2Panel InstantSpawnJackals_Panel;
+        private Guna.UI2.WinForms.Guna2Button InstantSpawnJackals_Tooltip;
+        private System.Windows.Forms.Label InstantSpawnJackals_Label;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch InstantSpawnJackals_Toggle;
+        private System.Windows.Forms.Timer positionCheckTimer;
+        private System.Windows.Forms.Timer InstantSpawnJackals_Timer;
     }
 }

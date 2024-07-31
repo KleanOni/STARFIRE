@@ -26,19 +26,27 @@ namespace STARFIRE.FrontEnd
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
-
+        // Create an instance of the Mem class for memory operations
         Mem M = new Mem();
+        // Boolean flag to check if the process is open
         bool IsProcOpen;
+        // Variable to store the Process ID
         int ProcessID;
+        // Constants for the dimensions of different parts of the trainer UI
         int TrainerWidth = 364;
-        int CheatsTrainerHeight = 580;
-        int PlayerTrainerHeight = 146;
-        int TeleportsTrainerHeight = 226;
+        int CheatsTrainerHeight = 576;
+        int PlayerTrainerHeight = 200;
         int OtherTrainerHeight = 198;
         int TeleportElevatorHeight = 230;
         int TeleportEscalatorHeight = 350;
-        int TeleportResourcesHeight = 400;
+        int TeleportResourcesHeight = 708;
         int TeleportOtherHeight = 230;
+        // Variable to keep track of the number of Jackals spawned
+        private int mJackalSpawnNum = 0;
+        // Constant for the maximum number of Jackals that can be spawned
+        private const int MaxJackalSpawnNum = 3;
+        // Variable to store the spawn time for Jackals
+        private float mJackalSpawnTime = 1.0f;
 
         public Starfire()
         {
@@ -46,10 +54,14 @@ namespace STARFIRE.FrontEnd
             Starfire_BGWorker.RunWorkerAsync();
             // Initialize the form, then set it's state to Normal so handheld devices work.
             this.Width = TrainerWidth;
-            this.Height = 580;
+            this.Height = CheatsTrainerHeight;
             this.TopMost = true;
             this.WindowState = FormWindowState.Normal;
             Starfire_Status.Text = "STATUS: N/A";
+
+            // Call CheckFormPosition in the form's constructor
+            CheckFormPosition();
+
         }
         #endregion
 
@@ -65,12 +77,53 @@ namespace STARFIRE.FrontEnd
             }
         }
         #endregion
+
         #region TrainerUI
         private void Starfire_Load(object sender, EventArgs e)
         {
             // Set the form window state to normal again to insure it is the correct size while on PC or any other device.
             this.WindowState = FormWindowState.Normal;
             Starfire_Status.Text = "STATUS: N/A";
+
+            // Call CheckFormPosition when the form loads
+            CheckFormPosition();
+        }
+
+        private void positionCheckTimer_Tick(object sender, EventArgs e)
+        {
+            // Call CheckFormPosition when the form loads
+            CheckFormPosition();
+        }
+
+        private void CheckFormPosition()
+        {
+            // Get the screen that contains the form
+            Screen screen = Screen.FromControl(this);
+
+            // Get the bounds of the screen
+            Rectangle screenBounds = screen.WorkingArea;
+
+            // Check if the bottom of the form is out of the screen bounds
+            bool isBottomOutOfScreen = this.Bottom > screenBounds.Bottom;
+            // Check if the top of the form is out of the screen bounds
+            bool isTopOutOfScreen = this.Top < screenBounds.Top;
+
+            if (isBottomOutOfScreen)
+            {
+                // Adjust the form's position so the bottom is at the bottom edge of the screen
+                this.Location = new Point(
+                    this.Left, // Keep the current horizontal position
+                    screenBounds.Bottom - this.Height // Set the bottom edge of the form to the bottom of the screen
+                );
+            }
+            else if (isTopOutOfScreen)
+            {
+                // Adjust the form's position so the top is at the top edge of the screen
+                this.Location = new Point(
+                    this.Left, // Keep the current horizontal position
+                    screenBounds.Top // Set the top edge of the form to the top of the screen
+                );
+            }
         }
         #endregion
 
@@ -113,21 +166,21 @@ namespace STARFIRE.FrontEnd
                 // Read the attack up scale value from the specified memory address
                 float pAtkUpScale = M.ReadFloat(UBrgUIManager.ABrgCommonPawn_CustomChara.mBaseAtkUpScale);
                 // Read the attack up scale value from the specified memory address
-                
+
                 // Update the attack up scale value in the UI
                 AtkUpScale_Value.Text = "#" + pAtkUpScale.ToString(CultureInfo.InvariantCulture);
 
                 // Read the player time scale value from the specified memory address
-                float ptimescalevalue = M.ReadFloat(UBrgUIManager.ABrgCommonPawn_CustomChara.mBaseAtkUpScale);
+                float ptimescalevalue = M.ReadFloat(UBrgUIManager.ABrgPawn_BaseNative.mDefaultTimeScale);
 
                 // Update the player time scale value in the UI
                 PlayerTimescale_Value.Text = "#" + ptimescalevalue.ToString(CultureInfo.InvariantCulture);
 
-                // Read the critical max value from the specified memory address
-                float pCritMax = M.ReadFloat(UBrgUIManager.ABrgCommonPawn_CustomChara.mBaseDefUpScale);
+                // Read the player time scale value from the specified memory address
+                float worldtimescalev = M.ReadFloat(UBrgUIManager.ABrgGameInfoNative.UBrgWorldTimeScaleManager.mDefaultTimeScale);
 
-                // Update the critical max value in the UI (likely a typo, it should be a different control)
-                AtkUpScale_Value.Text = "#" + pCritMax.ToString(CultureInfo.InvariantCulture);
+                // Update the player time scale value in the UI
+                WorldTimeScale_Value.Text = "#" + worldtimescalev.ToString(CultureInfo.InvariantCulture);
             }
             else
             {
@@ -149,7 +202,7 @@ namespace STARFIRE.FrontEnd
         #region TabControl UI Size Changes
         private void Starfire_TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Set the desired witdh and height per Tab Selected inside the trainer (CHEATS|EDITOR|TELEPORTS|OTHER)
+            // Set the desired width and height per Tab Selected inside the trainer (CHEATS|EDITOR|TELEPORTS|OTHER)
             if (Starfire_TabControl.SelectedTab == Starfire_CheatsTab)
             {
                 this.Width = TrainerWidth;
@@ -163,7 +216,24 @@ namespace STARFIRE.FrontEnd
             else if (Starfire_TabControl.SelectedTab == Starfire_Teleports)
             {
                 this.Width = TrainerWidth;
-                this.Height = TeleportsTrainerHeight;
+
+                // Check which sub-tab is currently selected in the TELEPORTS tab
+                if (Starfire_Teleports_TabControl.SelectedTab == ElevatorsTab)
+                {
+                    this.Height = TeleportElevatorHeight;
+                }
+                else if (Starfire_Teleports_TabControl.SelectedTab == EscalatorsTab)
+                {
+                    this.Height = TeleportEscalatorHeight;
+                }
+                else if (Starfire_Teleports_TabControl.SelectedTab == ResourcesTab)
+                {
+                    this.Height = TeleportResourcesHeight;
+                }
+                else if (Starfire_Teleports_TabControl.SelectedTab == OtherTab)
+                {
+                    this.Height = TeleportOtherHeight;
+                }
             }
             else if (Starfire_TabControl.SelectedTab == Starfire_Other)
             {
@@ -173,18 +243,18 @@ namespace STARFIRE.FrontEnd
         }
         private void Starfire_Teleports_TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Set the desired witdh and height per Tab Selected inside the trainer (ELEVATORS|ESCALATORS|OTHER)
+            // Set the desired width and height per Tab Selected inside the trainer (ELEVATORS|ESCALATORS|OTHER)
             if (Starfire_Teleports_TabControl.SelectedTab == ElevatorsTab)
             {
                 this.Width = TrainerWidth;
                 this.Height = TeleportElevatorHeight;
             }
-            if (Starfire_Teleports_TabControl.SelectedTab == EscalatorsTab)
+            else if (Starfire_Teleports_TabControl.SelectedTab == EscalatorsTab)
             {
                 this.Width = TrainerWidth;
                 this.Height = TeleportEscalatorHeight;
             }
-            if (Starfire_Teleports_TabControl.SelectedTab == ResourcesTab)
+            else if (Starfire_Teleports_TabControl.SelectedTab == ResourcesTab)
             {
                 this.Width = TrainerWidth;
                 this.Height = TeleportResourcesHeight;
@@ -195,30 +265,41 @@ namespace STARFIRE.FrontEnd
                 this.Height = TeleportOtherHeight;
             }
         }
-        private void Starfire_Exit_Click(object sender, EventArgs e)
+        private void Starfire_Exit_Click_1(object sender, EventArgs e)
         {
             // Check if the game is currently running
             if (Starfire_Status.Text == "STATUS: GAME FOUND!")
             {
-                // Manually trigger the CheckedChanged events for all toggles to ensure proper cleanup
-                if (Invincible_Toggle.Checked) Invincible_Toggle_CheckedChanged(Invincible_Toggle, EventArgs.Empty);
-                if (NoDamage_Toggle.Checked) NoDamage_Toggle_CheckedChanged(NoDamage_Toggle, EventArgs.Empty);
-                if (InfiniteHP_Toggle.Checked) InfiniteHP_Toggle_CheckedChanged(InfiniteHP_Toggle, EventArgs.Empty);
-                if (InfiniteStamina_Toggle.Checked) InfiniteStamina_Toggle_CheckedChanged(InfiniteStamina_Toggle, EventArgs.Empty);
-                if (InfiniteRage_Toggle.Checked) InfiniteRage_Toggle_CheckedChanged(InfiniteRage_Toggle, EventArgs.Empty);
-                if (InfiniteDurability_Toggle.Checked) InfiniteDurability_Toggle_CheckedChanged(InfiniteDurability_Toggle, EventArgs.Empty);
-                if (SpeedhackWalk_Toggle.Checked) SpeedhackWalk_Toggle_CheckedChanged(SpeedhackWalk_Toggle, EventArgs.Empty);
-                if (SpeedhackSprint_Toggle.Checked) SpeedhackSprint_Toggle_CheckedChanged(SpeedhackSprint_Toggle, EventArgs.Empty);
-                if (SuperJump_Toggle.Checked) SuperJump_Toggle_CheckedChanged(SuperJump_Toggle, EventArgs.Empty);
-                if (OneHitKill_Toggle.Checked) OneHitKill_Toggle_CheckedChanged(OneHitKill_Toggle, EventArgs.Empty);
-                if (NoRecoil_Toggle.Checked) NoRecoil_Toggle_CheckedChanged(NoRecoil_Toggle, EventArgs.Empty);
-                if (InfiniteAmmo_Toggle.Checked) InfiniteAmmo_Toggle_CheckedChanged(InfiniteAmmo_Toggle, EventArgs.Empty);
-                if (TPose_Toggle.Checked) TPose_Toggle_CheckedChanged(TPose_Toggle, EventArgs.Empty);
-                if (NoFallDamage_Toggle.Checked) NoFallDamage_Toggle_CheckedChanged(NoFallDamage_Toggle, EventArgs.Empty);
-                if (UnFogMiniMap_Toggle.Checked) UnFogMiniMap_Toggle_CheckedChanged(UnFogMiniMap_Toggle, EventArgs.Empty);
-                if (KillcoinVacuum_Toggle.Checked) KillcoinVacuum_Toggle_CheckedChanged(KillcoinVacuum_Toggle, EventArgs.Empty);
-                if (OpenDailyRewardBox_Toggle.Checked) OpenDailyRewardBox_Toggle_CheckedChanged(OpenDailyRewardBox_Toggle, EventArgs.Empty);
-                if (AtkUpScale_Toggle.Checked) AtkUpScale_Toggle_CheckedChanged(AtkUpScale_Toggle, EventArgs.Empty);
+                // Disable all toggles to ensure proper cleanup
+                if (Invincible_Toggle.Checked) Invincible_Toggle.Checked = false;
+                if (NoDamage_Toggle.Checked) NoDamage_Toggle.Checked = false;
+                if (InfiniteHP_Toggle.Checked) InfiniteHP_Toggle.Checked = false;
+                if (InfiniteStamina_Toggle.Checked) InfiniteStamina_Toggle.Checked = false;
+                if (InfiniteRage_Toggle.Checked) InfiniteRage_Toggle.Checked = false;
+                if (InfiniteDurability_Toggle.Checked) InfiniteDurability_Toggle.Checked = false;
+                if (SpeedhackWalk_Toggle.Checked) SpeedhackWalk_Toggle.Checked = false;
+                if (SpeedhackSprint_Toggle.Checked) SpeedhackSprint_Toggle.Checked = false;
+                if (SuperJump_Toggle.Checked) SuperJump_Toggle.Checked = false;
+                if (OneHitKill_Toggle.Checked) OneHitKill_Toggle.Checked = false;
+                if (NoRecoil_Toggle.Checked) NoRecoil_Toggle.Checked = false;
+                if (InfiniteAmmo_Toggle.Checked) InfiniteAmmo_Toggle.Checked = false;
+                if (TPose_Toggle.Checked) TPose_Toggle.Checked = false;
+                if (NoFallDamage_Toggle.Checked) NoFallDamage_Toggle.Checked = false;
+                if (UnFogMiniMap_Toggle.Checked) UnFogMiniMap_Toggle.Checked = false;
+                if (KillcoinVacuum_Toggle.Checked) KillcoinVacuum_Toggle.Checked = false;
+                if (OpenDailyRewardBox_Toggle.Checked) OpenDailyRewardBox_Toggle.Checked = false;
+                if (InstantSpawnJackals_Toggle.Checked) InstantSpawnJackals_Toggle.Checked = false;
+                if (AtkUpScale_Toggle.Checked) AtkUpScale_Toggle.Checked = false;
+                if (PlayerTimescale_Toogle.Checked) PlayerTimescale_Toogle.Checked = false;
+                if (WorldTimeScale_Toggle.Checked) WorldTimeScale_Toggle.Checked = false;
+
+                // Reset the values to 300 when exiting the application
+                M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgDatabaseParam.mJackalSpawnStartTime, "float", "300");
+                M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgDatabaseParam.mJackalAwakeSpawnStartTime, "float", "300");
+                M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgDatabaseParam.mJackalRebornSpawnStartTime, "float", "300");
+
+                // Delay to allow all toggles to be processed before exit
+                Task.Delay(1000);
                 Application.Exit();
             }
             // Check if the game is not running, if not running exit program
@@ -228,7 +309,6 @@ namespace STARFIRE.FrontEnd
                 Application.Exit();
             }
         }
-
         #endregion
 
         #region CheatsTab
@@ -1304,7 +1384,87 @@ namespace STARFIRE.FrontEnd
                 MessageBox.Show("Unexpected game status. Please check the game state.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void InstantSpawnJackals_Timer_Tick(object sender, EventArgs e)
+        {
+            // Stop the timer
+            InstantSpawnJackals_Timer.Stop();
+            // Disable the toggle and update the label
+            InstantSpawnJackals_Toggle.Checked = false;
+            InstantSpawnJackals_Label.Text = "- INSTANT SPAWN JACKALS: DISABLED";
+        }
+        private void DisableInstantSpawnJackals()
+        {
+            InstantSpawnJackals_Label.Text = "- INSTANT SPAWN JACKALS: DISABLED";
+            try
+            {
+                // Reset the values to 300 when disabling
+                M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgDatabaseParam.mJackalSpawnStartTime, "float", "300");
+                M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgDatabaseParam.mJackalAwakeSpawnStartTime, "float", "300");
+                M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgDatabaseParam.mJackalRebornSpawnStartTime, "float", "300");
+                InstantSpawnJackals_Timer.Stop();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error disabling Instant Spawn Jackals: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void InstantSpawnJackals_Toggle_CheckedChanged(object sender, EventArgs e)
+        {
+            // Check if the game is currently running
+            if (Starfire_Status.Text == "STATUS: GAME FOUND!")
+            {
+                if (InstantSpawnJackals_Toggle.Checked)
+                {
+                    // Enable Instant Spawn Jackal when the toggle is checked
+                    InstantSpawnJackals_Label.Text = "- INSTANT SPAWN JACKALS: ENABLED";
+                    try
+                    {
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgDatabaseParam.mJackalSpawnStartTime, "float", "1");
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgDatabaseParam.mJackalAwakeSpawnStartTime, "float", "1");
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgDatabaseParam.mJackalRebornSpawnStartTime, "float", "1");
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgAIDirector.mJackalSpawnTime, "float", "1");
+                        InstantSpawnJackals_Timer.Start();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error enabling Instant Spawn Jackal: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        InstantSpawnJackals_Toggle.Checked = false;
+                    }
+                }
+                else
+                {
+                    // Disable Instant Spawn Jackal when the toggle is unchecked
+                    InstantSpawnJackals_Label.Text = "- INSTANT SPAWN JACKALS: DISABLED";
+                    try
+                    {
+                        InstantSpawnJackals_Timer.Stop();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error disabling Instant Spawn Jackals: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            // Check if the game is not running
+            else if (Starfire_Status.Text == "STATUS: N/A")
+            {
+                if (InstantSpawnJackals_Toggle.Checked)
+                {
+                    // Force disable Instant Spawn Jackal if the game is not running
+                    InstantSpawnJackals_Toggle.Checked = false;
+                    InstantSpawnJackals_Label.Text = "- INSTANT SPAWN JACKALS: DISABLED";
+                }
+            }
+            // Optional: Handle any other unexpected status
+            else
+            {
+                MessageBox.Show("Unexpected game status. Please check the game state.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
         #endregion
+
         #region Player Editor Cheats
         private void AtkUpScale_Toggle_CheckedChanged(object sender, EventArgs e)
         {
@@ -1367,13 +1527,13 @@ namespace STARFIRE.FrontEnd
                 {
                     try
                     {
-                        // Uncheck OneHitKill_Toggle if it is checked
+                        // Uncheck PlayerTimescale_Toogle if it is checked
                         if (PlayerTimescale_Toogle.Checked)
                         {
                             PlayerTimescale_Toogle.Checked = false;
                         }
 
-                        // Write the value from AtkUpScale_NumericUpDown
+                        // Write the value from PlayerTimescale_NumericUpDown
                         M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mDefaultTimeScale, "float", PlayerTimescale_NumericUpDown.Value.ToString(CultureInfo.InvariantCulture));
                     }
                     catch (Exception ex)
@@ -1385,7 +1545,7 @@ namespace STARFIRE.FrontEnd
                 {
                     try
                     {
-                        // Write the default value when AtkUpScale_Toggle is unchecked
+                        // Write the default value when PlayerTimescale_Toogle is unchecked
                         M.WriteMemory(UBrgUIManager.ABrgPawn_BaseNative.mDefaultTimeScale, "float", "1");
                     }
                     catch (Exception ex)
@@ -1399,7 +1559,7 @@ namespace STARFIRE.FrontEnd
             {
                 if (PlayerTimescale_Toogle.Checked)
                 {
-                    // Force disable AtkUpScale_Toggle if the game is not running
+                    // Force disable PlayerTimescale_Toogle if the game is not running
                     PlayerTimescale_Toogle.Checked = false;
                 }
             }
@@ -1409,7 +1569,60 @@ namespace STARFIRE.FrontEnd
                 MessageBox.Show("Unexpected game status. Please check the game state.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void WorldTimeScale_Toggle_CheckedChanged(object sender, EventArgs e)
+        {
+            // Check if the game is currently running
+            if (Starfire_Status.Text == "STATUS: GAME FOUND!")
+            {
+                if (WorldTimeScale_Toggle.Checked)
+                {
+                    try
+                    {
+                        // Uncheck WorldTimeScale_Toggle if it is checked
+                        if (WorldTimeScale_Toggle.Checked)
+                        {
+                            WorldTimeScale_Toggle.Checked = false;
+                        }
+
+                        // Write the value from WorldTimeScale_NumericUpDown
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgWorldTimeScaleManager.mDefaultTimeScale, "float", WorldTimeScale_NumericUpDown.Value.ToString(CultureInfo.InvariantCulture));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error enabling ATK UP RATE: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        // Write the default value when WorldTimeScale_Toggle is unchecked
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.UBrgWorldTimeScaleManager.mDefaultTimeScale, "float", "1");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error disabling ATK UP RATE: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            // Check if the game is not running
+            else if (Starfire_Status.Text == "STATUS: N/A")
+            {
+                if (WorldTimeScale_Toggle.Checked)
+                {
+                    // Force disable WorldTimeScale_Toggle if the game is not running
+                    WorldTimeScale_Toggle.Checked = false;
+                }
+            }
+            // Optional: Handle any other unexpected status
+            else
+            {
+                MessageBox.Show("Unexpected game status. Please check the game state.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
         #endregion
+
         #region Teleport Cheats
         private void Elevator_Normal_Button_Click(object sender, EventArgs e)
         {
@@ -1446,7 +1659,7 @@ namespace STARFIRE.FrontEnd
         {
             try
             {
-                // Attempt to read the X, Y, and Z coordinates of the normal elevator from memory
+                // Attempt to read the X, Y, and Z coordinates of the VIP elevator from memory
                 float elevator_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.ElevatorLocations.ElevatorLocation2_X);
                 float elevator_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.ElevatorLocations.ElevatorLocation2_Y);
                 float elevator_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.ElevatorLocations.ElevatorLocation2_Z);
@@ -1454,7 +1667,7 @@ namespace STARFIRE.FrontEnd
                 // Check if the X coordinate is valid (non-zero or negative)
                 if (elevator_X < 0 || elevator_X != 0)
                 {
-                    // Update the player's location to the elevator's coordinates
+                    // Update the player's location to the VIP elevator's coordinates
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", elevator_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", elevator_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", elevator_Z.ToString(CultureInfo.InvariantCulture));
@@ -1476,7 +1689,7 @@ namespace STARFIRE.FrontEnd
         {
             try
             {
-                // Attempt to read the X, Y, and Z coordinates of the normal elevator from memory
+                // Attempt to read the X, Y, and Z coordinates of the normal escalator from memory
                 float escalator1_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation1_X);
                 float escalator1_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation1_Y);
                 float escalator1_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation1_Z);
@@ -1484,7 +1697,7 @@ namespace STARFIRE.FrontEnd
                 // Check if the X coordinate is valid (non-zero or negative)
                 if (escalator1_X < 0 || escalator1_X != 0)
                 {
-                    // Update the player's location to the elevator's coordinates
+                    // Update the player's location to the escalator's coordinates
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", escalator1_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", escalator1_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", escalator1_Z.ToString(CultureInfo.InvariantCulture));
@@ -1506,7 +1719,7 @@ namespace STARFIRE.FrontEnd
         {
             try
             {
-                // Attempt to read the X, Y, and Z coordinates of the normal elevator from memory
+                // Attempt to read the X, Y, and Z coordinates of the normal escalator from memory
                 float escalator2_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation2_Y);
                 float escalator2_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation2_Z);
                 float escalator2_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation2_X);
@@ -1514,7 +1727,7 @@ namespace STARFIRE.FrontEnd
                 // Check if the X coordinate is valid (non-zero or negative)
                 if (escalator2_X < 0 || escalator2_X != 0)
                 {
-                    // Update the player's location to the elevator's coordinates
+                    // Update the player's location to the escalator's coordinates
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", escalator2_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", escalator2_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", escalator2_Z.ToString(CultureInfo.InvariantCulture));
@@ -1536,7 +1749,7 @@ namespace STARFIRE.FrontEnd
         {
             try
             {
-                // Attempt to read the X, Y, and Z coordinates of the normal elevator from memory
+                // Attempt to read the X, Y, and Z coordinates of the normal escalator from memory
                 float escalator3_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation3_X);
                 float escalator3_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation3_Y);
                 float escalator3_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation3_Z);
@@ -1544,7 +1757,7 @@ namespace STARFIRE.FrontEnd
                 // Check if the X coordinate is valid (non-zero or negative)
                 if (escalator3_X < 0 || escalator3_X != 0)
                 {
-                    // Update the player's location to the elevator's coordinates
+                    // Update the player's location to the escalator's coordinates
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", escalator3_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", escalator3_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", escalator3_Z.ToString(CultureInfo.InvariantCulture));
@@ -1566,7 +1779,7 @@ namespace STARFIRE.FrontEnd
         {
             try
             {
-                // Attempt to read the X, Y, and Z coordinates of the normal elevator from memory
+                // Attempt to read the X, Y, and Z coordinates of the normal escalator from memory
                 float escalator4_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation4_X);
                 float escalator4_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation4_Y);
                 float escalator4_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.EscalatorLocations.EscalatorLocation4_Z);
@@ -1574,7 +1787,7 @@ namespace STARFIRE.FrontEnd
                 // Check if the X coordinate is valid (non-zero or negative)
                 if (escalator4_X < 0 || escalator4_X != 0)
                 {
-                    // Update the player's location to the elevator's coordinates
+                    // Update the player's location to the escalator's coordinates
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", escalator4_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", escalator4_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", escalator4_Z.ToString(CultureInfo.InvariantCulture));
@@ -1594,6 +1807,7 @@ namespace STARFIRE.FrontEnd
 
         private void BackToBaseFloor_Button_Click(object sender, EventArgs e)
         {
+            // Write value to utilize in game error to send player safely back to base floor! (error does not issue any bans aka PLAYER EMERGENCY SEND TO BASE FLOOR!)
             M.WriteMemory(UBrgUIManager.ABrgGameInfo.mbPlayerEmergency, "int", "32");
         }
 
@@ -1601,7 +1815,7 @@ namespace STARFIRE.FrontEnd
         {
             try
             {
-                // Attempt to read the X, Y, and Z coordinates of the normal elevator from memory
+                // Attempt to read the X, Y, and Z coordinates of the stamp rally table's from memory
                 float StampR_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.StampTableLocation.StampTable_X);
                 float StampR_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.StampTableLocation.StampTable_Y);
                 float StampR_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.StampTableLocation.StampTable_Z);
@@ -1609,7 +1823,7 @@ namespace STARFIRE.FrontEnd
                 // Check if the X coordinate is valid (non-zero or negative)
                 if (StampR_X < 0 || StampR_X != 0)
                 {
-                    // Update the player's location to the elevator's coordinates
+                    // Update the player's location to the stamp rally table's coordinates
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", StampR_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", StampR_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", StampR_Z.ToString(CultureInfo.InvariantCulture));
@@ -1631,7 +1845,7 @@ namespace STARFIRE.FrontEnd
         {
             try
             {
-                // Attempt to read the X, Y, and Z coordinates of the normal elevator from memory
+                // Attempt to read the X, Y, and Z coordinates of resource 1 from memory
                 float resource1_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X);
                 float resource1_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Y);
                 float resource1_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Z);
@@ -1639,7 +1853,7 @@ namespace STARFIRE.FrontEnd
                 // Check if the X coordinate is valid (non-zero or negative)
                 if (resource1_X < 0 || resource1_X != 0)
                 {
-                    // Update the player's location to the elevator's coordinates
+                    // Update the player's location to resource 1 coordinates
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource1_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource1_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource1_Z.ToString(CultureInfo.InvariantCulture));
@@ -1647,13 +1861,13 @@ namespace STARFIRE.FrontEnd
                 else
                 {
                     // Show a message if the X coordinate is invalid
-                    MessageBox.Show("Invalid Escalator 1 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid Resource 1 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
                 // Handle any exceptions that occur during the memory read/write operations
-                MessageBox.Show($"Error teleporting to Escalator 1: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error teleporting to Resource 1: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1661,7 +1875,7 @@ namespace STARFIRE.FrontEnd
         {
             try
             {
-                // Attempt to read the X, Y, and Z coordinates of the normal elevator from memory
+                // Attempt to read the X, Y, and Z coordinates of the resource 2 from memory
                 float resource2_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation2_X);
                 float resource2_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation2_Y);
                 float resource2_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation2_Z);
@@ -1669,7 +1883,7 @@ namespace STARFIRE.FrontEnd
                 // Check if the X coordinate is valid (non-zero or negative)
                 if (resource2_X < 0 || resource2_X != 0)
                 {
-                    // Update the player's location to the elevator's coordinates
+                    // Update the player's location to resource 2 coordinates
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource2_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource2_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource2_Z.ToString(CultureInfo.InvariantCulture));
@@ -1677,20 +1891,20 @@ namespace STARFIRE.FrontEnd
                 else
                 {
                     // Show a message if the X coordinate is invalid
-                    MessageBox.Show("Invalid Escalator 1 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid Resource 2 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
                 // Handle any exceptions that occur during the memory read/write operations
-                MessageBox.Show($"Error teleporting to Escalator 1: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error teleporting to Resource 2: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void Resource3_Teleport_Click(object sender, EventArgs e)
         {
             try
             {
-                // Attempt to read the X, Y, and Z coordinates of the normal elevator from memory
+                // Attempt to read the X, Y, and Z coordinates of resource 3 from memory
                 float resource3_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation3_X);
                 float resource3_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation3_Y);
                 float resource3_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation3_Z);
@@ -1698,7 +1912,7 @@ namespace STARFIRE.FrontEnd
                 // Check if the X coordinate is valid (non-zero or negative)
                 if (resource3_X < 0 || resource3_X != 0)
                 {
-                    // Update the player's location to the elevator's coordinates
+                    // Update the player's location to resource 3 coordinates
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource3_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource3_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource3_Z.ToString(CultureInfo.InvariantCulture));
@@ -1706,13 +1920,13 @@ namespace STARFIRE.FrontEnd
                 else
                 {
                     // Show a message if the X coordinate is invalid
-                    MessageBox.Show("Invalid Escalator 1 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid Resource 3 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
                 // Handle any exceptions that occur during the memory read/write operations
-                MessageBox.Show($"Error teleporting to Escalator 1: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error teleporting to Resource 3: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1720,7 +1934,7 @@ namespace STARFIRE.FrontEnd
         {
             try
             {
-                // Attempt to read the X, Y, and Z coordinates of the normal elevator from memory
+                // Attempt to read the X, Y, and Z coordinates of resource 4 from memory
                 float resource4_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation4_X);
                 float resource4_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation4_Y);
                 float resource4_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation4_Z);
@@ -1728,7 +1942,7 @@ namespace STARFIRE.FrontEnd
                 // Check if the X coordinate is valid (non-zero or negative)
                 if (resource4_X < 0 || resource4_X != 0)
                 {
-                    // Update the player's location to the elevator's coordinates
+                    // Update the player's location to resource 4 coordinates
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource4_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource4_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource4_Z.ToString(CultureInfo.InvariantCulture));
@@ -1736,15 +1950,197 @@ namespace STARFIRE.FrontEnd
                 else
                 {
                     // Show a message if the X coordinate is invalid
-                    MessageBox.Show("Invalid Escalator 1 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid Resource 4 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
                 // Handle any exceptions that occur during the memory read/write operations
-                MessageBox.Show($"Error teleporting to Escalator 1: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error teleporting to Resource 4: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Resource5_Teleport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Attempt to read the X, Y, and Z coordinates of resource 5 from memory
+                float resource5_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation5_X);
+                float resource5_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation5_Y);
+                float resource5_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation5_Z);
+
+                // Check if the X coordinate is valid (non-zero or negative)
+                if (resource5_X < 0 || resource5_X != 0)
+                {
+                    // Update the player's location to resource 5 coordinates
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource5_X.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource5_Y.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource5_Z.ToString(CultureInfo.InvariantCulture));
+                }
+                else
+                {
+                    // Show a message if the X coordinate is invalid
+                    MessageBox.Show("Invalid Resource 5 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the memory read/write operations
+                MessageBox.Show($"Error teleporting to Resource 5: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void Resource6_Teleport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Attempt to read the X, Y, and Z coordinates of resource 6 from memory
+                float resource6_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation6_X);
+                float resource6_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation6_Y);
+                float resource6_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation6_Z);
+
+                // Check if the X coordinate is valid (non-zero or negative)
+                if (resource6_X < 0 || resource6_X != 0)
+                {
+                    // Update the player's location to resource 6 coordinates
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource6_X.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource6_Y.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource6_Z.ToString(CultureInfo.InvariantCulture));
+                }
+                else
+                {
+                    // Show a message if the X coordinate is invalid
+                    MessageBox.Show("Invalid Resource 6 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the memory read/write operations
+                MessageBox.Show($"Error teleporting to Resource 6: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Resource7_Teleport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Attempt to read the X, Y, and Z coordinates of resource 7 from memory
+                float resource7_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation7_X);
+                float resource7_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation7_Y);
+                float resource7_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation7_Z);
+
+                // Check if the X coordinate is valid (non-zero or negative)
+                if (resource7_X < 0 || resource7_X != 0)
+                {
+                    // Update the player's location to resource 7 coordinates
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource7_X.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource7_Y.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource7_Z.ToString(CultureInfo.InvariantCulture));
+                }
+                else
+                {
+                    // Show a message if the X coordinate is invalid
+                    MessageBox.Show("Invalid Resource 7 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the memory read/write operations
+                MessageBox.Show($"Error teleporting to Resource 7: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Resource8_Teleport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Attempt to read the X, Y, and Z coordinates of resource 8 from memory
+                float resource8_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation8_X);
+                float resource8_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation8_Y);
+                float resource8_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation8_Z);
+
+                // Check if the X coordinate is valid (non-zero or negative)
+                if (resource8_X < 0 || resource8_X != 0)
+                {
+                    // Update the player's location to resource 8 coordinates
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource8_X.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource8_Y.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource8_Z.ToString(CultureInfo.InvariantCulture));
+                }
+                else
+                {
+                    // Show a message if the X coordinate is invalid
+                    MessageBox.Show("Invalid Resource 8 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the memory read/write operations
+                MessageBox.Show($"Error teleporting to Resource 8: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Resource9_Teleport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Attempt to read the X, Y, and Z coordinates of resource 9 from memory
+                float resource9_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation9_X);
+                float resource9_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation9_Y);
+                float resource9_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation9_Z);
+
+                // Check if the X coordinate is valid (non-zero or negative)
+                if (resource9_X < 0 || resource9_X != 0)
+                {
+                    // Update the player's location to resource 9 coordinates
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource9_X.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource9_Y.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource9_Z.ToString(CultureInfo.InvariantCulture));
+                }
+                else
+                {
+                    // Show a message if the X coordinate is invalid
+                    MessageBox.Show("Invalid Resource 9 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the memory read/write operations
+                MessageBox.Show($"Error teleporting to Resource 9: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Resource10_Teleport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Attempt to read the X, Y, and Z coordinates of resource 10 from memory
+                float resource10_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation10_X);
+                float resource10_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation10_Y);
+                float resource10_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation10_Z);
+
+                // Check if the X coordinate is valid (non-zero or negative)
+                if (resource10_X < 0 || resource10_X != 0)
+                {
+                    // Update the player's location to resource 10 coordinates
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource10_X.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource10_Y.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource10_Z.ToString(CultureInfo.InvariantCulture));
+                }
+                else
+                {
+                    // Show a message if the X coordinate is invalid
+                    MessageBox.Show("Invalid Resource 10 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the memory read/write operations
+                MessageBox.Show($"Error teleporting to Resource 10: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion
+
     }
 }
