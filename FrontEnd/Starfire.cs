@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using Memory;
 using static KC__LID_EXT.BackEnd.Dump.SDK;
 using System.Globalization;
+using Gma.System.MouseKeyHook;
 
 namespace STARFIRE.FrontEnd
 {
@@ -58,10 +59,86 @@ namespace STARFIRE.FrontEnd
             this.TopMost = true;
             this.WindowState = FormWindowState.Normal;
             Starfire_Status.Text = "STATUS: N/A";
+            SubscribeToKeyPressesForHotkeys();
 
             // Call CheckFormPosition in the form's constructor
             CheckFormPosition();
 
+        }
+        #endregion
+
+        #region Hotkeys
+        private IKeyboardMouseEvents _globalHook;
+
+        private void SubscribeToKeyPressesForHotkeys()
+        {
+            _globalHook = Hook.GlobalEvents();
+            _globalHook.KeyDown += GlobalHookKeyDown;
+            Console.WriteLine("Listening for Hotkeys");
+        }
+
+        private void GlobalHookKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.NumPad1)
+            {
+                Escalator_1_Button_Click(this, EventArgs.Empty);
+            }
+
+            if (e.KeyCode == Keys.NumPad2)
+            {
+                Escalator_2_Button_Click(this, EventArgs.Empty);
+            }
+
+            if (e.KeyCode == Keys.NumPad3)
+            {
+                Escalator_3_Button_Click(this, EventArgs.Empty);
+            }
+
+            if (e.KeyCode == Keys.NumPad4)
+            {
+                Resource1_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (e.KeyCode == Keys.NumPad5)
+            {
+                Resource2_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (e.KeyCode == Keys.NumPad6)
+            {
+                Resource3_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (e.KeyCode == Keys.NumPad7)
+            {
+                Resource4_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (e.KeyCode == Keys.NumPad8)
+            {
+                Resource5_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (e.KeyCode == Keys.NumPad9)
+            {
+                Resource6_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (e.KeyCode == Keys.NumPad0)
+            {
+                Resource7_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (e.KeyCode == Keys.Decimal)
+            {
+                Resource8_Teleport_Click(this, EventArgs.Empty);
+            }
+        }
+
+        private void UnsubscribeFromKeyPressesForHotKeys()
+        {
+            _globalHook.KeyDown -= GlobalHookKeyDown;
+            _globalHook.Dispose();
         }
         #endregion
 
@@ -2142,5 +2219,9 @@ namespace STARFIRE.FrontEnd
         }
         #endregion
 
+        private void Starfire_Header_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

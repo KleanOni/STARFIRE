@@ -1920,7 +1920,7 @@
             this.Starfire_PlayerEditor.Location = new System.Drawing.Point(4, 29);
             this.Starfire_PlayerEditor.Name = "Starfire_PlayerEditor";
             this.Starfire_PlayerEditor.Padding = new System.Windows.Forms.Padding(3);
-            this.Starfire_PlayerEditor.Size = new System.Drawing.Size(356, 647);
+            this.Starfire_PlayerEditor.Size = new System.Drawing.Size(356, 515);
             this.Starfire_PlayerEditor.TabIndex = 1;
             this.Starfire_PlayerEditor.Text = "EDITOR";
             // 
@@ -2289,7 +2289,7 @@
             this.Starfire_Teleports.Location = new System.Drawing.Point(4, 29);
             this.Starfire_Teleports.Name = "Starfire_Teleports";
             this.Starfire_Teleports.Padding = new System.Windows.Forms.Padding(3);
-            this.Starfire_Teleports.Size = new System.Drawing.Size(356, 647);
+            this.Starfire_Teleports.Size = new System.Drawing.Size(356, 515);
             this.Starfire_Teleports.TabIndex = 2;
             this.Starfire_Teleports.Text = "TELEPORTS";
             // 
@@ -2304,7 +2304,7 @@
             this.Starfire_Teleports_TabControl.Location = new System.Drawing.Point(3, 3);
             this.Starfire_Teleports_TabControl.Name = "Starfire_Teleports_TabControl";
             this.Starfire_Teleports_TabControl.SelectedIndex = 0;
-            this.Starfire_Teleports_TabControl.Size = new System.Drawing.Size(350, 641);
+            this.Starfire_Teleports_TabControl.Size = new System.Drawing.Size(350, 509);
             this.Starfire_Teleports_TabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.Starfire_Teleports_TabControl.TabButtonHoverState.FillColor = System.Drawing.Color.Black;
             this.Starfire_Teleports_TabControl.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -2334,7 +2334,7 @@
             this.ElevatorsTab.Location = new System.Drawing.Point(4, 29);
             this.ElevatorsTab.Name = "ElevatorsTab";
             this.ElevatorsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ElevatorsTab.Size = new System.Drawing.Size(342, 608);
+            this.ElevatorsTab.Size = new System.Drawing.Size(342, 476);
             this.ElevatorsTab.TabIndex = 0;
             this.ElevatorsTab.Text = "ELEVATORS";
             // 
@@ -2464,7 +2464,7 @@
             this.EscalatorsTab.Location = new System.Drawing.Point(4, 29);
             this.EscalatorsTab.Name = "EscalatorsTab";
             this.EscalatorsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.EscalatorsTab.Size = new System.Drawing.Size(342, 608);
+            this.EscalatorsTab.Size = new System.Drawing.Size(342, 476);
             this.EscalatorsTab.TabIndex = 1;
             this.EscalatorsTab.Text = "ESCALATORS";
             // 
@@ -2540,7 +2540,7 @@
             this.Escalator_3_GB.Name = "Escalator_3_GB";
             this.Escalator_3_GB.Size = new System.Drawing.Size(336, 60);
             this.Escalator_3_GB.TabIndex = 8;
-            this.Escalator_3_GB.Text = "[ESCALATOR#3]";
+            this.Escalator_3_GB.Text = "[ESCALATOR#3] (numpad 3)";
             this.Escalator_3_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Escalator_3_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -2598,7 +2598,7 @@
             this.Escalator_2_GB.Name = "Escalator_2_GB";
             this.Escalator_2_GB.Size = new System.Drawing.Size(336, 60);
             this.Escalator_2_GB.TabIndex = 7;
-            this.Escalator_2_GB.Text = "[ESCALATOR#2]";
+            this.Escalator_2_GB.Text = "[ESCALATOR#2] (numpad 2)";
             this.Escalator_2_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Escalator_2_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -2656,7 +2656,7 @@
             this.Escalator_1_GB.Name = "Escalator_1_GB";
             this.Escalator_1_GB.Size = new System.Drawing.Size(336, 60);
             this.Escalator_1_GB.TabIndex = 6;
-            this.Escalator_1_GB.Text = "[ESCALATOR#1]";
+            this.Escalator_1_GB.Text = "[ESCALATOR#1] (numpad 1)";
             this.Escalator_1_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Escalator_1_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -2717,7 +2717,7 @@
             this.ResourcesTab.Location = new System.Drawing.Point(4, 29);
             this.ResourcesTab.Name = "ResourcesTab";
             this.ResourcesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ResourcesTab.Size = new System.Drawing.Size(342, 608);
+            this.ResourcesTab.Size = new System.Drawing.Size(342, 476);
             this.ResourcesTab.TabIndex = 3;
             this.ResourcesTab.Text = "RESOURCES";
             // 
@@ -2851,7 +2851,7 @@
             this.Resource8_GB.Name = "Resource8_GB";
             this.Resource8_GB.Size = new System.Drawing.Size(336, 60);
             this.Resource8_GB.TabIndex = 17;
-            this.Resource8_GB.Text = "[RESOURCE#8]";
+            this.Resource8_GB.Text = "[RESOURCE#8] (numpad .)";
             this.Resource8_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Resource8_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -2909,7 +2909,7 @@
             this.Resource7_GB.Name = "Resource7_GB";
             this.Resource7_GB.Size = new System.Drawing.Size(336, 60);
             this.Resource7_GB.TabIndex = 16;
-            this.Resource7_GB.Text = "[RESOURCE#7]";
+            this.Resource7_GB.Text = "[RESOURCE#7] (numpad 0)";
             this.Resource7_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Resource7_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -2967,7 +2967,7 @@
             this.Resource6_GB.Name = "Resource6_GB";
             this.Resource6_GB.Size = new System.Drawing.Size(336, 60);
             this.Resource6_GB.TabIndex = 15;
-            this.Resource6_GB.Text = "[RESOURCE#6]";
+            this.Resource6_GB.Text = "[RESOURCE#6] (numpad 9)";
             this.Resource6_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Resource6_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -3025,7 +3025,7 @@
             this.Resource5_GB.Name = "Resource5_GB";
             this.Resource5_GB.Size = new System.Drawing.Size(336, 60);
             this.Resource5_GB.TabIndex = 14;
-            this.Resource5_GB.Text = "[RESOURCE#5]";
+            this.Resource5_GB.Text = "[RESOURCE#5] (numpad 8)";
             this.Resource5_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Resource5_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -3083,7 +3083,7 @@
             this.Resource4_GB.Name = "Resource4_GB";
             this.Resource4_GB.Size = new System.Drawing.Size(336, 60);
             this.Resource4_GB.TabIndex = 13;
-            this.Resource4_GB.Text = "[RESOURCE#4]";
+            this.Resource4_GB.Text = "[RESOURCE#4] (numpad 7)";
             this.Resource4_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Resource4_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -3141,7 +3141,7 @@
             this.Resource3_GB.Name = "Resource3_GB";
             this.Resource3_GB.Size = new System.Drawing.Size(336, 60);
             this.Resource3_GB.TabIndex = 12;
-            this.Resource3_GB.Text = "[RESOURCE#3]";
+            this.Resource3_GB.Text = "[RESOURCE#3] (numpad 6)";
             this.Resource3_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Resource3_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -3199,7 +3199,7 @@
             this.Resource2_GB.Name = "Resource2_GB";
             this.Resource2_GB.Size = new System.Drawing.Size(336, 60);
             this.Resource2_GB.TabIndex = 11;
-            this.Resource2_GB.Text = "[RESOURCE#2]";
+            this.Resource2_GB.Text = "[RESOURCE#2] (numpad 5)";
             this.Resource2_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Resource2_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -3257,7 +3257,7 @@
             this.Resource1_GB.Name = "Resource1_GB";
             this.Resource1_GB.Size = new System.Drawing.Size(336, 60);
             this.Resource1_GB.TabIndex = 10;
-            this.Resource1_GB.Text = "[RESOURCE#1]";
+            this.Resource1_GB.Text = "[RESOURCE#1] (numpad 4)";
             this.Resource1_GB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Resource1_GB.TextOffset = new System.Drawing.Point(0, -6);
             // 
@@ -3309,7 +3309,7 @@
             this.OtherTab.Location = new System.Drawing.Point(4, 29);
             this.OtherTab.Name = "OtherTab";
             this.OtherTab.Padding = new System.Windows.Forms.Padding(3);
-            this.OtherTab.Size = new System.Drawing.Size(342, 608);
+            this.OtherTab.Size = new System.Drawing.Size(342, 476);
             this.OtherTab.TabIndex = 2;
             this.OtherTab.Text = "OTHER";
             // 
@@ -3437,7 +3437,7 @@
             this.Starfire_Other.Location = new System.Drawing.Point(4, 29);
             this.Starfire_Other.Name = "Starfire_Other";
             this.Starfire_Other.Padding = new System.Windows.Forms.Padding(3);
-            this.Starfire_Other.Size = new System.Drawing.Size(356, 647);
+            this.Starfire_Other.Size = new System.Drawing.Size(356, 515);
             this.Starfire_Other.TabIndex = 3;
             this.Starfire_Other.Text = "OTHER";
             // 
