@@ -2208,9 +2208,5 @@ namespace STARFIRE.FrontEnd
         }
         #endregion
 
-        private void Starfire_Header_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
