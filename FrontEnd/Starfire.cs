@@ -59,7 +59,7 @@ namespace STARFIRE.FrontEnd
             this.TopMost = true;
             this.WindowState = FormWindowState.Normal;
             Starfire_Status.Text = "STATUS: N/A";
-            SubscribeToKeyPressesForHotkeys();
+            GlobalHookKeyDown();
 
             // Call CheckFormPosition in the form's constructor
             CheckFormPosition();
