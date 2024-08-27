@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackEnd\KeyEvents\Keys.cs" />
     <Compile Include="BackEnd\SDK\SDK.cs" />
     <Compile Include="FrontEnd\Starfire.cs">
       <SubType>Form</SubType>

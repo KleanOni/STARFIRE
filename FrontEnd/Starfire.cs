@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 using Memory;
 using static KC__LID_EXT.BackEnd.Dump.SDK;
 using System.Globalization;
-using Gma.System.MouseKeyHook;
+using STARFIRE.Backend;
 
 namespace STARFIRE.FrontEnd
 {
@@ -68,77 +68,62 @@ namespace STARFIRE.FrontEnd
         #endregion
 
         #region Hotkeys
-        private IKeyboardMouseEvents _globalHook;
-
-        private void SubscribeToKeyPressesForHotkeys()
+        private void GlobalHookKeyDown()
         {
-            _globalHook = Hook.GlobalEvents();
-            _globalHook.KeyDown += GlobalHookKeyDown;
-            Console.WriteLine("Listening for Hotkeys");
-        }
 
-        private void GlobalHookKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.NumPad1)
+            if (HotKeys.IsKeyPressed(Keys.NumPad1))
             {
                 Escalator_1_Button_Click(this, EventArgs.Empty);
             }
 
-            if (e.KeyCode == Keys.NumPad2)
+            if (HotKeys.IsKeyPressed(Keys.NumPad2))
             {
                 Escalator_2_Button_Click(this, EventArgs.Empty);
             }
 
-            if (e.KeyCode == Keys.NumPad3)
+            if (HotKeys.IsKeyPressed(Keys.NumPad3))
             {
                 Escalator_3_Button_Click(this, EventArgs.Empty);
             }
-
-            if (e.KeyCode == Keys.NumPad4)
+            if (HotKeys.IsKeyPressed(Keys.NumPad4))
             {
                 Resource1_Teleport_Click(this, EventArgs.Empty);
             }
-
-            if (e.KeyCode == Keys.NumPad5)
+            
+            if (HotKeys.IsKeyPressed(Keys.NumPad5))
             {
                 Resource2_Teleport_Click(this, EventArgs.Empty);
             }
-
-            if (e.KeyCode == Keys.NumPad6)
+            
+            if (HotKeys.IsKeyPressed(Keys.NumPad6))
             {
                 Resource3_Teleport_Click(this, EventArgs.Empty);
             }
 
-            if (e.KeyCode == Keys.NumPad7)
+            if (HotKeys.IsKeyPressed(Keys.NumPad7))
             {
                 Resource4_Teleport_Click(this, EventArgs.Empty);
             }
 
-            if (e.KeyCode == Keys.NumPad8)
+            if (HotKeys.IsKeyPressed(Keys.NumPad8))
             {
                 Resource5_Teleport_Click(this, EventArgs.Empty);
             }
 
-            if (e.KeyCode == Keys.NumPad9)
+            if (HotKeys.IsKeyPressed(Keys.NumPad9))
             {
                 Resource6_Teleport_Click(this, EventArgs.Empty);
             }
 
-            if (e.KeyCode == Keys.NumPad0)
+            if (HotKeys.IsKeyPressed(Keys.NumPad0))
             {
                 Resource7_Teleport_Click(this, EventArgs.Empty);
             }
 
-            if (e.KeyCode == Keys.Decimal)
+            if (HotKeys.IsKeyPressed(Keys.Decimal))
             {
                 Resource8_Teleport_Click(this, EventArgs.Empty);
             }
-        }
-
-        private void UnsubscribeFromKeyPressesForHotKeys()
-        {
-            _globalHook.KeyDown -= GlobalHookKeyDown;
-            _globalHook.Dispose();
         }
         #endregion
 
@@ -222,6 +207,10 @@ namespace STARFIRE.FrontEnd
                     // If the process ID is not found, set IsProcOpen to false
                     IsProcOpen = false;
                 }
+
+                //  check hotkey events
+                GlobalHookKeyDown();
+
                 // Sleep for a short duration to avoid CPU overuse (1000 = 1 minute)
                 Thread.Sleep(1);
                 // Report progress to trigger the ProcessChanged event
