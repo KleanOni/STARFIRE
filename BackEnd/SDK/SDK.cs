@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using static KC__LID_EXT.BackEnd.Dump.SDK.UBrgUIManager;
@@ -16627,6 +16628,106 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mBodySkillStickerObject = mPlayerCommonPawn + "0x563c,"; // UBrgBodySkillStickerObject*
                 public const string __CallBackSlowMotionEnd__Delegate = mPlayerCommonPawn + "0x5644,"; // DelegateProperty
             }
+        }
+    }
+
+    internal class LetItDie
+    {
+        struct offsets
+        {
+            public const int oGWorld = 0x022B9D40;
+            public const int oGUBrgUIManager = 0x0F242EE0;
+        }
+
+
+        struct FVector
+        {
+            float x, y, z;
+        }
+
+        struct FRotator
+        {
+            float Pitch, Yaw, Roll;
+        }
+
+
+        [StructLayout(LayoutKind.Explicit, Pack = 1)]
+        struct AActor
+        {
+            [FieldOffset(0x80)]
+            FVector location;
+
+
+            [FieldOffset(0x8C)]
+            FRotator rotation;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Pack = 1)]
+        struct APawn
+        {
+            [FieldOffset(0x02A0)]
+            IntPtr Controller;  //0x02A0    //  AController*
+
+            [FieldOffset(0x04A8)]
+            IntPtr Mesh;	//0x04A8    //  USkeletalMeshComponent* 
+        }
+
+        [StructLayout(LayoutKind.Explicit, Pack = 1)]
+        struct ABrgCommonPawn_CustomCharaNative
+        {
+            //  [FieldOffset(0x0590)]
+            //  FBrgLocalItemInfo[] mEquipPartInfo[8];    //0x0590
+
+            //  [FieldOffset(0x02A0)]
+            //  TArray mDeathBag;   //0x3E58
+
+            [FieldOffset(0x43E8)]
+            IntPtr mArmWeaponL;   //0x43E8    //  ABrgWeapon_Base*
+
+            [FieldOffset(0x43F0)]
+            IntPtr mArmWeaponR;   //0x43F0    //  ABrgWeapon_Base*
+
+            //  [FieldOffset(0x43F8)]
+            //  FBrgCharaStatisticsData N00002799;  //0x43F8
+
+            [FieldOffset(0x4C44)]
+            float mWeaponLAtkScale; //0x4C44
+
+            [FieldOffset(0x4C48)]
+            float mWeaponRAtkScale;	//0x4C48
+
+        }
+
+        struct ABrgCommonPawn_CustomChara 
+        {
+
+        }
+
+        [StructLayout(LayoutKind.Explicit, Pack = 1)]
+        struct UBrgUIManagerBase
+        {
+            [FieldOffset(0x009C)]
+            IntPtr mGameInfoNativeBase;	//0x009C    //  ABrgGameInfoNativeBase*
+
+        }
+
+        [StructLayout(LayoutKind.Explicit, Pack = 1)]
+        struct UBrgUIManager
+        {
+            [FieldOffset(0x27EC)]
+            IntPtr mGameInfoNative;    //0x27EC //  ABrgGameInfoNative*
+
+            [FieldOffset(0x009C)]
+            IntPtr mCamera;    //0x280C //  ABrgCamera*
+
+            [FieldOffset(0x2850)]
+            IntPtr mDropItemManager;  //0x2850    //  UBrgDropItemManager*
+
+            [FieldOffset(0x2D1C)]
+            IntPtr mPawnPlayerBase;   //0x2D1C    //  ABrgPawn_PlayerBase*
+
+            [FieldOffset(0x2D34)]
+            IntPtr mPlayerCommonPawn;	//0x2D34    //  ABrgCommonPawn_CustomChara*
         }
     }
 }

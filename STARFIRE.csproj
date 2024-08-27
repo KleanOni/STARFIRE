@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackEnd\Memory\Memory.cs" />
     <Compile Include="BackEnd\SDK\SDK.cs" />
     <Compile Include="FrontEnd\Starfire.cs">
       <SubType>Form</SubType>
