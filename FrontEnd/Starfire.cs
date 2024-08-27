@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using Memory;
 using static KC__LID_EXT.BackEnd.Dump.SDK;
 using System.Globalization;
+using STARFIRE.Backend;
 
 namespace STARFIRE.FrontEnd
 {
@@ -58,10 +59,71 @@ namespace STARFIRE.FrontEnd
             this.TopMost = true;
             this.WindowState = FormWindowState.Normal;
             Starfire_Status.Text = "STATUS: N/A";
+            GlobalHookKeyDown();
 
             // Call CheckFormPosition in the form's constructor
             CheckFormPosition();
 
+        }
+        #endregion
+
+        #region Hotkeys
+        private void GlobalHookKeyDown()
+        {
+
+            if (HotKeys.IsKeyPressed(Keys.NumPad1))
+            {
+                Escalator_1_Button_Click(this, EventArgs.Empty);
+            }
+
+            if (HotKeys.IsKeyPressed(Keys.NumPad2))
+            {
+                Escalator_2_Button_Click(this, EventArgs.Empty);
+            }
+
+            if (HotKeys.IsKeyPressed(Keys.NumPad3))
+            {
+                Escalator_3_Button_Click(this, EventArgs.Empty);
+            }
+            if (HotKeys.IsKeyPressed(Keys.NumPad4))
+            {
+                Resource1_Teleport_Click(this, EventArgs.Empty);
+            }
+            
+            if (HotKeys.IsKeyPressed(Keys.NumPad5))
+            {
+                Resource2_Teleport_Click(this, EventArgs.Empty);
+            }
+            
+            if (HotKeys.IsKeyPressed(Keys.NumPad6))
+            {
+                Resource3_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (HotKeys.IsKeyPressed(Keys.NumPad7))
+            {
+                Resource4_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (HotKeys.IsKeyPressed(Keys.NumPad8))
+            {
+                Resource5_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (HotKeys.IsKeyPressed(Keys.NumPad9))
+            {
+                Resource6_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (HotKeys.IsKeyPressed(Keys.NumPad0))
+            {
+                Resource7_Teleport_Click(this, EventArgs.Empty);
+            }
+
+            if (HotKeys.IsKeyPressed(Keys.Decimal))
+            {
+                Resource8_Teleport_Click(this, EventArgs.Empty);
+            }
         }
         #endregion
 
@@ -145,6 +207,10 @@ namespace STARFIRE.FrontEnd
                     // If the process ID is not found, set IsProcOpen to false
                     IsProcOpen = false;
                 }
+
+                //  check hotkey events
+                GlobalHookKeyDown();
+
                 // Sleep for a short duration to avoid CPU overuse (1000 = 1 minute)
                 Thread.Sleep(1);
                 // Report progress to trigger the ProcessChanged event
