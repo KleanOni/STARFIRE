@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
+using System;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web.UI;
 using static KC__LID_EXT.BackEnd.Dump.SDK.UBrgUIManager;
+
 /// <summary>
 ///  Last Game Update (SteamDB Link Below) | Date: 25 July 2024 | Build: 15046130
 ///  https://steamdb.info/app/794600/patchnotes/
@@ -16633,21 +16634,49 @@ namespace KC__LID_EXT.BackEnd.Dump
 
     internal class LetItDie
     {
+        private bool bAttached = false;
+        private string procName = "BrgGame-Steam";
+        public static MemorySharp.Memory mem = new MemorySharp.Memory();
+
+        public LetItDie() 
+        { 
+            bAttached = mem.Attach(procName, MemorySharp.Memory.ProcessAccessFlags.All); 
+        }
+
+        public void Update()
+        {
+            if (Process.GetProcessesByName(procName).Length <= 0 && bAttached)
+            {
+                bAttached = false;
+                mem.Detach();
+            }
+        }
+
         struct offsets
         {
             public const int oGWorld = 0x022B9D40;
             public const int oGUBrgUIManager = 0x0F242EE0;
         }
 
-
-        struct FVector
+        public struct TArray
         {
-            float x, y, z;
+            IntPtr m_data;
+            Int32 m_count;
+            Int32 m_max;
+
+            public Int32 Count() { return m_count; }
+            public Int32 Max() { return m_max; }
+            public IntPtr Data() { return m_data; }
         }
 
-        struct FRotator
+        public struct FVector
         {
-            float Pitch, Yaw, Roll;
+            public float x, y, z;
+        }
+
+        public struct FRotator
+        {
+            public float Pitch, Yaw, Roll;
         }
 
 
@@ -16655,11 +16684,11 @@ namespace KC__LID_EXT.BackEnd.Dump
         struct AActor
         {
             [FieldOffset(0x80)]
-            FVector location;
+            public FVector location;
 
 
             [FieldOffset(0x8C)]
-            FRotator rotation;
+            public FRotator rotation;
         }
 
         [StructLayout(LayoutKind.Explicit, Pack = 1)]
@@ -16715,19 +16744,122 @@ namespace KC__LID_EXT.BackEnd.Dump
         struct UBrgUIManager
         {
             [FieldOffset(0x27EC)]
-            IntPtr mGameInfoNative;    //0x27EC //  ABrgGameInfoNative*
+            public IntPtr mGameInfoNative;    //0x27EC //  ABrgGameInfoNative*
 
             [FieldOffset(0x009C)]
-            IntPtr mCamera;    //0x280C //  ABrgCamera*
+            public IntPtr mCamera;    //0x280C //  ABrgCamera*
 
             [FieldOffset(0x2850)]
-            IntPtr mDropItemManager;  //0x2850    //  UBrgDropItemManager*
+            public IntPtr mDropItemManager;  //0x2850    //  UBrgDropItemManager*
 
             [FieldOffset(0x2D1C)]
-            IntPtr mPawnPlayerBase;   //0x2D1C    //  ABrgPawn_PlayerBase*
+            public IntPtr mPawnPlayerBase;   //0x2D1C    //  ABrgPawn_PlayerBase*
 
             [FieldOffset(0x2D34)]
-            IntPtr mPlayerCommonPawn;	//0x2D34    //  ABrgCommonPawn_CustomChara*
+            public IntPtr mPlayerCommonPawn;	//0x2D34    //  ABrgCommonPawn_CustomChara*
         }
+
+        public IntPtr GetUIManager() { return mem.Read<IntPtr>(mem.dwBase + offsets.oGUBrgUIManager); }
+
+        public IntPtr GetGameInfo()
+        {
+            var pUIMan = GetUIManager();
+            if (pUIMan == IntPtr.Zero)
+                return IntPtr.Zero;
+
+            return mem.Read<IntPtr>(pUIMan + 0x27EC);  //  mGameInfoNative
+        }
+
+        public IntPtr GetLocalPawn()
+        {
+            var pUIMan = GetUIManager();
+            if (pUIMan == IntPtr.Zero)
+                return IntPtr.Zero;
+
+            var pUIMan2 = mem.Read<UBrgUIManager>(pUIMan);
+            return pUIMan2.mPlayerCommonPawn;
+        }
+
+        public bool GetLocalPawnDeathbag(out IntPtr[] items)
+        {
+            items = null;
+
+            var pLocalPawn = GetLocalPawn();
+            if (pLocalPawn == IntPtr.Zero)
+                return false;
+
+            TArray m = mem.Read<TArray>(pLocalPawn + 0x3E58);
+            Int32 count = m.Count();
+            IntPtr data = m.Data();
+            if (count <= 0)
+                return false;
+
+            IntPtr[] result = new IntPtr[count];
+            for (int i = 0; i < m.Count(); i++)
+            {
+                var addr = data + (0x718 * i);
+                result[i] = addr;
+            }
+
+            items = result;
+
+            return result.Length > 0;
+        }
+        
+        public bool GetPawnArray(out IntPtr[] pawns)
+        {
+            pawns = null;
+
+            var pGameInfo = GetGameInfo();
+            if (pGameInfo == IntPtr.Zero)
+                return false;
+
+            TArray m = mem.Read<TArray>(pGameInfo + 0x8B0);
+            Int32 count = m.Count();
+            IntPtr data = m.Data();
+            if (count <= 0)
+                return false;
+
+            IntPtr[] result = new IntPtr[count];
+            for (int i = 0; i < m.Count(); i++)
+            {
+                var addr = mem.Read<IntPtr>(data + (0x8 * i));
+                result[i] = addr;
+            }
+
+            pawns = result;
+
+            return result.Length > 0;
+        }
+
+        public bool GetOtherActorArray(out IntPtr[] actors)
+        {
+            actors = null;
+
+            var pGameInfo = GetGameInfo();
+            if (pGameInfo == IntPtr.Zero)
+                return false;
+
+            TArray m = mem.Read<TArray>(pGameInfo + 0x968);
+            Int32 count = m.Count();
+            IntPtr data = m.Data();
+
+            IntPtr[] result = new IntPtr[count];
+            for ( int i = 0; i < m.Count(); i++)
+            {
+                var addr = mem.Read<IntPtr>(data + (0x8 * i));
+                result[i] = addr;
+            }
+
+            actors = result;
+
+            return actors.Length > 0;
+        }
+
+        public FVector GetActorLocation(IntPtr pActor) { return mem.Read<FVector>(pActor + 0x80); }
+        public FRotator GetActorRotation(IntPtr pActor) { return mem.Read<FRotator>(pActor + 0x8C); }
+        public void SetActorLocation(IntPtr pActor, FVector pos) { mem.Write<FVector>(pActor + 0x80, pos); }
+        public void SetActorRotation(IntPtr pActor, FRotator rot) { mem.Write<FRotator>(pActor + 0x8C, rot); }
+
     }
 }

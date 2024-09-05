@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Runtime.ConstrainedExecution;
 
-namespace STARFIRE.BackEnd
+namespace MemorySharp
 {
     internal class Memory
     {
@@ -74,12 +74,11 @@ namespace STARFIRE.BackEnd
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int nSize, out int lpNumberOfBytesWritten);
 
-
         public bool bAttached;
         public int PID;
         public IntPtr hProc;
         public IntPtr dwBase;
-
+        
 
         public static int GetProcID(string pName)
         {
