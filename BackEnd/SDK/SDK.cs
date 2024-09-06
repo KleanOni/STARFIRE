@@ -16777,7 +16777,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                 return IntPtr.Zero;
 
             var pUIMan2 = mem.Read<UBrgUIManager>(pUIMan);
-            return pUIMan2.mPlayerCommonPawn;
+            return pUIMan2.mPawnPlayerBase;
         }
 
         public bool GetLocalPawnDeathbag(out IntPtr[] items)
