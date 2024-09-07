@@ -64,7 +64,7 @@ namespace STARFIRE.FrontEnd
             this.TopMost = true;
             this.WindowState = FormWindowState.Normal;
             Starfire_Status.Text = "STATUS: N/A";
-
+            GlobalHookKeyDown();
 
             // Call CheckFormPosition in the form's constructor
             CheckFormPosition();
@@ -1710,6 +1710,16 @@ namespace STARFIRE.FrontEnd
                 if (elevator_X < 0 || elevator_X != 0)
                 {
                     // Update the player's location to the elevator's coordinates
+                    var pawn = lid.GetLocalPawn();
+                    var elevator_location = new LetItDie.FVector()
+                    {
+                        x = elevator_X,
+                        y = elevator_Y,
+                        z = elevator_Z
+                    };
+                    
+                    lid.SetActorLocation(pawn, elevator_location);
+                    
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", elevator_X.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", elevator_Y.ToString(CultureInfo.InvariantCulture));
                     M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", elevator_Z.ToString(CultureInfo.InvariantCulture));
@@ -1919,7 +1929,8 @@ namespace STARFIRE.FrontEnd
             try
             {
                 // Attempt to read the X, Y, and Z coordinates of resource 1 from memory
-                float resource1_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X);
+                var xAddress = UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X;
+                float resource1_X = M.ReadFloat(xAddress);
                 float resource1_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Y);
                 float resource1_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Z);
 
@@ -2186,53 +2197,43 @@ namespace STARFIRE.FrontEnd
 
         private void Resource10_Teleport_Click(object sender, EventArgs e)
         {
-            try
+
+            lid.GetMaterialArray(out LetItDie.FVector[] materials);
+            for (int j = 0; j < materials.Length; j++)
             {
-                // Attempt to read the X, Y, and Z coordinates of resource 10 from memory
-                float resource10_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation10_X);
-                float resource10_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation10_Y);
-                float resource10_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation10_Z);
-
-                // Check if the X coordinate is valid (non-zero or negative)
-                if (resource10_X < 0 || resource10_X != 0)
-                {
-                    // Update the player's location to resource 10 coordinates
-                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource10_X.ToString(CultureInfo.InvariantCulture));
-                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource10_Y.ToString(CultureInfo.InvariantCulture));
-                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource10_Z.ToString(CultureInfo.InvariantCulture));
-                }
-                else
-                {
-                    // Show a message if the X coordinate is invalid
-                    MessageBox.Show("Invalid Resource 10 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Console.WriteLine($"[+] Material {j} x: {materials[j].x} y: {materials[j].y} z: {materials[j].z}");
             }
-            catch (Exception ex)
-            {
-                // Handle any exceptions that occur during the memory read/write operations
-                MessageBox.Show($"Error teleporting to Resource 10: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        #endregion
+            // teleporting the first material to me
+            lid.TeleportMaterialToMe();
 
-
-//  #if DEV
-#region DEV
-        public void SDKUnitTests()
-        {
+            return;
+            var memoryReader = new MemorySharp.Memory();
+            IntPtr result = memoryReader.GetIntPtrFromOffsets("BrgGame-Steam.exe", 0x0F242EE0, new int[] { 0x27e4, 0x6a4 });
+            Console.WriteLine($"Resulting IntPtr: {result}");
+            
+            
             Console.WriteLine("Starfire LID SDK Unit Tests");
 
             var uiman = lid.GetUIManager();
             Console.WriteLine($"[+] BRGUIManager: {uiman}");
-            
+
             var gameinfo = lid.GetGameInfo();
             Console.WriteLine($"[+] GameInfoNative: {gameinfo}");
-            
+
             var pPawn = lid.GetLocalPawn();
             Console.WriteLine($"[+] pawn: {pPawn}");
-            
-            var location = lid.GetActorLocation(pPawn);
+
+            var fakelocation = lid.GetActorLocation(pPawn);
+            Console.WriteLine($"[+] posittion: {{ {fakelocation.x} , {fakelocation.y} , {fakelocation.z} }}");
+            var location = new LetItDie.FVector()
+            {
+                x = M.ReadFloat(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X),
+                y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y),
+                z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z)
+            };
             Console.WriteLine($"[+] posittion: {{ {location.x} , {location.y} , {location.z} }}");
+            //location.x += 100;
+            location = fakelocation;
 
 
             IntPtr[] items;
@@ -2241,18 +2242,53 @@ namespace STARFIRE.FrontEnd
 
             IntPtr[] actors;
             if (lid.GetOtherActorArray(out actors))
+            {
                 Console.WriteLine($"[+] found {actors.Length} other actors.");
+            
+                int j = -1;
+                foreach (var actor in actors)
+                {
+                    j++;
+                    //var name = lid.GetActorName(actor);
+                    //Console.WriteLine($"[+][{j}] name: {name}");
+                    var pos = lid.GetActorLocation(actor);
+                    Console.WriteLine($"[+][{j}] ptr: {actor} pos: x: {pos.x} , y: {pos.y} , z: {pos.z}");
+                    Console.WriteLine($"Teleporting actor {j} to player location {location.x} , {location.y} , {location.z}");
+                    location.y += 25;
+                    lid.SetActorLocation(actor, location);
+                }
+            }
+
+            var xString = UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X;
+
+            // var resource1pos = new FVector()
+            // {
+            //     x = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X),
+            //     y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Y),
+            //     z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Z)
+            // };
+            // Console.WriteLine($"[+] Resource 1 pos: {{ {resource1pos.x} , {resource1pos.y} , {resource1pos.z} }}");
+            // Console.WriteLine($"Teleporting to Resource 1 location {resource1pos.x} , {resource1pos.y} , {resource1pos.z}");
+            
+            
 
             IntPtr[] pawns;
             if (lid.GetPawnArray(out pawns))
                 Console.WriteLine($"[+] found {pawns.Length} pawns.");
 
             int i = -1;
-            foreach ( var actor in actors ) 
+            foreach (var actor in pawns)
             {
                 i++;
+                //var name = lid.GetActorName(actor);
+                //Console.WriteLine($"[+][{i}] name: {name}");
+
                 var pos = lid.GetActorLocation(actor);
-                Console.WriteLine($"[+][{i}] pos: x: {pos.x} , y: {pos.y} , z: {pos.z}");
+                Console.WriteLine($"[+][{i}] ptr: {actor} pos: x: {pos.x} , y: {pos.y} , z: {pos.z}");
+                Console.WriteLine($"Teleporting pawn {i} to player location {location.x} , {location.y} , {location.z}"); ;
+                location.x += 110;
+                
+                lid.SetActorLocation(actor, location);
             }
         }
 #endregion
