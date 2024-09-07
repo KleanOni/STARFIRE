@@ -157,6 +157,28 @@ namespace MemorySharp
 
             return dwBase + offset;
         }
+        
+        public IntPtr GetIntPtrFromOffsets(string processName, int baseOffset, int[] offsets)
+        {
+            // Attach to the process
+            if (!Attach(processName, Memory.ProcessAccessFlags.All))
+                throw new Exception("Could not open process.");
+
+            // Get the initial address with the base offset
+            IntPtr address = GetAddr(baseOffset);
+
+            // Iterate through the offsets
+            foreach (int offset in offsets)
+            {
+                // Read the memory at the current address
+                address = Read<IntPtr>(address);
+
+                // Add the current offset to the address
+                address = IntPtr.Add(address, offset);
+            }
+
+            return address;
+        }
 
         public byte[] ReadBytes(IntPtr addr, int dwSize)
         {

@@ -51,8 +51,8 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
-    <Reference Include="Memory, Version=1.2.27.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Memory.dll.x64.1.2.27\lib\netstandard2.0\Memory.dll</HintPath>
+    <Reference Include="Memory">
+      <HintPath>refs\memory.dll\Memory.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -124,6 +124,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LID-LOGO-WB.ico" />
+    <Content Include="refs\memory.dll\Memory.dll.x64.1.2.27.nupkg" />
+    <Content Include="refs\memory.dll\Memory.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

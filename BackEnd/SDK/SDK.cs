@@ -18880,6 +18880,69 @@ namespace KC__LID_EXT.BackEnd.Dump
             return mem.Read<IntPtr>(pUIMan + 0x27EC); //  mGameInfoNative
         }
 
+        public IntPtr GetGateInfoNonNative()
+        {
+            var pUIMan = GetUIManager();
+            if (pUIMan == IntPtr.Zero)
+                return IntPtr.Zero;
+
+            return mem.Read<IntPtr>(pUIMan + 0x27e4); //  mGameInfo
+        }
+
+        public bool GetMaterialArray(out FVector[] materials)
+        {
+            materials = null;
+
+            var pGameInfo = GetGateInfoNonNative();
+            if (pGameInfo == IntPtr.Zero)
+                return false;
+
+            TArray m = mem.Read<TArray>(pGameInfo + 0x6a4);
+            Int32 count = m.Count();
+            IntPtr data = m.Data();
+            if (count <= 0)
+                return false;
+
+            FVector[] result = new FVector[count];
+            for (int i = 0; i < m.Count(); i++)
+            {
+                var addr = mem.Read<FVector>(data + (0xC * i)); // Assuming FVector is 12 bytes (3 floats)
+                result[i] = addr;
+            }
+
+            materials = result;
+
+            return result.Length > 0;
+        }
+
+        public void TeleportMaterialToMe()
+        {
+            // update the FVector to point to the players position
+            var pPlayer = GetLocalPawn();
+            var playerLocation = GetActorLocation(pPlayer);
+
+            var pGameInfo = GetGateInfoNonNative();
+            if (pGameInfo == IntPtr.Zero)
+                return;
+
+            TArray m = mem.Read<TArray>(pGameInfo + 0x6a4);
+            IntPtr data = m.Data();
+            mem.Write<FVector>(data + (0xC * 1), playerLocation);
+            
+            
+            return;
+            var worked = GetMaterialArray(out var materials);
+            if (!worked)
+                return;
+
+            foreach (var material in materials)
+            {
+                // mem.Write<FVector>()
+            }
+
+        }
+
+
         public IntPtr GetLocalPawn()
         {
             var pUIMan = GetUIManager();
