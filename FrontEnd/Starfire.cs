@@ -15,6 +15,8 @@ using Memory;
 using static KC__LID_EXT.BackEnd.Dump.SDK;
 using System.Globalization;
 using STARFIRE.Backend;
+using KC__LID_EXT.BackEnd.Dump;
+using System.Security.Cryptography;
 
 namespace STARFIRE.FrontEnd
 {
@@ -26,6 +28,9 @@ namespace STARFIRE.FrontEnd
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
+        //  create an instance of the custom sdk
+        LetItDie lid = new LetItDie();
 
         // Create an instance of the Mem class for memory operations
         Mem M = new Mem();
@@ -60,9 +65,12 @@ namespace STARFIRE.FrontEnd
             this.WindowState = FormWindowState.Normal;
             Starfire_Status.Text = "STATUS: N/A";
 
+
             // Call CheckFormPosition in the form's constructor
             CheckFormPosition();
 
+
+            SDKUnitTests();
         }
         #endregion
 
@@ -2207,5 +2215,48 @@ namespace STARFIRE.FrontEnd
         }
         #endregion
 
+
+//  #if DEV
+#region DEV
+        public void SDKUnitTests()
+        {
+            Console.WriteLine("Starfire LID SDK Unit Tests");
+
+            var uiman = lid.GetUIManager();
+            Console.WriteLine($"[+] BRGUIManager: {uiman}");
+            
+            var gameinfo = lid.GetGameInfo();
+            Console.WriteLine($"[+] GameInfoNative: {gameinfo}");
+            
+            var pPawn = lid.GetLocalPawn();
+            Console.WriteLine($"[+] pawn: {pPawn}");
+            
+            var location = lid.GetActorLocation(pPawn);
+            Console.WriteLine($"[+] posittion: {{ {location.x} , {location.y} , {location.z} }}");
+
+
+            IntPtr[] items;
+            if (lid.GetLocalPawnDeathbag(out items))
+                Console.WriteLine($"[+] found {items.Length} items in deathbag.");
+
+            IntPtr[] actors;
+            if (lid.GetOtherActorArray(out actors))
+                Console.WriteLine($"[+] found {actors.Length} other actors.");
+
+            IntPtr[] pawns;
+            if (lid.GetPawnArray(out pawns))
+                Console.WriteLine($"[+] found {pawns.Length} pawns.");
+
+            int i = -1;
+            foreach ( var actor in actors ) 
+            {
+                i++;
+                var pos = lid.GetActorLocation(actor);
+                Console.WriteLine($"[+][{i}] pos: x: {pos.x} , y: {pos.y} , z: {pos.z}");
+            }
+        }
+#endregion
+
+//  #endif
     }
 }
