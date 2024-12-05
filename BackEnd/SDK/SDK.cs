@@ -28,7 +28,7 @@ namespace KC__LID_EXT.BackEnd.Dump
             // Inheritance: Base
             // CUSTOM BASE - USING! LAST UPDATED 3/30/23
             //------------------------------------------------------------------------------
-            public const string GUBrgUIManager = ModuleBase + "0x0F242EE0,"; // UPDATE ME IF TRAINER BREAKS!!!!!
+            public const string GUBrgUIManager = ModuleBase + "0x0F244F60,"; // UPDATE ME IF TRAINER BREAKS!!!!! [[BrgGame-Steam.exe+0x0F242EE0 ] + 0x27ec] + 0x11e0
             // CHEAT ENGINE AOB "86 64 7C 00 00 48 8B 88" - search me to get new base offset!
             //------------------------------------------------------------------------------
         }
@@ -179,7 +179,7 @@ namespace KC__LID_EXT.BackEnd.Dump
 
             // Inheritance: UBrgUIManagerBase > UObject
             public const string mGameInfo = GUBrgUIManager + "0x27e4,"; // ABrgGameInfo*
-            public const string mGameInfoNative = GUBrgUIManager + "0x27ec,"; // ABrgGameInfoNative*
+            public const string mGameInfoNative = GUBrgUIManager + "0x27ec,"; // ABrgGameInfoNative*  
             public const string mHUD = GUBrgUIManager + "0x27f4,"; // ABrgHUD*
             public const string mFontRender = GUBrgUIManager + "0x27fc,"; // UBrgUIFontRender*
             public const string mUserData = GUBrgUIManager + "0x2804,"; // UBrgUserData*
@@ -18745,7 +18745,7 @@ namespace KC__LID_EXT.BackEnd.Dump
         }
     }
 
-    internal class LetItDie
+    public class LetItDie
     {
         private bool bAttached = false;
         private string procName = "BrgGame-Steam";
@@ -18921,12 +18921,13 @@ namespace KC__LID_EXT.BackEnd.Dump
             var pPlayer = GetLocalPawn();
             var playerLocation = GetActorLocation(pPlayer);
 
-            var pGameInfo = GetGateInfoNonNative();
+            var pGameInfo = GetGameInfo();
             if (pGameInfo == IntPtr.Zero)
                 return;
 
-            TArray m = mem.Read<TArray>(pGameInfo + 0x6a4);
-            IntPtr data = m.Data();
+            //TArray m = mem.Read<TArray>(pGameInfo + 0x6a4);
+            TArray actors = mem.Read<TArray>(pGameInfo + 0x0FE8);
+            IntPtr data = actors.Data();
             mem.Write<FVector>(data + (0xC * 1), playerLocation);
             
             
@@ -18940,6 +18941,35 @@ namespace KC__LID_EXT.BackEnd.Dump
                 // mem.Write<FVector>()
             }
 
+        }
+        
+        public void TeleportAllTreasureToPlayer()
+        {
+            var pGame = GetGameInfo();
+            var pPawn = GetLocalPawn();
+            if (pGame == IntPtr.Zero || pPawn == IntPtr.Zero)
+                return;
+
+            var playerLocation = GetActorLocation(pPawn);
+            var actors = mem.Read<TArray>(pGame + 0x0FE8); // mTreasureArray
+            IntPtr data = actors.Data();
+
+            for (int i = 0; i < actors.Count(); i++)
+            {
+                var ent = mem.Read<IntPtr>(data + (i * 0x8)); // AActor*
+                if (ent == IntPtr.Zero || ent == pPawn)
+                    continue;
+
+                // Calculate new position to space out the items
+                var newPosition = new FVector
+                {
+                    x = playerLocation.x + (100f * i),
+                    y = playerLocation.y,
+                    z = playerLocation.z
+                };
+
+                SetActorLocation(ent, newPosition);
+            }
         }
 
 
@@ -19047,6 +19077,45 @@ namespace KC__LID_EXT.BackEnd.Dump
         public void SetActorRotation(IntPtr pActor, FRotator rot)
         {
             mem.Write<FRotator>(pActor + 0x8C, rot);
+        }
+
+        public int GetActorHealth(IntPtr pActor)
+        {
+            return mem.Read<int>(pActor + 0x3CC);
+        }
+
+        public void TeleportPlayerToCoordinates(float x, float y, float z)
+        {
+            var vector = new FVector()
+            {
+                x = x,
+                y = y,
+                z = z
+            };
+            TeleportPlayerToCoordinates(vector);
+        }
+
+        public void TeleportPlayerToCoordinates(FVector pos)
+        {
+            var player = GetLocalPawn();
+
+            SetActorLocation(player, pos);
+        }
+
+        private FVector GetPlayerLocation()
+        {
+            var pPawn = GetLocalPawn();
+            var pawnLocation = GetActorLocation(pPawn);
+            return pawnLocation;
+        }
+
+        public void TeleportToRegularElevator()
+        {
+            var gi = GetGameInfo();
+            var elevatorLocations = gi + 0x794;
+            var position = mem.Read<FVector>(elevatorLocations + 0x00);
+            
+            TeleportPlayerToCoordinates(position);
         }
     }
 }

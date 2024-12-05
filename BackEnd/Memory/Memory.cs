@@ -8,7 +8,7 @@ using System.Runtime.ConstrainedExecution;
 
 namespace MemorySharp
 {
-    internal class Memory
+    public class Memory
     {
         [Flags]
         public enum ProcessAccessFlags : uint
