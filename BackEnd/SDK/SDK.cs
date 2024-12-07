@@ -28,7 +28,7 @@ namespace KC__LID_EXT.BackEnd.Dump
             // Inheritance: Base
             // CUSTOM BASE - USING! LAST UPDATED 3/30/23
             //------------------------------------------------------------------------------
-            public const string GUBrgUIManager = ModuleBase + "0x0F244F60,"; // UPDATE ME IF TRAINER BREAKS!!!!! [[BrgGame-Steam.exe+0x0F242EE0 ] + 0x27ec] + 0x11e0
+            public const string GUBrgUIManager = ModuleBase + "0x0F2450E0,"; // UPDATED BASE OFFSET
             // CHEAT ENGINE AOB "86 64 7C 00 00 48 8B 88" - search me to get new base offset!
             //------------------------------------------------------------------------------
         }
