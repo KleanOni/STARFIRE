@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Web.UI;
 using static KC__LID_EXT.BackEnd.Dump.SDK.UBrgUIManager;
+
 /// <summary>
 ///  Last Game Update (SteamDB Link Below) | Date: 25 July 2024 | Build: 15046130
 ///  https://steamdb.info/app/794600/patchnotes/
@@ -12,23 +13,26 @@ namespace KC__LID_EXT.BackEnd.Dump
 {
     internal class SDK
     {
-        public  class Base
-        { 
+        public class Base
+        {
             //------------------------------------------------------------------------------
             public const string ProcName = "BrgGame-Steam.exe";
+
             //------------------------------------------------------------------------------
             public const string ModuleBase = "BrgGame-Steam.exe+";
             //------------------------------------------------------------------------------
         }
+
         public class Offsets : Base
         {
             // Inheritance: Base
             // CUSTOM BASE - USING! LAST UPDATED 3/30/23
             //------------------------------------------------------------------------------
-            public const string GUBrgUIManager = ModuleBase + "0x0F242EE0,"; // UPDATE ME IF TRAINER BREAKS!!!!!
+            public const string GUBrgUIManager = ModuleBase + "0x0F2450E0,"; // UPDATED BASE OFFSET
             // CHEAT ENGINE AOB "86 64 7C 00 00 48 8B 88" - search me to get new base offset!
             //------------------------------------------------------------------------------
         }
+
         // Unreal Engine Classes - UE3 (Based off old Dumps.Host info, current offsets for most)
         public class UBrgUIManagerBase : Offsets
         {
@@ -55,13 +59,24 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mConstParam = GUBrgUIManager + "0x18a8"; // UBrgUIParamEditMenuParam*
             public const string mImageMapInfo = GUBrgUIManager + "0x18b0"; // UBrgUIImageMapInfo*
             public const string mItemIconManager = GUBrgUIManager + "0x18b8"; // UBrgUIResource_ItemIconManager*
-            public const string mTeamEmblemImageManager = GUBrgUIManager + "0x18c0"; // UBrgUIResource_TeamEmblemImageManager*
-            public const string mTeamEmblemIconImageManager = GUBrgUIManager + "0x18c8"; // UBrgUIResource_TeamEmblemIconImageManager*
+
+            public const string
+                mTeamEmblemImageManager = GUBrgUIManager + "0x18c0"; // UBrgUIResource_TeamEmblemImageManager*
+
+            public const string
+                mTeamEmblemIconImageManager = GUBrgUIManager + "0x18c8"; // UBrgUIResource_TeamEmblemIconImageManager*
+
             public const string mPartTypeIconManager = GUBrgUIManager + "0x18d0"; // UBrgUIResource_PartTypeIconManager*
             public const string mQuestPictureManager = GUBrgUIManager + "0x18d8"; // UBrgUIResource_QuestPictureManager*
-            public const string mEnmaMenuImageManager = GUBrgUIManager + "0x18e0"; // UBrgUIResource_EnmaMenuImageManager*
+
+            public const string
+                mEnmaMenuImageManager = GUBrgUIManager + "0x18e0"; // UBrgUIResource_EnmaMenuImageManager*
+
             public const string mResourceFighterIcon = GUBrgUIManager + "0x18e8"; // UBrgUIResource_FighterIcon*
-            public const string mFortIconImageManager = GUBrgUIManager + "0x18f0"; // UBrgUIResource_FortIconImageManager*
+
+            public const string
+                mFortIconImageManager = GUBrgUIManager + "0x18f0"; // UBrgUIResource_FortIconImageManager*
+
             public const string mMaskScreenInvSizeX = GUBrgUIManager + "0x18f8"; // float
             public const string mMaskScreenInvSizeY = GUBrgUIManager + "0x18fc"; // float
             public const string mCommonRenderTarget = GUBrgUIManager + "0x1900"; // UTextureRenderTarget2D*
@@ -157,12 +172,14 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mNetworkResponseEndsp = GUBrgUIManager + "0x27cc"; // UBrgNetworkResponseEndsp*
             public const string mInputKeyTemp = GUBrgUIManager + "0x27d4"; // FString
         }
-        public class UBrgUIManager: UBrgUIManagerBase
+
+        public class UBrgUIManager : UBrgUIManagerBase
         {
             #region UBrguIManager Class
+
             // Inheritance: UBrgUIManagerBase > UObject
             public const string mGameInfo = GUBrgUIManager + "0x27e4,"; // ABrgGameInfo*
-            public const string mGameInfoNative = GUBrgUIManager + "0x27ec,"; // ABrgGameInfoNative*
+            public const string mGameInfoNative = GUBrgUIManager + "0x27ec,"; // ABrgGameInfoNative*  
             public const string mHUD = GUBrgUIManager + "0x27f4,"; // ABrgHUD*
             public const string mFontRender = GUBrgUIManager + "0x27fc,"; // UBrgUIFontRender*
             public const string mUserData = GUBrgUIManager + "0x2804,"; // UBrgUserData*
@@ -204,7 +221,10 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mPanelManager2 = GUBrgUIManager + "0x2868,"; // UBrgUIMenuPart_PanelManager2*
             public const string mMiniMapManager = GUBrgUIManager + "0x2870,"; // UBrgUIMiniMapManager*
             public const string mSkillStickerOutLineInfo = GUBrgUIManager + "0x2878,"; // UBrgUISkillStickerOutLineInfo*
-            public const string mSkillStickerCollisionInfo = GUBrgUIManager + "0x2880,"; // UBrgUISkillStickerCollisionInfo*
+
+            public const string
+                mSkillStickerCollisionInfo = GUBrgUIManager + "0x2880,"; // UBrgUISkillStickerCollisionInfo*
+
             public const string mNetworkManager = GUBrgUIManager + "0x2888,"; // TScriptInterface<Class>
             public const string mFortAssaultButtonManager = GUBrgUIManager + "0x2898,"; // UBrgFortAssaultButtonManager*
             public const string mUITutorialBalloonInfo = GUBrgUIManager + "0x28a0,"; // UBrgUITutorialBalloonInfo*
@@ -273,9 +293,16 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mSaveMenu = GUBrgUIManager + "0x2a90,"; // UBrgUIMenu_Save*
             public const string mElevatorMenu = GUBrgUIManager + "0x2a98,"; // UBrgUIMenu_Elevator*
             public const string mSketchbookMenu = GUBrgUIManager + "0x2aa0,"; // UBrgUIMenu_Sketchbook*
-            public const string mSketchbookResource = GUBrgUIManager + "0x2aa8,"; // UBrgUIMenu_Sketchbook_Resource_Manager*
-            public const string mFourForcemenReceptionMenu = GUBrgUIManager + "0x2ab0,"; // UBrgUIMenu_FourForcemenReceptionMenu*
-            public const string mReturnBaseMachineMenu = GUBrgUIManager + "0x2ab8,"; // UBrgUIMenu_ReturnBaseMachineMenu*
+
+            public const string
+                mSketchbookResource = GUBrgUIManager + "0x2aa8,"; // UBrgUIMenu_Sketchbook_Resource_Manager*
+
+            public const string
+                mFourForcemenReceptionMenu = GUBrgUIManager + "0x2ab0,"; // UBrgUIMenu_FourForcemenReceptionMenu*
+
+            public const string
+                mReturnBaseMachineMenu = GUBrgUIManager + "0x2ab8,"; // UBrgUIMenu_ReturnBaseMachineMenu*
+
             public const string mDustShooterMenu = GUBrgUIManager + "0x2ac0,"; // UBrgUIMenu_DustShooter*
             public const string mGameEngine = GUBrgUIManager + "0x2ac8,"; // UBrgGameEngine*
             public const string mPRTs = GUBrgUIManager + "0x2ad0,"; // FBrgUIPersistentRenderTargets
@@ -289,7 +316,10 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mImageCache = GUBrgUIManager + "0x2ba8,"; // UBrgUI_ImageCache*
             public const string mCommonTopMenu2 = GUBrgUIManager + "0x2bb0,"; // UBrgUIMenu_CommonTop2*
             public const string mGameCenterProcessing = GUBrgUIManager + "0x2bb8,"; // UBrgUIMenu_GameCenterProcessing*
-            public const string mCommerceInterfaceTest = GUBrgUIManager + "0x2bc0,"; // UBrgUIMenu_CommerceInterfaceTest*
+
+            public const string
+                mCommerceInterfaceTest = GUBrgUIManager + "0x2bc0,"; // UBrgUIMenu_CommerceInterfaceTest*
+
             public const string mPresentBoxMenu = GUBrgUIManager + "0x2bc8,"; // UBrgUIMenu_PresentBox*
             public const string mBivouacMenu = GUBrgUIManager + "0x2bd0,"; // UBrgUIMenu_Bivouac*
             public const string mDefenseReport = GUBrgUIManager + "0x2bd8,"; // UBrgUIMenu_DefenseReport*
@@ -297,23 +327,38 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mKariMenuSample1 = GUBrgUIManager + "0x2be8,"; // UBrgUIMenu_KariMenuSample1*
             public const string mKariMenuSample2 = GUBrgUIManager + "0x2bf0,"; // UBrgUIMenu_KariMenuSample2*
             public const string mMessageWindow = GUBrgUIManager + "0x2bf8,"; // UBrgUIHUD_MessageWindow_Hud*
-            public const string mMessageWindow_ImageTraining = GUBrgUIManager + "0x2c00,"; // UBrgUIHUD_MessageWindow_ImageTraining*
+
+            public const string
+                mMessageWindow_ImageTraining = GUBrgUIManager + "0x2c00,"; // UBrgUIHUD_MessageWindow_ImageTraining*
+
             public const string mInsuranceMenu = GUBrgUIManager + "0x2c08,"; // UBrgUIMenu_Insurance*
             public const string mGameCenterRadio = GUBrgUIManager + "0x2c10,"; // UBrgUIMenu_GameCenterRadio*
             public const string mFortTerminalMenu = GUBrgUIManager + "0x2c18,"; // UBrgUIMenu_FortTerminal*
-            public const string mFortTerminalPlayerMenu = GUBrgUIManager + "0x2c20,"; // UBrgUIMenu_FortTerminal_ShareMenu_PlayerParam*
+
+            public const string
+                mFortTerminalPlayerMenu = GUBrgUIManager + "0x2c20,"; // UBrgUIMenu_FortTerminal_ShareMenu_PlayerParam*
+
             public const string mPrisonMenu = GUBrgUIManager + "0x2c28,"; // UBrgUIMenu_Prison*
-            public const string mStampRallySheetExchangerMenu = GUBrgUIManager + "0x2c30,"; // UBrgUIMenu_StampRallySheetExchanger*
+
+            public const string
+                mStampRallySheetExchangerMenu = GUBrgUIManager + "0x2c30,"; // UBrgUIMenu_StampRallySheetExchanger*
+
             public const string mResultDroneMenu = GUBrgUIManager + "0x2c38,"; // UBrgUIMenu_ResultDrone*
             public const string mFortRaidResult = GUBrgUIManager + "0x2c40,"; // UBrgUIMenu_Fort_RaidResult*
-            public const string mGameCenterMotherValve = GUBrgUIManager + "0x2c48,"; // UBrgUIMenu_GameCenterMotherValve*
+
+            public const string
+                mGameCenterMotherValve = GUBrgUIManager + "0x2c48,"; // UBrgUIMenu_GameCenterMotherValve*
+
             public const string mGameCenterNaomi = GUBrgUIManager + "0x2c50,"; // UBrgUIMenu_GameCenterNaomi*
             public const string mGameCenterMeijin = GUBrgUIManager + "0x2c58,"; // UBrgUIMenu_GameCenterMeijin*
             public const string mStampMiniGame = GUBrgUIManager + "0x2c60,"; // UBrgUIMenu_StampMiniGame*
             public const string mSketchbookSetupSkill = GUBrgUIManager + "0x2c68,"; // UBrgUIMenu_SkillSetup*
             public const string mMessageMenu = GUBrgUIManager + "0x2c70,"; // UBrgUIMenu_Message*
             public const string mUncleDeathQuestion = GUBrgUIManager + "0x2c78,"; // UBrgCutscene_UncleDeathQuestion*
-            public const string mRaidInsuranceResultMenu = GUBrgUIManager + "0x2c80,"; // UBrgUIMenu_RaidInsuranceResult*
+
+            public const string
+                mRaidInsuranceResultMenu = GUBrgUIManager + "0x2c80,"; // UBrgUIMenu_RaidInsuranceResult*
+
             public const string mDispItemInfoPageCount = GUBrgUIManager + "0x2c88"; // int32_t
             public const string mDispItemInfoPageInputEnableCount = GUBrgUIManager + "0x2c8c"; // int32_t
             public const string mItemInfoPageMax = GUBrgUIManager + "0x2c90"; // int32_t
@@ -325,7 +370,10 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mPawnPlayerBase = GUBrgUIManager + "0x2d1c,"; // ABrgPawn_PlayerBase*
             public const string mPawnCustomCharaPlayer = GUBrgUIManager + "0x2d24,"; // ABrgPawn_CustomCharaPlayer*
             public const string mPlayerCommonPawn = GUBrgUIManager + "0x2d34,"; // ABrgCommonPawn_CustomChara*
-            public const string mPlayerCommonPawnNative = GUBrgUIManager + "0x2d3c,"; // ABrgCommonPawn_CustomCharaNative*
+
+            public const string
+                mPlayerCommonPawnNative = GUBrgUIManager + "0x2d3c,"; // ABrgCommonPawn_CustomCharaNative*
+
             public const string mPlayerCtrlCustomChara = GUBrgUIManager + "0x2d44,"; // ABrgPlayerCtrl_CustomChara*
             public const string mPlayerCtrlBase = GUBrgUIManager + "0x2d4C,"; // ABrgPlayerCtrl_Base*
             public const string mPlayerCtrlBaseNative = GUBrgUIManager + "0x2d54,"; // ABrgPlayerCtrl_BaseNative*
@@ -400,7 +448,10 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mTestActorCounter = GUBrgUIManager + "0x2f64"; // float
             public const string mTestCharaActor_Base = GUBrgUIManager + "0x2f68,"; // ABrgUIActor_Chara_Base*
             public const string mTestCharaActor_Base2 = GUBrgUIManager + "0x2f70,"; // ABrgUIActor_Chara_Base*
-            public const string mTestCharaActor_FloorResult = GUBrgUIManager + "0x2f78,"; // ABrgUIActor_Chara_FloorResult*
+
+            public const string
+                mTestCharaActor_FloorResult = GUBrgUIManager + "0x2f78,"; // ABrgUIActor_Chara_FloorResult*
+
             public const string mTestEquipChangeIndex = GUBrgUIManager + "0x2f80"; // int32_t
             public const string mTestEquipChangeCounter = GUBrgUIManager + "0x2f84"; // float
             public const string mTestCountDownTime = GUBrgUIManager + "0x2f88"; // float
@@ -420,13 +471,25 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mBackAppSecond = GUBrgUIManager + "0x2ff0,"; // FDouble
             public const string mFOneSecTimeCnt = GUBrgUIManager + "0x2ff8"; // float
             public const string mColonFadeOpacity = GUBrgUIManager + "0x2ffc"; // float
-            public const string mInsuranceMenu_LastCommerceInterfaceResult = GUBrgUIManager + "0x3000,"; // BrgUIMenu_CommerceInterface_Result
+
+            public const string
+                mInsuranceMenu_LastCommerceInterfaceResult =
+                    GUBrgUIManager + "0x3000,"; // BrgUIMenu_CommerceInterface_Result
+
             public const string mDebugDrawThrowItemLine_MoveType = GUBrgUIManager + "0x3001,"; // EBrgMsrMov
             public const string mRenderToRTRequests = GUBrgUIManager + "0x3004,"; // TArray<FBrgUIRenderToRTRequest>
-            public const string mMushroomThrowParams = GUBrgUIManager + "0x3014,"; // TArray<FBrgTreasureMushroomThrowParam>
-            public const string mMushroomBeastThrowParams = GUBrgUIManager + "0x3024,"; // TArray<FBrgTreasureMushroomThrowParam>
+
+            public const string
+                mMushroomThrowParams = GUBrgUIManager + "0x3014,"; // TArray<FBrgTreasureMushroomThrowParam>
+
+            public const string
+                mMushroomBeastThrowParams = GUBrgUIManager + "0x3024,"; // TArray<FBrgTreasureMushroomThrowParam>
+
             public const string mMushroomThrowParamEditTarget = GUBrgUIManager + "0x3034"; // int32_t
-            public const string mMushBeastCaptureRanges = GUBrgUIManager + "0x3038,"; // TArray<FBrgMushbeastCaptureRange>
+
+            public const string
+                mMushBeastCaptureRanges = GUBrgUIManager + "0x3038,"; // TArray<FBrgMushbeastCaptureRange>
+
             public const string mDebugDrawThrowItemLine_ThrowGravity = GUBrgUIManager + "0x3048"; // float
             public const string mDebugDrawThrowItemLine_ThrowSpeed = GUBrgUIManager + "0x304c"; // float
             public const string mGlobalPartInfoParamEditTarget = GUBrgUIManager + "0x3050"; // int32_t
@@ -435,9 +498,13 @@ namespace KC__LID_EXT.BackEnd.Dump
             public const string mOffscreenText = GUBrgUIManager + "0x3064,"; // TArray<FBrgHUD_OffscreenText>
             public const string mSketchbookFadeInParam = GUBrgUIManager + "0x3074"; // float
             public const string mSketchbookFadeOutParam = GUBrgUIManager + "0x3078"; // float
-            public const string mPooled_BrgDropItemBaseInfo_Auto = GUBrgUIManager + "0x307c,"; // TArray<UBrgDropItemBaseInfo_Auto*>
+
+            public const string
+                mPooled_BrgDropItemBaseInfo_Auto = GUBrgUIManager + "0x307c,"; // TArray<UBrgDropItemBaseInfo_Auto*>
+
             public const string mFortRaidSortIndexCache = GUBrgUIManager + "0x308c"; // int32_t
             public const string mFortTopSortIndexCache = GUBrgUIManager + "0x3090"; // int32_t
+
             #endregion
 
             // UBrgUIMiniMapManager Inheritance: UBrgUIManager > UBrgUIManagerBase > UObject
@@ -450,11 +517,14 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mMiniMapSizeY = mMiniMapManager + "0x90"; // int32_t
                 public const string mSprayLifeTime = mMiniMapManager + "0x94"; // int32_t
                 public const string mConstParam = mMiniMapManager + "0x98,"; // UBrgUIParamEditMenuParam*
-                public const string mUnitTextureStatus = mMiniMapManager + "0xa0,"; // EBrgUIMiniMapManagerUnitTesxtureStatus
+
+                public const string
+                    mUnitTextureStatus = mMiniMapManager + "0xa0,"; // EBrgUIMiniMapManagerUnitTesxtureStatus
+
                 public const string mSprayImage = mMiniMapManager + "0xa4,"; // UBrgUIImage*
                 public const string mUnitImages = mMiniMapManager + "0xac,"; // TArray<UBrgUIImage*>
                 public const string mUnitArrivedRateTexture = mMiniMapManager + "0xbc,"; // UTextureRenderTarget2D*
-                public const string mUnitArrivedRateImage = mMiniMapManager + "0xc4,";// UBrgUIImage*
+                public const string mUnitArrivedRateImage = mMiniMapManager + "0xc4,"; // UBrgUIImage*
                 public const string mMiniMapTextureSetup = mMiniMapManager + "0xcc"; // uint32_t : 1
                 public const string mbShowMushroom = mMiniMapManager + "0xcc"; // uint32_t : 1
                 public const string mbShowTreasure = mMiniMapManager + "0xcc"; // uint32_t : 1
@@ -466,15 +536,18 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mbAlwaysZeroClearUnitArrivedRate = mMiniMapManager + "0xcc"; // uint32_t : 1
                 public const string mbUnitArrivedRateNewFlag = mMiniMapManager + "0xcc"; // uint32_t : 1
                 public const string mMapStartLocation = mMiniMapManager + "0xd0,"; // FVector
-                public const string mMapGoalLocation = mMiniMapManager + "0xdc,";// FVector
-                public const string mMapBossNeckLocation = mMiniMapManager + "0xe8,";// FVector
+                public const string mMapGoalLocation = mMiniMapManager + "0xdc,"; // FVector
+                public const string mMapBossNeckLocation = mMiniMapManager + "0xe8,"; // FVector
                 public const string mMiniMapTexture = mMiniMapManager + "0xf4,"; // UTextureRenderTarget2D*
                 public const string mIconMaskScreenTexture = mMiniMapManager + "0xfc,"; // UTexture*
                 public const string mMiniMapDefaultCameraZoom = mMiniMapManager + "0x104"; // float
                 public const string mMiniMapCameraViewPortY = mMiniMapManager + "0x108"; // int32_t
                 public const string mMiniMapImageSize = mMiniMapManager + "0x10c"; // int32_t
                 public const string mSearchDistance = mMiniMapManager + "0x110"; // int32_t
-                public const string mSprayObjects = mMiniMapManager + "0x114,"; // TArray<FBrgUIMiniMapManagerSprayObject>
+
+                public const string
+                    mSprayObjects = mMiniMapManager + "0x114,"; // TArray<FBrgUIMiniMapManagerSprayObject>
+
                 public const string mUnitScale = mMiniMapManager + "0x124"; // float
                 public const string mGridMap = mMiniMapManager + "0x128,"; // TArray<int32_t>
                 public const string mMiniMapSpraySizeScale = mMiniMapManager + "0x138"; // float
@@ -499,7 +572,8 @@ namespace KC__LID_EXT.BackEnd.Dump
             }
 
             public class AActor : UBrgUIManager
-            { // Inheritance(ABrgPawn_PlayerBase|mPawnPlayerBase):  -> UObject
+            {
+                // Inheritance(ABrgPawn_PlayerBase|mPawnPlayerBase):  -> UObject
                 public const string Components = mPawnPlayerBase + "0x60,"; // TArray<UActorComponent*>
                 public const string AllComponents = mPawnPlayerBase + "0x70,"; // TArray<UActorComponent*>
                 public const string Location_X = mPawnPlayerBase + "0x80"; //  float
@@ -561,7 +635,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string bReplicateRigidBodyLocation = mPawnPlayerBase + "0xec"; // uint32_t : 1
                 public const string bKillDuringLevelTransition = mPawnPlayerBase + "0xec"; // uint32_t : 1
                 public const string bExchangedRoles = mPawnPlayerBase + "0xec"; // uint32_t : 1
-                public const string bConsiderAllStaticMeshComponentsForStreaming = mPawnPlayerBase + "0xec"; // uint32_t : 1
+
+                public const string
+                    bConsiderAllStaticMeshComponentsForStreaming = mPawnPlayerBase + "0xec"; // uint32_t : 1
+
                 public const string bDebug = mPawnPlayerBase + "0xec"; // uint32_t : 1
                 public const string bPostRenderIfNotVisible = mPawnPlayerBase + "0xec"; // uint32_t : 1
                 public const string bForceNetUpdate = mPawnPlayerBase + "0xec"; // uint32_t : 1
@@ -852,7 +929,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string FacialAudioComp = mPawnPlayerBase + "0x558,"; // UAudioComponent*
                 public const string MIC_PawnMat = mPawnPlayerBase + "0x560,"; // UMaterialInstanceConstant*
                 public const string MIC_PawnHair = mPawnPlayerBase + "0x568,"; // UMaterialInstanceConstant*
-                public const string ScalarParameterInterpArray = mPawnPlayerBase + "0x570,"; // TArray<FScalarParameterInterpStruct>
+
+                public const string
+                    ScalarParameterInterpArray = mPawnPlayerBase + "0x570,"; // TArray<FScalarParameterInterpStruct>
+
                 public const string RootMotionInterpCurve = mPawnPlayerBase + "0x580,"; // FRootMotionCurve
                 public const string RootMotionInterpRate = mPawnPlayerBase + "0x5a0"; // float
                 public const string RootMotionInterpCurrentTime = mPawnPlayerBase + "0x5a4"; // float
@@ -923,21 +1003,21 @@ namespace KC__LID_EXT.BackEnd.Dump
 
                 public class EscalatorLocations : ABrgGameInfoNativeBase
                 {
-                    public const string EscalatorLocation1_X = mEscalatorLocations + "0x00";  // float
-                    public const string EscalatorLocation1_Y = mEscalatorLocations + "0x04";  // float
-                    public const string EscalatorLocation1_Z = mEscalatorLocations + "0x08";  // float
-                    public const string EscalatorLocation2_X = mEscalatorLocations + "0x0C";  // float
-                    public const string EscalatorLocation2_Y = mEscalatorLocations + "0x10";  // float
-                    public const string EscalatorLocation2_Z = mEscalatorLocations + "0x14";  // float
-                    public const string EscalatorLocation3_X = mEscalatorLocations + "0x18";  // float
-                    public const string EscalatorLocation3_Y = mEscalatorLocations + "0x1C";  // float
-                    public const string EscalatorLocation3_Z = mEscalatorLocations + "0x20";  // float
-                    public const string EscalatorLocation4_X = mEscalatorLocations + "0x24";  // float
-                    public const string EscalatorLocation4_Y = mEscalatorLocations + "0x28";  // float
-                    public const string EscalatorLocation4_Z = mEscalatorLocations + "0x2C";  // float
-                    public const string EscalatorLocation5_X = mEscalatorLocations + "0x30";  // float
-                    public const string EscalatorLocation5_Y = mEscalatorLocations + "0x34";  // float
-                    public const string EscalatorLocation5_Z = mEscalatorLocations + "0x38";  // float
+                    public const string EscalatorLocation1_X = mEscalatorLocations + "0x00"; // float
+                    public const string EscalatorLocation1_Y = mEscalatorLocations + "0x04"; // float
+                    public const string EscalatorLocation1_Z = mEscalatorLocations + "0x08"; // float
+                    public const string EscalatorLocation2_X = mEscalatorLocations + "0x0C"; // float
+                    public const string EscalatorLocation2_Y = mEscalatorLocations + "0x10"; // float
+                    public const string EscalatorLocation2_Z = mEscalatorLocations + "0x14"; // float
+                    public const string EscalatorLocation3_X = mEscalatorLocations + "0x18"; // float
+                    public const string EscalatorLocation3_Y = mEscalatorLocations + "0x1C"; // float
+                    public const string EscalatorLocation3_Z = mEscalatorLocations + "0x20"; // float
+                    public const string EscalatorLocation4_X = mEscalatorLocations + "0x24"; // float
+                    public const string EscalatorLocation4_Y = mEscalatorLocations + "0x28"; // float
+                    public const string EscalatorLocation4_Z = mEscalatorLocations + "0x2C"; // float
+                    public const string EscalatorLocation5_X = mEscalatorLocations + "0x30"; // float
+                    public const string EscalatorLocation5_Y = mEscalatorLocations + "0x34"; // float
+                    public const string EscalatorLocation5_Z = mEscalatorLocations + "0x38"; // float
                 }
 
                 public class MagazineLocations : ABrgGameInfoNativeBase
@@ -946,27 +1026,31 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string MagazineLocation_Y = mMagazineLocations + "0x04";
                     public const string MagazineLocation_Z = mMagazineLocations + "0x08";
                 }
+
                 public class StampTableLocation : ABrgGameInfoNativeBase
                 {
                     public const string StampTable_X = mStampTableLocations + "0x00";
                     public const string StampTable_Y = mStampTableLocations + "0x04";
                     public const string StampTable_Z = mStampTableLocations + "0x08";
                 }
+
                 //--------------------------------------------------------------------------------------------------------------
                 //--------------------------------------------------------------------------------------------------------------
                 public class SkillSetupPoints : ABrgGameInfoNativeBase
                 {
-
                 }
+
                 //--------------------------------------------------------------------------------------------------------------
                 public class CoinLocker : ABrgGameInfoNativeBase
                 {
-
                 }
+
                 //--------------------------------------------------------------------------------------------------------------
                 public class DailyRewardBox : ABrgGameInfoNative
                 {
-                    public const string mbOpen = mDailyRewardBoxArray + "0x00,0x30C"; // Bitmap (36 = Box Closed Timed | 38 = OPEN BOX | 50 = OPENED BOX | 51 = OPENED BOX AND GONE!)
+                    public const string
+                        mbOpen = mDailyRewardBoxArray +
+                                 "0x00,0x30C"; // Bitmap (36 = Box Closed Timed | 38 = OPEN BOX | 50 = OPENED BOX | 51 = OPENED BOX AND GONE!)
                 }
 
                 public class MaterialLocations : ABrgGameInfoNativeBase
@@ -1010,7 +1094,6 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string MaterialLocation10_X = mMaterialLocations + "0x6C"; // float 
                     public const string MaterialLocation10_Y = mMaterialLocations + "0x70"; // float
                     public const string MaterialLocation10_Z = mMaterialLocations + "0x74"; // float
-
                 }
             }
 
@@ -1048,7 +1131,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mbDebugPAXBuild = mGameInfoNative + "0x844"; // uint32_t : 1
                 public const string mPlayerCtrl = mGameInfoNative + "0x848,"; // ABrgPlayerCtrl_BaseNative*
                 public const string mEnemyCtrlArray = mGameInfoNative + "0x850,"; // TArray<ABrgAICtrl_EnemyBase*>
-                public const string mEnemyCtrlNativeArray = mGameInfoNative + "0x860,"; // TArray<ABrgAICtrl_BaseNative*>
+
+                public const string
+                    mEnemyCtrlNativeArray = mGameInfoNative + "0x860,"; // TArray<ABrgAICtrl_BaseNative*>
+
                 public const string mNpcCtrlArray = mGameInfoNative + "0x870,"; // TArray<ABrgAICtrl_NpcBase*>
                 public const string mPawnArray = mGameInfoNative + "0x880,"; // TArray<ABrgPawn_Base*>
                 public const string mPawnNativeArray = mGameInfoNative + "0x890,"; // TArray<ABrgPawn_BaseNative*>
@@ -1058,149 +1144,364 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mEnemyPawnNativeArray = mGameInfoNative + "0x8c0,"; // TArray<ABrgPawn_BaseNative*>
                 public const string mNormalEnemyPawnArray = mGameInfoNative + "0x8d0,"; // TArray<ABrgPawn_EnemyBase*>
                 public const string mTargetArray = mGameInfoNative + "0x8e0,"; // TArray<AActor*>
-                public const string mMiddleBossPawnArray = mGameInfoNative + "0x8f0,"; // TArray<ABrgPawn_MiddleBossBase*>
+
+                public const string
+                    mMiddleBossPawnArray = mGameInfoNative + "0x8f0,"; // TArray<ABrgPawn_MiddleBossBase*>
+
                 public const string mBossPawnArray = mGameInfoNative + "0x900,"; // TArray<ABrgPawn_MiddleBossBase*>
-                public const string mMiddleBossHunkArray = mGameInfoNative + "0x910,"; // TArray<ABrgPawn_MiddleBossHunk*>
+
+                public const string
+                    mMiddleBossHunkArray = mGameInfoNative + "0x910,"; // TArray<ABrgPawn_MiddleBossHunk*>
+
                 public const string mMushBeastPawnArray = mGameInfoNative + "0x920,"; // TArray<ABrgPawn_MushBeastBase*>
                 public const string mNpcPawnArray = mGameInfoNative + "0x930,"; // TArray<ABrgPawn_NpcBase*>
                 public const string mMushroomSoupShopNative = mGameInfoNative + "0x940,"; // ABrgPawn_BaseNative*
                 public const string mDecoyPawnArray = mGameInfoNative + "0x948,"; // TArray<ABrgPawn_MushroomDecoy*>
-                public const string mRandomGenerateObjectArray = mGameInfoNative + "0x958,"; // TArray<ABrgActor_RandomGenerateObject*>
+
+                public const string
+                    mRandomGenerateObjectArray = mGameInfoNative + "0x958,"; // TArray<ABrgActor_RandomGenerateObject*>
+
                 public const string mBrgOtherActorArray = mGameInfoNative + "0x968,"; // TArray<AActor*>
-                public const string mEnemyTargetPoints = mGameInfoNative + "0x978,"; // TArray<ABrgRandomGenerateEnemyTargetPoint*>
-                public const string mDebugEnemyTargetPoints = mGameInfoNative + "0x988,"; // TArray<ABrgRandomGenerateDebugEnemyTargetPoint*>
-                public const string mMbossTargetPoints = mGameInfoNative + "0x998,"; // TArray<ABrgRandomGenerateMiddleBossTargetPoint*>
-                public const string m4ForceMenTargetPoints = mGameInfoNative + "0x9a8,"; // TArray<ABrgRandomGenerate4ForceMenTargetPoint*>
-                public const string mNormalEnemyTargetPoints = mGameInfoNative + "0x9b8,"; // TArray<ABrgRandomGenerateNormalEnemyTargetPoint*>
-                public const string mBoss4TreasureBoxTargetPoint = mGameInfoNative + "0x9c8,"; // ABrgTargetPoint_Boss4_TreasureBox*
-                public const string mBossNeckTargetPoint = mGameInfoNative + "0x9d0,"; // TArray<ABrgRandomGenerateBossNeckTargetPoint*>
+
+                public const string
+                    mEnemyTargetPoints = mGameInfoNative + "0x978,"; // TArray<ABrgRandomGenerateEnemyTargetPoint*>
+
+                public const string
+                    mDebugEnemyTargetPoints =
+                        mGameInfoNative + "0x988,"; // TArray<ABrgRandomGenerateDebugEnemyTargetPoint*>
+
+                public const string
+                    mMbossTargetPoints = mGameInfoNative + "0x998,"; // TArray<ABrgRandomGenerateMiddleBossTargetPoint*>
+
+                public const string
+                    m4ForceMenTargetPoints =
+                        mGameInfoNative + "0x9a8,"; // TArray<ABrgRandomGenerate4ForceMenTargetPoint*>
+
+                public const string
+                    mNormalEnemyTargetPoints =
+                        mGameInfoNative + "0x9b8,"; // TArray<ABrgRandomGenerateNormalEnemyTargetPoint*>
+
+                public const string
+                    mBoss4TreasureBoxTargetPoint = mGameInfoNative + "0x9c8,"; // ABrgTargetPoint_Boss4_TreasureBox*
+
+                public const string
+                    mBossNeckTargetPoint = mGameInfoNative + "0x9d0,"; // TArray<ABrgRandomGenerateBossNeckTargetPoint*>
+
                 public const string mWarpPoints = mGameInfoNative + "0x9e0,"; // TArray<ABrgWarpPoint*>
                 public const string mLookAtPoints = mGameInfoNative + "0x9f0,"; // TArray<ABrgLookAtPoint*>
                 public const string mPathActors = mGameInfoNative + "0xa00,"; // TArray<ABrgPathActor*>
-                public const string mMbjWarpTargetPoints = mGameInfoNative + "0xa10,"; // TArray<ABrgMbjWarpTargetPoint*>
-                public const string mAreaJumpTargetPoints = mGameInfoNative + "0xa20,"; // TArray<ABrgAreaJumpTargetPoint*>
-                public const string mFireballLunchPoints = mGameInfoNative + "0xa30,"; // TArray<ABrgFireballLunchPoint*>
+
+                public const string
+                    mMbjWarpTargetPoints = mGameInfoNative + "0xa10,"; // TArray<ABrgMbjWarpTargetPoint*>
+
+                public const string
+                    mAreaJumpTargetPoints = mGameInfoNative + "0xa20,"; // TArray<ABrgAreaJumpTargetPoint*>
+
+                public const string
+                    mFireballLunchPoints = mGameInfoNative + "0xa30,"; // TArray<ABrgFireballLunchPoint*>
+
                 public const string mBombStarterPoints = mGameInfoNative + "0xa40,"; // TArray<ABrgBombStarterPoint*>
                 public const string mPlayerTargetPoints = mGameInfoNative + "0xa50,"; // TArray<ABrgPlayerTargetPoint*>
-                public const string mMoveSafeTargetPoints = mGameInfoNative + "0xa60,"; // TArray<ABrgMoveSafeTargetPoint*>
+
+                public const string
+                    mMoveSafeTargetPoints = mGameInfoNative + "0xa60,"; // TArray<ABrgMoveSafeTargetPoint*>
+
                 public const string m4FMRNTargetPoints = mGameInfoNative + "0xa70,"; // TArray<ABrg4FMRNTargetPoint*>
                 public const string m4FMPWTargetPoints = mGameInfoNative + "0xa80,"; // TArray<ABrg4FMPWTargetPoint*>
                 public const string mBrgPawnPlaceables = mGameInfoNative + "0xa90,"; // TArray<ABrgPawnPlaceable*>
                 public const string mEmitterMushrooms = mGameInfoNative + "0xaa0,"; // TArray<ABrgEmitter_Mushroom*>
                 public const string mCoinLockerArray = mGameInfoNative + "0xab0,"; // TArray<ABrgActor_CoinLocker*>
                 public const string mCoinLockerVolumes = mGameInfoNative + "0xac0,"; // TArray<ABrgVolume_CoinLocker*>
-                public const string mCoinLockerTargetPoints = mGameInfoNative + "0xad0,"; // TArray<ABrgRandomGenerateCoinLockerTargetPoint*>
+
+                public const string
+                    mCoinLockerTargetPoints =
+                        mGameInfoNative + "0xad0,"; // TArray<ABrgRandomGenerateCoinLockerTargetPoint*>
+
                 public const string mPresentBoxArray = mGameInfoNative + "0xae0,"; // TArray<ABrgActor_PresentBox*>
                 public const string mPresentBoxVolumes = mGameInfoNative + "0xaf0,"; // TArray<ABrgVolume_PresentBox*>
                 public const string mPartShopArray = mGameInfoNative + "0xb00,"; // TArray<ABrgActor_PartShop*>
                 public const string mPartShopVolumes = mGameInfoNative + "0xb10,"; // TArray<ABrgVolume_PartShop*>
-                public const string mPartShopTargetPoints = mGameInfoNative + "0xb20,"; // TArray<ABrgRandomGeneratePartShopTargetPoint*>
+
+                public const string
+                    mPartShopTargetPoints =
+                        mGameInfoNative + "0xb20,"; // TArray<ABrgRandomGeneratePartShopTargetPoint*>
+
                 public const string mMushroomSoupShop = mGameInfoNative + "0xb30,"; // ABrgPawn_MushroomSoupShop*
-                public const string mMushroomSoupShopTargetPoints = mGameInfoNative + "0xb38,"; // TArray<ABrgRandomGenerateMushroomSoupShopTargetPoint*>
+
+                public const string
+                    mMushroomSoupShopTargetPoints =
+                        mGameInfoNative + "0xb38,"; // TArray<ABrgRandomGenerateMushroomSoupShopTargetPoint*>
+
                 public const string mBodyFreezerArray = mGameInfoNative + "0xb48,"; // TArray<ABrgActor_BodyFreezer*>
                 public const string mBodyFreezerVolumes = mGameInfoNative + "0xb58,"; // TArray<ABrgVolume_BodyFreezer*>
-                public const string mDailyRewardBoxArray = mGameInfoNative + "0xb68,"; // TArray<ABrgActor_DailyRewardBox*>
-                public const string mDailyRewardBoxVolumes = mGameInfoNative + "0xb78,"; // TArray<ABrgVolume_DailyRewardBox*>
-                public const string mDailyRewardBoxTargetPoints = mGameInfoNative + "0xb88,"; // TArray<ABrgRandomGenerateDailyRewardBoxTargetPoint*>
-                public const string mItemVendingMachineVolumes = mGameInfoNative + "0xb98,"; // TArray<ABrgVolume_ItemVendingMachine*>
-                public const string mItemVendingMachineTargetPoints = mGameInfoNative + "0xba8,"; // TArray<ABrgRandomGenerateItemVMTargetPoint*>
+
+                public const string
+                    mDailyRewardBoxArray = mGameInfoNative + "0xb68,"; // TArray<ABrgActor_DailyRewardBox*>
+
+                public const string
+                    mDailyRewardBoxVolumes = mGameInfoNative + "0xb78,"; // TArray<ABrgVolume_DailyRewardBox*>
+
+                public const string
+                    mDailyRewardBoxTargetPoints =
+                        mGameInfoNative + "0xb88,"; // TArray<ABrgRandomGenerateDailyRewardBoxTargetPoint*>
+
+                public const string
+                    mItemVendingMachineVolumes = mGameInfoNative + "0xb98,"; // TArray<ABrgVolume_ItemVendingMachine*>
+
+                public const string
+                    mItemVendingMachineTargetPoints =
+                        mGameInfoNative + "0xba8,"; // TArray<ABrgRandomGenerateItemVMTargetPoint*>
+
                 public const string mPrisonVolumes = mGameInfoNative + "0xbb8,"; // TArray<ABrgVolume_Prison*>
-                public const string mFortTerminalVolumes = mGameInfoNative + "0xbc8,"; // TArray<ABrgVolume_FortTerminal*>
+
+                public const string
+                    mFortTerminalVolumes = mGameInfoNative + "0xbc8,"; // TArray<ABrgVolume_FortTerminal*>
+
                 public const string mGameCenterVolumes = mGameInfoNative + "0xbd8,"; // TArray<ABrgVolume_GameCenter*>
-                public const string mStampRallySheetExchangerVolumes = mGameInfoNative + "0xbe8,"; // TArray<ABrgVolume_StampRallySheetExchanger*>
-                public const string mPosterTargetPoints = mGameInfoNative + "0xbf8,"; // TArray<ABrgRandomGeneratePosterTargetPoint*>
+
+                public const string
+                    mStampRallySheetExchangerVolumes =
+                        mGameInfoNative + "0xbe8,"; // TArray<ABrgVolume_StampRallySheetExchanger*>
+
+                public const string
+                    mPosterTargetPoints = mGameInfoNative + "0xbf8,"; // TArray<ABrgRandomGeneratePosterTargetPoint*>
+
                 public const string mPosterVolumes = mGameInfoNative + "0xc08,"; // TArray<ABrgVolume_Poster*>
                 public const string mResultDroneVolumes = mGameInfoNative + "0xc18,"; // TArray<ABrgVolume_ResultDrone*>
                 public const string mSafeArray = mGameInfoNative + "0xc28,"; // TArray<ABrgActor_Safe*>
                 public const string mSafeVolumes = mGameInfoNative + "0xc38,"; // TArray<ABrgVolume_Safe*>
-                public const string mSuperScope703Volumes = mGameInfoNative + "0xc48,"; // TArray<ABrgVolume_SuperScope703*>
-                public const string mFortSafeTargetPoints = mGameInfoNative + "0xc58,"; // TArray<ABrgRandomGenerateFortSafeTargetPoint*>
-                public const string mFortTankTargetPoints = mGameInfoNative + "0xc68,"; // TArray<ABrgRandomGenerateFortTankTargetPoint*>
-                public const string mFortJailTargetPoints = mGameInfoNative + "0xc78,"; // TArray<ABrgRandomGenerateFortJailTargetPoint*>
-                public const string mFortAssaultOutVolumes = mGameInfoNative + "0xc88,"; // TArray<ABrgVolume_FortAssaultOut*>
+
+                public const string
+                    mSuperScope703Volumes = mGameInfoNative + "0xc48,"; // TArray<ABrgVolume_SuperScope703*>
+
+                public const string
+                    mFortSafeTargetPoints =
+                        mGameInfoNative + "0xc58,"; // TArray<ABrgRandomGenerateFortSafeTargetPoint*>
+
+                public const string
+                    mFortTankTargetPoints =
+                        mGameInfoNative + "0xc68,"; // TArray<ABrgRandomGenerateFortTankTargetPoint*>
+
+                public const string
+                    mFortJailTargetPoints =
+                        mGameInfoNative + "0xc78,"; // TArray<ABrgRandomGenerateFortJailTargetPoint*>
+
+                public const string
+                    mFortAssaultOutVolumes = mGameInfoNative + "0xc88,"; // TArray<ABrgVolume_FortAssaultOut*>
+
                 public const string mBalloonArray = mGameInfoNative + "0xc98,"; // TArray<ABrgActor_Balloon*>
                 public const string mBalloonVolumes = mGameInfoNative + "0xca8,"; // TArray<ABrgVolume_Balloon*>
-                public const string mBalloonTargetPoints = mGameInfoNative + "0xcb8,"; // TArray<ABrgRandomGenerateBalloonTargetPoint*>
+
+                public const string
+                    mBalloonTargetPoints = mGameInfoNative + "0xcb8,"; // TArray<ABrgRandomGenerateBalloonTargetPoint*>
+
                 public const string mStampTableArray = mGameInfoNative + "0xcc8,"; // TArray<ABrgActor_StampTable*>
-                public const string mStampRallyPointVolumes = mGameInfoNative + "0xcd8,"; // TArray<ABrgVolume_StampRallyPoint*>
-                public const string mStampTableTargetPoints = mGameInfoNative + "0xce8,"; // TArray<ABrgRandomGenerateStampTableTargetPoint*>
-                public const string mSisterPartShopArray = mGameInfoNative + "0xcf8,"; // TArray<ABrgActor_SisterPartShop*>
-                public const string mSisterPartShopVolumes = mGameInfoNative + "0xd08,"; // TArray<ABrgVolume_SisterPartShop*>
-                public const string mSisterPartShopTargetPoints = mGameInfoNative + "0xd18,"; // TArray<ABrgRandomGenerateSisterPartShopTargetPoint*>
-                public const string mElevator2_SwitchArray = mGameInfoNative + "0xd28,"; // TArray<ABrgActor_Elevator2_Switch*>
-                public const string mElevator2_SwitchVolumes = mGameInfoNative + "0xd38,"; // TArray<ABrgVolume_Elevator2_Switch*>
+
+                public const string
+                    mStampRallyPointVolumes = mGameInfoNative + "0xcd8,"; // TArray<ABrgVolume_StampRallyPoint*>
+
+                public const string
+                    mStampTableTargetPoints =
+                        mGameInfoNative + "0xce8,"; // TArray<ABrgRandomGenerateStampTableTargetPoint*>
+
+                public const string
+                    mSisterPartShopArray = mGameInfoNative + "0xcf8,"; // TArray<ABrgActor_SisterPartShop*>
+
+                public const string
+                    mSisterPartShopVolumes = mGameInfoNative + "0xd08,"; // TArray<ABrgVolume_SisterPartShop*>
+
+                public const string
+                    mSisterPartShopTargetPoints =
+                        mGameInfoNative + "0xd18,"; // TArray<ABrgRandomGenerateSisterPartShopTargetPoint*>
+
+                public const string
+                    mElevator2_SwitchArray = mGameInfoNative + "0xd28,"; // TArray<ABrgActor_Elevator2_Switch*>
+
+                public const string
+                    mElevator2_SwitchVolumes = mGameInfoNative + "0xd38,"; // TArray<ABrgVolume_Elevator2_Switch*>
+
                 public const string mElevator2Volumes = mGameInfoNative + "0xd48,"; // TArray<ABrgVolume_Elevator2*>
                 public const string mEscalatorVolumes = mGameInfoNative + "0xd58,"; // TArray<ABrgVolume_Escalator*>
-                public const string mEscalatorTargetPoints = mGameInfoNative + "0xd68,"; // TArray<ABrgRandomGenerateEscalatorTargetPoint*>
-                public const string mEscalatorParticleTargetPoints = mGameInfoNative + "0xd78,"; // TArray<ABrgRandomGenerateEscalatorParticleTargetPoint*>
-                public const string mEscalatorClosedPSTargetPoints = mGameInfoNative + "0xd88,"; // TArray<ABrgRandomGenerateEscalatorClosedPSTargetPoint*>
+
+                public const string
+                    mEscalatorTargetPoints =
+                        mGameInfoNative + "0xd68,"; // TArray<ABrgRandomGenerateEscalatorTargetPoint*>
+
+                public const string
+                    mEscalatorParticleTargetPoints =
+                        mGameInfoNative + "0xd78,"; // TArray<ABrgRandomGenerateEscalatorParticleTargetPoint*>
+
+                public const string
+                    mEscalatorClosedPSTargetPoints =
+                        mGameInfoNative + "0xd88,"; // TArray<ABrgRandomGenerateEscalatorClosedPSTargetPoint*>
+
                 public const string mCandleButtonArray = mGameInfoNative + "0xd98,"; // TArray<ABrgActor_CandleButton*>
                 public const string mButtonVolumes = mGameInfoNative + "0xda8,"; // TArray<ABrgVolume_Button*>
-                public const string mButtonTargetPoints = mGameInfoNative + "0xdb8,"; // TArray<ABrgRandomGenerateButtonTargetPoint*>
-                public const string mSecuritySwitchArray = mGameInfoNative + "0xdc8,"; // TArray<ABrgActor_SecuritySwitch*>
-                public const string mSecuritySwitchVolumes = mGameInfoNative + "0xdd8,"; // TArray<ABrgVolume_SecuritySwitch*>
-                public const string mSecuritySwitchTargetPoints = mGameInfoNative + "0xde8,"; // TArray<ABrgRandomGenerateSecuritySwitchTargetPoint*>
+
+                public const string
+                    mButtonTargetPoints = mGameInfoNative + "0xdb8,"; // TArray<ABrgRandomGenerateButtonTargetPoint*>
+
+                public const string
+                    mSecuritySwitchArray = mGameInfoNative + "0xdc8,"; // TArray<ABrgActor_SecuritySwitch*>
+
+                public const string
+                    mSecuritySwitchVolumes = mGameInfoNative + "0xdd8,"; // TArray<ABrgVolume_SecuritySwitch*>
+
+                public const string
+                    mSecuritySwitchTargetPoints =
+                        mGameInfoNative + "0xde8,"; // TArray<ABrgRandomGenerateSecuritySwitchTargetPoint*>
+
                 public const string mBossButtonArray = mGameInfoNative + "0xdf8,"; // TArray<ABrgActor_BossButton*>
                 public const string mBossButtonVolumes = mGameInfoNative + "0xe08,"; // TArray<ABrgVolume_BossButton*>
-                public const string mBossButtonTargetPoints = mGameInfoNative + "0xe18,"; // TArray<ABrgRandomGenerateBossButtonTargetPoint*>
-                public const string mVendingMachineArray = mGameInfoNative + "0xe28,"; // TArray<ABrgActor_VendingMachine*>
-                public const string mVendingMachineVolumes = mGameInfoNative + "0xe38,"; // TArray<ABrgVolume_VendingMachine*>
-                public const string mVendingMachineTargetPoints = mGameInfoNative + "0xe48,"; // TArray<ABrgRandomGenerateVendingMachineTargetPoint*>
+
+                public const string
+                    mBossButtonTargetPoints =
+                        mGameInfoNative + "0xe18,"; // TArray<ABrgRandomGenerateBossButtonTargetPoint*>
+
+                public const string
+                    mVendingMachineArray = mGameInfoNative + "0xe28,"; // TArray<ABrgActor_VendingMachine*>
+
+                public const string
+                    mVendingMachineVolumes = mGameInfoNative + "0xe38,"; // TArray<ABrgVolume_VendingMachine*>
+
+                public const string
+                    mVendingMachineTargetPoints =
+                        mGameInfoNative + "0xe48,"; // TArray<ABrgRandomGenerateVendingMachineTargetPoint*>
+
                 public const string mReceptionArray = mGameInfoNative + "0xe58,"; // TArray<ABrgActor_Reception*>
                 public const string mReceptionVolumes = mGameInfoNative + "0xe68,"; // TArray<ABrgVolume_Reception*>
-                public const string mReceptionTargetPoints = mGameInfoNative + "0xe78,"; // TArray<ABrgRandomGenerateReceptionTargetPoint*>
-                public const string mReturnBaseMachineArray = mGameInfoNative + "0xe88,"; // TArray<ABrgActor_ReturnBaseMachine*>
-                public const string mReturnBaseMachineVolumes = mGameInfoNative + "0xe98,"; // TArray<ABrgVolume_ReturnBaseMachine*>
-                public const string mReturnBaseMachineTargetPoints = mGameInfoNative + "0xea8,"; // TArray<ABrgRandomGenerateReturnBaseMachineTargetPoint*>
+
+                public const string
+                    mReceptionTargetPoints =
+                        mGameInfoNative + "0xe78,"; // TArray<ABrgRandomGenerateReceptionTargetPoint*>
+
+                public const string
+                    mReturnBaseMachineArray = mGameInfoNative + "0xe88,"; // TArray<ABrgActor_ReturnBaseMachine*>
+
+                public const string
+                    mReturnBaseMachineVolumes = mGameInfoNative + "0xe98,"; // TArray<ABrgVolume_ReturnBaseMachine*>
+
+                public const string
+                    mReturnBaseMachineTargetPoints =
+                        mGameInfoNative + "0xea8,"; // TArray<ABrgRandomGenerateReturnBaseMachineTargetPoint*>
+
                 public const string mDustShooterArray = mGameInfoNative + "0xeb8,"; // TArray<ABrgActor_DustShooter*>
                 public const string mDustShooterVolumes = mGameInfoNative + "0xec8,"; // TArray<ABrgVolume_DustShooter*>
-                public const string mDustShooterTargetPoints = mGameInfoNative + "0xed8,"; // TArray<ABrgRandomGenerateDustShooterTargetPoint*>
-                public const string mUncleDeathStatueVolumes = mGameInfoNative + "0xee8,"; // TArray<ABrgVolume_UncleDeathStatue*>
+
+                public const string
+                    mDustShooterTargetPoints =
+                        mGameInfoNative + "0xed8,"; // TArray<ABrgRandomGenerateDustShooterTargetPoint*>
+
+                public const string
+                    mUncleDeathStatueVolumes = mGameInfoNative + "0xee8,"; // TArray<ABrgVolume_UncleDeathStatue*>
+
                 public const string mValveVolumes = mGameInfoNative + "0xef8,"; // TArray<ABrgVolume_Valve*>
                 public const string mDoorButtonVolumes = mGameInfoNative + "0xf08,"; // TArray<ABrgVolume_DoorButton*>
-                public const string mStartTargetPoints = mGameInfoNative + "0xf18,"; // TArray<ABrgRandomGenerateStartTargetPoint*>
-                public const string mGoalTargetPoints = mGameInfoNative + "0xf28,"; // TArray<ABrgRandomGenerateGoalTargetPoint*>
-                public const string mBreakableObjectArray = mGameInfoNative + "0xf38,"; // TArray<ABrgActor_BreakableObject*>
-                public const string mBreakableObjectTargetPoints = mGameInfoNative + "0xf48,"; // TArray<ABrgRandomGenerateBreakableObjectTargetPoint*>
+
+                public const string
+                    mStartTargetPoints = mGameInfoNative + "0xf18,"; // TArray<ABrgRandomGenerateStartTargetPoint*>
+
+                public const string
+                    mGoalTargetPoints = mGameInfoNative + "0xf28,"; // TArray<ABrgRandomGenerateGoalTargetPoint*>
+
+                public const string
+                    mBreakableObjectArray = mGameInfoNative + "0xf38,"; // TArray<ABrgActor_BreakableObject*>
+
+                public const string
+                    mBreakableObjectTargetPoints =
+                        mGameInfoNative + "0xf48,"; // TArray<ABrgRandomGenerateBreakableObjectTargetPoint*>
+
                 public const string mCoinArray = mGameInfoNative + "0xf58,"; // TArray<ABrgActor_Coin*>
                 public const string mSpiritArray = mGameInfoNative + "0xf68,"; // TArray<ABrgActor_Spirit*>
                 public const string mBloodniumArray = mGameInfoNative + "0xf78,"; // TArray<ABrgActor_Bloodnium*>
-                public const string mMagazineTargetPoints = mGameInfoNative + "0xf88,"; // TArray<ABrgRandomGenerateMagazineTargetPoint*>
-                public const string mItemTargetPoints = mGameInfoNative + "0xf98,"; // TArray<ABrgRandomGenerateItemTargetPoint*>
-                public const string mBeastTargetPoints = mGameInfoNative + "0xfa8,"; // TArray<ABrgRandomGenerateBeastTargetPoint*>
-                public const string mMushroomTargetPoints = mGameInfoNative + "0xfb8,"; // TArray<ABrgRandomGenerateMushroomTargetPoint*>
-                public const string mInfinityMushCreaterArray = mGameInfoNative + "0xfc8,"; // TArray<ABrgActor_InfinityMushCreater*>
-                public const string mInfinityMushroomTargetPoints = mGameInfoNative + "0xfd8,"; // TArray<ABrgRandomGenerateInfinityMushroomTargetPoint*>
+
+                public const string
+                    mMagazineTargetPoints =
+                        mGameInfoNative + "0xf88,"; // TArray<ABrgRandomGenerateMagazineTargetPoint*>
+
+                public const string
+                    mItemTargetPoints = mGameInfoNative + "0xf98,"; // TArray<ABrgRandomGenerateItemTargetPoint*>
+
+                public const string
+                    mBeastTargetPoints = mGameInfoNative + "0xfa8,"; // TArray<ABrgRandomGenerateBeastTargetPoint*>
+
+                public const string
+                    mMushroomTargetPoints =
+                        mGameInfoNative + "0xfb8,"; // TArray<ABrgRandomGenerateMushroomTargetPoint*>
+
+                public const string
+                    mInfinityMushCreaterArray = mGameInfoNative + "0xfc8,"; // TArray<ABrgActor_InfinityMushCreater*>
+
+                public const string
+                    mInfinityMushroomTargetPoints =
+                        mGameInfoNative + "0xfd8,"; // TArray<ABrgRandomGenerateInfinityMushroomTargetPoint*>
+
                 public const string mTreasureArray = mGameInfoNative + "0xfe8,"; // TArray<ABrgActor_Treasure*>
-                public const string mTreasureTargetPoints = mGameInfoNative + "0xff8,"; // TArray<ABrgRandomGenerateTreasureTargetPoint*>
+
+                public const string
+                    mTreasureTargetPoints =
+                        mGameInfoNative + "0xff8,"; // TArray<ABrgRandomGenerateTreasureTargetPoint*>
+
                 public const string mMineArray = mGameInfoNative + "0x1008,"; // TArray<ABrgObject_Mine*>
                 public const string mFireArray = mGameInfoNative + "0x1018,"; // TArray<ABrgObject_Fire*>
                 public const string mShootArray = mGameInfoNative + "0x1028,"; // TArray<ABrgBreakableObject_Env*>
-                public const string mFortAssaultButtonArray = mGameInfoNative + "0x1038,"; // TArray<ABrgActor_FortAssaultButton*>
-                public const string mFortAssaultVolumes = mGameInfoNative + "0x1048,"; // TArray<ABrgVolume_FortAssault*>
-                public const string mFortAssaultButtonTargetPoints = mGameInfoNative + "0x1058,"; // TArray<ABrgTargetPoint_FortAssaultButton*>
+
+                public const string
+                    mFortAssaultButtonArray = mGameInfoNative + "0x1038,"; // TArray<ABrgActor_FortAssaultButton*>
+
+                public const string
+                    mFortAssaultVolumes = mGameInfoNative + "0x1048,"; // TArray<ABrgVolume_FortAssault*>
+
+                public const string
+                    mFortAssaultButtonTargetPoints =
+                        mGameInfoNative + "0x1058,"; // TArray<ABrgTargetPoint_FortAssaultButton*>
+
                 public const string mShowTentVolumes = mGameInfoNative + "0x1068,"; // TArray<ABrgVolume_ShowTent*>
                 public const string mKariShopVolumes = mGameInfoNative + "0x1078,"; // TArray<ABrgVolume_KariShop*>
                 public const string mSkillSetupArray = mGameInfoNative + "0x1088,"; // TArray<ABrgActor_SkillSetup*>
-                public const string mSkillSetupPointVolumes = mGameInfoNative + "0x1098,"; // TArray<ABrgVolume_SkillSetupPoint*>
-                public const string mSkillSetupTargetPoints = mGameInfoNative + "0x10a8,"; // TArray<ABrgRandomGenerateSkillSetupTargetPoint*>
+
+                public const string
+                    mSkillSetupPointVolumes = mGameInfoNative + "0x1098,"; // TArray<ABrgVolume_SkillSetupPoint*>
+
+                public const string
+                    mSkillSetupTargetPoints =
+                        mGameInfoNative + "0x10a8,"; // TArray<ABrgRandomGenerateSkillSetupTargetPoint*>
+
                 public const string mDrinkMachineArray = mGameInfoNative + "0x10b8,"; // TArray<ABrgActor_DrinkMachine*>
-                public const string mDrinkMachineVolumes = mGameInfoNative + "0x10c8,"; // TArray<ABrgVolume_DrinkMachine*>
-                public const string mSkillVendingMachineArray = mGameInfoNative + "0x10d8,"; // TArray<ABrgActor_SkillVendingMachine*>
-                public const string mSkillVendingMachineVolumes = mGameInfoNative + "0x10e8,"; // TArray<ABrgVolume_SkillVendingMachine*>
-                public const string mSkillExchangeArray = mGameInfoNative + "0x10f8,"; // TArray<ABrgActor_SkillExchange*>
-                public const string mSkillExchangeVolumes = mGameInfoNative + "0x1108,"; // TArray<ABrgVolume_SkillExchange*>
+
+                public const string
+                    mDrinkMachineVolumes = mGameInfoNative + "0x10c8,"; // TArray<ABrgVolume_DrinkMachine*>
+
+                public const string
+                    mSkillVendingMachineArray = mGameInfoNative + "0x10d8,"; // TArray<ABrgActor_SkillVendingMachine*>
+
+                public const string
+                    mSkillVendingMachineVolumes =
+                        mGameInfoNative + "0x10e8,"; // TArray<ABrgVolume_SkillVendingMachine*>
+
+                public const string
+                    mSkillExchangeArray = mGameInfoNative + "0x10f8,"; // TArray<ABrgActor_SkillExchange*>
+
+                public const string
+                    mSkillExchangeVolumes = mGameInfoNative + "0x1108,"; // TArray<ABrgVolume_SkillExchange*>
+
                 public const string mPauseTargetActorArray = mGameInfoNative + "0x1118,"; // TArray<AActor*>
                 public const string mBrgTargetPointArray = mGameInfoNative + "0x1128,"; // TArray<ABrgTargetPoint*>
                 public const string mPrisonSPMetorTargetArray = mGameInfoNative + "0x1138,"; // TArray<AInterpActor*>
-                public const string mDontUsePrisonSPMetorTargetArray = mGameInfoNative + "0x1148,"; // TArray<AInterpActor*>
+
+                public const string
+                    mDontUsePrisonSPMetorTargetArray = mGameInfoNative + "0x1148,"; // TArray<AInterpActor*>
+
                 public const string mPrisonSPLightArray = mGameInfoNative + "0x1158,"; // TArray<AEmitter*>
                 public const string mDontUsePrisonSPLightArray = mGameInfoNative + "0x1168,"; // TArray<AEmitter*>
                 public const string mPrisonSPToiletArray = mGameInfoNative + "0x1178,"; // TArray<AInterpActor*>
                 public const string mDontUsePrisonSPToiletArray = mGameInfoNative + "0x1188,"; // TArray<AInterpActor*>
                 public const string mWorldTimeScaleManager = mGameInfoNative + "0x1198,"; // UBrgWorldTimeScaleManager*
                 public const string mDebugEditParams = mGameInfoNative + "0x11a0,"; // UBrgUIDebugEditParams*
-                public const string mGameObjectVisibleManager = mGameInfoNative + "0x11a8,"; // UBrgGameObjectVisibleManager*
+
+                public const string
+                    mGameObjectVisibleManager = mGameInfoNative + "0x11a8,"; // UBrgGameObjectVisibleManager*
+
                 public const string mCameraNative = mGameInfoNative + "0x11b0,"; // ABrgCameraNative*
                 public const string mAIDirector = mGameInfoNative + "0x11b8,"; // UBrgAIDirector*
                 public const string mIgnitionObjectManager = mGameInfoNative + "0x11c0,"; // UBrgIgnitionObjectManager*
@@ -1215,7 +1516,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mHeadPartDropHairFadeInStartParam = mGameInfoNative + "0x120c"; // float
                 public const string mHeadPartDropHairFadeInTime = mGameInfoNative + "0x1210"; // float
                 public const string mGlobalPartInfo = mGameInfoNative + "0x1214,"; // UBrgGlobalPartInfo*
-                public const string mAssaultFortResultDetail = mGameInfoNative + "0x121c,"; // FBrgDbAssaultFortResultDetail
+
+                public const string
+                    mAssaultFortResultDetail = mGameInfoNative + "0x121c,"; // FBrgDbAssaultFortResultDetail
+
                 public const string mFortResultAbducted = mGameInfoNative + "0x132c,"; // TArray<FBrgDbFortTakeoutChara>
                 public const string mFortResultRescued = mGameInfoNative + "0x133c,"; // TArray<FBrgDbFortTakeoutChara>
                 public const string mAssaultFortHateLevel = mGameInfoNative + "0x134c,"; // int32_t
@@ -1244,7 +1548,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mTeams = mGameInfoNative + "0x142c,"; // TArray<FBrgDbTeam>
                 public const string mGCManager = mGameInfoNative + "0x143c,"; // UBrgGCManager*
                 public const string mConfig = mGameInfoNative + "0x1444,"; // FBrgConfig
-                public const string mRandomGenerateLevelManager = mGameInfoNative + "0x1450,"; // UBrgRandomGenerateLevelManager*
+
+                public const string
+                    mRandomGenerateLevelManager = mGameInfoNative + "0x1450,"; // UBrgRandomGenerateLevelManager*
+
                 public const string mLevelUnitTestMode = mGameInfoNative + "0x1458,"; // int32_t
                 public const string mDebugDebugEntityId = mGameInfoNative + "0x145c,"; // int32_t
                 public const string mDebugMenu = mGameInfoNative + "0x1460,"; // UBrgDebugMenu*
@@ -1255,7 +1562,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mDbBodyAsset_BodyInfos = mGameInfoNative + "0x14a8,"; // TArray<FBrgDbListInfo>
                 public const string mDbBodyAsset_HairInfos = mGameInfoNative + "0x14b8,"; // TArray<FBrgDbListInfo>
                 public const string mDebugRegion = mGameInfoNative + "0x14c8,"; // FString
-                public const string mCntMilliSecondInfos = mGameInfoNative + "0x14d8,"; // TArray<FBrgGameInfo_CntMilliSecondInfo>
+
+                public const string
+                    mCntMilliSecondInfos = mGameInfoNative + "0x14d8,"; // TArray<FBrgGameInfo_CntMilliSecondInfo>
+
                 public const string mTitleVersion = mGameInfoNative + "0x14e8,"; // FString
                 public const string TempSceneView = mGameInfoNative + "0x14f8,"; // FPointer
 
@@ -1640,9 +1950,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 }
 
                 // ABrgPawn_Base Inheritance: ABrgPawn_BaseNative > AGHM_Pawn > AGamePawn > APawn > AActor > UObject
-                public class ABrgPawn_Base: ABrgGameInfo
+                public class ABrgPawn_Base : ABrgGameInfo
                 {
                     #region PLAYER BASE
+
                     public class PlayerBase : ABrgPawn_Base
                     {
                         public const string pBase = mPawnArray + "0x00"; // int 8 bytes
@@ -1658,16 +1969,30 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mPawnArray + "0x00,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mPawnArray + "0x00,0xAD8"; // float
                         public const string mStaminaMax = mPawnArray + "0x00,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mPawnArray + "0x00,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mPawnArray + "0x00,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mPawnArray + "0x00,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mPawnArray + "0x00,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mPawnArray + "0x00,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mPawnArray + "0x00,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mPawnArray + "0x00,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mPawnArray + "0x00,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mPawnArray + "0x00,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mPawnArray + "0x00,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mPawnArray + "0x00,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mPawnArray + "0x00,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
-                        public class UBrgSkeletalMeshComponent: PlayerBase
+
+                        public class UBrgSkeletalMeshComponent : PlayerBase
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
                             public const string AttachedToSkelComponent = Mesh + "0x280,"; // USkeletalMeshComponent*
@@ -1777,7 +2102,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -1826,7 +2154,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -1834,7 +2165,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -1854,7 +2188,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -1878,11 +2215,16 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     #endregion
+
                     #region ENTITY LIST
+
                     #region NORMAL ENTITIES/BEASTS?
+
                     public class EntityBase0 : ABrgPawn_Base
                     {
                         public const string eBase0 = mEnemyPawnArray + "0x00"; // int 8 bytes
@@ -1899,15 +2241,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x00,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x00,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x00,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x00,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x00,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x00,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x00,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x00,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x00,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x00,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x00,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x00,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x00,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x00,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x00,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase0
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -2018,7 +2374,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -2067,7 +2426,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -2075,7 +2437,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -2095,7 +2460,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -2119,9 +2487,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase1 : ABrgPawn_Base
                     {
                         public const string eBase1 = mEnemyPawnArray + "0x08"; // int 8 bytes
@@ -2138,15 +2507,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x08,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x08,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x08,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x08,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x08,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x08,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x08,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x08,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x08,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x08,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x08,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x08,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x08,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x08,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x08,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x08,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase1
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -2257,7 +2640,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -2306,7 +2692,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -2314,7 +2703,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -2334,7 +2726,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -2358,9 +2753,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase2 : ABrgPawn_Base
                     {
                         public const string eBase2 = mEnemyPawnArray + "0x10"; // int 8 bytes
@@ -2377,15 +2773,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x10,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x10,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x10,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x10,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x10,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x10,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x10,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x10,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x10,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x10,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x10,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x10,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x10,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x10,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x10,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x10,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase2
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -2496,7 +2906,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -2545,7 +2958,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -2553,7 +2969,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -2573,7 +2992,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -2597,8 +3019,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class EntityBase3 : ABrgPawn_Base
                     {
                         public const string eBase3 = mEnemyPawnArray + "0x18"; // int 8 bytes
@@ -2615,15 +3039,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x18,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x18,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x18,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x18,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x18,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x18,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x18,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x18,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x18,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x18,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x18,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x18,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x18,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x18,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x18,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x18,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase3
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -2734,7 +3172,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -2783,7 +3224,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -2791,7 +3235,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -2811,7 +3258,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -2835,8 +3285,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class EntityBase4 : ABrgPawn_Base
                     {
                         public const string eBase4 = mEnemyPawnArray + "0x20"; // int 8 bytes
@@ -2853,15 +3305,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x20,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x20,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x20,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x20,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x20,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x20,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x20,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x20,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x20,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x20,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x20,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x20,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x20,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x20,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x20,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x20,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase4
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -2972,7 +3438,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -3021,7 +3490,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -3029,7 +3501,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -3049,7 +3524,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -3073,9 +3551,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase5 : ABrgPawn_Base
                     {
                         public const string eBase5 = mEnemyPawnArray + "0x28"; // int 8 bytes
@@ -3092,15 +3571,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x28,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x28,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x28,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x28,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x28,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x28,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x28,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x28,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x28,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x28,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x28,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x28,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x28,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x28,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x28,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x28,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase5
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -3211,7 +3704,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -3260,7 +3756,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -3268,7 +3767,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -3288,7 +3790,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -3312,9 +3817,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase6 : ABrgPawn_Base
                     {
                         public const string eBase6 = mEnemyPawnArray + "0x30"; // int 8 bytes
@@ -3331,15 +3837,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x30,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x30,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x30,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x30,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x30,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x30,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x30,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x30,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x30,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x30,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x30,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x30,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x30,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x30,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x30,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x30,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase6
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -3450,7 +3970,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -3499,7 +4022,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -3507,7 +4033,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -3527,7 +4056,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -3551,9 +4083,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase7 : ABrgPawn_Base
                     {
                         public const string eBase7 = mEnemyPawnArray + "0x38"; // int 8 bytes
@@ -3570,15 +4103,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x38,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x38,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x38,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x38,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x38,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x38,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x38,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x38,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x38,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x38,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x38,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x38,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x38,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x38,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x38,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x38,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase7
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -3689,7 +4236,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -3738,7 +4288,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -3746,7 +4299,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -3766,7 +4322,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -3790,9 +4349,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase8 : ABrgPawn_Base
                     {
                         public const string eBase8 = mEnemyPawnArray + "0x40"; // int 8 bytes
@@ -3809,15 +4369,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x40,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x40,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x40,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x40,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x40,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x40,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x40,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x40,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x40,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x40,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x40,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x40,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x40,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x40,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x40,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x40,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase8
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -3928,7 +4502,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -3977,7 +4554,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -3985,7 +4565,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -4005,7 +4588,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -4029,9 +4615,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase9 : ABrgPawn_Base
                     {
                         public const string eBase9 = mEnemyPawnArray + "0x48"; // int 8 bytes
@@ -4048,15 +4635,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x48,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x48,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x48,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x48,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x48,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x48,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x48,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x48,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x48,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x48,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x48,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x48,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x48,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x48,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x48,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x48,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase9
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -4167,7 +4768,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -4216,7 +4820,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -4224,7 +4831,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -4244,7 +4854,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -4268,9 +4881,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase10 : ABrgPawn_Base
                     {
                         public const string eBase10 = mEnemyPawnArray + "0x50"; // int 8 bytes
@@ -4287,15 +4901,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x50,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x50,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x50,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x50,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x50,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x50,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x50,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x50,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x50,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x50,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x50,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x50,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x50,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x50,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x50,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x50,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase10
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -4406,7 +5034,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -4455,7 +5086,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -4463,7 +5097,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -4483,7 +5120,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -4507,9 +5147,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase11 : ABrgPawn_Base
                     {
                         public const string eBase11 = mEnemyPawnArray + "0x58"; // int 8 bytes
@@ -4526,15 +5167,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x58,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x58,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x58,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x58,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x58,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x58,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x58,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x58,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x58,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x58,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x58,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x58,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x58,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x58,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x58,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x58,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase11
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -4645,7 +5300,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -4694,7 +5352,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -4702,7 +5363,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -4722,7 +5386,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -4746,9 +5413,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase12 : ABrgPawn_Base
                     {
                         public const string eBase12 = mEnemyPawnArray + "0x60"; // int 8 bytes
@@ -4765,15 +5433,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x60,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x60,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x60,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x60,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x60,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x60,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x60,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x60,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x60,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x60,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x60,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x60,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x60,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x60,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x60,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x60,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase12
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -4884,7 +5566,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -4933,7 +5618,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -4941,7 +5629,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -4961,7 +5652,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -4985,9 +5679,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase13 : ABrgPawn_Base
                     {
                         public const string eBase13 = mEnemyPawnArray + "0x68"; // int 8 bytes
@@ -5004,15 +5699,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x68,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x68,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x68,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x68,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x68,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x68,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x68,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x68,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x68,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x68,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x68,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x68,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x68,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x68,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x68,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x68,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase13
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -5123,7 +5832,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -5172,7 +5884,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -5180,7 +5895,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -5200,7 +5918,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -5224,9 +5945,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase14 : ABrgPawn_Base
                     {
                         public const string eBase14 = mEnemyPawnArray + "0x70"; // int 8 bytes
@@ -5243,15 +5965,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x70,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x70,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x70,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x70,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x70,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x70,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x70,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x70,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x70,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x70,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x70,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x70,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x70,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x70,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x70,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x70,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase14
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -5362,7 +6098,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -5411,7 +6150,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -5419,7 +6161,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -5439,7 +6184,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -5463,9 +6211,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase15 : ABrgPawn_Base
                     {
                         public const string eBase15 = mEnemyPawnArray + "0x78"; // int 8 bytes
@@ -5482,15 +6231,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x78,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x78,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x78,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x78,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x78,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x78,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x78,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x78,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x78,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x78,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x78,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x78,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x78,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x78,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x78,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x78,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase15
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -5601,7 +6364,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -5650,7 +6416,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -5658,7 +6427,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -5678,7 +6450,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -5702,9 +6477,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase16 : ABrgPawn_Base
                     {
                         public const string eBase16 = mEnemyPawnArray + "0x80"; // int 8 bytes
@@ -5721,15 +6497,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x80,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x80,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x80,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x80,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x80,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x80,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x80,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x80,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x80,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x80,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x80,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x80,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x80,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x80,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x80,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x80,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase16
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -5840,7 +6630,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -5889,7 +6682,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -5897,7 +6693,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -5917,7 +6716,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -5941,9 +6743,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase17 : ABrgPawn_Base
                     {
                         public const string eBase17 = mEnemyPawnArray + "0x88"; // int 8 bytes
@@ -5960,15 +6763,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x88,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x88,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x88,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x88,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x88,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x88,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x88,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x88,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x88,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x88,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x88,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x88,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x88,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x88,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x88,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x88,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase17
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -6079,7 +6896,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -6128,7 +6948,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -6136,7 +6959,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -6156,7 +6982,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -6180,9 +7009,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase18 : ABrgPawn_Base
                     {
                         public const string eBase18 = mEnemyPawnArray + "0x90"; // int 8 bytes
@@ -6199,15 +7029,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x90,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x90,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x90,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x90,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x90,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x90,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x90,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x90,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x90,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x90,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x90,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x90,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x90,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x90,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x90,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x90,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase18
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -6318,7 +7162,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -6367,7 +7214,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -6375,7 +7225,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -6395,7 +7248,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -6419,9 +7275,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class EntityBase19 : ABrgPawn_Base
                     {
                         public const string eBase19 = mEnemyPawnArray + "0x98"; // int 8 bytes
@@ -6438,15 +7295,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0x98,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0x98,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0x98,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0x98,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0x98,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0x98,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x98,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x98,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0x98,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0x98,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0x98,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0x98,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0x98,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0x98,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0x98,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0x98,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase19
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -6557,7 +7428,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -6606,7 +7480,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -6614,7 +7491,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -6634,7 +7514,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -6658,8 +7541,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class EntityBase20 : ABrgPawn_Base
                     {
                         public const string eBase20 = mEnemyPawnArray + "0xA0"; // int 8 bytes
@@ -6676,15 +7561,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0xA0,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0xA0,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0xA0,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0xA0,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0xA0,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0xA0,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0xA0,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0xA0,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0xA0,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0xA0,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0xA0,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0xA0,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0xA0,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0xA0,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0xA0,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0xA0,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase20
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -6795,7 +7694,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -6844,7 +7746,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -6852,7 +7757,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -6872,7 +7780,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -6896,8 +7807,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class EntityBase21 : ABrgPawn_Base
                     {
                         public const string eBase20 = mEnemyPawnArray + "0xA8"; // int 8 bytes
@@ -6914,15 +7827,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0xA8,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0xA8,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0xA8,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0xA8,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0xA8,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0xA8,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0xA8,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0xA8,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0xA8,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0xA8,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0xA8,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0xA8,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0xA8,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0xA8,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0xA8,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0xA8,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase21
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -7033,7 +7960,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -7082,7 +8012,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -7090,7 +8023,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -7110,7 +8046,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -7134,8 +8073,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class EntityBase22 : ABrgPawn_Base
                     {
                         public const string eBase20 = mEnemyPawnArray + "0xB0"; // int 8 bytes
@@ -7152,15 +8093,29 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mEnemyPawnArray + "0xB0,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnArray + "0xB0,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnArray + "0xB0,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnArray + "0xB0,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnArray + "0xB0,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnArray + "0xB0,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0xB0,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnArray + "0xB0,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnArray + "0xB0,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnArray + "0xB0,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnArray + "0xB0,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnArray + "0xB0,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond = mEnemyPawnArray + "0xB0,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mEnemyPawnArray + "0xB0,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnArray + "0xB0,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnArray + "0xB0,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : EntityBase22
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -7271,7 +8226,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -7320,7 +8278,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -7328,7 +8289,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -7348,7 +8312,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -7372,10 +8339,14 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     #endregion
+
                     #region HATERS ENTITIES
+
                     public class HaterBase0 : ABrgPawn_Base
                     {
                         public const string hBase0 = mNormalEnemyPawnArray + "0x00"; // int 8 bytes
@@ -7388,19 +8359,38 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mNormalEnemyPawnArray + "0x00,0xA4"; // float
                         public const string Health = mNormalEnemyPawnArray + "0x00,0x3CC"; // int
                         public const string HealthMax = mNormalEnemyPawnArray + "0x00,0x3D0"; // int
-                        public const string MeshBase = mNormalEnemyPawnArray + "0x00,0x4A8"; // UBrgSkeletalMeshComponent*
+
+                        public const string
+                            MeshBase = mNormalEnemyPawnArray + "0x00,0x4A8"; // UBrgSkeletalMeshComponent*
+
                         public const string Mesh = mNormalEnemyPawnArray + "0x00,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mNormalEnemyPawnArray + "0x00,0xAD8"; // float
                         public const string mStaminaMax = mNormalEnemyPawnArray + "0x00,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mNormalEnemyPawnArray + "0x00,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mNormalEnemyPawnArray + "0x00,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mNormalEnemyPawnArray + "0x00,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mNormalEnemyPawnArray + "0x00,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mNormalEnemyPawnArray + "0x00,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mNormalEnemyPawnArray + "0x00,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mNormalEnemyPawnArray + "0x00,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mNormalEnemyPawnArray + "0x00,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mNormalEnemyPawnArray + "0x00,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mNormalEnemyPawnArray + "0x00,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond =
+                                mNormalEnemyPawnArray + "0x00,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mNormalEnemyPawnArray + "0x00,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mNormalEnemyPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : HaterBase0
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -7511,7 +8501,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -7560,7 +8553,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -7568,7 +8564,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -7588,7 +8587,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -7612,9 +8614,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
-                        #endregion
 
+                        #endregion
                     }
+
                     public class HaterBase00 : ABrgPawn_Base
                     {
                         public const string hBase1 = mEnemyPawnNativeArray + "0x08"; // int 8 bytes
@@ -7627,19 +8630,38 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mEnemyPawnNativeArray + "0x08,0xA4"; // float
                         public const string Health = mEnemyPawnNativeArray + "0x08,0x3CC"; // int
                         public const string HealthMax = mEnemyPawnNativeArray + "0x08,0x3D0"; // int
-                        public const string MeshBase = mEnemyPawnNativeArray + "0x00,0x4A8"; // UBrgSkeletalMeshComponent*
+
+                        public const string
+                            MeshBase = mEnemyPawnNativeArray + "0x00,0x4A8"; // UBrgSkeletalMeshComponent*
+
                         public const string Mesh = mEnemyPawnNativeArray + "0x08,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnNativeArray + "0x08,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnNativeArray + "0x08,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnNativeArray + "0x08,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x08,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x08,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnNativeArray + "0x08,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnNativeArray + "0x08,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : HaterBase1
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -7750,7 +8772,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -7799,7 +8824,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -7807,7 +8835,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -7827,7 +8858,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -7851,8 +8885,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class HaterBase1 : ABrgPawn_Base
                     {
                         public const string hBase1 = mEnemyPawnNativeArray + "0x08"; // int 8 bytes
@@ -7865,19 +8901,38 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mEnemyPawnNativeArray + "0x08,0xA4"; // float
                         public const string Health = mEnemyPawnNativeArray + "0x08,0x3CC"; // int
                         public const string HealthMax = mEnemyPawnNativeArray + "0x08,0x3D0"; // int
-                        public const string MeshBase = mEnemyPawnNativeArray + "0x08,0x4A8"; // UBrgSkeletalMeshComponent*
+
+                        public const string
+                            MeshBase = mEnemyPawnNativeArray + "0x08,0x4A8"; // UBrgSkeletalMeshComponent*
+
                         public const string Mesh = mEnemyPawnNativeArray + "0x08,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnNativeArray + "0x08,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnNativeArray + "0x08,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnNativeArray + "0x08,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x08,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x08,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x08,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnNativeArray + "0x08,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnNativeArray + "0x08,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : HaterBase1
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -7988,7 +9043,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -8037,7 +9095,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -8045,7 +9106,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -8065,7 +9129,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -8089,8 +9156,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class HaterBase2 : ABrgPawn_Base
                     {
                         public const string hBase2 = mEnemyPawnNativeArray + "0x10"; // int 8 bytes
@@ -8103,19 +9172,38 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mEnemyPawnNativeArray + "0x10,0xA4"; // float
                         public const string Health = mEnemyPawnNativeArray + "0x10,0x3CC"; // int
                         public const string HealthMax = mEnemyPawnNativeArray + "0x10,0x3D0"; // int
-                        public const string MeshBase = mEnemyPawnNativeArray + "0x10,0x4A8"; // UBrgSkeletalMeshComponent*
+
+                        public const string
+                            MeshBase = mEnemyPawnNativeArray + "0x10,0x4A8"; // UBrgSkeletalMeshComponent*
+
                         public const string Mesh = mEnemyPawnNativeArray + "0x10,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnNativeArray + "0x10,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnNativeArray + "0x10,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x10,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x10,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x10,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x10,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnNativeArray + "0x10,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnNativeArray + "0x10,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x10,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x10,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x10,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x10,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x10,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnNativeArray + "0x10,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnNativeArray + "0x10,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : HaterBase2
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -8226,7 +9314,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -8275,7 +9366,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -8283,7 +9377,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -8303,7 +9400,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -8327,8 +9427,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class HaterBase3 : ABrgPawn_Base
                     {
                         public const string hBase3 = mEnemyPawnNativeArray + "0x18"; // int 8 bytes
@@ -8341,19 +9443,38 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mEnemyPawnNativeArray + "0x18,0xA4"; // float
                         public const string Health = mEnemyPawnNativeArray + "0x18,0x3CC"; // int
                         public const string HealthMax = mEnemyPawnNativeArray + "0x18,0x3D0"; // int
-                        public const string MeshBase = mEnemyPawnNativeArray + "0x18,0x4A8"; // UBrgSkeletalMeshComponent*
+
+                        public const string
+                            MeshBase = mEnemyPawnNativeArray + "0x18,0x4A8"; // UBrgSkeletalMeshComponent*
+
                         public const string Mesh = mEnemyPawnNativeArray + "0x18,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnNativeArray + "0x18,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnNativeArray + "0x18,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x18,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x18,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x18,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x18,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnNativeArray + "0x18,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnNativeArray + "0x18,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x18,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x18,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x18,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x18,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x18,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnNativeArray + "0x18,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnNativeArray + "0x18,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : HaterBase3
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -8464,7 +9585,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -8513,7 +9637,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -8521,7 +9648,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -8541,7 +9671,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -8565,8 +9698,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class HaterBase4 : ABrgPawn_Base
                     {
                         public const string hBase4 = mEnemyPawnNativeArray + "0x20"; // int 8 bytes
@@ -8579,19 +9714,38 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mEnemyPawnNativeArray + "0x20,0xA4"; // float
                         public const string Health = mEnemyPawnNativeArray + "0x20,0x3CC"; // int
                         public const string HealthMax = mEnemyPawnNativeArray + "0x20,0x3D0"; // int
-                        public const string MeshBase = mEnemyPawnNativeArray + "0x20,0x4A8"; // UBrgSkeletalMeshComponent*
+
+                        public const string
+                            MeshBase = mEnemyPawnNativeArray + "0x20,0x4A8"; // UBrgSkeletalMeshComponent*
+
                         public const string Mesh = mEnemyPawnNativeArray + "0x20,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnNativeArray + "0x20,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnNativeArray + "0x20,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x20,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x20,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x20,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x20,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnNativeArray + "0x20,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnNativeArray + "0x20,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x20,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x20,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x20,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x20,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x20,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnNativeArray + "0x20,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnNativeArray + "0x20,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : HaterBase4
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -8702,7 +9856,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -8751,7 +9908,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -8759,7 +9919,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -8779,7 +9942,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -8803,8 +9969,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class HaterBase5 : ABrgPawn_Base
                     {
                         public const string hBase5 = mEnemyPawnNativeArray + "0x28"; // int 8 bytes
@@ -8817,19 +9985,38 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mEnemyPawnNativeArray + "0x28,0xA4"; // float
                         public const string Health = mEnemyPawnNativeArray + "0x28,0x3CC"; // int
                         public const string HealthMax = mEnemyPawnNativeArray + "0x28,0x3D0"; // int
-                        public const string MeshBase = mEnemyPawnNativeArray + "0x28,0x4A8"; // UBrgSkeletalMeshComponent*
+
+                        public const string
+                            MeshBase = mEnemyPawnNativeArray + "0x28,0x4A8"; // UBrgSkeletalMeshComponent*
+
                         public const string Mesh = mEnemyPawnNativeArray + "0x28,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnNativeArray + "0x28,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnNativeArray + "0x28,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x28,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x28,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x28,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x28,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnNativeArray + "0x28,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnNativeArray + "0x28,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x28,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x28,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x28,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x28,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x28,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnNativeArray + "0x28,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnNativeArray + "0x28,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : HaterBase5
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -8940,7 +10127,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -8989,7 +10179,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -8997,7 +10190,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -9017,7 +10213,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -9041,8 +10240,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class HaterBase6 : ABrgPawn_Base
                     {
                         public const string hBase6 = mEnemyPawnNativeArray + "0x30"; // int 8 bytes
@@ -9055,19 +10256,38 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mEnemyPawnNativeArray + "0x30,0xA4"; // float
                         public const string Health = mEnemyPawnNativeArray + "0x30,0x3CC"; // int
                         public const string HealthMax = mEnemyPawnNativeArray + "0x30,0x3D0"; // int
-                        public const string MeshBase = mEnemyPawnNativeArray + "0x30,0x4A8"; // UBrgSkeletalMeshComponent*
+
+                        public const string
+                            MeshBase = mEnemyPawnNativeArray + "0x30,0x4A8"; // UBrgSkeletalMeshComponent*
+
                         public const string Mesh = mEnemyPawnNativeArray + "0x30,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnNativeArray + "0x30,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnNativeArray + "0x30,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x30,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x30,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x30,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x30,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnNativeArray + "0x30,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnNativeArray + "0x30,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x30,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x30,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x30,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x30,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x30,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnNativeArray + "0x30,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnNativeArray + "0x30,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : HaterBase6
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -9178,7 +10398,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -9227,7 +10450,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -9235,7 +10461,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -9255,7 +10484,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -9279,8 +10511,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class HaterBase7 : ABrgPawn_Base
                     {
                         public const string hBase7 = mEnemyPawnNativeArray + "0x38"; // int 8 bytes
@@ -9293,19 +10527,38 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mEnemyPawnNativeArray + "0x38,0xA4"; // float
                         public const string Health = mEnemyPawnNativeArray + "0x38,0x3CC"; // int
                         public const string HealthMax = mEnemyPawnNativeArray + "0x38,0x3D0"; // int
-                        public const string MeshBase = mEnemyPawnNativeArray + "0x38,0x4A8"; // UBrgSkeletalMeshComponent*
+
+                        public const string
+                            MeshBase = mEnemyPawnNativeArray + "0x38,0x4A8"; // UBrgSkeletalMeshComponent*
+
                         public const string Mesh = mEnemyPawnNativeArray + "0x38,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnNativeArray + "0x38,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnNativeArray + "0x38,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x38,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x38,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x38,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x38,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnNativeArray + "0x38,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnNativeArray + "0x38,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x38,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x38,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x38,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x38,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x38,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnNativeArray + "0x38,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnNativeArray + "0x38,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : HaterBase7
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -9416,7 +10669,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -9465,7 +10721,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -9473,7 +10732,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -9493,7 +10755,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -9517,8 +10782,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class HaterBase8 : ABrgPawn_Base
                     {
                         public const string hBase8 = mEnemyPawnNativeArray + "0x40"; // int 8 bytes
@@ -9531,19 +10798,38 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mEnemyPawnNativeArray + "0x40,0xA4"; // float
                         public const string Health = mEnemyPawnNativeArray + "0x40,0x3CC"; // int
                         public const string HealthMax = mEnemyPawnNativeArray + "0x40,0x3D0"; // int
-                        public const string MeshBase = mEnemyPawnNativeArray + "0x40,0x4A8"; // UBrgSkeletalMeshComponent*
+
+                        public const string
+                            MeshBase = mEnemyPawnNativeArray + "0x40,0x4A8"; // UBrgSkeletalMeshComponent*
+
                         public const string Mesh = mEnemyPawnNativeArray + "0x40,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mEnemyPawnNativeArray + "0x40,0xAD8"; // float
                         public const string mStaminaMax = mEnemyPawnNativeArray + "0x40,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x40,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x40,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x40,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x40,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mEnemyPawnNativeArray + "0x40,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mEnemyPawnNativeArray + "0x40,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mEnemyPawnNativeArray + "0x40,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mEnemyPawnNativeArray + "0x40,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mEnemyPawnNativeArray + "0x40,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x40,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond =
+                                mEnemyPawnNativeArray + "0x40,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mEnemyPawnNativeArray + "0x40,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mEnemyPawnNativeArray + "0x40,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : HaterBase8
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -9654,7 +10940,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -9703,7 +10992,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -9711,7 +11003,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -9731,7 +11026,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -9755,11 +11053,16 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     #endregion
+
                     #endregion
+
                     #region BEAST LIST
+
                     public class BeastBase1 : ABrgPawn_Base
                     {
                         public const string bBase1 = mMushBeastPawnArray + "0x00"; // int 8 bytes
@@ -9775,15 +11078,30 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mMushBeastPawnArray + "0x00,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mMushBeastPawnArray + "0x00,0xAD8"; // float
                         public const string mStaminaMax = mMushBeastPawnArray + "0x00,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mMushBeastPawnArray + "0x00,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mMushBeastPawnArray + "0x00,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mMushBeastPawnArray + "0x00,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mMushBeastPawnArray + "0x00,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x00,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mMushBeastPawnArray + "0x00,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mMushBeastPawnArray + "0x00,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mMushBeastPawnArray + "0x00,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mMushBeastPawnArray + "0x00,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mMushBeastPawnArray + "0x00,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x00,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mMushBeastPawnArray + "0x00,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : BeastBase1
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -9894,7 +11212,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -9943,7 +11264,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -9951,7 +11275,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -9971,7 +11298,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -9995,8 +11325,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class BeastBase2 : ABrgPawn_Base
                     {
                         public const string bBase2 = mMushBeastPawnArray + "0x08"; // int 8 bytes
@@ -10012,15 +11344,30 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mMushBeastPawnArray + "0x08,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mMushBeastPawnArray + "0x08,0xAD8"; // float
                         public const string mStaminaMax = mMushBeastPawnArray + "0x08,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mMushBeastPawnArray + "0x08,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mMushBeastPawnArray + "0x08,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mMushBeastPawnArray + "0x08,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mMushBeastPawnArray + "0x08,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x08,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mMushBeastPawnArray + "0x08,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mMushBeastPawnArray + "0x08,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mMushBeastPawnArray + "0x08,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mMushBeastPawnArray + "0x08,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mMushBeastPawnArray + "0x08,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x08,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mMushBeastPawnArray + "0x08,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x08,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : BeastBase2
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -10131,7 +11478,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -10180,7 +11530,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -10188,7 +11541,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -10208,7 +11564,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -10232,8 +11591,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class BeastBase3 : ABrgPawn_Base
                     {
                         public const string bBase3 = mMushBeastPawnArray + "0x10"; // int 8 bytes
@@ -10249,15 +11610,30 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mMushBeastPawnArray + "0x10,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mMushBeastPawnArray + "0x10,0xAD8"; // float
                         public const string mStaminaMax = mMushBeastPawnArray + "0x10,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mMushBeastPawnArray + "0x10,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mMushBeastPawnArray + "0x10,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mMushBeastPawnArray + "0x10,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mMushBeastPawnArray + "0x10,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x10,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mMushBeastPawnArray + "0x10,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mMushBeastPawnArray + "0x10,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mMushBeastPawnArray + "0x10,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mMushBeastPawnArray + "0x10,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mMushBeastPawnArray + "0x10,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x10,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mMushBeastPawnArray + "0x10,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x10,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : BeastBase3
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -10368,7 +11744,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -10417,7 +11796,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -10425,7 +11807,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -10445,7 +11830,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -10469,8 +11857,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class BeastBase4 : ABrgPawn_Base
                     {
                         public const string bBase4 = mMushBeastPawnArray + "0x18"; // int 8 bytes
@@ -10486,15 +11876,30 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mMushBeastPawnArray + "0x18,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mMushBeastPawnArray + "0x18,0xAD8"; // float
                         public const string mStaminaMax = mMushBeastPawnArray + "0x18,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mMushBeastPawnArray + "0x18,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mMushBeastPawnArray + "0x18,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mMushBeastPawnArray + "0x18,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mMushBeastPawnArray + "0x18,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x18,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mMushBeastPawnArray + "0x18,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mMushBeastPawnArray + "0x18,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mMushBeastPawnArray + "0x18,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mMushBeastPawnArray + "0x18,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mMushBeastPawnArray + "0x18,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x18,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mMushBeastPawnArray + "0x18,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x18,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : BeastBase4
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -10605,7 +12010,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -10654,7 +12062,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -10662,7 +12073,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -10682,7 +12096,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -10706,8 +12123,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class BeastBase5 : ABrgPawn_Base
                     {
                         public const string bBase5 = mMushBeastPawnArray + "0x20"; // int 8 bytes
@@ -10723,15 +12142,30 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mMushBeastPawnArray + "0x20,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mMushBeastPawnArray + "0x20,0xAD8"; // float
                         public const string mStaminaMax = mMushBeastPawnArray + "0x20,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mMushBeastPawnArray + "0x20,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mMushBeastPawnArray + "0x20,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mMushBeastPawnArray + "0x20,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mMushBeastPawnArray + "0x20,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x20,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mMushBeastPawnArray + "0x20,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mMushBeastPawnArray + "0x20,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mMushBeastPawnArray + "0x20,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mMushBeastPawnArray + "0x20,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mMushBeastPawnArray + "0x20,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x20,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mMushBeastPawnArray + "0x20,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x20,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : BeastBase5
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -10842,7 +12276,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -10891,7 +12328,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -10899,7 +12339,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -10919,7 +12362,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -10943,8 +12389,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class BeastBase6 : ABrgPawn_Base
                     {
                         public const string bBase6 = mMushBeastPawnArray + "0x28"; // int 8 bytes
@@ -10960,15 +12408,30 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mMushBeastPawnArray + "0x28,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mMushBeastPawnArray + "0x28,0xAD8"; // float
                         public const string mStaminaMax = mMushBeastPawnArray + "0x28,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mMushBeastPawnArray + "0x28,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mMushBeastPawnArray + "0x28,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mMushBeastPawnArray + "0x28,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mMushBeastPawnArray + "0x28,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x28,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mMushBeastPawnArray + "0x28,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mMushBeastPawnArray + "0x28,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mMushBeastPawnArray + "0x28,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mMushBeastPawnArray + "0x28,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mMushBeastPawnArray + "0x28,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x28,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mMushBeastPawnArray + "0x28,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x28,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : BeastBase6
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -11079,7 +12542,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -11128,7 +12594,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -11136,7 +12605,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -11156,7 +12628,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -11180,8 +12655,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class BeastBase7 : ABrgPawn_Base
                     {
                         public const string bBase7 = mMushBeastPawnArray + "0x30"; // int 8 bytes
@@ -11197,15 +12674,30 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mMushBeastPawnArray + "0x30,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mMushBeastPawnArray + "0x30,0xAD8"; // float
                         public const string mStaminaMax = mMushBeastPawnArray + "0x30,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mMushBeastPawnArray + "0x30,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mMushBeastPawnArray + "0x30,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mMushBeastPawnArray + "0x30,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mMushBeastPawnArray + "0x30,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x30,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mMushBeastPawnArray + "0x30,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mMushBeastPawnArray + "0x30,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mMushBeastPawnArray + "0x30,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mMushBeastPawnArray + "0x30,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mMushBeastPawnArray + "0x30,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x30,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mMushBeastPawnArray + "0x30,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x30,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : BeastBase7
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -11316,7 +12808,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -11365,7 +12860,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -11373,7 +12871,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -11393,7 +12894,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -11417,8 +12921,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class BeastBase8 : ABrgPawn_Base
                     {
                         public const string bBase8 = mMushBeastPawnArray + "0x38"; // int 8 bytes
@@ -11434,15 +12940,30 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mMushBeastPawnArray + "0x38,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mMushBeastPawnArray + "0x38,0xAD8"; // float
                         public const string mStaminaMax = mMushBeastPawnArray + "0x38,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mMushBeastPawnArray + "0x38,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mMushBeastPawnArray + "0x38,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mMushBeastPawnArray + "0x38,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mMushBeastPawnArray + "0x38,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x38,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mMushBeastPawnArray + "0x38,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mMushBeastPawnArray + "0x38,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mMushBeastPawnArray + "0x38,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mMushBeastPawnArray + "0x38,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mMushBeastPawnArray + "0x38,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x38,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mMushBeastPawnArray + "0x38,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x38,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : BeastBase8
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -11553,7 +13074,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -11602,7 +13126,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -11610,7 +13137,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -11630,7 +13160,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -11654,8 +13187,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class BeastBase9 : ABrgPawn_Base
                     {
                         public const string bBase5 = mMushBeastPawnArray + "0x40"; // int 8 bytes
@@ -11671,15 +13206,30 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string Mesh = mMushBeastPawnArray + "0x40,0x4A8,"; // UBrgSkeletalMeshComponent*
                         public const string mStamina = mMushBeastPawnArray + "0x40,0xAD8"; // float
                         public const string mStaminaMax = mMushBeastPawnArray + "0x40,0xADC"; // float
-                        public const string mWalkSpeedPerSecond = mMushBeastPawnArray + "0x40,0xEB4"; // float (180 = Default Value)
-                        public const string mRunSpeedPerSecond = mMushBeastPawnArray + "0x40,0xEC4"; // float (540 = Default Value)
-                        public const string mDashSpeedPerSecond = mMushBeastPawnArray + "0x40,0xEC8"; // float (850 = Default Value)
-                        public const string mCarryWalkSpeedPerSecond = mMushBeastPawnArray + "0x40,0xED0"; // float (150 = Default Value)
-                        public const string mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x40,0xED4"; // float (450 = Default Value)
-                        public const string mJumpStartPower = mMushBeastPawnArray + "0x40,0x1500"; // float (1100 = Default Value)
+
+                        public const string
+                            mWalkSpeedPerSecond = mMushBeastPawnArray + "0x40,0xEB4"; // float (180 = Default Value)
+
+                        public const string
+                            mRunSpeedPerSecond = mMushBeastPawnArray + "0x40,0xEC4"; // float (540 = Default Value)
+
+                        public const string
+                            mDashSpeedPerSecond = mMushBeastPawnArray + "0x40,0xEC8"; // float (850 = Default Value)
+
+                        public const string
+                            mCarryWalkSpeedPerSecond =
+                                mMushBeastPawnArray + "0x40,0xED0"; // float (150 = Default Value)
+
+                        public const string
+                            mCarryRunSpeedPerSecond = mMushBeastPawnArray + "0x40,0xED4"; // float (450 = Default Value)
+
+                        public const string
+                            mJumpStartPower = mMushBeastPawnArray + "0x40,0x1500"; // float (1100 = Default Value)
+
                         public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x40,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : BeastBase9
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -11790,7 +13340,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -11839,7 +13392,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -11847,7 +13403,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -11867,7 +13426,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -11891,8 +13453,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     #endregion
                 }
 
@@ -11910,6 +13474,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mTreasureArray + "0x00,0xA4"; // float
                         public const string Health = mTreasureArray + "0x00,0x3CC"; // int
                         public const string HealthMax = mTreasureArray + "0x00,0x3D0"; // int
+
                         public const string Mesh = mTreasureArray + "0x00,0x4E4,"; // UBrgSkeletalMeshComponent*
                         //public const string mStamina = mMushBeastPawnArray + "0x00,0xAD8"; // float
                         //public const string mStaminaMax = mMushBeastPawnArray + "0x00,0xADC"; // float
@@ -11922,6 +13487,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         //public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : TreasureBase1
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -12032,7 +13598,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -12081,7 +13650,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -12089,7 +13661,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -12109,7 +13684,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -12133,8 +13711,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class TreasureBase2 : ABrgPawn_Base
                     {
                         public const string mTreasureBase2 = mTreasureArray + "0X8"; // int
@@ -12147,6 +13727,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mTreasureArray + "0x08,0xA4"; // float
                         public const string Health = mTreasureArray + "0x08,0x3CC"; // int
                         public const string HealthMax = mTreasureArray + "0x08,0x3D0"; // int
+
                         public const string Mesh = mTreasureArray + "0x08,0x4E4,"; // UBrgSkeletalMeshComponent*
                         //public const string mStamina = mMushBeastPawnArray + "0x00,0xAD8"; // float
                         //public const string mStaminaMax = mMushBeastPawnArray + "0x00,0xADC"; // float
@@ -12159,6 +13740,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         //public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : TreasureBase2
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -12269,7 +13851,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -12318,7 +13903,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -12326,7 +13914,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -12346,7 +13937,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -12370,8 +13964,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class TreasureBase3 : ABrgPawn_Base
                     {
                         public const string mTreasureBase3 = mTreasureArray + "0X10"; // int
@@ -12384,6 +13980,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mTreasureArray + "0x10,0xA4"; // float
                         public const string Health = mTreasureArray + "0x10,0x3CC"; // int
                         public const string HealthMax = mTreasureArray + "0x10,0x3D0"; // int
+
                         public const string Mesh = mTreasureArray + "0x10,0x4E4,"; // UBrgSkeletalMeshComponent*
                         //public const string mStamina = mMushBeastPawnArray + "0x00,0xAD8"; // float
                         //public const string mStaminaMax = mMushBeastPawnArray + "0x00,0xADC"; // float
@@ -12396,6 +13993,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         //public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : TreasureBase3
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -12506,7 +14104,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -12555,7 +14156,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -12563,7 +14167,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -12583,7 +14190,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -12607,8 +14217,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class TreasureBase4 : ABrgPawn_Base
                     {
                         public const string mTreasureBase4 = mTreasureArray + "0X18"; // int
@@ -12621,6 +14233,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mTreasureArray + "0x18,0xA4"; // float
                         public const string Health = mTreasureArray + "0x18,0x3CC"; // int
                         public const string HealthMax = mTreasureArray + "0x18,0x3D0"; // int
+
                         public const string Mesh = mTreasureArray + "0x18,0x4E4,"; // UBrgSkeletalMeshComponent*
                         //public const string mStamina = mMushBeastPawnArray + "0x00,0xAD8"; // float
                         //public const string mStaminaMax = mMushBeastPawnArray + "0x00,0xADC"; // float
@@ -12633,6 +14246,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         //public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : TreasureBase4
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -12743,7 +14357,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -12792,7 +14409,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -12800,7 +14420,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -12820,7 +14443,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -12844,8 +14470,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class TreasureBase5 : ABrgPawn_Base
                     {
                         public const string mTreasureBase5 = mTreasureArray + "0X20"; // int
@@ -12858,6 +14486,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mTreasureArray + "0x20,0xA4"; // float
                         public const string Health = mTreasureArray + "0x20,0x3CC"; // int
                         public const string HealthMax = mTreasureArray + "0x20,0x3D0"; // int
+
                         public const string Mesh = mTreasureArray + "0x20,0x4E4,"; // UBrgSkeletalMeshComponent*
                         //public const string mStamina = mMushBeastPawnArray + "0x00,0xAD8"; // float
                         //public const string mStaminaMax = mMushBeastPawnArray + "0x00,0xADC"; // float
@@ -12870,6 +14499,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         //public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : TreasureBase5
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -12980,7 +14610,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -13029,7 +14662,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -13037,7 +14673,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -13057,7 +14696,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -13081,8 +14723,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class TreasureBase6 : ABrgPawn_Base
                     {
                         public const string mTreasureBase6 = mTreasureArray + "0X28"; // int
@@ -13095,6 +14739,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mTreasureArray + "0x28,0xA4"; // float
                         public const string Health = mTreasureArray + "0x28,0x3CC"; // int
                         public const string HealthMax = mTreasureArray + "0x28,0x3D0"; // int
+
                         public const string Mesh = mTreasureArray + "0x28,0x4E4,"; // UBrgSkeletalMeshComponent*
                         //public const string mStamina = mMushBeastPawnArray + "0x00,0xAD8"; // float
                         //public const string mStaminaMax = mMushBeastPawnArray + "0x00,0xADC"; // float
@@ -13107,6 +14752,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         //public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : TreasureBase6
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -13217,7 +14863,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -13266,7 +14915,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -13274,7 +14926,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -13294,7 +14949,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -13318,8 +14976,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class TreasureBase7 : ABrgPawn_Base
                     {
                         public const string mTreasureBase7 = mTreasureArray + "0X30"; // int
@@ -13332,6 +14992,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mTreasureArray + "0x30,0xA4"; // float
                         public const string Health = mTreasureArray + "0x30,0x3CC"; // int
                         public const string HealthMax = mTreasureArray + "0x30,0x3D0"; // int
+
                         public const string Mesh = mTreasureArray + "0x30,0x4E4,"; // UBrgSkeletalMeshComponent*
                         //public const string mStamina = mMushBeastPawnArray + "0x00,0xAD8"; // float
                         //public const string mStaminaMax = mMushBeastPawnArray + "0x00,0xADC"; // float
@@ -13344,6 +15005,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         //public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : TreasureBase7
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -13454,7 +15116,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -13503,7 +15168,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -13511,7 +15179,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -13531,7 +15202,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -13555,8 +15229,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class TreasureBase8 : ABrgPawn_Base
                     {
                         public const string mTreasureBase8 = mTreasureArray + "0X38"; // int
@@ -13569,6 +15245,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public const string DrawScale3D_Z = mTreasureArray + "0x38,0xA4"; // float
                         public const string Health = mTreasureArray + "0x38,0x3CC"; // int
                         public const string HealthMax = mTreasureArray + "0x38,0x3D0"; // int
+
                         public const string Mesh = mTreasureArray + "0x38,0x4E4,"; // UBrgSkeletalMeshComponent*
                         //public const string mStamina = mMushBeastPawnArray + "0x00,0xAD8"; // float
                         //public const string mStaminaMax = mMushBeastPawnArray + "0x00,0xADC"; // float
@@ -13581,6 +15258,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         //public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : TreasureBase8
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -13691,7 +15369,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -13740,7 +15421,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -13748,7 +15432,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -13768,7 +15455,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -13792,11 +15482,14 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class TreasureBase9 : ABrgPawn_Base
                     {
                         public const string mTreasureBase9 = mTreasureArray + "0X40"; // int
+
                         //public const string Location_X = mMushBeastPawnArray + "0x40,0x80"; // float
                         //public const string Location_Y = mMushBeastPawnArray + "0x40,0x84"; // float
                         //public const string Location_Z = mMushBeastPawnArray + "0x40,0x88"; // float
@@ -13818,6 +15511,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         //public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : TreasureBase9
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -13928,7 +15622,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -13977,7 +15674,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -13985,7 +15685,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -14005,7 +15708,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -14029,11 +15735,14 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
+
                     public class TreasureBase10 : ABrgPawn_Base
                     {
                         public const string mTreasureBase10 = mTreasureArray + "0X48"; // int
+
                         //public const string Location_X = mMushBeastPawnArray + "0x48,0x80"; // float
                         //public const string Location_Y = mMushBeastPawnArray + "0x48,0x84"; // float
                         //public const string Location_Z = mMushBeastPawnArray + "0x48,0x88"; // float
@@ -14055,6 +15764,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                         //public const string mSkillMoveGaugeStockNum = mMushBeastPawnArray + "0x00,0x4C78"; // int
 
                         #region UBrgSkeletalMeshComponent Class
+
                         public class UBrgSkeletalMeshComponent : TreasureBase10
                         {
                             public const string SkeletalMesh = Mesh + "0x278,"; // USkeletalMesh*
@@ -14165,7 +15875,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bChartDistanceFactor = Mesh + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = Mesh + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = Mesh + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = Mesh + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = Mesh + "0x548,"; // FVector
                             public const string bEnableClothSimulation = Mesh + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = Mesh + "0x554"; // uint32_t : 1
@@ -14214,7 +15927,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = Mesh + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = Mesh + "0x67c"; // int32_t
                             public const string ClothRBChannel = Mesh + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = Mesh + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = Mesh + "0x688"; // float
                             public const string ClothImpulseScale = Mesh + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = Mesh + "0x690"; // float
@@ -14222,7 +15938,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = Mesh + "0x698"; // float
                             public const string LastClothLocation = Mesh + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = Mesh + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingRBCollideWithChannels = Mesh + "0x6ac,"; // FRBCollisionChannelContainer
+
                             public const string ApexClothingCollisionRBChannel = Mesh + "0x6b0,"; // ERBCollisionChannel
                             public const string bAutoFreezeApexClothingWhenNotRendered = Mesh + "0x6b4"; // uint32_t : 1
                             public const string bLocalSpaceWind = Mesh + "0x6b4"; // uint32_t : 1
@@ -14242,7 +15961,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bSoftBodyAwakeOnStartup = Mesh + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = Mesh + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = Mesh + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = Mesh + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = Mesh + "0x714,"; // FPointer
                             public const string LimitMaterial = Mesh + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = Mesh + "0x730,"; // FBoneAtom
@@ -14266,6 +15988,7 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MorphTargetsQueried = Mesh + "0x7c8,"; // TArray<FName>
                             public const string bSkipUpdateBoundsWhenPhysicsAsleep = Mesh + "0x7d8"; // uint32_t : 1
                         }
+
                         #endregion
                     }
                 }
@@ -14286,16 +16009,32 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string mFinishedCallingStarthubApiForEditor = mStageManager + "0x478"; // uint32_t : 1
                     public const string mStarthubIsCalled = mStageManager + "0x478"; // uint32_t : 1
                     public const string mIsRemoveEntityMode = mStageManager + "0x478"; // uint32_t : 1
-                    public const string mDbDeffenceFortHubState = mStageManager + "0x47c,"; // FBrgDbDeffenceFortHubState
-                    public const string mResStartfloorParam = mStageManager + "0x4dc,"; // UBrgNetworkResponseStartfloor*
-                    public const string mResClearfloorParam = mStageManager + "0x4e4,"; // UBrgNetworkResponseClearfloor*
+
+                    public const string
+                        mDbDeffenceFortHubState = mStageManager + "0x47c,"; // FBrgDbDeffenceFortHubState
+
+                    public const string
+                        mResStartfloorParam = mStageManager + "0x4dc,"; // UBrgNetworkResponseStartfloor*
+
+                    public const string
+                        mResClearfloorParam = mStageManager + "0x4e4,"; // UBrgNetworkResponseClearfloor*
+
                     public const string mResMovefloorParam = mStageManager + "0x4ec,"; // UBrgNetworkResponseMovefloor*
                     public const string mResTakeElevatorParam = mStageManager + "0x4f4,"; // UBrgNetworkResponseTakeelv*
                     public const string mResArrivefloorParam = mStageManager + "0x4fc,"; // UBrgNetworkResponseArrival*
-                    public const string mResDbgStartfloorParam = mStageManager + "0x504,"; // UBrgNetworkResponseDbg_startfloor*
-                    public const string mResDbgClearfloorParam = mStageManager + "0x50c,"; // UBrgNetworkResponseDbg_clearfloor*
-                    public const string mResDbgMovefloorParam = mStageManager + "0x514,"; // UBrgNetworkResponseDbg_movefloor*
-                    public const string mResDbgTakeElevatorParam = mStageManager + "0x51c,"; // UBrgNetworkResponseDbg_takeelv*
+
+                    public const string
+                        mResDbgStartfloorParam = mStageManager + "0x504,"; // UBrgNetworkResponseDbg_startfloor*
+
+                    public const string
+                        mResDbgClearfloorParam = mStageManager + "0x50c,"; // UBrgNetworkResponseDbg_clearfloor*
+
+                    public const string
+                        mResDbgMovefloorParam = mStageManager + "0x514,"; // UBrgNetworkResponseDbg_movefloor*
+
+                    public const string
+                        mResDbgTakeElevatorParam = mStageManager + "0x51c,"; // UBrgNetworkResponseDbg_takeelv*
+
                     public const string mErrorCode = mStageManager + "0x524,"; // FString
                     public const string mErrorMessage = mStageManager + "0x534,"; // FString
                     public const string mStatusExceptionCode = mStageManager + "0x544"; // int32_t
@@ -14335,9 +16074,8 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string mEscLogFloorName = mStageManager + "0x734,"; // FString
 
                     // FBrgDbFloor Inheritance: UBrgStageManager > ABrgGameInfo > ABrgGameInfoNativeBase > AGHM_GameInfo > AGameInfo > AInfo > AActor > UObject
-                    public class FBrgDbFloor: UBrgStageManager
+                    public class FBrgDbFloor : UBrgStageManager
                     {
-
                     }
                 }
 
@@ -14350,7 +16088,9 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string mCurrentTimeScale = mWorldTimeScaleManager + "0x208"; // float
                     public const string mGameInfo = mWorldTimeScaleManager + "0x20c,"; // ABrgGameInfoNative*
                     public const string mbShowHUD = mWorldTimeScaleManager + "0x214"; // uint32_t : 1
-                    public const string __OnFinishTimeScaleAnim__Delegate = mWorldTimeScaleManager + "0x218,"; // DelegateProperty
+
+                    public const string
+                        __OnFinishTimeScaleAnim__Delegate = mWorldTimeScaleManager + "0x218,"; // DelegateProperty
                 }
             }
 
@@ -14409,8 +16149,13 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mbIgnoreDeadInfoOutputCancel = mGameInfo + "0x1514"; // uint32_t : 1
                 public const string mbSoundMute = mGameInfo + "0x1514"; // uint32_t : 1
                 public const string mbSuppressOutputLogTitle = mGameInfo + "0x1514"; // uint32_t : 1
-                public const string mGasCoinIsUsedInsteadOfDeathMetal_DeathBagExpand = mGameInfo + "0x1514"; // uint32_t : 1
-                public const string mGasCoinIsUsedInsteadOfDeathMetal_CoinLockerExpand = mGameInfo + "0x1514"; // uint32_t : 1
+
+                public const string
+                    mGasCoinIsUsedInsteadOfDeathMetal_DeathBagExpand = mGameInfo + "0x1514"; // uint32_t : 1
+
+                public const string
+                    mGasCoinIsUsedInsteadOfDeathMetal_CoinLockerExpand = mGameInfo + "0x1514"; // uint32_t : 1
+
                 public const string mGasCoinIsUsedInsteadOfDeathMetal_Continue = mGameInfo + "0x1514"; // uint32_t : 1
                 public const string mDebugMushroom = mGameInfo + "0x1514"; // uint32_t : 1
                 public const string mDebugItem = mGameInfo + "0x1514"; // uint32_t : 1
@@ -14425,14 +16170,20 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mChargeManager = mGameInfo + "0x1528,"; // UBrgChargeManagerInterface*
                 public const string mSaveLoadManager = mGameInfo + "0x1530,"; // UBrgSaveLoadManager*
                 public const string mMaterialConstManager = mGameInfo + "0x1538,"; // UBrgMaterialConstManager*
-                public const string mPostEffectMatInstActor = mGameInfo + "0x1540,"; // ABrgPostEffectMaterialInstanceActor*
+
+                public const string
+                    mPostEffectMatInstActor = mGameInfo + "0x1540,"; // ABrgPostEffectMaterialInstanceActor*
+
                 public const string mMatineeManager = mGameInfo + "0x1548,"; // UBrgMatineeManager*
                 public const string mParticleManager = mGameInfo + "0x1550,"; // UBrgParticleManager*
                 public const string mGameTimeManager = mGameInfo + "0x1558,"; // UBrgGameTimeManager*
                 public const string mVideoRecorder = mGameInfo + "0x1560,"; // UBrgVideoRecorder*
                 public const string mBgmManager = mGameInfo + "0x1568,"; // UBrgBgmManager*
                 public const string mBrgCorpseBulletManager = mGameInfo + "0x1570,"; // UBrgCorpseBulletManager*
-                public const string mBrgBossMaxElectricDamageManager = mGameInfo + "0x1578,"; // UBrgBossMax_ElectricDamageManager*
+
+                public const string
+                    mBrgBossMaxElectricDamageManager = mGameInfo + "0x1578,"; // UBrgBossMax_ElectricDamageManager*
+
                 public const string mPlayerStatistics = mGameInfo + "0x1580,"; // UBrgPlayerStatistics*
                 public const string mCamera = mGameInfo + "0x1588,"; // ABrgCamera*
                 public const string mProjectileList = mGameInfo + "0x1590,"; // TArray<ABrgProjectile_Base*>
@@ -14456,9 +16207,16 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mTickerDuringAsyncWork = mGameInfo + "0x1618,"; // ABrgTicker_DuringAsyncWork*
                 public const string mTouchCoinLockerVolume = mGameInfo + "0x1620,"; // ABrgVolume_CoinLocker*
                 public const string mTouchDailyRewardBoxVolume = mGameInfo + "0x1628,"; // ABrgVolume_DailyRewardBox*
-                public const string mTouchItemVendingMachineVolume = mGameInfo + "0x1630,"; // ABrgVolume_ItemVendingMachine*
+
+                public const string
+                    mTouchItemVendingMachineVolume = mGameInfo + "0x1630,"; // ABrgVolume_ItemVendingMachine*
+
                 public const string mTouchPrisonVolume = mGameInfo + "0x1638,"; // ABrgVolume_Prison*
-                public const string mTouchStampRallySheetExchangerVolume = mGameInfo + "0x1640,"; // ABrgVolume_StampRallySheetExchanger*
+
+                public const string
+                    mTouchStampRallySheetExchangerVolume =
+                        mGameInfo + "0x1640,"; // ABrgVolume_StampRallySheetExchanger*
+
                 public const string mTouchFortTerminalVolume = mGameInfo + "0x1648,"; // ABrgVolume_FortTerminal*
                 public const string mTouchResultDroneVolume = mGameInfo + "0x1650,"; // ABrgVolume_ResultDrone*
                 public const string mTouchShowTentVolume = mGameInfo + "0x1658,"; // ABrgVolume_ShowTent*
@@ -14478,20 +16236,32 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mTouchFortAssaultVolume = mGameInfo + "0x16c8,"; // ABrgVolume_FortAssault*
                 public const string mTouchFortAssaultOutVolume = mGameInfo + "0x16d0,"; // ABrgVolume_FortAssaultOut*
                 public const string mTouchSkillExchangeVolume = mGameInfo + "0x16d8,"; // ABrgVolume_SkillExchange*
-                public const string mTouchSkillVendingMachineVolume = mGameInfo + "0x16e0,"; // ABrgVolume_SkillVendingMachine*
+
+                public const string
+                    mTouchSkillVendingMachineVolume = mGameInfo + "0x16e0,"; // ABrgVolume_SkillVendingMachine*
+
                 public const string mTouchSafeVolume = mGameInfo + "0x16e8,"; // ABrgVolume_Safe*
                 public const string mTouchPresentBoxVolume = mGameInfo + "0x16f0,"; // ABrgVolume_PresentBox*
                 public const string mTouchValveVolume = mGameInfo + "0x16f8,"; // ABrgVolume_Valve*
                 public const string mTouchElevator2Volume = mGameInfo + "0x1700,"; // ABrgVolume_Elevator2*
-                public const string mTouchElevator2_SwitchVolume = mGameInfo + "0x1708,"; // ABrgVolume_Elevator2_Switch*
+
+                public const string
+                    mTouchElevator2_SwitchVolume = mGameInfo + "0x1708,"; // ABrgVolume_Elevator2_Switch*
+
                 public const string mTouchEscalatorVolume = mGameInfo + "0x1710,"; // ABrgVolume_Escalator*
                 public const string mTouchGameCenterVolume = mGameInfo + "0x1718,"; // ABrgVolume_GameCenter*
                 public const string mTouchReceptionVolume = mGameInfo + "0x1720,"; // ABrgVolume_Reception*
-                public const string mTouchReturnBaseMachineVolume = mGameInfo + "0x1728,"; // ABrgVolume_ReturnBaseMachine*
+
+                public const string
+                    mTouchReturnBaseMachineVolume = mGameInfo + "0x1728,"; // ABrgVolume_ReturnBaseMachine*
+
                 public const string mTouchDustShooterVolume = mGameInfo + "0x1730,"; // ABrgVolume_DustShooter*
                 public const string mTouchDoorButtonVolume = mGameInfo + "0x1738,"; // ABrgVolume_DoorButton*
                 public const string mTouchSuperScope703Volume = mGameInfo + "0x1740,"; // ABrgVolume_SuperScope703*
-                public const string mTouchUncleDeathStatueVolume = mGameInfo + "0x1748,"; // ABrgVolume_UncleDeathStatue*
+
+                public const string
+                    mTouchUncleDeathStatueVolume = mGameInfo + "0x1748,"; // ABrgVolume_UncleDeathStatue*
+
                 public const string mStoredStatus = mGameInfo + "0x1750,"; // UBrgUIMenu_PlayerStoredStatus*
                 public const string mCorpseBullets = mGameInfo + "0x1758,"; // TArray<ABrgProjectile_CorpseBullet*>
                 public const string mLobbyObjects = mGameInfo + "0x1768,"; // TArray<ABrgActor_RandomGenerateObject*>
@@ -14522,8 +16292,13 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mDebugGaugeUp = mGameInfo + "0x1950,"; // TArray<FBrgDebugGaugeUp>
                 public const string mAssaultFortInstance = mGameInfo + "0x1960,"; // ABrgAssaultFort_Manager*
                 public const string mPawnAssaultFortSafe = mGameInfo + "0x1968,"; // ABrgPawn_AssaultFortSafe*
-                public const string mPawnAssaultFortSpiritTank = mGameInfo + "0x1970,"; // ABrgPawn_AssaultFortSpiritTank*
-                public const string mPawnAssaultFortPrisonDoor = mGameInfo + "0x1978,"; // TArray<ABrgPawn_AssaultFortPrisonDoor*>
+
+                public const string
+                    mPawnAssaultFortSpiritTank = mGameInfo + "0x1970,"; // ABrgPawn_AssaultFortSpiritTank*
+
+                public const string
+                    mPawnAssaultFortPrisonDoor = mGameInfo + "0x1978,"; // TArray<ABrgPawn_AssaultFortPrisonDoor*>
+
                 public const string mLastDeadTime = mGameInfo + "0x1988"; // int32_t
                 public const string mDeadPawnMushroomSocketNames = mGameInfo + "0x198c,"; // TArray<FName>
                 public const string mDeadPawnMushroomTestLength = mGameInfo + "0x199c"; // float
@@ -14534,7 +16309,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mProjectileFactoryCounter = mGameInfo + "0x19bc"; // int32_t
                 public const string mRGOOneFrameSpawnLimit = mGameInfo + "0x19c0"; // int32_t
                 public const string mRGOTaskss = mGameInfo + "0x19c4,"; // TArray<FBrgRGOTask>
-                public const string mProjectileFactories = mGameInfo + "0x19d4,"; // TArray<UBrgSeqAct_ProjectileFactory*>
+
+                public const string
+                    mProjectileFactories = mGameInfo + "0x19d4,"; // TArray<UBrgSeqAct_ProjectileFactory*>
+
                 public const string mPhotoCapture = mGameInfo + "0x19e4,"; // UBrgPhotoCaptureObject*
                 public const string mBossPhotoFlagStrings = mGameInfo + "0x19ec,"; // TArray<FString>
                 public const string mLocationHistoryManager = mGameInfo + "0x19fc,"; // UBrgLocationHistoryManager*
@@ -14570,7 +16348,6 @@ namespace KC__LID_EXT.BackEnd.Dump
 
                 public class UBrgChargeManagerInterface : ABrgGameInfo
                 {
-
                 }
             }
 
@@ -14733,7 +16510,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mbEnableUpdateFootPlacementTranslation = mPawnPlayerBase + "0x5fc"; // uint32_t : 1
                 public const string mbForceDisableFootPlacement = mPawnPlayerBase + "0x5fc"; // uint32_t : 1
                 public const string mbEnableExtraPlacementRay = mPawnPlayerBase + "0x5fc"; // uint32_t : 1
-                public const string mbIgnoreManagePerfManagerForGameCenterActors = mPawnPlayerBase + "0x5fc"; // uint32_t : 1
+
+                public const string
+                    mbIgnoreManagePerfManagerForGameCenterActors = mPawnPlayerBase + "0x5fc"; // uint32_t : 1
+
                 public const string mbInArena = mPawnPlayerBase + "0x5fc"; // uint32_t : 1
                 public const string mMeshHide = mPawnPlayerBase + "0x5fc"; // uint32_t : 1
                 public const string mObjectVisible = mPawnPlayerBase + "0x5fc"; // uint32_t : 1
@@ -14758,7 +16538,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mInterpAnimIndex = mPawnPlayerBase + "0x63c,"; // char
                 public const string mUpperInterpAnimIndex = mPawnPlayerBase + "0x63d,"; // char
                 public const string meAvoidDirType = mPawnPlayerBase + "0x63e,"; // EBrgDirType
-                public const string meAttackEffectPhysMaterialType = mPawnPlayerBase + "0x63f,"; // EPhysMaterialEffectType
+
+                public const string
+                    meAttackEffectPhysMaterialType = mPawnPlayerBase + "0x63f,"; // EPhysMaterialEffectType
+
                 public const string meDamageDirType = mPawnPlayerBase + "0x640,"; // EBrgDirType
                 public const string meDamageMotionDirType = mPawnPlayerBase + "0x641,"; // EBrgDamageDirType
                 public const string meBaseAction = mPawnPlayerBase + "0x642,"; // EBrgBaseAction
@@ -14786,8 +16569,13 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mMinTimeBetweenFullUpdates = mPawnPlayerBase + "0x6b8"; // float
                 public const string mMesh = mPawnPlayerBase + "0x6bc,"; // UBrgSkeletalMeshComponent*
                 public const string mBodyMesh = mPawnPlayerBase + "0x6c4,"; // UBrgSkeletalMeshComponent*
-                public const string mLightEnvironment = mPawnPlayerBase + "0x6cc,"; // UDynamicLightEnvironmentComponent*
-                public const string mMeshMaterialInstArray = mPawnPlayerBase + "0x6d4,"; // TArray<UMaterialInstanceConstant*>
+
+                public const string
+                    mLightEnvironment = mPawnPlayerBase + "0x6cc,"; // UDynamicLightEnvironmentComponent*
+
+                public const string
+                    mMeshMaterialInstArray = mPawnPlayerBase + "0x6d4,"; // TArray<UMaterialInstanceConstant*>
+
                 public const string mDefaultTranslation = mPawnPlayerBase + "0x6e4,"; // FVector
                 public const string mLocationBackup = mPawnPlayerBase + "0x6f0,"; // FVector
                 public const string mIgnoreBlockingActorArray = mPawnPlayerBase + "0x6fc,"; // TArray<AActor*>
@@ -14811,7 +16599,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mBlednAnimSlot0x4 = mPawnPlayerBase + "0x800,"; // UBrgAnimNode_CustomAnim*
                 public const string mUpperPartBlendAnimNode = mPawnPlayerBase + "0x820,"; // UAnimNodeBlendPerBone*
                 public const string mUpperInterpAnimNode = mPawnPlayerBase + "0x828,"; // UAnimNodeBlendList*
-                public const string mUpperPartCustomAnimSlot0x4 = mPawnPlayerBase + "0x830,"; // UBrgAnimNode_CustomAnim*
+
+                public const string
+                    mUpperPartCustomAnimSlot0x4 = mPawnPlayerBase + "0x830,"; // UBrgAnimNode_CustomAnim*
+
                 public const string mAdditiveBlendNode = mPawnPlayerBase + "0x850,"; // UAnimNodeAdditiveBlending*
                 public const string mAdditiveCustomAnimSlot = mPawnPlayerBase + "0x858,"; // UBrgAnimNode_CustomAnim*
                 public const string mCinamaticAnimNode0x2 = mPawnPlayerBase + "0x860,"; // UBrgAnimNode_CustomAnim*
@@ -14848,7 +16639,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mMotionSpeedRateInfoArray0x5 = mPawnPlayerBase + "0x954,"; // FBrgMotionSpeedInfo
                 public const string mMotionSpeedRateInfoActiveNum = mPawnPlayerBase + "0x9f4"; // int32_t
                 public const string mMotionSpeedRate = mPawnPlayerBase + "0x9f8"; // float
-                public const string mMotionEffectArray = mPawnPlayerBase + "0x9fc,"; // TArray<UParticleSystemComponent*>
+
+                public const string
+                    mMotionEffectArray = mPawnPlayerBase + "0x9fc,"; // TArray<UParticleSystemComponent*>
+
                 public const string mJustGuardProb = mPawnPlayerBase + "0xa0c"; // int32_t
                 public const string mCancelWait = mPawnPlayerBase + "0xa10"; // float
                 public const string mJustCancelExtend = mPawnPlayerBase + "0xa14"; // float
@@ -15113,7 +16907,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mHungrySECue = mPawnPlayerBase + "0x107c,"; // USoundCue*
                 public const string mDefaultGroundPhysicalMaterial = mPawnPlayerBase + "0x1084,"; // UPhysicalMaterial*
                 public const string mLastGroundHitPhysicalMaterial = mPawnPlayerBase + "0x108c,"; // UPhysicalMaterial*
-                public const string mValidLastGroundHitPhysicalMaterial = mPawnPlayerBase + "0x1094,"; // UPhysicalMaterial*
+
+                public const string
+                    mValidLastGroundHitPhysicalMaterial = mPawnPlayerBase + "0x1094,"; // UPhysicalMaterial*
+
                 public const string mLastGroundHitObject = mPawnPlayerBase + "0x109c,"; // UPrimitiveComponent*
                 public const string mLastGroundHitActor = mPawnPlayerBase + "0x10a4,"; // AActor*
                 public const string mLastGroundLocation = mPawnPlayerBase + "0x10ac,"; // FVector
@@ -15140,8 +16937,13 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mDefaultTimeScale = mPawnPlayerBase + "0x12dc"; // float
                 public const string mPhysSEStopList = mPawnPlayerBase + "0x12e0,"; // TArray<FBrgPhysMatSEStop>
                 public const string mPhysSEStopTime = mPawnPlayerBase + "0x12f0"; // float
-                public const string mLeftLegSkelControl = mPawnPlayerBase + "0x12f4,"; // UBrgSkelControl_CCD_FootPlacement*
-                public const string mRightLegSkelControl = mPawnPlayerBase + "0x12fc,"; // UBrgSkelControl_CCD_FootPlacement*
+
+                public const string
+                    mLeftLegSkelControl = mPawnPlayerBase + "0x12f4,"; // UBrgSkelControl_CCD_FootPlacement*
+
+                public const string
+                    mRightLegSkelControl = mPawnPlayerBase + "0x12fc,"; // UBrgSkelControl_CCD_FootPlacement*
+
                 public const string mDebugEnableUpdateFootPlacementTranslation = mPawnPlayerBase + "0x1304"; // int32_t
                 public const string mDebugIKToggle = mPawnPlayerBase + "0x1308"; // int32_t
                 public const string mFootPlacementTranslationInterpolationSpeed = mPawnPlayerBase + "0x130c"; // float
@@ -15291,7 +17093,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mBackgroundHitEffectCreateMax = mPawnPlayerBase + "0x1548"; // int32_t
                 public const string mOverPawnArray = mPawnPlayerBase + "0x154c,"; // TArray<ABrgPawn_Base*>
                 public const string mFixedCriticalRate = mPawnPlayerBase + "0x155c"; // float
-                public const string mCanNotPierceStaticMeshActors = mPawnPlayerBase + "0x1560,"; // TArray<AStaticMeshActor*>
+
+                public const string
+                    mCanNotPierceStaticMeshActors = mPawnPlayerBase + "0x1560,"; // TArray<AStaticMeshActor*>
+
                 public const string mClimbVolume = mPawnPlayerBase + "0x1570,"; // ABrgVolume_Climb*
                 public const string mClimbNormal = mPawnPlayerBase + "0x1578,"; // FVector
                 public const string mClimbFloorHeight = mPawnPlayerBase + "0x1584"; // float
@@ -15302,7 +17107,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mElectricEffectLocationScale = mPawnPlayerBase + "0x15a0,"; // FVector
                 public const string mElectricEffectSpawnScale = mPawnPlayerBase + "0x15ac"; // float
                 public const string mElectricDamageEffcetCnt = mPawnPlayerBase + "0x15b0"; // float
-                public const string mElectricDamageEffectArray = mPawnPlayerBase + "0x15b4,"; // TArray<UParticleSystemComponent*>
+
+                public const string
+                    mElectricDamageEffectArray = mPawnPlayerBase + "0x15b4,"; // TArray<UParticleSystemComponent*>
+
                 public const string mEyeDamageShortSec = mPawnPlayerBase + "0x15c4"; // float
                 public const string mEyeDamageLongSec = mPawnPlayerBase + "0x15c8"; // float
                 public const string mEyeDamageTimeCnt = mPawnPlayerBase + "0x15cc"; // float
@@ -15330,7 +17138,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mAnimNotifyRotList = mPawnPlayerBase + "0x16cc,"; // TArray<UBrgAnimNotify_Base*>
                 public const string mbAnimNotifyRotDefaultSpeed = mPawnPlayerBase + "0x16dc"; // float
                 public const string mMbFloorNum = mPawnPlayerBase + "0x16e0"; // int32_t
-                public const string mMbDeadEndVolume = mPawnPlayerBase + "0x16e4,"; // TArray<ABrgVolume_MiddleBoss_Deadend*>
+
+                public const string
+                    mMbDeadEndVolume = mPawnPlayerBase + "0x16e4,"; // TArray<ABrgVolume_MiddleBoss_Deadend*>
+
                 public const string mDestroyTime = mPawnPlayerBase + "0x16f4"; // float
                 public const string mUseProjectileClasses = mPawnPlayerBase + "0x16f8,"; // TArray<ABrgProjectile_Base*>
                 public const string mbDebugForceSkillMove = mPawnPlayerBase + "0x1708"; // int32_t
@@ -15369,7 +17180,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mDeathEfOpacity = mPawnPlayerBase + "0x1780"; // float
                 public const string mBumpMiddleBossCtrl = mPawnPlayerBase + "0x1784,"; // ABrgAICtrl_MiddleBossBase*
                 public const string mSleepyPostEffect = mPawnPlayerBase + "0x178c,"; // UMaterialEffect*
-                public const string mSleepyPostProcessActor = mPawnPlayerBase + "0x1794,"; // ABrgPostEffectMaterialInstanceActor*
+
+                public const string
+                    mSleepyPostProcessActor = mPawnPlayerBase + "0x1794,"; // ABrgPostEffectMaterialInstanceActor*
+
                 public const string mSleepyPostEffectParam = mPawnPlayerBase + "0x179c"; // float
                 public const string mSmokeEffect = mPawnPlayerBase + "0x17a0,"; // UParticleSystemComponent*
                 public const string mChangeCollisionRadius = mPawnPlayerBase + "0x17a8"; // float
@@ -15389,15 +17203,24 @@ namespace KC__LID_EXT.BackEnd.Dump
                 // Inheritance: AActor > UObject
                 public const string mGameInfoNative = mPlayerCommonPawnNative + "0x27c,"; // ABrgGameInfoNative*
                 public const string mPawnNative = mPlayerCommonPawnNative + "0x284,"; // ABrgPawn_BaseNative*
-                public const string mActionStateNative = mPlayerCommonPawnNative + "0x28c,"; // ABrgActionState_CustomCharaNative*
+
+                public const string
+                    mActionStateNative = mPlayerCommonPawnNative + "0x28c,"; // ABrgActionState_CustomCharaNative*
+
                 public const string mFighterType = mPlayerCommonPawnNative + "0x294,"; // FString
                 public const string mFighterGrade = mPlayerCommonPawnNative + "0x2a4"; // int32_t
                 public const string mLimitBreak = mPlayerCommonPawnNative + "0x2a8"; // int32_t
                 public const string mBoneMesh = mPlayerCommonPawnNative + "0x2ac,"; // UBrgSkeletalMeshComponent*
                 public const string mBodyBoneMesh = mPlayerCommonPawnNative + "0x2b4,"; // UBrgSkeletalMeshComponent*
                 public const string mFrogMesh = mPlayerCommonPawnNative + "0x2bc,"; // UBrgSkeletalMeshComponent*
-                public const string mMeshMaterialInstArray = mPlayerCommonPawnNative + "0x2c4,"; // TArray<UMaterialInstanceConstant*>
-                public const string mMeshPhyscsWeightAnimArray = mPlayerCommonPawnNative + "0x2d4,"; // TArray<FBrgMeshPhysicsWeightAnim>
+
+                public const string
+                    mMeshMaterialInstArray = mPlayerCommonPawnNative + "0x2c4,"; // TArray<UMaterialInstanceConstant*>
+
+                public const string
+                    mMeshPhyscsWeightAnimArray =
+                        mPlayerCommonPawnNative + "0x2d4,"; // TArray<FBrgMeshPhysicsWeightAnim>
+
                 public const string mbFrog = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
                 public const string mHeadEquip = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
                 public const string mbNonMask = mPlayerCommonPawnNative + "0x2e4"; // uint32_t : 1
@@ -15427,7 +17250,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mPartDropRate = mPlayerCommonPawnNative + "0x4cc"; // float
                 public const string mPartDropDurRate = mPlayerCommonPawnNative + "0x4d0"; // float
                 public const string mEquipMawashiType = mPlayerCommonPawnNative + "0x4d4,"; // EBrgBoss4Mawashi
-                public const string mEquipPartCollisionChannel0xf = mPlayerCommonPawnNative + "0x4d5,"; // ERBCollisionChannel
+
+                public const string
+                    mEquipPartCollisionChannel0xf = mPlayerCommonPawnNative + "0x4d5,"; // ERBCollisionChannel
+
                 public const string meArmLWeaponType = mPlayerCommonPawnNative + "0x4e4,"; // EBrgArmWeaponType
                 public const string meArmRWeaponType = mPlayerCommonPawnNative + "0x4e5,"; // EBrgArmWeaponType
                 public const string mGender = mPlayerCommonPawnNative + "0x4e6,"; // EBrgDbGender
@@ -15437,15 +17263,23 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mEquipWeaponSlotNo_L = mPlayerCommonPawnNative + "0x3e00"; // int32_t
                 public const string mEquipWeaponSlotNo_R = mPlayerCommonPawnNative + "0x3e04"; // int32_t
                 public const string mDeathBag = mPlayerCommonPawnNative + "0x3e08,"; // TArray<FBrgLocalItemInfo>
-                public const string mBackupDeathBag = mPlayerCommonPawnNative + "0x3e18,"; // TArray<FBrgDeathBagBackupInfo>
+
+                public const string
+                    mBackupDeathBag = mPlayerCommonPawnNative + "0x3e18,"; // TArray<FBrgDeathBagBackupInfo>
+
                 public const string mDbPartArmRType = mPlayerCommonPawnNative + "0x3e28,"; // FBrgDbPartArmType
                 public const string mDbPartArmLType = mPlayerCommonPawnNative + "0x3eac,"; // FBrgDbPartArmType
                 public const string mDbPartArmR = mPlayerCommonPawnNative + "0x3f30,"; // FBrgDbPart
                 public const string mDbPartArmL = mPlayerCommonPawnNative + "0x4160,"; // FBrgDbPart
                 public const string mArmWeaponL = mPlayerCommonPawnNative + "0x4390,"; // ABrgWeapon_Base*
                 public const string mArmWeaponR = mPlayerCommonPawnNative + "0x4398,"; // ABrgWeapon_Base*
-                public const string mCharaStatisticsData = mPlayerCommonPawnNative + "0x43a0,"; // FBrgCharaStatisticsData
-                public const string mFlameRadiationEffect = mPlayerCommonPawnNative + "0x441c,"; // UParticleSystemComponent*
+
+                public const string
+                    mCharaStatisticsData = mPlayerCommonPawnNative + "0x43a0,"; // FBrgCharaStatisticsData
+
+                public const string
+                    mFlameRadiationEffect = mPlayerCommonPawnNative + "0x441c,"; // UParticleSystemComponent*
+
                 public const string mFlameRadiationVigor = mPlayerCommonPawnNative + "0x4424"; // float
                 public const string mDeathPhysicsStartTime = mPlayerCommonPawnNative + "0x4428"; // float
                 public const string mDeathPhysicsBlendTime = mPlayerCommonPawnNative + "0x442c"; // float
@@ -15454,7 +17288,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mEquipStatus = mPlayerCommonPawnNative + "0x4504,"; // FBrgEquipStatus
                 public const string mEquipResearchInfo = mPlayerCommonPawnNative + "0x46bc,"; // FBrgEquipResearchInfo
                 public const string mSkillStatus = mPlayerCommonPawnNative + "0x46d4,"; // FBrgSkillStatus
-                public const string mStatusAilmentStatus = mPlayerCommonPawnNative + "0x4ae0,"; // FBrgStatusAilmentStatus
+
+                public const string
+                    mStatusAilmentStatus = mPlayerCommonPawnNative + "0x4ae0,"; // FBrgStatusAilmentStatus
+
                 public const string mMstLvlArmLStatus = mPlayerCommonPawnNative + "0x4b74,"; // FBrgMasterLevelStatus
                 public const string mMstLvlArmRStatus = mPlayerCommonPawnNative + "0x4ba0,"; // FBrgMasterLevelStatus
                 public const string mMstPointStatus = mPlayerCommonPawnNative + "0x4bcc,"; // FBrgMasterPointStatus
@@ -15462,7 +17299,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mWeaponLAtkScale = mPlayerCommonPawnNative + "0x4bec"; // float
                 public const string mWeaponRAtkScale = mPlayerCommonPawnNative + "0x4bf0"; // float
                 public const string mSearchExtent = mPlayerCommonPawnNative + "0x4bf4,"; // FVector
-                public const string mPreSearchTargetArray = mPlayerCommonPawnNative + "0x4c00,"; // TArray<ABrgPawn_BaseNative*>
+
+                public const string
+                    mPreSearchTargetArray = mPlayerCommonPawnNative + "0x4c00,"; // TArray<ABrgPawn_BaseNative*>
+
                 public const string mStompAttackTarget = mPlayerCommonPawnNative + "0x4c10,"; // ABrgPawn_Base*
                 public const string mStompSearchAngle = mPlayerCommonPawnNative + "0x4c18"; // float
                 public const string mCaptureTarget = mPlayerCommonPawnNative + "0x4c1c,"; // ABrgPawn_BaseNative*
@@ -15529,16 +17369,25 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public class USkeletalMeshComponent : ABrgWeapon_BaseNativeL
                         {
                             public const string SkeletalMesh = mMeshCompRef + "0x278,"; // USkeletalMesh*
-                            public const string AttachedToSkelComponent = mMeshCompRef + "0x280,"; // USkeletalMeshComponent*
+
+                            public const string
+                                AttachedToSkelComponent = mMeshCompRef + "0x280,"; // USkeletalMeshComponent*
+
                             public const string AnimTreeTemplate = mMeshCompRef + "0x288,"; // UAnimTree*
                             public const string Animations = mMeshCompRef + "0x290,"; // UAnimNode*
                             public const string AnimTickArray = mMeshCompRef + "0x298,"; // TArray<UAnimNode*>
                             public const string AnimAlwaysTickArray = mMeshCompRef + "0x2a8,"; // TArray<UAnimNode*>
                             public const string AnimTickRelevancyArray = mMeshCompRef + "0x2b8,"; // TArray<int32_t>
                             public const string AnimTickWeightsArray = mMeshCompRef + "0x2c8,"; // TArray<float>
-                            public const string SkelControlTickArray = mMeshCompRef + "0x2d8,"; // TArray<USkelControlBase*>
+
+                            public const string
+                                SkelControlTickArray = mMeshCompRef + "0x2d8,"; // TArray<USkelControlBase*>
+
                             public const string PhysicsAsset = mMeshCompRef + "0x2e8,"; // UPhysicsAsset*
-                            public const string PhysicsAssetInstance = mMeshCompRef + "0x2f0,"; // UPhysicsAssetInstance*
+
+                            public const string
+                                PhysicsAssetInstance = mMeshCompRef + "0x2f0,"; // UPhysicsAssetInstance*
+
                             public const string ApexClothing = mMeshCompRef + "0x2f8,"; // FPointer
                             public const string PhysicsWeight = mMeshCompRef + "0x300"; // float
                             public const string GlobalAnimRateScale = mMeshCompRef + "0x304"; // float
@@ -15562,7 +17411,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string LowUpdateFrameRate = mMeshCompRef + "0x3d0"; // int32_t
                             public const string RequiredBones = mMeshCompRef + "0x3d4,"; // TArray<char>
                             public const string ComposeOrderedRequiredBones = mMeshCompRef + "0x3e4,"; // TArray<char>
-                            public const string ParentAnimComponent = mMeshCompRef + "0x3f4,"; // USkeletalMeshComponent*
+
+                            public const string
+                                ParentAnimComponent = mMeshCompRef + "0x3f4,"; // USkeletalMeshComponent*
+
                             public const string ParentBoneMap = mMeshCompRef + "0x3fc,"; // TArray<int32_t>
                             public const string AnimSets = mMeshCompRef + "0x40c,"; // TArray<UAnimSet*>
                             public const string TemporarySavedAnimSets = mMeshCompRef + "0x41c,"; // TArray<UAnimSet*>
@@ -15601,25 +17453,43 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistFactorForKinematicUpdate = mMeshCompRef + "0x538"; // float
                             public const string FramesPhysicsAsleep = mMeshCompRef + "0x53c"; // int32_t
                             public const string bHasValidBodies = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bSkipAllUpdateWhenPhysicsAsleep = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bSkipAllUpdateWhenPhysicsAsleep = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bComponentUseFixedSkelBounds = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bUseBoundsFromParentAnimComponent = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bUseBoundsFromParentAnimComponent = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bConsiderAllBodiesForBounds = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bUpdateSkelWhenNotRendered = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bIgnoreControllersWhenNotRendered = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bIgnoreControllersWhenNotRendered = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bTickAnimNodesWhenNotRendered = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bNotUpdatingKinematicDueToDistance = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bNotUpdatingKinematicDueToDistance = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bForceDiscardRootMotion = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bNotifyRootMotionProcessed = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bRootMotionModeChangeNotify = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bRootMotionExtractedNotify = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bProcessingRootMotion = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bDisableFaceFXMaterialInstanceCreation = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bDisableFaceFXMaterialInstanceCreation = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bDisableFaceFX = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bAnimTreeInitialised = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bForceMeshObjectUpdate = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bHasPhysicsAssetInstance = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bUpdateKinematicBonesFromAnimation = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bUpdateKinematicBonesFromAnimation = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bUpdateJointsFromAnimation = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bSkelCompFixed = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bHasHadPhysicsBlendedIn = mMeshCompRef + "0x540"; // uint32_t : 1
@@ -15627,21 +17497,35 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bEnableFullAnimWeightBodies = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bPerBoneVolumeEffects = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bPerBoneMotionBlur = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bSyncActorLocationToRootRigidBody = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bSyncActorLocationToRootRigidBody = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bUseRawData = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bDisableWarningWhenAnimNotFound = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bOverrideAttachmentOwnerVisibility = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bDisableWarningWhenAnimNotFound = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bOverrideAttachmentOwnerVisibility = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bNeedsToDeleteHitMask = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bPauseAnims = mMeshCompRef + "0x544"; // uint32_t : 1
                             public const string bChartDistanceFactor = mMeshCompRef + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = mMeshCompRef + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = mMeshCompRef + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = mMeshCompRef + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = mMeshCompRef + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = mMeshCompRef + "0x548,"; // FVector
                             public const string bEnableClothSimulation = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bClothFrozen = mMeshCompRef + "0x554"; // uint32_t : 1
-                            public const string bAutoFreezeClothWhenNotRendered = mMeshCompRef + "0x554"; // uint32_t : 1
+
+                            public const string
+                                bAutoFreezeClothWhenNotRendered = mMeshCompRef + "0x554"; // uint32_t : 1
+
                             public const string bClothAwakeOnStartup = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bClothBaseVelClamp = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bClothBaseVelInterp = mMeshCompRef + "0x554"; // uint32_t : 1
@@ -15656,7 +17540,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bAlwaysUseInstanceWeights = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bUpdateComposeSkeletonPasses = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bValidTemporarySavedAnimSets = mMeshCompRef + "0x554"; // uint32_t : 1
-                            public const string InstanceVertexWeightBones = mMeshCompRef + "0x558,"; // TArray<FBonePair>
+
+                            public const string
+                                InstanceVertexWeightBones = mMeshCompRef + "0x558,"; // TArray<FBonePair>
+
                             public const string LODInfo = mMeshCompRef + "0x568,"; // TArray<FSkelMeshComponentLODInfo>
                             public const string FrozenLocalToWorldPos = mMeshCompRef + "0x578,"; // FVector
                             public const string FrozenLocalToWorldRot = mMeshCompRef + "0x584,"; // FRotator
@@ -15685,7 +17572,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = mMeshCompRef + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = mMeshCompRef + "0x67c"; // int32_t
                             public const string ClothRBChannel = mMeshCompRef + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = mMeshCompRef + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = mMeshCompRef + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = mMeshCompRef + "0x688"; // float
                             public const string ClothImpulseScale = mMeshCompRef + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = mMeshCompRef + "0x690"; // float
@@ -15693,9 +17583,17 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = mMeshCompRef + "0x698"; // float
                             public const string LastClothLocation = mMeshCompRef + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = mMeshCompRef + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = mMeshCompRef + "0x6ac,"; // FRBCollisionChannelContainer
-                            public const string ApexClothingCollisionRBChannel = mMeshCompRef + "0x6b0,"; // ERBCollisionChannel
-                            public const string bAutoFreezeApexClothingWhenNotRendered = mMeshCompRef + "0x6b4"; // uint32_t : 1
+
+                            public const string
+                                ApexClothingRBCollideWithChannels =
+                                    mMeshCompRef + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingCollisionRBChannel = mMeshCompRef + "0x6b0,"; // ERBCollisionChannel
+
+                            public const string
+                                bAutoFreezeApexClothingWhenNotRendered = mMeshCompRef + "0x6b4"; // uint32_t : 1
+
                             public const string bLocalSpaceWind = mMeshCompRef + "0x6b4"; // uint32_t : 1
                             public const string WindVelocity = mMeshCompRef + "0x6b8,"; // FVector
                             public const string WindVelocityBlendTime = mMeshCompRef + "0x6c4"; // float
@@ -15709,11 +17607,17 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string NumSoftBodyTetraIndices = mMeshCompRef + "0x700"; // int32_t
                             public const string SoftBodyImpulseScale = mMeshCompRef + "0x704"; // float
                             public const string bSoftBodyFrozen = mMeshCompRef + "0x708"; // uint32_t : 1
-                            public const string bAutoFreezeSoftBodyWhenNotRendered = mMeshCompRef + "0x708"; // uint32_t : 1
+
+                            public const string
+                                bAutoFreezeSoftBodyWhenNotRendered = mMeshCompRef + "0x708"; // uint32_t : 1
+
                             public const string bSoftBodyAwakeOnStartup = mMeshCompRef + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = mMeshCompRef + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = mMeshCompRef + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = mMeshCompRef + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = mMeshCompRef + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = mMeshCompRef + "0x714,"; // FPointer
                             public const string LimitMaterial = mMeshCompRef + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = mMeshCompRef + "0x730,"; // FBoneAtom
@@ -15725,7 +17629,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string PendingRMM = mMeshCompRef + "0x776,"; // ERootMotionMode
                             public const string OldPendingRMM = mMeshCompRef + "0x777,"; // ERootMotionMode
                             public const string bRMMOneFrameDelay = mMeshCompRef + "0x778"; // int32_t
-                            public const string RootMotionRotationMode = mMeshCompRef + "0x77c,"; // ERootMotionRotationMode
+
+                            public const string
+                                RootMotionRotationMode = mMeshCompRef + "0x77c,"; // ERootMotionRotationMode
+
                             public const string AnimRotationOnly = mMeshCompRef + "0x77d,"; // EAnimRotationOnly
                             public const string FaceFXBlendMode = mMeshCompRef + "0x77e,"; // EFaceFXBlendMode
                             public const string FaceFXActorInstance = mMeshCompRef + "0x780,"; // FPointer
@@ -15735,12 +17642,13 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ProgressiveDrawingFraction = mMeshCompRef + "0x7c0"; // float
                             public const string CustomSortAlternateIndexMode = mMeshCompRef + "0x7c4,"; // char
                             public const string MorphTargetsQueried = mMeshCompRef + "0x7c8,"; // TArray<FName>
-                            public const string bSkipUpdateBoundsWhenPhysicsAsleep = mMeshCompRef + "0x7d8"; // uint32_t : 1
+
+                            public const string
+                                bSkipUpdateBoundsWhenPhysicsAsleep = mMeshCompRef + "0x7d8"; // uint32_t : 1
                         }
 
                         public class UBrgSkeletalMeshComponent : ABrgWeapon_BaseNativeL
                         {
-
                         }
                     }
                 }
@@ -15776,16 +17684,25 @@ namespace KC__LID_EXT.BackEnd.Dump
                         public class USkeletalMeshComponent : ABrgWeapon_BaseNativeR
                         {
                             public const string SkeletalMesh = mMeshCompRef + "0x278,"; // USkeletalMesh*
-                            public const string AttachedToSkelComponent = mMeshCompRef + "0x280,"; // USkeletalMeshComponent*
+
+                            public const string
+                                AttachedToSkelComponent = mMeshCompRef + "0x280,"; // USkeletalMeshComponent*
+
                             public const string AnimTreeTemplate = mMeshCompRef + "0x288,"; // UAnimTree*
                             public const string Animations = mMeshCompRef + "0x290,"; // UAnimNode*
                             public const string AnimTickArray = mMeshCompRef + "0x298,"; // TArray<UAnimNode*>
                             public const string AnimAlwaysTickArray = mMeshCompRef + "0x2a8,"; // TArray<UAnimNode*>
                             public const string AnimTickRelevancyArray = mMeshCompRef + "0x2b8,"; // TArray<int32_t>
                             public const string AnimTickWeightsArray = mMeshCompRef + "0x2c8,"; // TArray<float>
-                            public const string SkelControlTickArray = mMeshCompRef + "0x2d8,"; // TArray<USkelControlBase*>
+
+                            public const string
+                                SkelControlTickArray = mMeshCompRef + "0x2d8,"; // TArray<USkelControlBase*>
+
                             public const string PhysicsAsset = mMeshCompRef + "0x2e8,"; // UPhysicsAsset*
-                            public const string PhysicsAssetInstance = mMeshCompRef + "0x2f0,"; // UPhysicsAssetInstance*
+
+                            public const string
+                                PhysicsAssetInstance = mMeshCompRef + "0x2f0,"; // UPhysicsAssetInstance*
+
                             public const string ApexClothing = mMeshCompRef + "0x2f8,"; // FPointer
                             public const string PhysicsWeight = mMeshCompRef + "0x300"; // float
                             public const string GlobalAnimRateScale = mMeshCompRef + "0x304"; // float
@@ -15809,7 +17726,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string LowUpdateFrameRate = mMeshCompRef + "0x3d0"; // int32_t
                             public const string RequiredBones = mMeshCompRef + "0x3d4,"; // TArray<char>
                             public const string ComposeOrderedRequiredBones = mMeshCompRef + "0x3e4,"; // TArray<char>
-                            public const string ParentAnimComponent = mMeshCompRef + "0x3f4,"; // USkeletalMeshComponent*
+
+                            public const string
+                                ParentAnimComponent = mMeshCompRef + "0x3f4,"; // USkeletalMeshComponent*
+
                             public const string ParentBoneMap = mMeshCompRef + "0x3fc,"; // TArray<int32_t>
                             public const string AnimSets = mMeshCompRef + "0x40c,"; // TArray<UAnimSet*>
                             public const string TemporarySavedAnimSets = mMeshCompRef + "0x41c,"; // TArray<UAnimSet*>
@@ -15848,25 +17768,43 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistFactorForKinematicUpdate = mMeshCompRef + "0x538"; // float
                             public const string FramesPhysicsAsleep = mMeshCompRef + "0x53c"; // int32_t
                             public const string bHasValidBodies = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bSkipAllUpdateWhenPhysicsAsleep = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bSkipAllUpdateWhenPhysicsAsleep = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bComponentUseFixedSkelBounds = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bUseBoundsFromParentAnimComponent = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bUseBoundsFromParentAnimComponent = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bConsiderAllBodiesForBounds = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bUpdateSkelWhenNotRendered = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bIgnoreControllersWhenNotRendered = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bIgnoreControllersWhenNotRendered = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bTickAnimNodesWhenNotRendered = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bNotUpdatingKinematicDueToDistance = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bNotUpdatingKinematicDueToDistance = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bForceDiscardRootMotion = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bNotifyRootMotionProcessed = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bRootMotionModeChangeNotify = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bRootMotionExtractedNotify = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bProcessingRootMotion = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bDisableFaceFXMaterialInstanceCreation = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bDisableFaceFXMaterialInstanceCreation = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bDisableFaceFX = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bAnimTreeInitialised = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bForceMeshObjectUpdate = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bHasPhysicsAssetInstance = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bUpdateKinematicBonesFromAnimation = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bUpdateKinematicBonesFromAnimation = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bUpdateJointsFromAnimation = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bSkelCompFixed = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bHasHadPhysicsBlendedIn = mMeshCompRef + "0x540"; // uint32_t : 1
@@ -15874,21 +17812,35 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bEnableFullAnimWeightBodies = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bPerBoneVolumeEffects = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bPerBoneMotionBlur = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bSyncActorLocationToRootRigidBody = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bSyncActorLocationToRootRigidBody = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bUseRawData = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bDisableWarningWhenAnimNotFound = mMeshCompRef + "0x540"; // uint32_t : 1
-                            public const string bOverrideAttachmentOwnerVisibility = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bDisableWarningWhenAnimNotFound = mMeshCompRef + "0x540"; // uint32_t : 1
+
+                            public const string
+                                bOverrideAttachmentOwnerVisibility = mMeshCompRef + "0x540"; // uint32_t : 1
+
                             public const string bNeedsToDeleteHitMask = mMeshCompRef + "0x540"; // uint32_t : 1
                             public const string bPauseAnims = mMeshCompRef + "0x544"; // uint32_t : 1
                             public const string bChartDistanceFactor = mMeshCompRef + "0x544"; // uint32_t : 1
                             public const string bEnableLineCheckWithBounds = mMeshCompRef + "0x544"; // uint32_t : 1
                             public const string bCanHighlightSelectedSections = mMeshCompRef + "0x544"; // uint32_t : 1
-                            public const string bUpdateMorphWhenParentAnimComponentExists = mMeshCompRef + "0x544"; // uint32_t : 1
+
+                            public const string
+                                bUpdateMorphWhenParentAnimComponentExists = mMeshCompRef + "0x544"; // uint32_t : 1
+
                             public const string LineCheckBoundsScale = mMeshCompRef + "0x548,"; // FVector
                             public const string bEnableClothSimulation = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bDisableClothCollision = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bClothFrozen = mMeshCompRef + "0x554"; // uint32_t : 1
-                            public const string bAutoFreezeClothWhenNotRendered = mMeshCompRef + "0x554"; // uint32_t : 1
+
+                            public const string
+                                bAutoFreezeClothWhenNotRendered = mMeshCompRef + "0x554"; // uint32_t : 1
+
                             public const string bClothAwakeOnStartup = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bClothBaseVelClamp = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bClothBaseVelInterp = mMeshCompRef + "0x554"; // uint32_t : 1
@@ -15903,7 +17855,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string bAlwaysUseInstanceWeights = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bUpdateComposeSkeletonPasses = mMeshCompRef + "0x554"; // uint32_t : 1
                             public const string bValidTemporarySavedAnimSets = mMeshCompRef + "0x554"; // uint32_t : 1
-                            public const string InstanceVertexWeightBones = mMeshCompRef + "0x558,"; // TArray<FBonePair>
+
+                            public const string
+                                InstanceVertexWeightBones = mMeshCompRef + "0x558,"; // TArray<FBonePair>
+
                             public const string LODInfo = mMeshCompRef + "0x568,"; // TArray<FSkelMeshComponentLODInfo>
                             public const string FrozenLocalToWorldPos = mMeshCompRef + "0x578,"; // FVector
                             public const string FrozenLocalToWorldRot = mMeshCompRef + "0x584,"; // FRotator
@@ -15932,7 +17887,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ClothMeshWeldedIndexData = mMeshCompRef + "0x66c,"; // TArray<int32_t>
                             public const string ClothDirtyBufferFlag = mMeshCompRef + "0x67c"; // int32_t
                             public const string ClothRBChannel = mMeshCompRef + "0x680,"; // ERBCollisionChannel
-                            public const string ClothRBCollideWithChannels = mMeshCompRef + "0x684,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ClothRBCollideWithChannels = mMeshCompRef + "0x684,"; // FRBCollisionChannelContainer
+
                             public const string ClothForceScale = mMeshCompRef + "0x688"; // float
                             public const string ClothImpulseScale = mMeshCompRef + "0x68c"; // float
                             public const string ClothAttachmentTearFactor = mMeshCompRef + "0x690"; // float
@@ -15940,9 +17898,17 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string MinDistanceForClothReset = mMeshCompRef + "0x698"; // float
                             public const string LastClothLocation = mMeshCompRef + "0x69c,"; // FVector
                             public const string ApexClothingRBChannel = mMeshCompRef + "0x6a8,"; // ERBCollisionChannel
-                            public const string ApexClothingRBCollideWithChannels = mMeshCompRef + "0x6ac,"; // FRBCollisionChannelContainer
-                            public const string ApexClothingCollisionRBChannel = mMeshCompRef + "0x6b0,"; // ERBCollisionChannel
-                            public const string bAutoFreezeApexClothingWhenNotRendered = mMeshCompRef + "0x6b4"; // uint32_t : 1
+
+                            public const string
+                                ApexClothingRBCollideWithChannels =
+                                    mMeshCompRef + "0x6ac,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                ApexClothingCollisionRBChannel = mMeshCompRef + "0x6b0,"; // ERBCollisionChannel
+
+                            public const string
+                                bAutoFreezeApexClothingWhenNotRendered = mMeshCompRef + "0x6b4"; // uint32_t : 1
+
                             public const string bLocalSpaceWind = mMeshCompRef + "0x6b4"; // uint32_t : 1
                             public const string WindVelocity = mMeshCompRef + "0x6b8,"; // FVector
                             public const string WindVelocityBlendTime = mMeshCompRef + "0x6c4"; // float
@@ -15956,11 +17922,17 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string NumSoftBodyTetraIndices = mMeshCompRef + "0x700"; // int32_t
                             public const string SoftBodyImpulseScale = mMeshCompRef + "0x704"; // float
                             public const string bSoftBodyFrozen = mMeshCompRef + "0x708"; // uint32_t : 1
-                            public const string bAutoFreezeSoftBodyWhenNotRendered = mMeshCompRef + "0x708"; // uint32_t : 1
+
+                            public const string
+                                bAutoFreezeSoftBodyWhenNotRendered = mMeshCompRef + "0x708"; // uint32_t : 1
+
                             public const string bSoftBodyAwakeOnStartup = mMeshCompRef + "0x708"; // uint32_t : 1
                             public const string bSoftBodyUseCompartment = mMeshCompRef + "0x708"; // uint32_t : 1
                             public const string SoftBodyRBChannel = mMeshCompRef + "0x70c,"; // ERBCollisionChannel
-                            public const string SoftBodyRBCollideWithChannels = mMeshCompRef + "0x710,"; // FRBCollisionChannelContainer
+
+                            public const string
+                                SoftBodyRBCollideWithChannels = mMeshCompRef + "0x710,"; // FRBCollisionChannelContainer
+
                             public const string SoftBodyASVPlane = mMeshCompRef + "0x714,"; // FPointer
                             public const string LimitMaterial = mMeshCompRef + "0x71c,"; // UMaterial*
                             public const string RootMotionDelta = mMeshCompRef + "0x730,"; // FBoneAtom
@@ -15972,7 +17944,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string PendingRMM = mMeshCompRef + "0x776,"; // ERootMotionMode
                             public const string OldPendingRMM = mMeshCompRef + "0x777,"; // ERootMotionMode
                             public const string bRMMOneFrameDelay = mMeshCompRef + "0x778"; // int32_t
-                            public const string RootMotionRotationMode = mMeshCompRef + "0x77c,"; // ERootMotionRotationMode
+
+                            public const string
+                                RootMotionRotationMode = mMeshCompRef + "0x77c,"; // ERootMotionRotationMode
+
                             public const string AnimRotationOnly = mMeshCompRef + "0x77d,"; // EAnimRotationOnly
                             public const string FaceFXBlendMode = mMeshCompRef + "0x77e,"; // EFaceFXBlendMode
                             public const string FaceFXActorInstance = mMeshCompRef + "0x780,"; // FPointer
@@ -15982,16 +17957,17 @@ namespace KC__LID_EXT.BackEnd.Dump
                             public const string ProgressiveDrawingFraction = mMeshCompRef + "0x7c0"; // float
                             public const string CustomSortAlternateIndexMode = mMeshCompRef + "0x7c4,"; // char
                             public const string MorphTargetsQueried = mMeshCompRef + "0x7c8,"; // TArray<FName>
-                            public const string bSkipUpdateBoundsWhenPhysicsAsleep = mMeshCompRef + "0x7d8"; // uint32_t : 1
+
+                            public const string
+                                bSkipUpdateBoundsWhenPhysicsAsleep = mMeshCompRef + "0x7d8"; // uint32_t : 1
                         }
 
                         public class UBrgSkeletalMeshComponent : ABrgWeapon_BaseNativeR
                         {
-
                         }
                     }
                 }
-                
+
                 public class FBrgTotalStatus
                 {
                     public const string CharaStatus = mPlayerCommonPawn + "0x4434"; // FBrgCharaStatus
@@ -16066,7 +18042,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string bArmorPiercingShot = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
                     public const string bInvincibleRandom = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
                     public const string bKiller7Blood = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
-                    public const string bDisableSelfAttackSkillMoveIceHockey = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
+
+                    public const string
+                        bDisableSelfAttackSkillMoveIceHockey = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
+
                     public const string bEnableFireRodExplosion = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
                     public const string bJustGuardExtend = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
                     public const string bNoDmgCritical = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
@@ -16078,7 +18057,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string bInvalidMushRisk = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
                     public const string bCircleSawMaintenance = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
                     public const string bInvalidMushSlow = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
-                    public const string bDisableEyeDamageForPlayer = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
+
+                    public const string
+                        bDisableEyeDamageForPlayer = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
+
                     public const string bSkillMoveDisable = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
                     public const string bStalker = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
                     public const string bMoneyVacuum = mPlayerCommonPawn + "0x4764"; //0x90; // uint32_t : 1
@@ -16126,19 +18108,51 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string SkillMoveGaugeUpFortAssault = mPlayerCommonPawn + "0x47DC"; //0x108; // int32_t
                     public const string CriticalAtkUpPer = mPlayerCommonPawn + "0x47E0"; //0x10c; // float
                     public const string NaturalHealValue = mPlayerCommonPawn + "0x47E4"; //0x110; // int32_t
-                    public const string CircleSawMaintenanceRate = mPlayerCommonPawn + "0x47E8"; //0x114; // float - Infinite Durability
-                    public const string SabreMaintenanceRate = mPlayerCommonPawn + "0x47EC"; //0x118; // float - Infinite Durability
-                    public const string ShotGunMaintenanceRate = mPlayerCommonPawn + "0x47F0"; //0x11c; // float - Infinite Durability
-                    public const string ClawMaintenanceRate = mPlayerCommonPawn + "0x47F4"; //0x120; // float - Infinite Durability
-                    public const string StunRodMaintenanceRate = mPlayerCommonPawn + "0x47F8"; //0x124; // float - Infinite Durability
-                    public const string ThrowingKnifeMaintenanceRate = mPlayerCommonPawn + "0x47FC"; //0x128; // float - Infinite Durability
-                    public const string SlashStrikeMaintenanceRate = mPlayerCommonPawn + "0x4800"; //0x12c; // float - Infinite Durability
-                    public const string AssaultRifleBulletConsumptionRate = mPlayerCommonPawn + "0x4804"; //0x130; // float - Infinite Durability
-                    public const string AtkUpWeaponAssaultRifleHpMax = mPlayerCommonPawn + "0x4808"; //0x134; // float - Infinite Durability
-                    public const string FireworksBulletConsumptionRate = mPlayerCommonPawn + "0x480C"; //0x138; // float - Infinite Durability
-                    public const string LessDiffusionRate = mPlayerCommonPawn + "0x4868"; //0x13c; // float - No Bullet Spread
-                    public const string LessDiffusionRateRevolver = mPlayerCommonPawn + "0x486C"; //0x140; // float - No Bullet Spread
-                    public const string LessDiffusionRateShotGun = mPlayerCommonPawn + "0x4870"; //0x144; // float - No Bullet Spread
+
+                    public const string
+                        CircleSawMaintenanceRate = mPlayerCommonPawn + "0x47E8"; //0x114; // float - Infinite Durability
+
+                    public const string
+                        SabreMaintenanceRate = mPlayerCommonPawn + "0x47EC"; //0x118; // float - Infinite Durability
+
+                    public const string
+                        ShotGunMaintenanceRate = mPlayerCommonPawn + "0x47F0"; //0x11c; // float - Infinite Durability
+
+                    public const string
+                        ClawMaintenanceRate = mPlayerCommonPawn + "0x47F4"; //0x120; // float - Infinite Durability
+
+                    public const string
+                        StunRodMaintenanceRate = mPlayerCommonPawn + "0x47F8"; //0x124; // float - Infinite Durability
+
+                    public const string
+                        ThrowingKnifeMaintenanceRate =
+                            mPlayerCommonPawn + "0x47FC"; //0x128; // float - Infinite Durability
+
+                    public const string
+                        SlashStrikeMaintenanceRate =
+                            mPlayerCommonPawn + "0x4800"; //0x12c; // float - Infinite Durability
+
+                    public const string
+                        AssaultRifleBulletConsumptionRate =
+                            mPlayerCommonPawn + "0x4804"; //0x130; // float - Infinite Durability
+
+                    public const string
+                        AtkUpWeaponAssaultRifleHpMax =
+                            mPlayerCommonPawn + "0x4808"; //0x134; // float - Infinite Durability
+
+                    public const string
+                        FireworksBulletConsumptionRate =
+                            mPlayerCommonPawn + "0x480C"; //0x138; // float - Infinite Durability
+
+                    public const string
+                        LessDiffusionRate = mPlayerCommonPawn + "0x4868"; //0x13c; // float - No Bullet Spread
+
+                    public const string
+                        LessDiffusionRateRevolver = mPlayerCommonPawn + "0x486C"; //0x140; // float - No Bullet Spread
+
+                    public const string
+                        LessDiffusionRateShotGun = mPlayerCommonPawn + "0x4870"; //0x144; // float - No Bullet Spread
+
                     public const string ZeroPosAtkUpRate = mPlayerCommonPawn + "0x481C"; //0x148; // float
                     public const string ZeroPosDistMin = mPlayerCommonPawn + "0x4820"; //0x14c; // float
                     public const string ZeroPosDistMax = mPlayerCommonPawn + "0x4824"; //0x150; // float
@@ -16151,24 +18165,63 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string SkillMoveGaugeUpFortRevenge = mPlayerCommonPawn + "0x4840"; //0x16c; // int32_t
                     public const string HeadShotDamageReduceRate = mPlayerCommonPawn + "0x4844"; //0x170; // float
                     public const string SniperRifleLastShotAtkUpRate = mPlayerCommonPawn + "0x4848"; //0x174; // float
-                    public const string RocketLauncherLastShotAtkUpRate = mPlayerCommonPawn + "0x484C"; //0x178; // float
+
+                    public const string
+                        RocketLauncherLastShotAtkUpRate = mPlayerCommonPawn + "0x484C"; //0x178; // float
+
                     public const string HomeRunRate = mPlayerCommonPawn + "0x4850"; //0x17c; // int32_t
                     public const string StrikeRate = mPlayerCommonPawn + "0x4854"; //0x180; // int32_t
                     public const string StrikeAtkUpRate = mPlayerCommonPawn + "0x4858"; //0x184; // float
                     public const string BeanBallRate = mPlayerCommonPawn + "0x485C"; //0x188; // int32_t
                     public const string BeanBallAtkUpRate = mPlayerCommonPawn + "0x4860"; //0x18c; // float
-                    public const string RevolverBulletConsumptionRate = mPlayerCommonPawn + "0x4864"; //0x190; // float - Infinite Durability
-                    public const string SniperRifleBulletConsumptionRate = mPlayerCommonPawn + "0x4868"; //0x194; // float - Infinite Durability
-                    public const string RocketLauncherBulletConsumptionRate = mPlayerCommonPawn + "0x486C"; //0x198; // float - Infinite Durability
-                    public const string PitchingMachineBulletConsumptionRate = mPlayerCommonPawn + "0x4870"; //0x19c; // float - Infinite Durability
-                    public const string FlameRadiationBulletConsumptionRate = mPlayerCommonPawn + "0x4874"; //0x1a0; // float - Infinite Durability
-                    public const string ArcheryBulletConsumptionRate = mPlayerCommonPawn + "0x4878"; //0x1a4; // float - Infinite Durability
-                    public const string TaserGunBulletConsumptionRate = mPlayerCommonPawn + "0x487C"; //0x1a8; // float - Infinite Durability
-                    public const string SquareTimberFuelConsumptionRate = mPlayerCommonPawn + "0x4880"; //0x1ac; // float - Infinite Durability
-                    public const string SlashStrikeBulletConsumptionRate = mPlayerCommonPawn + "0x4884"; //0x1b0; // float - Infinite Durability
-                    public const string ButterflyKnifeDurabilityDownRate = mPlayerCommonPawn + "0x4888"; //0x1b4; // float - Infinite Durability
-                    public const string KatanaDurabilityDownRate = mPlayerCommonPawn + "0x488C"; //0x1b8; // float - Infinite Durability
-                    public const string BoxingGloveDurabilityDownRate = mPlayerCommonPawn + "0x4890"; //0x1bc; // float - Infinite Durability
+
+                    public const string
+                        RevolverBulletConsumptionRate =
+                            mPlayerCommonPawn + "0x4864"; //0x190; // float - Infinite Durability
+
+                    public const string
+                        SniperRifleBulletConsumptionRate =
+                            mPlayerCommonPawn + "0x4868"; //0x194; // float - Infinite Durability
+
+                    public const string
+                        RocketLauncherBulletConsumptionRate =
+                            mPlayerCommonPawn + "0x486C"; //0x198; // float - Infinite Durability
+
+                    public const string
+                        PitchingMachineBulletConsumptionRate =
+                            mPlayerCommonPawn + "0x4870"; //0x19c; // float - Infinite Durability
+
+                    public const string
+                        FlameRadiationBulletConsumptionRate =
+                            mPlayerCommonPawn + "0x4874"; //0x1a0; // float - Infinite Durability
+
+                    public const string
+                        ArcheryBulletConsumptionRate =
+                            mPlayerCommonPawn + "0x4878"; //0x1a4; // float - Infinite Durability
+
+                    public const string
+                        TaserGunBulletConsumptionRate =
+                            mPlayerCommonPawn + "0x487C"; //0x1a8; // float - Infinite Durability
+
+                    public const string
+                        SquareTimberFuelConsumptionRate =
+                            mPlayerCommonPawn + "0x4880"; //0x1ac; // float - Infinite Durability
+
+                    public const string
+                        SlashStrikeBulletConsumptionRate =
+                            mPlayerCommonPawn + "0x4884"; //0x1b0; // float - Infinite Durability
+
+                    public const string
+                        ButterflyKnifeDurabilityDownRate =
+                            mPlayerCommonPawn + "0x4888"; //0x1b4; // float - Infinite Durability
+
+                    public const string
+                        KatanaDurabilityDownRate = mPlayerCommonPawn + "0x488C"; //0x1b8; // float - Infinite Durability
+
+                    public const string
+                        BoxingGloveDurabilityDownRate =
+                            mPlayerCommonPawn + "0x4890"; //0x1bc; // float - Infinite Durability
+
                     public const string FireRodExplosionInterval = mPlayerCommonPawn + "0x4894"; //0x1c0; // float
                     public const string FireRodExplosionAtkUp = mPlayerCommonPawn + "0x4898"; //0x1c4; // float
                     public const string RevivalTimeExtend = mPlayerCommonPawn + "0x489C"; //0x1c8; // float
@@ -16308,8 +18361,14 @@ namespace KC__LID_EXT.BackEnd.Dump
                     public const string EmptyHandsPoisonProb = mPlayerCommonPawn + "0x4AB4"; //0x3e0; // float
                     public const string EmptyHandsPoisonPer = mPlayerCommonPawn + "0x4AB8"; //0x3e4; // float
                     public const string EmptyHandsExpProb = mPlayerCommonPawn + "0x4ABC"; //0x3e8; // float
-                    public const string OutRangeAttackUpArray = mPlayerCommonPawn + "0x4AC0,"; //0x3ec; // TArray<FBrgOutRangeAttackUpParam>
-                    public const string LevelCheckAttackUpArray = mPlayerCommonPawn + "0x4AD0,"; //0x3fc; // TArray<FBrgLevelCheckAttackUpParam>
+
+                    public const string
+                        OutRangeAttackUpArray =
+                            mPlayerCommonPawn + "0x4AC0,"; //0x3ec; // TArray<FBrgOutRangeAttackUpParam>
+
+                    public const string
+                        LevelCheckAttackUpArray =
+                            mPlayerCommonPawn + "0x4AD0,"; //0x3fc; // TArray<FBrgLevelCheckAttackUpParam>
                 }
             }
 
@@ -16409,22 +18468,39 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mCurrentArmLeftPlayAnimName = mPlayerCommonPawn + "0x4d5c,"; // FName
                 public const string mArmRightBlendAnimNode = mPlayerCommonPawn + "0x4d64,"; // UAnimNodeBlendPerBone*
                 public const string mArmRightInterpAnimNode = mPlayerCommonPawn + "0x4d6c,"; // UAnimNodeBlendList*
-                public const string mArmRightCustomAnimSlot0x4 = mPlayerCommonPawn + "0x4d74,"; // UBrgAnimNode_CustomAnim*
+
+                public const string
+                    mArmRightCustomAnimSlot0x4 = mPlayerCommonPawn + "0x4d74,"; // UBrgAnimNode_CustomAnim*
+
                 public const string mArmLeftBlendAnimNode = mPlayerCommonPawn + "0x4d94,"; // UAnimNodeBlendPerBone*
                 public const string mArmLeftInterpAnimNode = mPlayerCommonPawn + "0x4d9c,"; // UAnimNodeBlendList*
-                public const string mArmLeftCustomAnimSlot0x4 = mPlayerCommonPawn + "0x4da4,"; // UBrgAnimNode_CustomAnim*
+
+                public const string
+                    mArmLeftCustomAnimSlot0x4 = mPlayerCommonPawn + "0x4da4,"; // UBrgAnimNode_CustomAnim*
+
                 public const string mArmMotionStr = mPlayerCommonPawn + "0x4dc4,"; // FString
                 public const string mArmLMotionType = mPlayerCommonPawn + "0x4dd4"; // int32_t
                 public const string mArmRMotionType = mPlayerCommonPawn + "0x4dd8"; // int32_t
-                public const string mHandRightBlendAnimNode = mPlayerCommonPawn + "0x4ddc,"; // UAnimNodeAdditiveBlending*
-                public const string mHandLeftBlendAnimNode = mPlayerCommonPawn + "0x4de4,"; // UAnimNodeAdditiveBlending*
-                public const string mHandRightCustomAnimSlot = mPlayerCommonPawn + "0x4dec,"; // UBrgAnimNode_CustomAnim*
+
+                public const string
+                    mHandRightBlendAnimNode = mPlayerCommonPawn + "0x4ddc,"; // UAnimNodeAdditiveBlending*
+
+                public const string
+                    mHandLeftBlendAnimNode = mPlayerCommonPawn + "0x4de4,"; // UAnimNodeAdditiveBlending*
+
+                public const string
+                    mHandRightCustomAnimSlot = mPlayerCommonPawn + "0x4dec,"; // UBrgAnimNode_CustomAnim*
+
                 public const string mHandLeftCustomAnimSlot = mPlayerCommonPawn + "0x4df4,"; // UBrgAnimNode_CustomAnim*
                 public const string mCurrentHandRightPlayAnimName = mPlayerCommonPawn + "0x4dfc,"; // FName
                 public const string mCurrentHandLeftPlayAnimName = mPlayerCommonPawn + "0x4e04,"; // FName
                 public const string mHandLMotionType = mPlayerCommonPawn + "0x4e0c"; // int32_t
                 public const string mHandRMotionType = mPlayerCommonPawn + "0x4e10"; // int32_t
-                public const string mThrowingKnifeBladePool = mPlayerCommonPawn + "0x4e14,"; // TArray<ABrgProjectile_ThrowingKnifeBlade*>
+
+                public const string
+                    mThrowingKnifeBladePool =
+                        mPlayerCommonPawn + "0x4e14,"; // TArray<ABrgProjectile_ThrowingKnifeBlade*>
+
                 public const string mGuradOutAnimName = mPlayerCommonPawn + "0x4e24,"; // FName
                 public const string mSquatInAnimName = mPlayerCommonPawn + "0x4e2c,"; // FName
                 public const string mSquatAnimName = mPlayerCommonPawn + "0x4e34,"; // FName
@@ -16490,7 +18566,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mSwordSkillMoveCounterTarget = mPlayerCommonPawn + "0x4f8c,"; // ABrgPawn_Base*
                 public const string mSplitPos = mPlayerCommonPawn + "0x4f94,"; // FVector
                 public const string mGoreFinishTargetPawn = mPlayerCommonPawn + "0x4fa0,"; // ABrgPawn_Base*
-                public const string mGoreFinishTargetCommonPawn = mPlayerCommonPawn + "0x4fa8,"; // ABrgCommonPawn_CustomChara*
+
+                public const string
+                    mGoreFinishTargetCommonPawn = mPlayerCommonPawn + "0x4fa8,"; // ABrgCommonPawn_CustomChara*
+
                 public const string mGoreFinishCauserPawn = mPlayerCommonPawn + "0x4fb0,"; // ABrgPawn_Base*
                 public const string mFlameGoreCnt = mPlayerCommonPawn + "0x4fb8"; // float
                 public const string mFlameGoreFireEffect = mPlayerCommonPawn + "0x4fbc,"; // UParticleSystemComponent*
@@ -16521,15 +18600,25 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mSplitMeshActors = mPlayerCommonPawn + "0x5090,"; // TArray<ABrgKAsset_SplitMesh*>
                 public const string mMeshDamageHideType = mPlayerCommonPawn + "0x50a0,"; // FName
                 public const string mIceSlipEffect = mPlayerCommonPawn + "0x50a8,"; // UParticleSystemComponent*
-                public const string mFireExtinguisherEffect = mPlayerCommonPawn + "0x50b0,"; // UParticleSystemComponent*
+
+                public const string
+                    mFireExtinguisherEffect = mPlayerCommonPawn + "0x50b0,"; // UParticleSystemComponent*
+
                 public const string mGasolineEffect = mPlayerCommonPawn + "0x50b8,"; // UParticleSystemComponent*
                 public const string mNailGunSmokeEffect = mPlayerCommonPawn + "0x50c0,"; // UParticleSystemComponent*
                 public const string mShovelLPowerUpEffect = mPlayerCommonPawn + "0x50c8,"; // UParticleSystemComponent*
                 public const string mShovelRPowerUpEffect = mPlayerCommonPawn + "0x50d0,"; // UParticleSystemComponent*
                 public const string mVomitEffect = mPlayerCommonPawn + "0x50d8,"; // UParticleSystemComponent*
-                public const string mRedNapalmGunSkillMoveEffect = mPlayerCommonPawn + "0x50e0,"; // UParticleSystemComponent*
-                public const string mRedNapalmGunSkillMoveHitEffect = mPlayerCommonPawn + "0x50e8,"; // UParticleSystemComponent*
-                public const string mRedNapalmGunSkillMoveSparkEffect = mPlayerCommonPawn + "0x50f0,"; // UParticleSystemComponent*
+
+                public const string
+                    mRedNapalmGunSkillMoveEffect = mPlayerCommonPawn + "0x50e0,"; // UParticleSystemComponent*
+
+                public const string
+                    mRedNapalmGunSkillMoveHitEffect = mPlayerCommonPawn + "0x50e8,"; // UParticleSystemComponent*
+
+                public const string
+                    mRedNapalmGunSkillMoveSparkEffect = mPlayerCommonPawn + "0x50f0,"; // UParticleSystemComponent*
+
                 public const string mDeathEvaluation = mPlayerCommonPawn + "0x50f8,"; // FBrgDeathStatisticsParam
                 public const string mDeathReportData = mPlayerCommonPawn + "0x513c,"; // FBrgDeathReportData
                 public const string mChangeMtlInst = mPlayerCommonPawn + "0x53bc,"; // UMaterialInstanceConstant*
@@ -16537,7 +18626,10 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mZombieSkinStr = mPlayerCommonPawn + "0x53c8,"; // FString
                 public const string mOriginSkinIndex = mPlayerCommonPawn + "0x53d8"; // int32_t
                 public const string mCutSurfaceIndex = mPlayerCommonPawn + "0x53dc"; // int32_t
-                public const string mCustomBodyParamManager = mPlayerCommonPawn + "0x53e0,"; // UBrgCharaCustomBodyParamManager*
+
+                public const string
+                    mCustomBodyParamManager = mPlayerCommonPawn + "0x53e0,"; // UBrgCharaCustomBodyParamManager*
+
                 public const string mTensionLevel = mPlayerCommonPawn + "0x53e8"; // int32_t
                 public const string mTensionLevelMax = mPlayerCommonPawn + "0x53ec"; // int32_t
                 public const string mTensionAutoDownCnt = mPlayerCommonPawn + "0x53f0"; // float
@@ -16573,20 +18665,39 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mTaserGunChargeTime = mPlayerCommonPawn + "0x5468"; // float
                 public const string mTaserGunChargeTimeL = mPlayerCommonPawn + "0x546c"; // float
                 public const string mTaserGunChargeTimeR = mPlayerCommonPawn + "0x5470"; // float
-                public const string mElectricCaptureProjectile = mPlayerCommonPawn + "0x5474,"; // ABrgProjectile_TaserSp*
+
+                public const string
+                    mElectricCaptureProjectile = mPlayerCommonPawn + "0x5474,"; // ABrgProjectile_TaserSp*
+
                 public const string mElectricCaptureTarget = mPlayerCommonPawn + "0x547c,"; // ABrgPawn_Base*
-                public const string mElectricCaptureTargetCommonPawn = mPlayerCommonPawn + "0x5484,"; // ABrgCommonPawn_CustomChara*
+
+                public const string
+                    mElectricCaptureTargetCommonPawn = mPlayerCommonPawn + "0x5484,"; // ABrgCommonPawn_CustomChara*
+
                 public const string mRedNapalmGunRoulette = mPlayerCommonPawn + "0x548c"; // float
                 public const string mRedNapalmGunRouletteSize = mPlayerCommonPawn + "0x5490"; // int32_t
                 public const string mRedNapalmGunBulletType = mPlayerCommonPawn + "0x5494"; // int32_t
                 public const string mRedNapalmGunFiredBullet = mPlayerCommonPawn + "0x5498"; // int32_t
-                public const string mBlackThunderProjectile0xa = mPlayerCommonPawn + "0x549c,"; // FBrgBlackThunderProjectileData
+
+                public const string
+                    mBlackThunderProjectile0xa = mPlayerCommonPawn + "0x549c,"; // FBrgBlackThunderProjectileData
+
                 public const string mBlackThunderLocation = mPlayerCommonPawn + "0x553c,"; // FVector
                 public const string mBlackThunderCenterLightning = mPlayerCommonPawn + "0x5548"; // int32_t
-                public const string mProjectileMedusaL = mPlayerCommonPawn + "0x554c,"; // ABrgProjectile_BlackThunderMedusa*
-                public const string mProjectileMedusaR = mPlayerCommonPawn + "0x5554,"; // ABrgProjectile_BlackThunderMedusa*
-                public const string mBlackThunderMedusaSkillMoveDecal = mPlayerCommonPawn + "0x555c,"; // ABrgDecalActorMovable*
-                public const string mBlackThunderMedusaSkillMoveDecalMaterial = mPlayerCommonPawn + "0x5564,"; // UMaterialInstanceConstant*
+
+                public const string
+                    mProjectileMedusaL = mPlayerCommonPawn + "0x554c,"; // ABrgProjectile_BlackThunderMedusa*
+
+                public const string
+                    mProjectileMedusaR = mPlayerCommonPawn + "0x5554,"; // ABrgProjectile_BlackThunderMedusa*
+
+                public const string
+                    mBlackThunderMedusaSkillMoveDecal = mPlayerCommonPawn + "0x555c,"; // ABrgDecalActorMovable*
+
+                public const string
+                    mBlackThunderMedusaSkillMoveDecalMaterial =
+                        mPlayerCommonPawn + "0x5564,"; // UMaterialInstanceConstant*
+
                 public const string mBlackThunderMedusaSkillMoveLocation = mPlayerCommonPawn + "0x556c,"; // FVector
                 public const string mBlackThunderMedusaSkillMoveFadeTime = mPlayerCommonPawn + "0x5578"; // float
                 public const string mMedusaDrainAttackInfo = mPlayerCommonPawn + "0x557c,"; // FBrgAttackInfo
@@ -16624,9 +18735,387 @@ namespace KC__LID_EXT.BackEnd.Dump
                 public const string mPaleWindAdjustArmorDurabilityDown = mPlayerCommonPawn + "0x5630"; // float
                 public const string mPaleWindAdjustWeaponDurabilityDown = mPlayerCommonPawn + "0x5634"; // float
                 public const string mPaleWindBobsledMasterLvlAtkUpRate = mPlayerCommonPawn + "0x5638"; // float
-                public const string mBodySkillStickerObject = mPlayerCommonPawn + "0x563c,"; // UBrgBodySkillStickerObject*
-                public const string __CallBackSlowMotionEnd__Delegate = mPlayerCommonPawn + "0x5644,"; // DelegateProperty
+
+                public const string
+                    mBodySkillStickerObject = mPlayerCommonPawn + "0x563c,"; // UBrgBodySkillStickerObject*
+
+                public const string
+                    __CallBackSlowMotionEnd__Delegate = mPlayerCommonPawn + "0x5644,"; // DelegateProperty
             }
+        }
+    }
+
+    public class LetItDie
+    {
+        private bool bAttached = false;
+        private string procName = "BrgGame-Steam";
+        public static MemorySharp.Memory mem = new MemorySharp.Memory();
+
+        public LetItDie()
+        {
+            bAttached = mem.Attach(procName, MemorySharp.Memory.ProcessAccessFlags.All);
+        }
+
+        public void Update()
+        {
+            if (Process.GetProcessesByName(procName).Length <= 0 && bAttached)
+            {
+                bAttached = false;
+                mem.Detach();
+            }
+        }
+
+        struct offsets
+        {
+            public const int oGWorld = 0x022B9D40;
+            public const int oGUBrgUIManager = 0x0F242EE0;
+        }
+
+        public struct TArray
+        {
+            IntPtr m_data;
+            Int32 m_count;
+            Int32 m_max;
+
+            public Int32 Count()
+            {
+                return m_count;
+            }
+
+            public Int32 Max()
+            {
+                return m_max;
+            }
+
+            public IntPtr Data()
+            {
+                return m_data;
+            }
+        }
+
+        public struct FVector
+        {
+            public float x, y, z;
+        }
+
+        public struct FRotator
+        {
+            public float Pitch, Yaw, Roll;
+        }
+
+
+        [StructLayout(LayoutKind.Explicit, Pack = 1)]
+        struct AActor
+        {
+            [FieldOffset(0x80)] public FVector location;
+
+
+            [FieldOffset(0x8C)] public FRotator rotation;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Pack = 1)]
+        struct APawn
+        {
+            [FieldOffset(0x02A0)] IntPtr Controller; //0x02A0    //  AController*
+
+            [FieldOffset(0x04A8)] IntPtr Mesh; //0x04A8    //  USkeletalMeshComponent* 
+        }
+
+        [StructLayout(LayoutKind.Explicit, Pack = 1)]
+        struct ABrgCommonPawn_CustomCharaNative
+        {
+            //  [FieldOffset(0x0590)]
+            //  FBrgLocalItemInfo[] mEquipPartInfo[8];    //0x0590
+
+            //  [FieldOffset(0x02A0)]
+            //  TArray mDeathBag;   //0x3E58
+
+            [FieldOffset(0x43E8)] IntPtr mArmWeaponL; //0x43E8    //  ABrgWeapon_Base*
+
+            [FieldOffset(0x43F0)] IntPtr mArmWeaponR; //0x43F0    //  ABrgWeapon_Base*
+
+            //  [FieldOffset(0x43F8)]
+            //  FBrgCharaStatisticsData N00002799;  //0x43F8
+
+            [FieldOffset(0x4C44)] float mWeaponLAtkScale; //0x4C44
+
+            [FieldOffset(0x4C48)] float mWeaponRAtkScale; //0x4C48
+        }
+
+        struct ABrgCommonPawn_CustomChara
+        {
+        }
+
+        [StructLayout(LayoutKind.Explicit, Pack = 1)]
+        struct UBrgUIManagerBase
+        {
+            [FieldOffset(0x009C)] IntPtr mGameInfoNativeBase; //0x009C    //  ABrgGameInfoNativeBase*
+        }
+
+        [StructLayout(LayoutKind.Explicit, Pack = 1)]
+        struct UBrgUIManager
+        {
+            [FieldOffset(0x27EC)] public IntPtr mGameInfoNative; //0x27EC //  ABrgGameInfoNative*
+
+            [FieldOffset(0x009C)] public IntPtr mCamera; //0x280C //  ABrgCamera*
+
+            [FieldOffset(0x2850)] public IntPtr mDropItemManager; //0x2850    //  UBrgDropItemManager*
+
+            [FieldOffset(0x2D1C)] public IntPtr mPawnPlayerBase; //0x2D1C    //  ABrgPawn_PlayerBase*
+
+            [FieldOffset(0x2D34)] public IntPtr mPlayerCommonPawn; //0x2D34    //  ABrgCommonPawn_CustomChara*
+        }
+
+        public IntPtr GetUIManager()
+        {
+            return mem.Read<IntPtr>(mem.dwBase + offsets.oGUBrgUIManager);
+        }
+
+        public IntPtr GetGameInfo()
+        {
+            var pUIMan = GetUIManager();
+            if (pUIMan == IntPtr.Zero)
+                return IntPtr.Zero;
+
+            return mem.Read<IntPtr>(pUIMan + 0x27EC); //  mGameInfoNative
+        }
+
+        public IntPtr GetGateInfoNonNative()
+        {
+            var pUIMan = GetUIManager();
+            if (pUIMan == IntPtr.Zero)
+                return IntPtr.Zero;
+
+            return mem.Read<IntPtr>(pUIMan + 0x27e4); //  mGameInfo
+        }
+
+        public bool GetMaterialArray(out FVector[] materials)
+        {
+            materials = null;
+
+            var pGameInfo = GetGateInfoNonNative();
+            if (pGameInfo == IntPtr.Zero)
+                return false;
+
+            TArray m = mem.Read<TArray>(pGameInfo + 0x6a4);
+            Int32 count = m.Count();
+            IntPtr data = m.Data();
+            if (count <= 0)
+                return false;
+
+            FVector[] result = new FVector[count];
+            for (int i = 0; i < m.Count(); i++)
+            {
+                var addr = mem.Read<FVector>(data + (0xC * i)); // Assuming FVector is 12 bytes (3 floats)
+                result[i] = addr;
+            }
+
+            materials = result;
+
+            return result.Length > 0;
+        }
+
+        public void TeleportMaterialToMe()
+        {
+            // update the FVector to point to the players position
+            var pPlayer = GetLocalPawn();
+            var playerLocation = GetActorLocation(pPlayer);
+
+            var pGameInfo = GetGameInfo();
+            if (pGameInfo == IntPtr.Zero)
+                return;
+
+            //TArray m = mem.Read<TArray>(pGameInfo + 0x6a4);
+            TArray actors = mem.Read<TArray>(pGameInfo + 0x0FE8);
+            IntPtr data = actors.Data();
+            mem.Write<FVector>(data + (0xC * 1), playerLocation);
+            
+            
+            return;
+            var worked = GetMaterialArray(out var materials);
+            if (!worked)
+                return;
+
+            foreach (var material in materials)
+            {
+                // mem.Write<FVector>()
+            }
+
+        }
+        
+        public void TeleportAllTreasureToPlayer()
+        {
+            var pGame = GetGameInfo();
+            var pPawn = GetLocalPawn();
+            if (pGame == IntPtr.Zero || pPawn == IntPtr.Zero)
+                return;
+
+            var playerLocation = GetActorLocation(pPawn);
+            var actors = mem.Read<TArray>(pGame + 0x0FE8); // mTreasureArray
+            IntPtr data = actors.Data();
+
+            for (int i = 0; i < actors.Count(); i++)
+            {
+                var ent = mem.Read<IntPtr>(data + (i * 0x8)); // AActor*
+                if (ent == IntPtr.Zero || ent == pPawn)
+                    continue;
+
+                // Calculate new position to space out the items
+                var newPosition = new FVector
+                {
+                    x = playerLocation.x + (100f * i),
+                    y = playerLocation.y,
+                    z = playerLocation.z
+                };
+
+                SetActorLocation(ent, newPosition);
+            }
+        }
+
+
+        public IntPtr GetLocalPawn()
+        {
+            var pUIMan = GetUIManager();
+            if (pUIMan == IntPtr.Zero)
+                return IntPtr.Zero;
+
+            var pUIMan2 = mem.Read<UBrgUIManager>(pUIMan);
+            return pUIMan2.mPawnPlayerBase;
+        }
+
+        public bool GetLocalPawnDeathbag(out IntPtr[] items)
+        {
+            items = null;
+
+            var pLocalPawn = GetLocalPawn();
+            if (pLocalPawn == IntPtr.Zero)
+                return false;
+
+            TArray m = mem.Read<TArray>(pLocalPawn + 0x3E58);
+            Int32 count = m.Count();
+            IntPtr data = m.Data();
+            if (count <= 0)
+                return false;
+
+            IntPtr[] result = new IntPtr[count];
+            for (int i = 0; i < m.Count(); i++)
+            {
+                var addr = data + (0x718 * i);
+                result[i] = addr;
+            }
+
+            items = result;
+
+            return result.Length > 0;
+        }
+
+        public bool GetPawnArray(out IntPtr[] pawns)
+        {
+            pawns = null;
+
+            var pGameInfo = GetGameInfo();
+            if (pGameInfo == IntPtr.Zero)
+                return false;
+
+            TArray m = mem.Read<TArray>(pGameInfo + 0x8B0);
+            Int32 count = m.Count();
+            IntPtr data = m.Data();
+            if (count <= 0)
+                return false;
+
+            IntPtr[] result = new IntPtr[count];
+            for (int i = 0; i < m.Count(); i++)
+            {
+                var addr = mem.Read<IntPtr>(data + (0x8 * i));
+                result[i] = addr;
+            }
+
+            pawns = result;
+
+            return result.Length > 0;
+        }
+
+        public bool GetOtherActorArray(out IntPtr[] actors)
+        {
+            actors = null;
+
+            var pGameInfo = GetGameInfo();
+            if (pGameInfo == IntPtr.Zero)
+                return false;
+
+            TArray m = mem.Read<TArray>(pGameInfo + 0x968);
+            Int32 count = m.Count();
+            IntPtr data = m.Data();
+
+            IntPtr[] result = new IntPtr[count];
+            for (int i = 0; i < m.Count(); i++)
+            {
+                var addr = mem.Read<IntPtr>(data + (0x8 * i));
+                result[i] = addr;
+            }
+
+            actors = result;
+
+            return actors.Length > 0;
+        }
+
+        public FVector GetActorLocation(IntPtr pActor)
+        {
+            return mem.Read<FVector>(pActor + 0x80);
+        }
+
+        public FRotator GetActorRotation(IntPtr pActor)
+        {
+            return mem.Read<FRotator>(pActor + 0x8C);
+        }
+
+        public void SetActorLocation(IntPtr pActor, FVector pos)
+        {
+            mem.Write<FVector>(pActor + 0x80, pos);
+        }
+
+        public void SetActorRotation(IntPtr pActor, FRotator rot)
+        {
+            mem.Write<FRotator>(pActor + 0x8C, rot);
+        }
+
+        public int GetActorHealth(IntPtr pActor)
+        {
+            return mem.Read<int>(pActor + 0x3CC);
+        }
+
+        public void TeleportPlayerToCoordinates(float x, float y, float z)
+        {
+            var vector = new FVector()
+            {
+                x = x,
+                y = y,
+                z = z
+            };
+            TeleportPlayerToCoordinates(vector);
+        }
+
+        public void TeleportPlayerToCoordinates(FVector pos)
+        {
+            var player = GetLocalPawn();
+
+            SetActorLocation(player, pos);
+        }
+
+        private FVector GetPlayerLocation()
+        {
+            var pPawn = GetLocalPawn();
+            var pawnLocation = GetActorLocation(pPawn);
+            return pawnLocation;
+        }
+
+        public void TeleportToRegularElevator()
+        {
+            var gi = GetGameInfo();
+            var elevatorLocations = gi + 0x794;
+            var position = mem.Read<FVector>(elevatorLocations + 0x00);
+            
+            TeleportPlayerToCoordinates(position);
         }
     }
 }
